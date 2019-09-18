@@ -219,6 +219,7 @@ button, .btn, input[type="button"]
 	height: 6rem
 	color: $color_pink
 	cursor: pointer
+	letter-spacing: -0.02em
 	outline: none
 	transition: all .25s ease
 
@@ -229,19 +230,19 @@ button, .btn, input[type="button"]
 	&.__long	
 		max-width: 100%
 		width: auto
-		padding: 10px 24px 10px 24px 
+		padding: 1rem 2.4rem 1rem 2.4rem 
 
-.slide-button
+.slide__button
 	display: flex
-	width: 70px
-	height: 70px
+	width: 7rem
+	height: 7rem
 	background-color: #fff
 	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15)
 	border-radius: 50%
 	align-items: center
 	justify-content: center
 
-	.slide-button__arrow
+	.slide__button_arrow
 		background: $color_pink
 		height: .2rem
 		width: 3.6rem
@@ -257,8 +258,8 @@ button, .btn, input[type="button"]
 			height: .2rem 
 			width: 2.2rem
 
-	&.__left
-		.slide-button__arrow		
+	&._prev
+		.slide__button_arrow		
 
 			&::before 
 				left: -.3rem
@@ -270,9 +271,9 @@ button, .btn, input[type="button"]
 				top: .74rem
 				transform: rotate(45deg)
 
-	&.__right
+	&._next
 
-		.slide-button__arrow		
+		.slide__button_arrow		
 			&::before 
 				right: -.3rem
 				top: .74rem

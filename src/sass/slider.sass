@@ -1,26 +1,92 @@
-.slides
-  min-width: 100vw
-  display: none
-
-  &_1
-    background: #d8cc29
-  &_2
-    background: #d41515
-  &_3
-    background: #10ce4f
 
 .slider__wrap
-  cursor: pointer
-  display: flex
-  min-height: 100vh
+  width: 100%
+  margin: 0 auto
   position: relative
+  padding: 0 15.6vw
+
+.slides
+  display: flex
+
+  &-side__left
+    flex: 0 0 50%
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+  
+  &-side__right
+    flex: 0 0 50%
+    .image-holder
+      margin: -2.6rem -7.5% 0 -26.3%
+
+.button-order
+  margin-bottom: 3.5rem   
+  font-family: $ralewayBold
+
+.text-cursive
+  display: inline-block  
+  padding-left: 1.7rem  
+  position: relative
+  &::before
+    content: ''
+    height: 7rem
+    position: absolute
+    right: -1.9rem
+    top: -7.3rem
+    width: 1.7em
+    background-size: cover
+    background: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8' standalone='no'%3F%3E%3Csvg xmlns:dc='http://purl.org/dc/elements/1.1/' xmlns:cc='http://creativecommons.org/ns%23' xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns%23' xmlns:svg='http://www.w3.org/2000/svg' xmlns='http://www.w3.org/2000/svg' id='svg3769' version='1.1' viewBox='0 0 13.448885 15.250222' height='57.638634' width='50.830437'%3E%3Cdefs id='defs3763' /%3E%3Cg transform='translate(4.5538445,-281.65172)' id='layer1'%3E%3Cpath style='fill:none;stroke:%23b3b3b3;stroke-width:0.5291667;stroke-linecap:round' id='path3733' d='m 8.6293725,296.63374 c -0.9439,-3.19627 -4.82835,-10.07646 -12.81495,-12.02691' /%3E%3Cpath style='fill:none;stroke:%23b3b3b3;stroke-width:0.5291667;stroke-linecap:round' d='m -1.3811052,288.76309 -2.8044723,-4.15626 4.0399177,-2.68843' id='path3809' /%3E%3Cpath id='path3811' d='m -1.3811052,288.76309 -2.8044723,-4.15626 4.0399177,-2.68843' style='fill:none;stroke:%23b3b3b3;stroke-width:0.5291667;stroke-linecap:round' /%3E%3C/g%3E%3C/svg%3E%0A") center no-repeat
+
 
 .slide__button
   position: absolute
-  top: 50%
+  top: 37%
+  transform: $translateY
+  z-index: 1
 
-  &_prev
-    left: 0
+  &._prev
+    left: 3.1%
 
-  &_next
-    right: 0
+  &._next
+    right: 3.1%
+
+.slider-title
+  font-family: $playfairBlack
+  margin-bottom: 4.3rem
+
+  &__outer_fit
+    font-size: 7rem
+    line-height: 7rem
+    white-space: nowrap
+
+  &__outer_bold
+    font-size: 13rem
+    line-height: 11rem
+    display: inline-block
+
+  .elemment-pink
+    display: inline-block 
+    font-size: 10.5rem
+    margin-left: -2.2rem
+
+  &__outer_fit,
+  &__outer_bold
+    letter-spacing: -0.05em
+
+  &__sub
+    font-family: $raleway
+    font-size: 2.4rem
+    font-weight: 500
+    line-height: 3rem
+    padding-left: 5rem
+    position: relative
+    margin-bottom: 2.5rem
+    &::before
+      content: ''
+      position: absolute
+      top: 0
+      left: 0
+      width: 3rem
+      height: 3rem
+      background-size: contain
+      background: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='15' cy='15.0001' r='9.04545' stroke='%23383838'/%3E%3Cline x1='15.0455' y1='2.18557e-08' x2='15.0455' y2='30' stroke='black'/%3E%3Cline x1='30' y1='15.0454' x2='-4.37114e-08' y2='15.0454' stroke='black'/%3E%3C/svg%3E%0A") center no-repeat

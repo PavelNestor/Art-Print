@@ -7,10 +7,11 @@
     align-items: center
     justify-content: space-between
     background-color: #fff
-    position: relative
     top: 0
     left: 0
     width: 100%
+    position: absolute
+    z-index: 1
 
     &__logo
         max-width: 38.1rem
@@ -25,14 +26,19 @@
         color: $color_text 
         font-family: $arial
         text-transform: uppercase
-        padding: 0 .7rem
+        padding-right: 1.7rem
         white-space: nowrap
+    li    
+        &:last-child
+            .navbar__link
+                padding-right: 0
 
     &__wrap   
         display: flex 
         justify-content: center
         align-items: center
         margin: 0 1rem
+        left: -3.1rem
 
     &__phone
         display: flex
