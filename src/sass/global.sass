@@ -6,8 +6,16 @@ html
 	font-size: 10px
 	font-family: Raleway
 
-	@media #{$media-uhd-up}
-		font-size: 20px
+	@media (max-width: 1280px)
+		font-size: .8vw
+	@media (max-width: 1024px)
+		font-size: 8px	
+	@media (max-width: 800px)	
+		font-size: 10px
+	@media (max-width: 360px)
+		font-size: 2.6vw
+	
+
 
 body
 	font: $font
@@ -25,6 +33,11 @@ body
 
 section
 
+strong 
+	font-weight: bold
+	font-family: $ralewayBold
+	font-size: 2rem
+	
 a
 	border: none
 	outline: none
@@ -33,9 +46,9 @@ a
 
 p
 	font-size: 2rem
-	line-height: 2.5rem
+	font-family: $raleway
+	color: $color_text
 
-span
 
 img
 	border: none
@@ -217,30 +230,41 @@ input[type='number']
 	max-width: 72rem
 	font-family: $playfairBlack
 	position: relative
-	margin-top: 5rem
 	&::before
 		content: ''
 		position: absolute
-		top: -5rem
-		left: 0
+		top: -2.7rem
+		left: 1rem
 		width: 30px
 		height: 30px
 		background-size: contain
 		background: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='15' cy='15.0001' r='9.04545' stroke='%23383838'/%3E%3Cline x1='15.0455' y1='2.18557e-08' x2='15.0455' y2='30' stroke='black'/%3E%3Cline x1='30' y1='15.0454' x2='-4.37114e-08' y2='15.0454' stroke='black'/%3E%3C/svg%3E%0A") center no-repeat
-	.section-title__outer_first
+
+	&__outer_bold
 		font-size: 13rem
 		font-weight: 900
 		display: block
 		line-height: 15rem
-	.section-title__outer_second
-		font-size: 6rem
 		letter-spacing: -0.04em
+	
+	&__outer_fit
+		font-size: 6rem
+		letter-spacing: -0.054em
 		display: block
 		line-height: 5rem
 
+	@media (max-width: 800px)
+		&__outer_bold
+			font-size: 7rem
+			line-height: 7rem
+
+		&__outer_fit
+			font-size: 3.6rem
+			line-height: 6rem
+
 .elemment-pink
 	color: $color_pink	
-					
+
 .text-cursive
 	display: inline-block
 	font-family: $caveat
@@ -249,3 +273,30 @@ input[type='number']
 	line-height: 100%
 	letter-spacing: -0.04em
 	transform: rotate(-5deg)
+
+.__container
+	width: 100%
+	margin: 0 auto
+	position: relative
+	padding: 0 13.6vw
+
+	@media (max-width: 640px)
+		padding: 0 2rem	
+		.slider__wrap
+			padding: 0 2rem
+
+.section-back__content
+	font-size: 40rem
+	font-family: $playfairBold
+	line-height: 100%
+	position: absolute
+	bottom: -5rem
+	left: 0
+	z-index: 1
+	color: #FCFCFC
+
+.__mobile
+	display: none
+	@media screen and ( max-width: 640px)
+		display: block
+		
