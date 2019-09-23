@@ -1,23 +1,55 @@
-.masonry-with-columns 
+.secrion-masonry
+  position: relative
+  
+.columns
   display: flex
-  flex-direction: column
-  flex-wrap: wrap
-  max-height: 1000px
-  div 
-    flex: 1 0 auto
-    background: #EC985A
-    color: white
-    margin: 0 1rem 1rem 0
-    text-align: center
-    font-family: system-ui
-    font-weight: 900
-    font-size: 2rem
-  
-  @for $i from 1 through 36 
-    div:nth-child(#{$i}) 
-      $h: (random(400) + 100) + px
-      height: $h
-      line-height: $h
-    
-  
+  overflow-x: scroll
+  width: 100%
+  .col
+    width: 100%
+    height: auto
+    margin-bottom: 1.5rem
+    display: inline-block
+    margin-right: 3rem
+    &:last-child
+      margin-right: 0
+    *
+      margin-bottom: 3rem
+      &:last-child
+        margin-bottom: 0
+    &:nth-child(3n + 1)
+      min-width: 30rem
+      max-width: 30rem
+    &:nth-child(3n + 2)
+      min-width: 28rem
+      max-width: 28rem
+    &:nth-child(3n + 3)  
+      min-width: 49rem
+      max-width: 49rem
+      
+  img
+    height: auto
+    width: 100%
+      
+  .masonry-text
+    max-width: 30rem
+    height: 26.6rem
+
+// @media only screen and (min-width: 480px) and (max-width: 727px)
+//   .columns
+//     -webkit-column-count: 6
+//     -moz-column-count: 6
+//     column-count: 6
+//     -webkit-column-width: 50%
+//     -moz-column-width: 50%
+//     column-width: 50%
+
+// @media only screen and (max-width: 479px)
+//   .columns
+//     -webkit-column-count: 1
+//     -moz-column-count: 1
+//     column-count: 1
+//     -webkit-column-width: 100%
+//     -moz-column-width: 100%
+//     column-width: 100%
 

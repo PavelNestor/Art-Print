@@ -1,14 +1,39 @@
 "use strict";
 
-const numCols = 3;
-const colHeights = Array(numCols).fill(0);
-const container = document.getElementById('masonry-with-columns');
-Array.from(container.children).forEach((child, i) => {
-  const order = i % numCols;
-  child.style.order = order;
-  colHeights[order] += parseFloat(child.clientHeight);
-})
-container.style.height = Math.max(...colHeights) + 'px';
+// const $ = document.querySelector.bind(document);
+// const $$ = document.querySelectorAll.bind(document);
+
+// const columns = $$('.columns');
+// const prevSlide = $('#prev-slide__masonry');
+// const nextSlide = $('#next-slide__masonry');
+
+// prevSlide.onclick = left;
+
+// function left() {
+  
+// }
+
+$(document).ready(function(){
+  var owl = $('.owl-carousel');
+  owl.owlCarousel({
+    loop:true,
+    nav:false,
+    items: 1,
+    margin: 5
+  });
+  
+  // Custom Button
+  $('#next-slide').click(function(e) {
+    e.preventDefault()
+    owl.trigger('next.owl.carousel');
+  });
+  $('#prev-slide').click(function(e) {
+    e.preventDefault()
+    owl.trigger('prev.owl.carousel');
+  });
+  
+});
+
 // const $ = document.querySelector.bind(document);
 // const $$ = document.querySelectorAll.bind(document);
 

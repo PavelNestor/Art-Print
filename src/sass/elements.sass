@@ -209,17 +209,17 @@ button, .btn, input[type="button"]
 	box-sizing: border-box
 	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2)
 	border-radius: 30px
-	font-family: $raleway
 	letter-spacing: 0.1em
-	font-weight: bold
+	font-family: $raleway
 	text-transform: uppercase
 	width: 100%
-	max-width: 26rem
-	padding: 1rem
-	height: 6rem
+	font-size: 1.4rem
+	font-weight: bold
+	max-width: 25rem
+	padding: 2.2rem 1rem
 	color: $color_pink
 	cursor: pointer
-	letter-spacing: -0.02em
+	letter-spacing: 0.09rem
 	outline: none
 	transition: all .25s ease
 
@@ -242,7 +242,7 @@ button, .btn, input[type="button"]
 	width: 7rem
 	height: 7rem
 	background-color: #fff
-	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15)
+	box-shadow: 0 0px 20px rgba(0, 0, 0, 0.15)
 	border-radius: 50%
 	align-items: center
 	justify-content: center
@@ -334,6 +334,7 @@ button, .btn, input[type="button"]
 	width: 7rem
 	height: 7rem
 	transition: .3s bottom, opacity ease
+	z-index: 10
 
 	&:hover
 		height: 100%
@@ -389,7 +390,7 @@ button, .btn, input[type="button"]
 		display: inline-block
 
 	@media (max-width: 640px)	
-		margin-right: 1.6rem
+		margin-right: 2.3rem
 		position: relative
 		left: auto
 		top: auto
@@ -412,46 +413,70 @@ button, .btn, input[type="button"]
 
 .strip
 
-	&-wrapper
+	&-wrapper__bottom
 		position: absolute
 		top: 0
 		right: 0
 		overflow: hidden
 		width: 100%
 		height: 100%
+		@media ( max-width: 640px)
+			bottom: -20%
+			top: auto
+			left: 0
+
+	&-wrapper__top
+		position: absolute
+		top: 0
+		right: 0
+		overflow: hidden
+		width: 100%
+		height: 100%
+		
+
 	&__bottom
 		width: 44.1%
-		height: 0.3rem
+		height: 3px
 		background-color: $color_yellow
 		position: absolute
-		bottom: 15.2%
+		bottom: 15%
 		left: 24.9%
 		transform: rotate(-20deg)
 		z-index: 1
 		&::before
 			content: ''
 			width: 100%
-			height: 0.1rem
+			height: 1px
 			background-color: $color_pink
 			position: absolute
 			bottom: -1rem
 			right: -10rem
+		@media (max-width: 640px)	
+			width: 100%
+			left: -50%
+			bottom: 14.6%
+			right: auto
+	
 
 	&__top
 		width: 47.6%
-		height: 0.3rem
+		height: 3px
 		background-color: $color_blue
 		position: absolute
 		right:  -7.6%
-		top: 42.1%
+		top: 42%
 		transform: rotate(-160deg)
 		z-index: 1
 		&::before
 			content: ''
 			width: 100%
-			height: 0.1rem
+			height: 1px
 			background-color: $color_pink
 			position: absolute
 			top: 1rem
 			right: 10rem
+		@media (max-width: 640px)	
+			right: -12.4%
+			top: 20.6%
+
 

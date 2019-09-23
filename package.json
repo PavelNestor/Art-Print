@@ -38,6 +38,7 @@
   },
   "homepage": "",
   "dependencies": {
-    "font-awesome": "4.7.0"
+    "font-awesome": "4.7.0",
+    "owl.carousel": "^2.3.4"
   }
 }

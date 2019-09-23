@@ -3,17 +3,20 @@
   width: 100%
   margin: 0 auto
   position: relative
-  padding: 0 15.6vw
+  
 
 .slides
   display: flex
   z-index: 1
   position: relative
+  padding: 29.2rem 15.6vw 13.3rem 15.6vw
+
+  
 
   .slides-back_text
     position: absolute
-    left: -28%
-    bottom: -9rem
+    left: -1%
+    bottom: 6rem
     font-size: 35rem
     font-family: $playfairBlack
     line-height: 100%
@@ -41,16 +44,51 @@
     flex: 0 0 50%
     .image-holder
       margin: -2.6rem -12.2% 0 -20.9%
+      img
+        width: 100%
+        height: 100%
+        object-fit: cover
+      
+  &.type-1
+    .slides-side__right
+      .image-holder
+        margin: -18.7rem -12.2% 0 -20.9%
+        img
+          height: 75rem
+          object-fit: contain
+
+  &.type-2
+    .slides-side__right
+      .image-holder
+        margin: -4rem -12.2% 0 -20.9%
+        img
+          height: 60rem
+          object-fit: contain
+  &.type-3
+    .slides-side__right
+      .image-holder
+        margin: -10.6rem -23.2% 0 -26.9%
+        img
+          height: 65rem
+          object-fit: contain
+  &.type-4
+    .slides-side__right
+      .image-holder
+        margin: -4rem -16.1% 0 4.1%
+
+
   @media (max-width: 1024px)
-    padding: 0
+    padding: 23.4rem 13.6vw 7.6rem 15.5vw
     &-side__left
       flex: 0 0 100%
     &-side__right
       display: none
+
+  @media (max-width: 640px)
+    padding: 23.4rem 2rem 1.7rem 2rem
       
 .button-order
   margin-bottom: 3.5rem   
-  font-family: $ralewayBold
 
 .text-cursive
   display: inline-block  
@@ -69,7 +107,7 @@
 
 .slide__button
   position: absolute
-  top: 37%
+  top: 49.3%
   transform: $translateY
  
 
@@ -92,11 +130,24 @@
     font-size: 13rem
     line-height: 11rem
     display: inline-block
+    position: relative
+    &::after
+      content: '.'
+      display: inline-block 
+      font-size: 10.5rem
+      
+    &.-pink
+      &::after
+        color: $color_pink
 
-  .elemment-pink
-    display: inline-block 
-    font-size: 10.5rem
-    margin-left: -2.2rem
+    &.-blue
+      &::after
+        color: $color_blue
+
+  // .elemment-pink
+  //   display: inline-block 
+  //   font-size: 10.5rem
+  //   margin-left: -2.2rem
 
   &__outer_fit,
   &__outer_bold
@@ -137,9 +188,6 @@
   .button-social_main
     display: none
 
-  .slider__wrap
-    padding: 0 2rem
-
   .slide__button
     display: none
 
@@ -156,4 +204,27 @@
       margin-left: -1.3rem
     &__outer  
       &_bold
-        line-height: 5.3rem
+        line-height: 2.2rem
+  .slides
+      &.type-4
+        .slider-title__outer_fit
+          margin-bottom: 1rem
+        .slider-title__outer_bold
+          line-height: 4.1rem
+  .button-order
+    margin-bottom: 3.3rem
+
+@media screen and ( max-width: 640px)
+  .owl-stage
+    &::after
+      content: ''
+      width: 92rem
+      height: 50rem!important
+      background: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8' standalone='no'%3F%3E%3Csvg xmlns:dc='http://purl.org/dc/elements/1.1/' xmlns:cc='http://creativecommons.org/ns%23' xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns%23' xmlns:svg='http://www.w3.org/2000/svg' xmlns='http://www.w3.org/2000/svg' id='svg8' version='1.1' viewBox='0 0 237.86058 85.460346' height='323' width='899'%3E%3Cdefs id='defs2' /%3E%3Cmetadata id='metadata5'%3E%3Crdf:RDF%3E%3Ccc:Work rdf:about=''%3E%3Cdc:format%3Eimage/svg+xml%3C/dc:format%3E%3Cdc:type rdf:resource='http://purl.org/dc/dcmitype/StillImage' /%3E%3Cdc:title%3E%3C/dc:title%3E%3C/cc:Work%3E%3C/rdf:RDF%3E%3C/metadata%3E%3Cg transform='translate(0,-211.54027)' id='layer1'%3E%3Cg transform='matrix(0.26458333,0,0,0.26458333,21.674239,217.68512)' id='g3724' style='fill:none'%3E%3Cline style='stroke:%23eb008b' x1='0.84947699' y1='1.0324399' x2='818.17102' y2='298.513' id='line3713' /%3E%3C/g%3E%3Cg transform='matrix(0.26458333,0,0,0.26458333,-0.23773246,211.6067)' id='g3737' style='fill:none'%3E%3Cline style='stroke:%2300adee;stroke-width:3' x1='0.51302999' y1='1.5904599' x2='817.83502' y2='299.07101' id='line3726' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A") center no-repeat
+      background-size: contain
+      position: absolute
+      left: 160rem
+      top: 2rem
+      z-index: 1
+      visibility: visible!important
+	
