@@ -1,0 +1,147 @@
+.section-trust
+  background-color: $color_white
+  padding: 4.3% 0 0 0 
+  min-height: 100vh
+  position: relative
+  overflow: hidden
+
+  .section-title
+    &__outer
+
+      &_bold
+        letter-spacing: -0.06em
+
+      &_fit
+        line-height: 3.4rem
+
+  .content-items
+    display: flex
+    justify-content: space-between
+
+    @media screen and ( max-width: 640px)
+      padding-bottom: 5rem
+
+    &_left,
+    &_right
+      max-width: 600px
+      width: 100%
+      display: flex
+      flex-direction: column
+
+    @media screen and ( max-width: 1280px)
+      flex-wrap: wrap
+
+    &_left
+      padding-top: 20rem
+      margin-right: 4rem
+
+      @media screen and ( max-width: 1280px)
+        margin-right: 0
+        padding-top: 6rem
+    &_right
+      @media screen and ( max-width: 640px)
+        .item
+          &:last-of-type
+            margin-bottom: 0
+
+  .item
+    margin-bottom: 6.3rem
+    &-svg
+      margin-bottom: 0.9rem
+
+    &-title
+      font-size: 3rem
+      font-weight: bold
+      line-height: 3.5rem
+      letter-spacing: -0.04em
+      margin-bottom: 1.3rem
+    
+    &-text
+      font-size: 2rem
+      line-height: 3rem
+
+    @media screen and ( max-width: 640px)
+      margin-bottom: 3.3rem
+
+  .section-trust_back__text
+    font-size: 35rem  
+    position: absolute
+    top: -4%
+    right: -1rem
+    font-family: $playfairBold
+    line-height: 100%
+    color: #fff
+
+.section-trust_content__bottom
+  padding: 3rem 
+  position: relative
+
+  .section-trust_back__text
+    color: $color_white
+    left: 0
+    top: -4rem
+    z-index: 1
+    
+
+  @media screen and ( max-width: 640px)
+    padding: 0
+
+    .section-trust_back__text
+      bottom: -6rem
+      left: -2rem
+      top: auto
+      white-space: nowrap
+      font-size: 20rem
+
+    .block-order__wrap
+      z-index: 2
+
+  .section-trust_container
+    background-color: #fff
+    display: flex
+    align-items: center
+
+    &.__container
+      padding: 8.3% calc(15.6vw - 3rem)
+
+      @media screen and ( max-width: 640px)
+        padding: 7rem 2rem 15rem 2rem
+        display: flex
+        flex-direction: column
+
+  .content-items
+    width: 100%
+    position: relative
+    z-index: 2
+    .item
+      font-size: 5.5rem
+      line-height: 7rem
+      letter-spacing: -0.04em
+      margin-bottom: 0
+
+      @media screen and ( max-width: 640px)
+        font-size: 3rem
+        line-height: 3.5rem
+      
+
+    &_left
+      padding-top: 0
+      
+      @media screen and ( max-width: 1280px)
+        .item
+          margin-bottom: 5rem
+
+    &_right
+
+      @media screen and ( max-width: 640px)
+        margin-bottom: 7rem
+
+    &_bold
+      display: inline-block
+      font-weight: bold
+      font-size: 6rem
+      margin-right: 1rem
+
+      @media screen and ( max-width: 640px)
+        font-size: 3rem
+        line-height: 3.5rem

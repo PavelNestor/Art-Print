@@ -23,9 +23,9 @@ $(document).ready(function(){
 
   const owlMasonry = $('.owl-carousel_masonry');
   owlMasonry.owlCarousel({
-    loop:false,
-    nav:false,
-    items: 1
+    loop:true,
+    nav:false, 
+    items: 5
   });
   
   // Custom Button
