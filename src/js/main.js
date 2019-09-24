@@ -21,8 +21,8 @@ $(document).ready(function(){
   });
 
 
-  const owl = $('.owl-carousel_masonry');
-  owl.owlCarousel({
+  const owlMasonry = $('.owl-carousel_masonry');
+  owlMasonry.owlCarousel({
     loop:false,
     nav:false,
     items: 1
@@ -31,12 +31,12 @@ $(document).ready(function(){
   // Custom Button
   $('#next-slide__masonry').click(function(event) {
     event.preventDefault()
-    owl.trigger('next.owl.carousel');
+    owlMasonry.trigger('next.owl.carousel');
   });
 
   $('#prev-slide__masonry').click(function(event) {
     event.preventDefault()
-    owl.trigger('prev.owl.carousel');
+    owlMasonry.trigger('prev.owl.carousel');
   });
   
 });
