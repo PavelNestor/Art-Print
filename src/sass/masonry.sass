@@ -1,10 +1,26 @@
-.secrion-masonry
+.section-masonry
   position: relative
+  overflow: hidden
+  min-height: 100vh
+  padding: 7.5% 0 2% 0
+  .slide__button
+
+    &._prev
+      left: 5%
+
+    &._next
+      right: 1.4%
   
+.owl-carousel_masonry
+  position: relative
+  touch-action: manipulation
+  padding: 0 0 0 15.6vw 
+
 .columns
   display: flex
-  overflow-x: scroll
+  // overflow-x: scroll
   width: 100%
+  
   .col
     width: 100%
     height: auto
@@ -17,12 +33,15 @@
       margin-bottom: 3rem
       &:last-child
         margin-bottom: 0
+
     &:nth-child(3n + 1)
       min-width: 30rem
       max-width: 30rem
+
     &:nth-child(3n + 2)
       min-width: 28rem
       max-width: 28rem
+
     &:nth-child(3n + 3)  
       min-width: 49rem
       max-width: 49rem
@@ -34,6 +53,8 @@
   .masonry-text
     max-width: 30rem
     height: 26.6rem
+
+  
 
 // @media only screen and (min-width: 480px) and (max-width: 727px)
 //   .columns

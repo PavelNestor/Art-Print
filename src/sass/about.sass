@@ -18,10 +18,10 @@
     margin-bottom: 6.8rem
     max-width: 100% 
 
-    &__outer_first
+    &__outer_bold
       letter-spacing: -0.06em
 
-    &__outer_second
+    &__outer_fit
       line-height: 3rem
       letter-spacing: -0.04em
     
@@ -88,16 +88,21 @@
       bottom: -2.7rem
       left: -2.4rem
 
-// .strip-wrapper__bottom
 
-// .strip 
-//   &__top
-//     top: 28%
-//     right: -32%
-//   &__bottom
-//     bottom: 0
-//     background-color: $color_pink
-//     left: -25%
-//     &::before
-//       background-color: $color_blue
+  .strip
+    &-wrapper__bottom,
+    &-wrapper__top 
+      pointer-events: none
+      user-select: none
+      
+    &__top
+      top:  40.5%
+      right: -36%
+
+    &__bottom
+      bottom: 6%
+      background-color: $color_pink
+      left: -21%
+      &::before
+        background-color: $color_blue
         
