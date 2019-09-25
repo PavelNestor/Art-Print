@@ -25,7 +25,7 @@ $(document).ready(function(){
   owlMasonry.owlCarousel({
     loop:true,
     nav:false, 
-    items: 5
+    items: 5,
   });
   
   // Custom Button

@@ -6,12 +6,15 @@ html
 	font-size: 10px
 	font-family: Raleway
 
-	@media (max-width: 1280px)
-		font-size: .8vw
+	@media (max-width: 1366px)
+		font-size: .6vw
+
 	@media (max-width: 1024px)
 		font-size: 8px	
-	@media (max-width: 800px)	
+
+	@media (max-width: 640px)	
 		font-size: 10px
+
 	@media (max-width: 360px)
 		font-size: 2.6vw
 	
@@ -245,12 +248,20 @@ input[type='number']
 		display: block
 		line-height: 15rem
 		letter-spacing: -0.04em
+
+		@media screen and ( max-width: 1024px )
+			font-size: 11rem
+			
 	
 	&__outer_fit
 		font-size: 6rem
 		letter-spacing: -0.054em
 		display: block
 		line-height: 5rem
+
+		@media screen and ( max-width: 1024px )
+			font-size: 4rem
+			line-height: 2.5rem
 
 	@media (max-width: 800px)
 		&__outer_bold
@@ -288,7 +299,7 @@ input[type='number']
 			padding: 0 2rem
 
 .section-back__content
-	font-size: 40rem
+	font-size: 35rem
 	font-family: $playfairBold
 	line-height: 100%
 	position: absolute
@@ -296,6 +307,16 @@ input[type='number']
 	left: 0
 	z-index: 1
 	color: #FCFCFC
+
+	&.__big
+		font-size: 40rem
+
+	@media screen and ( max-width: 1024px)
+		font-size: 30rem
+
+		&.__big
+			font-size: 30rem
+		
 
 .__mobile
 	display: none

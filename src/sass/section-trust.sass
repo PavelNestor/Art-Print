@@ -4,6 +4,9 @@
   min-height: 100vh
   position: relative
   overflow: hidden
+  
+  @media screen and ( max-width: 640px)
+    padding: 7.5rem 0 0 0
 
   .section-title
     &__outer
@@ -13,6 +16,9 @@
 
       &_fit
         line-height: 3.4rem
+
+        @media screen and ( max-width: 640px)
+          line-height: 6.2rem
 
   .content-items
     display: flex
@@ -28,6 +34,9 @@
       display: flex
       flex-direction: column
 
+      @media screen and ( max-width: 1024px)
+        max-width: 100%
+
     @media screen and ( max-width: 1280px)
       flex-wrap: wrap
 
@@ -38,6 +47,7 @@
       @media screen and ( max-width: 1280px)
         margin-right: 0
         padding-top: 6rem
+
     &_right
       @media screen and ( max-width: 640px)
         .item
@@ -46,31 +56,75 @@
 
   .item
     margin-bottom: 6.3rem
+
     &-svg
       margin-bottom: 0.9rem
+      width: 11rem
+
+      svg
+        width: 100%
+        height: auto
+
+      @media screen and ( max-width: 1024px)
+        width: 8rem 
+        margin-bottom: 0.5rem
+
 
     &-title
       font-size: 3rem
       font-weight: bold
       line-height: 3.5rem
-      letter-spacing: -0.04em
+      letter-spacing: -0.05em
       margin-bottom: 1.3rem
+
+      @media screen and ( min-width: 640px) and ( max-width: 1024px)
+        font-size: 2.6rem
     
     &-text
       font-size: 2rem
       line-height: 3rem
 
+      @media screen and ( min-width: 640px) and ( max-width: 1024px)
+        font-size: 1.6rem
+        line-height: 2.6rem
+        
     @media screen and ( max-width: 640px)
       margin-bottom: 3.3rem
 
-  .section-trust_back__text
-    font-size: 35rem  
+  .section-trust_back__text 
     position: absolute
     top: -4%
     right: -1rem
+    left: auto
     font-family: $playfairBold
     line-height: 100%
     color: #fff
+    z-index: 0
+
+  .strip__top
+    right: -15.6%
+    top: 10%
+
+  .strip__bottom
+    background-color: $color_pink
+    top: 25%
+    left: -33%
+    &::before
+      background-color: $color_blue
+
+    @media screen and ( max-width: 1024px)
+       left: -40%
+
+    @media screen and ( max-width: 640px)
+      bottom: 1.7rem
+      top: auto
+      z-index: 1
+      left: -53.2%
+
+  .strip-wrapper__bottom
+    bottom: 0
+    z-index: 2
+      
 
 .section-trust_content__bottom
   padding: 3rem 
@@ -105,7 +159,7 @@
       padding: 8.3% calc(15.6vw - 3rem)
 
       @media screen and ( max-width: 640px)
-        padding: 7rem 2rem 15rem 2rem
+        padding: 7rem 2rem 15rem 2rem!important
         display: flex
         flex-direction: column
 
@@ -118,6 +172,9 @@
       line-height: 7rem
       letter-spacing: -0.04em
       margin-bottom: 0
+
+      @media screen and ( max-width: 1024px)
+        font-size: 3.5rem
 
       @media screen and ( max-width: 640px)
         font-size: 3rem
@@ -142,6 +199,10 @@
       font-size: 6rem
       margin-right: 1rem
 
+      @media screen and ( max-width: 1024px)
+        font-size: 3.5rem
+
       @media screen and ( max-width: 640px)
         font-size: 3rem
         line-height: 3.5rem
+
