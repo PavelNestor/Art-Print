@@ -1,7 +1,7 @@
 "use strict";
 
 $(document).ready(function(){
-  const owl = $('.owl-carousel');
+  const owl = $('#owl-carousel_1');
   owl.owlCarousel({
     loop:true,
     nav:false,
@@ -20,12 +20,16 @@ $(document).ready(function(){
     owl.trigger('prev.owl.carousel');
   });
 
+});
 
-  const owlMasonry = $('.owl-carousel_masonry');
+$(document).ready(function(){
+  const owlMasonry = $('#owl-carousel_2');
   owlMasonry.owlCarousel({
-    loop:true,
+    loop:false,
     nav:false, 
-    items: 5,
+    autoWidth: true,
+    items: 4,
+    margin: 30
   });
   
   // Custom Button
@@ -38,7 +42,16 @@ $(document).ready(function(){
     event.preventDefault()
     owlMasonry.trigger('prev.owl.carousel');
   });
-  
+});
+
+$(document).ready(function(){
+  const owl = $('#owl-carousel_3');
+  owl.owlCarousel({
+    loop:true,
+    nav:false,
+    items: 1,
+    margin: 5
+  });
 });
 
 // const $ = document.querySelector.bind(document);
