@@ -1,0 +1,177 @@
+.services
+
+  &__wrap
+    background: $color_white
+    font-family: PlayfairDisplay-Bold
+    min-height: 100vh
+    padding: 15rem 0 15rem 15.6vw
+    position: relative
+
+    @media #{$media-md-des-down}
+      padding: 1rem 0 5rem 15.6vw
+
+    @media #{$media-xs}
+      padding: 7.5rem 0 5rem 0
+
+  &__content
+    position: relative
+    z-index: 2
+
+  &__img
+    left: 0
+    position: absolute
+    top: -15px
+
+  &__line
+    left: 0
+    position: absolute
+    top: 10%
+    z-index: 0
+
+    @media #{$media-md-des-down}
+      display: none
+
+  &__xs-line
+    display: none
+    position: absolute
+    right: 0
+    top: 60px
+    z-index: 0
+
+    @media #{$media-md-des-down}
+      display: block
+
+  &__title
+    font-size: 13rem
+    letter-spacing: -0.4rem
+    line-height: 19rem
+    position: absolute
+
+    @media #{$media-md-des-down} 
+      position: relative
+      margin-left: 2rem
+
+    @media #{$media-xs}
+      font-size: 7rem
+      line-height: 9rem
+
+  &__text
+    font-size: 6rem
+    letter-spacing: -0.4rem
+    line-height: 0rem
+
+    @media #{$media-xs}
+      font-size: 3.6rem
+      letter-spacing: -0.1rem
+      line-height: 3.6rem;
+  
+  &__card-list
+    display: flex
+    flex-wrap: wrap
+
+    @media #{$media-xs}
+      a:nth-child(2)
+        background-color: #00ADEE
+        color: $color_white !important
+
+    @media #{$media-xs}
+      a:nth-child(3)
+        background-color: #EB008B
+        color: $color_white !important
+
+    @media #{$media-xs}
+      a:nth-child(5n)
+        background-color: $color_white
+
+    @media #{$media-xs}
+      a:nth-child(6n)
+        background-color: $color_white
+
+    @media #{$media-xs}
+      a:nth-child(7n)
+        background-color: #FFFFFF
+    
+    @media #{$media-xs}
+      a:nth-child(8n)
+        background-color: #FFFFFF
+
+      a:nth-child(9n)
+        background-color: #EB008B
+        color: $color_white !important
+
+    @media #{$media-xs}
+      a:nth-child(10n)
+        background-color: #00ADEE
+        color: $color_white !important
+
+    @media #{$media-xs}
+      a:last-child
+        background-color: #00ADEE
+        color: $color_white !important
+
+    @media #{$media-xs}
+      a:nth-child(6n+5)
+        background-color: $color_white
+
+  &__card
+    align-items: center
+    background-color: #FFFFFF
+    box-shadow: inset 0 0 0px 1px $color_white
+    color: $color_text
+    display: flex
+    flex: 1 1 25%
+    font-family: Raleway-Bold
+    font-weight: bold
+    justify-content: center
+    min-height: 17rem
+    transition: .1s ease-in-out
+
+    @media #{$media-md-des-down} 
+      flex: 1 1 33.3%
+
+    @media #{$media-xs}
+      flex: 1 1 50%
+
+    @media #{$media-xs-up}
+      &:hover
+        color: $color_white
+
+    &_transparent
+      background: transparent
+
+    @media #{$media-xs-up}
+      &_red
+        transition: .1s ease-in-out
+
+        // @media #{$media-xs}
+        //   background-image: url(/img/bg-red.png);
+
+        &:hover
+          background-image: url(/img/bg-red.png), url(/img/red.png)
+          background-size: cover
+
+      &_blue
+        transition: .1s ease-in-out
+
+        // @media #{$media-xs}
+        //   background-image: url(/img/bg-blue.png);
+
+        &:hover
+          background-image: url(/img/bg-blue.png), url(/img/blue.png)
+          background-size: cover
+
+    &_first
+      flex: 1 1 50%
+
+      @media #{$media-md-des-down} 
+        flex: 1 1 33.3%
+
+      @media #{$media-xs}
+        flex: 1 1 50%
+      
+    &_three
+      flex: 1 1 25%
+      box-shadow: none
+
+      @media #{$media-md-des-down} 
+        display: none;

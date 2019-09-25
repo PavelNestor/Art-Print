@@ -1,0 +1,146 @@
+.notes
+
+  &__wrap
+    background: $color_white
+    display: flex
+    font-family: Raleway
+    justify-content: center
+    min-height: 100vh
+    padding: 3rem 4rem 3rem 2rem
+    position: relative
+
+    @media #{$media-md-des-down}
+
+    @media #{$media-xs}
+      background: #FFFFFF
+      padding: 0
+
+  &__content
+    background: #FFFFFF
+    padding: 15rem 15.3vw 1rem
+    position: relative
+    width: 100%
+    display: flex
+    flex-direction: column
+    overflow: hidden
+
+    @media #{$media-xs}
+      padding: 4rem 3rem 1rem 2rem
+
+  &__bg-text
+    bottom: 22vh
+    color: $color_white
+    font-family: PlayfairDisplay-Bold
+    font-size: 35rem
+    left: -4rem
+    letter-spacing: -1.6rem
+    position: absolute
+
+    @media #{$media-xs}
+      font-size: 20rem
+      left: -2rem
+      letter-spacing: 7px
+      bottom: 6rem
+
+
+  &__img
+    left: 0
+    position: absolute
+    top: -1.5rem
+
+  &__title
+    font-family: PlayfairDisplay-Bold
+    font-size: 13rem
+    letter-spacing: -0.6rem
+    line-height: 18rem
+    position: relative
+    margin-bottom: 6rem
+    z-index: 2
+
+    @media #{$media-xs}
+      font-size: 7rem
+      line-height: 9rem
+      letter-spacing: -0.2rem
+      margin-bottom: 3rem
+
+  &__text
+    font-size: 6rem
+    letter-spacing: -0.2rem
+    line-height: 8rem
+    margin-bottom: 4rem
+    margin-top: -4rem
+
+    @media #{$media-xs}
+      font-size: 3.6rem
+      line-height: 12rem
+      letter-spacing: 0
+      margin-bottom: 2rem;
+
+
+  &__main-text
+    font-family: Raleway
+    font-size: 2.4rem
+    line-height: 3rem
+    z-index: 2
+    letter-spacing: normal
+    width: 76%
+
+    @media #{$media-xs}
+      font-size: 2rem
+      width: 100%
+
+  &__pdf
+    flex-basis: 26%
+
+    @media #{$media-xs}
+      display: flex
+      align-items: center
+      margin-bottom: 2rem
+
+    &-img
+      margin-bottom: 2rem
+      height: 70px
+      width: 70px
+      background: url(/img/icons/pdf.png) center center no-repeat
+      display: block
+      min-width: 70px
+
+      @media #{$media-xs}
+        margin-bottom: 0
+        margin-right: 2.7rem
+
+    &-wrap
+      position: relative
+      display: flex
+      justify-content: space-between
+
+      @media #{$media-xs}
+        flex-direction: column-reverse
+
+
+    &-text
+      font-size: 3rem
+      color: $color-text
+      line-height: 3.5rem
+
+      @media #{$media-xs}
+         font-size: 2rem
+
+  &__line
+    position: absolute
+    right: 0
+    z-index: 0
+    top: 30vh
+
+    @media #{$media-xs}
+      display: none
+
+  &__xs-line
+    position: absolute
+    right: 0
+    z-index: 0
+    top: 3vh
+    display: none
+
+    @media #{$media-xs}
+      display: block
