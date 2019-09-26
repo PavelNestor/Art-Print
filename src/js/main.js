@@ -1,6 +1,8 @@
 "use strict";
 
 $(document).ready(function(){
+  $('select').niceSelect();
+  
   const owl = $('#owl-carousel_1');
   owl.owlCarousel({
     loop:true,
