@@ -1,5 +1,7 @@
 "use strict";
 
+const _$ = document.querySelector.bind(document);
+
 $(document).ready(function(){
   $('select').niceSelect();
   
@@ -55,6 +57,22 @@ $(document).ready(function(){
     margin: 5
   });
 });
+
+(function () {
+  var openModal = _$("#open-modal");
+  var closeModal = _$("#close-modal");
+  var modalMain = _$("#modal-main");
+
+  const onToogleMenu = () => {
+    console.log(openModal, closeModal);
+    modalMain.classList.toggle("app-dialog_active");
+  };
+
+  openModal.addEventListener("click", onToogleMenu);
+  openModal.addEventListener("touch", onToogleMenu);
+  closeModal.addEventListener("click", onToogleMenu);
+  closeModal.addEventListener("touch", onToogleMenu);
+})();
 
 // const $ = document.querySelector.bind(document);
 // const $$ = document.querySelectorAll.bind(document);
