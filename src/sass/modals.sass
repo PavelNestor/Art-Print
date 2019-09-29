@@ -39,6 +39,9 @@
     @media #{$media-lg-max-down}
       padding: 5rem
 
+    @media #{$media-xs-down}
+      padding: 2rem
+
   &.opened
     opacity: 1
     visibility: visible
@@ -83,6 +86,10 @@
   .text-cursive
     margin-bottom: 6.5rem
 
+    @media #{$media-xs-down}
+      padding: 0
+
+
     &:before
       content: none
 
@@ -110,6 +117,12 @@
 
     @media #{$media-sm-plus}
       font-size: 8rem
+    
+    @media #{$media-xs-down}
+      margin-top: 5rem
+      font-size: 5rem
+      line-height: 1.1
+      margin-bottom: 2rem
 
   &__text
     font-size: 2.4rem
@@ -129,6 +142,9 @@
     font-size: 2.4rem
     line-height: 1.5rem
     margin-bottom: 3rem
+
+    @media #{$media-xs-down}
+      line-height: 1.1
 
     &_bold
       font-family: Raleway-Bold
@@ -204,6 +220,9 @@
   color: #828282
   font-size: 2.4rem
   padding-left: .5rem
+
+  @media #{$media-xs-down}
+    font-size: 2rem
 
   .list
     width: 100%
