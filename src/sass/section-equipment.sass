@@ -106,7 +106,7 @@
 
     .row
       display: flex
-      width: 100%
+      width: auto
       max-height: 49.3rem
       margin-bottom: 1.1rem
       justify-content: space-between
@@ -114,7 +114,7 @@
         margin-bottom: 0
 
       @media screen and (max-width: 1024px)
-        height: 50vh
+        height: 45.8vh
         margin: .5rem
         max-height: 100%
 
@@ -159,7 +159,9 @@
 
   .slide
     position: relative
-    padding: 3rem
+
+    @media screen and (max-width: 1024px)
+      padding: 3rem
 
     @media screen and (max-width: 640px)
       padding: 0
@@ -212,3 +214,10 @@
         font-size: 1.4rem
         line-height: 2rem
     
+
+  .button-close
+    display: none
+    right: -0.4rem
+
+    @media screen and (max-width: 1024px)
+      display: inline-block

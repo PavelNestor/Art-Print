@@ -5,12 +5,47 @@
   padding: 7.5% 0 4.5% 0
   background-color:  $color_white
 
+  @media screen and (max-width: 640px)
+    padding: 4.5% 0 4.5% 0
+
   .slide__button
     &._prev
       left: 5%
 
     &._next
       right: 1.4%
+
+    @media screen and (max-width: 1440px)
+      width: 7rem
+      height: 7rem
+
+      &_arrow
+        width: 3.6rem
+
+      &._prev
+        .slide__button_arrow
+          &::before
+            width: 2.2rem
+            left: -.3rem
+            bottom: .74rem
+          
+          &::after
+            width: 2.2rem
+            left: -.3rem
+            top: .74rem
+
+      &._next
+        .slide__button_arrow
+          &::before
+            right: -.3rem
+            top: .74rem
+            width: 2.2rem
+
+          &::after
+            width: 2.2rem
+            right: -.3rem
+            bottom: .74rem
+
 
     @media screen and (max-width: 640px)
       display: flex
@@ -19,12 +54,14 @@
         right: -0.6rem
 
       &._prev
-        display: none
+        left: -0.6rem
   
 .owl-carousel_masonry
   position: relative
   touch-action: manipulation
-  padding: 0 0 0 15.6vw 
+
+  .owl-stage-outer
+    padding: 0 0 0 15.6vw 
 
   @media screen and (max-width: 640px)
     padding: 0 0 0 2rem 
@@ -50,11 +87,17 @@
       margin-bottom: 3rem
       &:last-child
         margin-bottom: 0
+
+      @media screen and (max-width: 640px) 
+        margin-bottom: 2rem
+        &:last-child
+          margin-bottom: 0
     
       
   img
     height: auto
     width: 100%
+
     @media screen and (max-width: 640px)
       height: 30rem
       

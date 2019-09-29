@@ -34,7 +34,16 @@ $(document).ready(function(){
     nav:false, 
     autoWidth: true,
     items: 4,
-    margin: 30
+    margin: 30,
+    slideBy: 3,
+    responsive: {
+      0:{
+        slideBy: 1,
+      },
+      640:{
+        slideBy: 3,
+      }
+    }
   });
   
   // Custom Button
@@ -82,6 +91,26 @@ $(document).ready(function(){
 
       }, 1);
 
+  });
+
+  const owlCarousel4 = $('#owl-carousel_4');
+
+  owlCarousel4.owlCarousel({
+    loop:false,
+    nav:false,
+    items: 5,
+    autoWidth: true,
+    margin: 60
+  })
+
+  $('#next-slide__4').click(function(event) {
+    event.preventDefault()
+    owlCarousel4.trigger('next.owl.carousel');
+  });
+
+  $('#prev-slide__4').click(function(event) {
+    event.preventDefault()
+    owlCarousel4.trigger('prev.owl.carousel');
   });
 
   $('.button-close').on('click', function() {

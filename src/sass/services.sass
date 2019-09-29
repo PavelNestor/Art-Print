@@ -1,4 +1,5 @@
 .services
+  
 
   &__wrap
     background: $color_white
@@ -13,9 +14,18 @@
     @media #{$media-xs}
       padding: 7.5rem 0 5rem 0
 
+
+    .block-order__wrap
+      &.__mobile
+        padding: 0 2rem
+        max-width: 35.7rem
+
   &__content
     position: relative
     z-index: 2
+    
+    @media #{$media-xs}
+      margin-bottom: 7rem
 
   &__img
     left: 0
