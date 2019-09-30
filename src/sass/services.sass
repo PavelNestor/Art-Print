@@ -9,7 +9,7 @@
     position: relative
 
     @media #{$media-md-des-down}
-      padding: 1rem 0 5rem 15.6vw
+      padding: 10rem 0 5rem 15.6vw
 
     @media #{$media-xs}
       padding: 7.5rem 0 5rem 0
@@ -125,13 +125,20 @@
         color: $color_white !important
 
     @media #{$media-xs}
-      a:last-child
+      a.services__card_last
         background-color: #00ADEE
         color: $color_white !important
+    @media #{$media-xs}
+      a:last-child
+        display: none
 
     @media #{$media-xs}
       a:nth-child(6n+5)
         background-color: $color_white
+    
+    @media #{$media-md-up}
+      a:last-child
+        display: none
 
   &__card
     align-items: center
