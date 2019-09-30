@@ -6,11 +6,25 @@
     font-family: Raleway
     justify-content: center
     min-height: 100vh
+    align-items: center
     padding: 3rem 4rem 3rem 2rem
     position: relative
+    overflow: hidden
+    background: #FFFFFF
+
+    @media screen and (max-width: 1024px)
+      min-height: auto
+      
+      
+    
+
+    .strip__bottom
+      bottom: 4.6%
+      background-color: $color_pink
+      &::before
+        background-color: $color_blue
     
     .block-order__wrap
-      padding: 0 2rem
       max-width: 35.7rem 
 
     @media #{$media-md-des-down}
@@ -18,7 +32,7 @@
     @media #{$media-xs}
       background: #FFFFFF
       flex-direction: column
-      padding: 27.2% 0 27.2% 0
+      padding: 27.2% 0 45.2% 0
 
   &__content
     background: #FFFFFF
@@ -27,13 +41,17 @@
     width: 100%
     display: flex
     flex-direction: column
-    overflow: hidden
+
+    @media screen and (max-width: 1024px)
+      padding: 15rem 0 15% 15.3vw
 
     @media #{$media-xs}
       padding: 6rem 3rem 1rem 2rem
 
+    
+
   &__bg-text
-    bottom: 22vh
+    bottom: 4rem
     color: $color_white
     font-family: PlayfairDisplay-Bold
     font-size: 35rem
@@ -45,7 +63,7 @@
       font-size: 20rem
       left: -2rem
       letter-spacing: 7px
-      bottom: 6rem
+      bottom: -12rem
 
 
   &__img
@@ -147,6 +165,7 @@
     right: 0
     z-index: 0
     top: 30vh
+    pointer-events: none
 
     @media #{$media-xs}
       display: none
@@ -161,4 +180,5 @@
     @media #{$media-xs}
       display: block
  
+
  

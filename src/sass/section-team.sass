@@ -1,16 +1,27 @@
 .section-team
     position: relative
     padding: 10rem 0 19rem 0
+    display: flex
+    flex-direction: column  
+    min-height: 100vh
+    justify-content: center
+    background-color: $color_white
+    overflow: hidden
 
     @media screen and ( max-width: 640px )
-        padding: 27.2% 0 27.2% 0
+        padding: 27.2% 0 0 0
 
     .section-title
         margin-bottom: 5.6rem
 
     .slider-team
+        z-index: 2
+        
         &__item
             max-width: 25rem
+            
+            @media screen and (max-width: 640px)
+                width: 25rem
 
         &__img
             max-height: 25rem
@@ -22,6 +33,9 @@
             font-family: $ralewayBold
             margin-bottom: 0.5rem
 
+            @media screen and ( max-width: 640px )
+                font-size: 1.8rem
+
         &__position,
         &__tell,
         &__email
@@ -30,9 +44,13 @@
             margin-bottom: 0.5rem
             color: $color_text
             display: block
+            word-break: break-word
+
+            @media screen and ( max-width: 640px )
+                font-size: 1.8rem
 
         @media screen and ( max-width: 640px )
-            margin-bottom: 15rem
+            padding-bottom: 7.5rem
 
     .slider-team
         .owl-stage-outer
@@ -46,57 +64,103 @@
 
         @media screen and ( max-width: 640px )
             display: flex
+            margin-right: 3rem !important 
 
     .block-order__wrap
         padding: 0 2rem
         max-width: 35.7rem
+        z-index: 2
 
     .slide__button
         top: 52.3%
 
         &._prev
-            left: 5%
+            left: 3.1%
 
         &._next
-            right: 1.4%
+            right: 3.1%
 
         @media screen and (max-width: 1440px)
             width: 7rem 
             height: 7rem
 
-        &_arrow
-            width: 3.6rem
+            &_arrow
+                width: 3.6rem
 
-        &._prev
-            .slide__button_arrow
-                &::before
-                    width: 2.2rem
-                    left: -.3rem
-                    bottom: .74rem
+            &._prev
+                .slide__button_arrow
+                    &::before
+                        width: 2.2rem
+                        left: -.3rem
+                        bottom: .74rem
 
-                &::after
-                    width: 2.2rem
-                    left: -.3rem
-                    top: .74rem
+                    &::after
+                        width: 2.2rem
+                        left: -.3rem
+                        top: .74rem
 
-        &._next
-            .slide__button_arrow
-                &::before
-                    right: -.3rem
-                    top: .74rem
-                    width: 2.2rem
+            &._next
+                .slide__button_arrow
+                    &::before
+                        right: -.3rem
+                        top: .74rem
+                        width: 2.2rem
 
-                &::after
-                    width: 2.2rem
-                    right: -.3rem
-                    bottom: .74rem
+                    &::after
+                        width: 2.2rem
+                        right: -.3rem
+                        bottom: .74rem
 
         @media screen and (max-width: 640px)
             display: flex
-            top: 45.3%
+            top: 40%
 
-        &._next
-            right: -0.6rem
+            &._next
+                right: -0.6rem
 
-        &._prev
-            left: -0.6rem
+            &._prev
+                left: -0.6rem
+
+    .section-back__content
+        bottom: 7rem
+        z-index: 1
+        left: 20%
+        
+        @media screen and (max-width: 640px)
+            display: none
+
+            &.__mobile
+                font-size: 20rem
+                z-index: 1
+                display: block
+                left: 0
+                bottom: -4rem
+
+    .strip__top
+        right: -16.6%
+        top: 22%
+
+        @media screen and (max-width: 640px)
+            right: -22.6%
+            top: 8%
+            width: 70%
+
+    .block-order__wrap
+        z-index: 3
+        position: relative
+
+    .block-order__container
+        position: relative
+        z-index: 1
+
+        @media screen and (max-width: 640px)
+            width: 100%
+            background-color: #fff
+            padding: 7.5rem 0 50.2% 0
+
+    .strip__bottom
+        background-color: $color_pink
+        left: -48%
+        bottom: 28.6%
+        &::before
+            background-color: $color_blue

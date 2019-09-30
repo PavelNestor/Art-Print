@@ -251,10 +251,7 @@ button, .btn, input[type="button"]
 	align-items: center
 	justify-content: center
 	z-index: 2
-
-	@media only screen and (max-device-width: 1440px)
-		width: 5rem
-		height: 5rem
+	max-width: 7rem
 
 	&_arrow
 		background: $color_pink
@@ -271,12 +268,6 @@ button, .btn, input[type="button"]
 			position: absolute
 			height: .2rem 
 			width: 2.2rem
-			
-		@media only screen and (max-device-width: 1440px)
-			width: 2.5rem
-			&::before,
-			&::after
-				width: 1.2rem
 
 	&._prev
 
@@ -287,18 +278,10 @@ button, .btn, input[type="button"]
 				bottom: .74rem
 				transform: rotate(-45deg)
 
-				@media only screen and (max-device-width: 1440px)
-					left: 0rem
-					bottom: 0.44rem
-			
 			&::after 
 				left: -.3rem
 				top: .74rem
 				transform: rotate(45deg)
-
-				@media only screen and (max-device-width: 1440px)
-					left: 0rem
-					top: 0.54rem
 
 	&._next
 
@@ -308,19 +291,11 @@ button, .btn, input[type="button"]
 				right: -.3rem
 				top: .74rem
 				transform: rotate(-45deg)
-
-				@media only screen and (max-device-width: 1440px)
-					right: 0rem
-					top: 0.54rem
 			
 			&::after 
 				right: -.3rem
 				bottom: .74rem
 				transform: rotate(45deg)
-
-				@media only screen and (max-device-width: 1440px)
-					right: 0rem
-					bottom: 0.54rem
 
 .button-social_main
 	background-color: $color-blue
@@ -337,16 +312,16 @@ button, .btn, input[type="button"]
 	right: 0
 	bottom: 0
 
-	@media screen and ( max-width: 800px)
-		display: none
+	// @media screen and ( max-width: 800px)
+	// 	display: none
 
-	@media only screen and (max-device-width: 1440px)
-		width: 5rem
-		height: 5rem
-		padding: 1.1rem
+	// @media only screen and (max-device-width: 1440px)
+	// 	width: 5rem
+	// 	height: 5rem
+	// 	padding: 1.1rem
 
-	@media screen and ( max-width: 1280px)
-		padding: 1.5rem
+	// @media screen and ( max-width: 1280px)
+	// 	padding: 1.5rem
 		
 		
 

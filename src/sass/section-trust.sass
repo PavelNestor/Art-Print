@@ -105,9 +105,17 @@
     color: #fff
     z-index: 0
 
+    @media screen and ( max-width: 640px)
+      display: none
+
   .strip__top
     right: -15.6%
     top: 12%
+
+    @media screen and ( max-width: 640px)
+      right: -29.6%
+      top: 3%
+      width: 80%
 
   .strip__bottom
     background-color: $color_pink
@@ -145,11 +153,12 @@
     padding: 0
 
     .section-trust_back__text
-      bottom: -6rem
+      bottom: -3rem
       left: -2rem
       top: auto
       white-space: nowrap
       font-size: 20rem
+      display: block
 
     .block-order__wrap
       z-index: 2
@@ -163,7 +172,7 @@
       padding: 9.5% calc(15.6vw - 3rem)
 
       @media screen and ( max-width: 640px)
-        padding: 7rem 2rem 15rem 2rem!important
+        padding: 7rem 2rem 17rem 2rem!important
         display: flex
         flex-direction: column
 

@@ -14,11 +14,11 @@
   overflow: hidden
   overflow-x: hidden
   overflow-y: scroll
-  padding: 15rem	16.2rem
+  padding: 15rem  16.2rem
   transition: opacity .3s ease-out, transform .2s, visibility .4s
   @extend %scrollbar
 
-  &_active
+  &.__open
     visibility: visible
     opacity: 1
 
@@ -42,7 +42,7 @@
     @media #{$media-xs-down}
       padding: 2rem
 
-  &.opened
+  &.__open
     opacity: 1
     visibility: visible
     -webkit-overflow-scrolling: touch
@@ -89,7 +89,6 @@
     @media #{$media-xs-down}
       padding: 0
 
-
     &:before
       content: none
 
@@ -117,7 +116,7 @@
 
     @media #{$media-sm-plus}
       font-size: 8rem
-    
+
     @media #{$media-xs-down}
       margin-top: 5rem
       font-size: 5rem
@@ -167,6 +166,7 @@
     position: absolute
     top: 0
     left: 0
+    pointer-events: none
 
     @media #{$media-sm-plus}
       top: -220px
@@ -175,10 +175,11 @@
     position: absolute
     bottom: -22vh
     right: -15rem
+    pointer-events: none
 
     @media #{$media-xs-down}
       bottom: -8rem
-  
+
   .form
 
     &__title
@@ -192,25 +193,6 @@
 
     &__select
       margin-bottom: 3rem
-
-    &__input
-      font-family: Raleway
-      font-size: 2.4rem
-      // line-height: 45px
-      letter-spacing: -0.04em
-      color: #383838
-      margin-bottom: 3rem
-      width: 100%
-      border: 0
-      border-bottom: 1px solid #00ADEE
-      border-radius: 0
-      background-color: #FFF
-      padding-left: .5rem
-      padding-bottom: 1rem
-
-      &:focus
-        outline: none
-
 
 .nice-select
   width: 100%
@@ -227,7 +209,7 @@
   .list
     width: 100%
     font-size: 2.4rem
-  
+
   &:after
     width: 1.5rem
     background: url(/img/modal/select-icon.png) center center no-repeat
@@ -238,3 +220,143 @@
 
 .nice-select.open:after
   transform: rotate(-180deg)
+
+.form__input
+  font-family: Raleway
+  font-size: 2.4rem
+  // line-height: 45px
+  letter-spacing: -0.04em
+  color: #383838
+  margin-bottom: 3rem
+  width: 100%
+  border: 0
+  border-bottom: 1px solid #00ADEE
+  border-radius: 0
+  background-color: #FFF
+  padding-left: .5rem
+  padding-bottom: 1rem
+
+  &:focus
+    outline: none
+
+.modal-footer
+  position: absolute
+  top: 16.2rem
+  bottom: auto
+  left: 16.2rem
+  right: 16.2rem
+  background-color: #fff
+  display: none
+  z-index: 20
+  padding: 5.2% 12.9% 6.6% 7%
+  justify-content: space-between
+
+  @media screen and (max-width: 1024px)
+    flex-direction: column
+    top: 5rem
+    bottom: auto
+    overflow-y: scroll
+    padding: 11.2% 12.9% 2.6% 7%
+
+  @media screen and (max-width: 640px)
+    top: 2rem
+    left: 2rem
+    right: 2rem
+    padding: 10rem 2rem 2rem 2rem
+    justify-content: flex-start
+
+  .form__input
+    font-size: 2.4rem
+    margin-bottom: 1.4rem
+
+    @media screen and (max-width: 1024px)
+      font-size: 1.4rem
+
+  input::placeholder
+    font-size: 2.4rem
+    line-height: 3rem
+
+    @media screen and (max-width: 1024px)
+      font-size: 1.4rem
+
+  textarea::placeholder
+    font-size: 2.4rem
+    
+
+    @media screen and (max-width: 1024px)
+      font-size: 1.4rem
+
+  textarea.form__input
+    margin-bottom: 2.6rem
+    resize: none
+
+  &.__open
+    display: flex
+
+  &__left
+    flex: 0 0 50%
+    display: flex
+    flex-direction: column
+
+    @media screen and (max-width: 1024px)
+      flex: 0
+
+  &__right
+    flex: 0 0 50%
+    padding: 5.5% 0 0 12.5%
+
+    @media screen and (max-width: 1024px)
+      flex: auto
+      padding: 0
+
+    form
+      display: flex
+      flex-direction: column
+
+  &__title
+    font-size: 13rem
+    line-height: 10rem
+    letter-spacing: -0.05em
+    font-family: $playfairBold
+    margin-bottom: 5rem
+    position: relative
+    &::before
+      content: ''
+      position: absolute
+      top:  -5.8rem
+      left: 0.6rem
+      width: 30px
+      height: 30px
+      background-size: contain
+      background: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='15' cy='15.0001' r='9.04545' stroke='%23383838'/%3E%3Cline x1='15.0455' y1='2.18557e-08' x2='15.0455' y2='30' stroke='black'/%3E%3Cline x1='30' y1='15.0454' x2='-4.37114e-08' y2='15.0454' stroke='black'/%3E%3C/svg%3E%0A") center no-repeat
+
+    @media screen and (max-width: 1024px)
+      font-size: 5rem
+      line-height: 100%
+      margin-bottom: 2rem
+
+  &__subtitle
+    font-size: 6rem
+    line-height: 6rem
+    letter-spacing: -0.02em
+    font-family: $playfairBold
+
+    @media screen and (max-width: 1024px)
+      font-size: 2rem
+      line-height: 100%
+      margin-bottom: 3rem
+
+  .button-order
+    max-width: 17rem
+    font-size: 1.4rem
+    letter-spacing: -0.03em
+
+  .button-close
+    right: 2.8rem
+    top: 2.9rem
+    width: 2.3rem
+    height: 2.3rem
+    &::before
+      width: 2.4rem
+      height: 2.4rem
+      background: url("data:image/svg+xml,%3Csvg width='26' height='26' viewBox='0 0 26 26' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L12.8535 13.1465M12.8535 13.1465L25 25M12.8535 13.1465L25 1M12.8535 13.1465L1 25' stroke='%23EB008B' stroke-width='2'/%3E%3C/svg%3E%0A") center no-repeat

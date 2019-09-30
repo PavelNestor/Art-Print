@@ -1,15 +1,17 @@
 .section-equipment
-  min-height: 100vh
   overflow: hidden
   position: relative
+  display: flex
+  align-items: center
+  flex-direction: column
+  width: 100%
 
   .slider
     &-container
       display: flex
       flex-direction: row
       background-color: $color_blue
-    
-
+      width: 100%
 
     &-left
       display: flex
@@ -176,6 +178,7 @@
       padding: 5rem 4.8rem 5rem 5rem
       max-width: 65rem
       height: auto
+      opacity: .95
 
       @media screen and (max-width: 1560px)
         max-width: 55rem
@@ -222,3 +225,44 @@
 
     @media screen and (max-width: 1024px)
       display: inline-block
+
+  .section-back__content
+    opacity: .1
+    z-index: 0
+    bottom: 0
+    bottom: 6rem
+
+    @media screen and (max-width: 640px)
+      bottom: -4rem
+      font-size: 20rem
+
+  .strip__top
+    background-color: $color_pink
+    transform: rotate(-20deg)
+    right: 13.4%
+    top: 33%
+    z-index: 2
+    &::before
+      background-color: $color_yellow
+      right: -10rem
+
+  .strip-wrapper__bottom
+    bottom: 0
+    .strip__bottom
+      left: -40%
+      bottom: 4.6%
+      background-color: $color_pink
+      &::before
+        background-color: $color_yellow
+
+  .strip__top
+    background-color: $color_yellow
+    width: 70%
+    transform: rotate(20deg)
+    right: -15.6%
+    top: 10%
+
+    &:before
+      background-color: $color_pink
+      top: auto
+      bottom: 1rem

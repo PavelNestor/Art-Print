@@ -1,6 +1,7 @@
 "use strict";
 
 const _$ = document.querySelector.bind(document);
+var DIALOG_OPEN_CLASS = '__open';
 
 $(document).ready(function(){
 
@@ -125,19 +126,19 @@ $(document).ready(function(){
 });
 
 (function () {
-  var openModal = _$("#open-modal");
-  var closeModal = _$("#close-modal");
-  var modalMain = _$("#modal-main");
-
-  const onToogleMenu = () => {
-    console.log(openModal, closeModal);
-    modalMain.classList.toggle("app-dialog_active");
-  };
-
-  openModal.addEventListener("click", onToogleMenu);
-  openModal.addEventListener("touch", onToogleMenu);
-  closeModal.addEventListener("click", onToogleMenu);
-  closeModal.addEventListener("touch", onToogleMenu);
+  var triggers = Array.from(document.querySelectorAll('[data-modal-open], [data-modal-close]'));
+  triggers.forEach(element => {
+    element.addEventListener('click', function () {
+      var isOpen = !!element.dataset.modalOpen;
+      var selector = isOpen ? element.dataset.modalOpen : element.dataset.modalClose;
+      var modal = document.querySelector(selector);
+      if (!modal) {
+        console.warn('there is no dilaog ' + selector);
+        return;
+      }
+        modal.classList[isOpen ? 'add' : 'remove'](DIALOG_OPEN_CLASS);
+    });
+  });
 })();
 
 // const $ = document.querySelector.bind(document);

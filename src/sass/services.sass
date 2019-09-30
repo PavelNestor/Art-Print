@@ -1,24 +1,38 @@
 .services
-  
 
   &__wrap
     background: $color_white
     font-family: PlayfairDisplay-Bold
-    min-height: 100vh
     padding: 15rem 0 15rem 15.6vw
     position: relative
+    overflow: hidden
 
     @media #{$media-md-des-down}
       padding: 10rem 0 5rem 15.6vw
 
     @media #{$media-xs}
-      padding: 7.5rem 0 5rem 0
+      padding: 7.5rem 0 50% 0
 
 
-    .block-order__wrap
-      &.__mobile
-        padding: 0 2rem
-        max-width: 35.7rem
+      .block-order__wrap
+        &.__mobile
+          padding: 0 2rem
+          max-width: 35.7rem
+
+      .section-back__content
+        color: #fff
+        font-size: 20rem
+        bottom: -4rem
+        left: -2rem
+
+      .strip.strip__bottom
+        background-color: $color_pink
+        bottom: 4rem
+        &::before
+          background-color: $color_blue
+
+      .strip-wrapper__bottom
+        bottom: 0
 
   &__content
     position: relative
@@ -37,6 +51,7 @@
     position: absolute
     top: 10%
     z-index: 0
+    pointer-events: none
 
     @media #{$media-md-des-down}
       display: none
@@ -197,3 +212,5 @@
 
       @media #{$media-md-des-down} 
         display: none
+
+

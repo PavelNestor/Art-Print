@@ -1,12 +1,18 @@
 .section-masonry
   position: relative
   overflow: hidden
-  min-height: 100vh
   padding: 7.5% 0 4.5% 0
-  background-color:  $color_white
+  background-color:  #fff
+  min-height: 100vh
+  display: flex
+  flex-direction: column
+  justify-content: center
+
+  @media screen and (max-width: 1024px)
+    min-height: auto
 
   @media screen and (max-width: 640px)
-    padding: 4.5% 0 4.5% 0
+    padding: 2rem 0 2.7rem 0
 
   .slide__button
     &._prev
@@ -14,38 +20,6 @@
 
     &._next
       right: 1.4%
-
-    @media screen and (max-width: 1440px)
-      width: 7rem
-      height: 7rem
-
-      &_arrow
-        width: 3.6rem
-
-      &._prev
-        .slide__button_arrow
-          &::before
-            width: 2.2rem
-            left: -.3rem
-            bottom: .74rem
-          
-          &::after
-            width: 2.2rem
-            left: -.3rem
-            top: .74rem
-
-      &._next
-        .slide__button_arrow
-          &::before
-            right: -.3rem
-            top: .74rem
-            width: 2.2rem
-
-          &::after
-            width: 2.2rem
-            right: -.3rem
-            bottom: .74rem
-
 
     @media screen and (max-width: 640px)
       display: flex
@@ -59,16 +33,16 @@
 .owl-carousel_masonry
   position: relative
   touch-action: manipulation
-
-  .owl-stage-outer
+  .owl-stage
+    display: flex
     padding: 0 0 0 15.6vw 
+  
 
-  @media screen and (max-width: 640px)
-    padding: 0 0 0 2rem 
+  // @media screen and (max-width: 640px)
+  //   padding: 0 0 0 7.5rem 
 
 
-.owl-stage
-  display: flex
+
 
 .columns
   display: flex
@@ -77,7 +51,7 @@
   .col
     width: 100%
     height: auto
-    margin-bottom: 1.5rem
+    // margin-bottom: 1.5rem
     display: inline-block
     margin-right: 3rem
 
@@ -85,13 +59,12 @@
       margin-right: 0
     *
       margin-bottom: 3rem
+
+      @media screen and (max-width: 640px)
+        margin-bottom: 2rem
+
       &:last-child
         margin-bottom: 0
-
-      @media screen and (max-width: 640px) 
-        margin-bottom: 2rem
-        &:last-child
-          margin-bottom: 0
     
       
   img
@@ -179,4 +152,7 @@
   &.owl-drag 
     .owl-item
       margin-right: 3rem !important
+
+      @media screen and (max-width: 640px)
+        margin-right: 2rem !important
 

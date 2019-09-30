@@ -1,5 +1,36 @@
 .footer
 
+  .strip__top
+    background-color: $color_blue
+    transform: matrix(0.94, -0.34, -0.34, -0.94, 0, 0)
+    right: -30.6%
+    top: 3%
+    z-index: 22
+    &::before
+      background-color: $color_pink
+      bottom: 1rem 
+      top: auto 
+      right: -10rem
+
+    @media #{$media-xs}
+      z-index: 2
+
+  .strip__bottom
+    background-color: $color_blue
+    transform: rotate(20deg)
+    bottom: auto
+    top: 27%
+    left: -32%
+    z-index: 22
+    &::before
+      background-color: $color_pink
+      bottom: 1rem
+      top: auto
+
+    @media #{$media-xs}
+      z-index: 2
+
+
   &__wrap
     background: url(/img/bg-footer.png) center center no-repeat
     background-size: cover
@@ -72,7 +103,7 @@
   &__tel
     font-size: 2.4rem
     color: $color-white
-    margin-bottom: 4rem
+    margin-bottom: 4rem 
     font-family: Raleway
 
     @media #{$media-xs}
@@ -127,3 +158,4 @@
         font-size: 1.8rem
         line-height: 2.1rem
         display: block
+

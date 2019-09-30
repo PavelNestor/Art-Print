@@ -5,6 +5,9 @@
   overflow: hidden
   min-height: 100vh
 
+  @media screen and ( max-width: 1024px)
+    min-height: auto
+
   &_wrapper
     background-color: $color_yellow
     padding: 12.5rem 0 14.6rem
@@ -15,6 +18,7 @@
 
     @media screen and ( max-width: 1024px)
       padding: 7.6rem 0 16.4rem
+      min-height: auto
       
 
   &_container
