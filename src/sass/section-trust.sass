@@ -1,6 +1,6 @@
 .section-trust
   background-color: $color_white
-  padding: 4.3% 0 0 0 
+  padding: 5.7% 0 0 0 
   min-height: 100vh
   position: relative
   overflow: hidden
@@ -12,10 +12,18 @@
     &__outer
 
       &_bold
-        letter-spacing: -0.06em
+        letter-spacing: -0.05em
 
       &_fit
         line-height: 3.4rem
+        position: relative
+        display: inline-block
+        letter-spacing: -0.04em
+        &::after
+          content: '?'
+          color: $color_pink
+          position: absolute
+          right: 0
 
         @media screen and ( max-width: 640px)
           line-height: 6.2rem
@@ -41,7 +49,7 @@
       flex-wrap: wrap
 
     &_left
-      padding-top: 20rem
+      padding-top: 18.7rem
       margin-right: 4rem
 
       @media screen and ( max-width: 1280px)
@@ -49,13 +57,14 @@
         padding-top: 6rem
 
     &_right
+      margin-top: -1.3rem
       @media screen and ( max-width: 640px)
         .item
           &:last-of-type
             margin-bottom: 0
 
   .item
-    margin-bottom: 6.3rem
+    margin-bottom: 6.9rem
 
     &-svg
       margin-bottom: 0.8rem 
@@ -169,7 +178,7 @@
     align-items: center
 
     &.__container
-      padding: 9.5% calc(15.6vw - 3rem)
+      padding: 10% calc(15.6vw - 3rem)
 
       @media screen and ( max-width: 640px)
         padding: 7rem 2rem 17rem 2rem!important

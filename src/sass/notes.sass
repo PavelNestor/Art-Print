@@ -6,7 +6,7 @@
     font-family: Raleway
     justify-content: center
     min-height: 100vh
-    align-items: center
+    
     padding: 3rem 4rem 3rem 2rem
     position: relative
     overflow: hidden
@@ -36,7 +36,7 @@
 
   &__content
     background: #FFFFFF
-    padding: 15rem 0 1rem 15.3vw
+    padding: 14rem 0 1rem 14.3vw
     position: relative
     width: 100%
     display: flex
@@ -74,7 +74,7 @@
   &__title
     font-family: PlayfairDisplay-Bold
     font-size: 13rem
-    letter-spacing: -0.6rem
+    letter-spacing: -0.5rem
     line-height: 18rem
     position: relative
     margin-bottom: 6rem
@@ -98,9 +98,9 @@
       background-size: cover
       left: 0
       position: absolute
-      top: -15px
-      width: 25px
-      height: 25px
+      top: -1.5rem
+      width: 3rem
+      height: 3rem
       content: ''
 
     @media #{$media-xs}
@@ -116,7 +116,7 @@
     line-height: 3rem
     z-index: 2
     letter-spacing: normal
-    width: 76%
+    width: 61%
 
     @media #{$media-xs}
       font-size: 2rem
@@ -146,10 +146,12 @@
       position: relative
       display: flex
       justify-content: space-between
+      max-width: 83%
 
       @media #{$media-xs}
         flex-direction: column-reverse
         margin-bottom: 5rem
+        max-width: 100%
 
 
     &-text

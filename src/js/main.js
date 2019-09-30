@@ -10,8 +10,8 @@ $(document).ready(function(){
   const owl = $('#owl-carousel_1');
 
   owl.owlCarousel({
-    loop:true,
-    nav:false,
+    loop: true,
+    nav: false,
     items: 1,
     margin: 5
   });
@@ -31,8 +31,8 @@ $(document).ready(function(){
   const owlMasonry = $('#owl-carousel_2');
 
   owlMasonry.owlCarousel({
-    loop:false,
-    nav:false, 
+    loop: false,
+    nav: false, 
     autoWidth: true,
     items: 4,
     margin: 30,
