@@ -1,6 +1,9 @@
-.section-team 
+.section-team
     position: relative
     padding: 10rem 0 19rem 0
+
+    @media screen and ( max-width: 640px )
+        padding: 27.2% 0 27.2% 0
 
     .section-title
         margin-bottom: 5.6rem
@@ -28,13 +31,72 @@
             color: $color_text
             display: block
 
+        @media screen and ( max-width: 640px )
+            margin-bottom: 15rem
 
-    .slider-team 
+    .slider-team
         .owl-stage-outer
             padding: 0 0 0 15.6vw
 
+            @media screen and ( max-width: 640px )
+                padding: 0 0 0 2rem
+
     .owl-carousel.owl-drag .owl-item
-        margin-right: 5rem !important
+        margin-right: 5rem !important      
+
+        @media screen and ( max-width: 640px )
+            display: flex
+
+    .block-order__wrap
+        padding: 0 2rem
+        max-width: 35.7rem
 
     .slide__button
         top: 52.3%
+
+        &._prev
+            left: 5%
+
+        &._next
+            right: 1.4%
+
+        @media screen and (max-width: 1440px)
+            width: 7rem 
+            height: 7rem
+
+        &_arrow
+            width: 3.6rem
+
+        &._prev
+            .slide__button_arrow
+                &::before
+                    width: 2.2rem
+                    left: -.3rem
+                    bottom: .74rem
+
+                &::after
+                    width: 2.2rem
+                    left: -.3rem
+                    top: .74rem
+
+        &._next
+            .slide__button_arrow
+                &::before
+                    right: -.3rem
+                    top: .74rem
+                    width: 2.2rem
+
+                &::after
+                    width: 2.2rem
+                    right: -.3rem
+                    bottom: .74rem
+
+        @media screen and (max-width: 640px)
+            display: flex
+            top: 45.3%
+
+        &._next
+            right: -0.6rem
+
+        &._prev
+            left: -0.6rem

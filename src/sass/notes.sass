@@ -8,12 +8,17 @@
     min-height: 100vh
     padding: 3rem 4rem 3rem 2rem
     position: relative
+    
+    .block-order__wrap
+      padding: 0 2rem
+      max-width: 35.7rem 
 
     @media #{$media-md-des-down}
 
     @media #{$media-xs}
       background: #FFFFFF
-      padding: 0
+      flex-direction: column
+      padding: 27.2% 0 27.2% 0
 
   &__content
     background: #FFFFFF
@@ -126,6 +131,7 @@
 
       @media #{$media-xs}
         flex-direction: column-reverse
+        margin-bottom: 5rem
 
 
     &-text
@@ -154,3 +160,5 @@
 
     @media #{$media-xs}
       display: block
+ 
+ 
