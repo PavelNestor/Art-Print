@@ -19,6 +19,9 @@
         position: relative
         display: inline-block
         letter-spacing: -0.04em
+
+        @media screen and ( max-width: 1550px)
+          line-height: 4.9rem
         &::after
           content: '?'
           color: $color_pink
@@ -88,13 +91,19 @@
       margin-bottom: 1.3rem
       font-family: $ralewayBold
 
+      @media screen and ( max-width: 1550px)
+       font-size: 3.25rem
+       line-height: 3.5rem
+
       @media screen and ( min-width: 640px) and ( max-width: 1024px)
         font-size: 2.6rem
     
     &-text
       font-size: 2rem
       line-height: 3rem
-      
+
+      @media screen and ( max-width: 1550px)
+        font-size: 2.17rem
 
       @media screen and ( min-width: 640px) and ( max-width: 1024px)
         font-size: 1.6rem
@@ -112,6 +121,9 @@
     line-height: 100%
     color: #fff
     z-index: 0
+
+    @media screen and ( max-width: 1550px)
+      top: 1%
 
     @media screen and ( max-width: 640px)
       display: none
