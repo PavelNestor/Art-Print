@@ -242,7 +242,7 @@
 .modal-footer
   position: absolute
   top: 16.2rem
-  bottom: auto
+  bottom: 16.2rem
   left: 16.2rem
   right: 16.2rem
   background-color: #fff
@@ -348,9 +348,14 @@
       margin-bottom: 3rem
 
   .button-order
-    max-width: 17rem
+    // max-width: 17rem
     font-size: 1.4rem
     letter-spacing: -0.03em
+
+    @media screen and (max-width: 1550px)
+      font-size: 1.8rem
+      letter-spacing: 0.05em
+
 
   .button-close
     right: 2.8rem

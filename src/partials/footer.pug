@@ -13,8 +13,11 @@ footer.footer__wrap.footer
     a.footer__tel(href="tel:+380442231465") +380 (44) 2231465
     .footer__location Киев, ул. Попудренко 18, Офис 29, Метро "Дарница", 03680
     a.footer__location_link(href="/") смотреть на карте
-    button.footer__questions Есть вопросы? 
-      span.footer__questions_wrap(data-modal-open="#modal-footer") Задайте их прямо сейчас.
+    div
+      button.button-order.__long(data-modal-open="#modal-footer") Есть вопросы? 
+        span Задайте их прямо сейчас.
+    //- button.footer__questions Есть вопросы? 
+    //-   span.footer__questions_wrap(data-modal-open="#modal-footer") Задайте их прямо сейчас.
   img.notes__xs-line(src="/img/xs-notes-line.png", alt="line")
 
 
@@ -35,7 +38,8 @@ footer.footer__wrap.footer
 
         textarea(name="comment", cols="30", rows="4", placeholder="Сообщение", required).form__input
         
-        button.button-order отправить
+        div
+          button.button-order.__long отправить
 
 
 

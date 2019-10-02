@@ -231,6 +231,9 @@ button, .btn, input[type="button"]
 		max-width: 100%
 		width: auto
 		padding: 1rem 2.4rem 1rem 2.4rem 
+		
+		@media screen and ( max-width: 1550px)	
+			padding: 3.04rem 3.3rem
 
 	@media screen and ( max-width: 1550px)	
 		max-width: 33.79rem
@@ -326,9 +329,9 @@ button, .btn, input[type="button"]
 	right: 0
 	bottom: 0
 
-	@media screen and (max-width: 1440px)
-		width: 5.5rem
-		height: 5.5rem
+	@media screen and (max-width: 1550px)
+		width: 7.5rem
+		height: 7.5rem
 
 		
 
@@ -348,9 +351,9 @@ button, .btn, input[type="button"]
 	opacity: 0
 	z-index: 1
 		
-	@media screen and (max-width: 1440px)
-		width: 5.5rem
-		height: 5.5rem
+	@media screen and (max-width: 1550px)
+		width: 7.5rem
+		height: 7.5rem
 
 .button-social
 	position: fixed
@@ -364,7 +367,7 @@ button, .btn, input[type="button"]
 	&:hover
 		height: 100%
 		transition: .3s bottom, opacity ease
-		z-index: 1
+		z-index: 100
 		$count: 0 1 2 3
 
 		@for $i from 1 through length($count) 
@@ -375,16 +378,16 @@ button, .btn, input[type="button"]
 				transition: .4s bottom, opacity ease-in-out
 				box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2)
 
-	@media screen and (max-width: 1440px)
-		width: 5.5rem
-		height: 5.5rem
+	@media screen and (max-width: 1550px)
+		width: 7.5rem
+		height: 7.5rem
 
 		&:hover
 			$count: 0 1 2 3
 
 			@for $i from 1 through length($count) 
 				.button-social_child:nth-child(#{$i}) 
-					bottom: nth($count , $i) * 6rem
+					bottom: nth($count , $i) * 8rem
 					opacity: 1
 					z-index: 2
 					transition: .4s bottom, opacity ease-in-out

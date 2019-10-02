@@ -19,6 +19,9 @@
         
         &__item
             max-width: 25rem
+
+            @media screen and ( max-width: 1550px )
+                max-width: 31.2rem
             
             @media screen and (max-width: 640px)
                 width: 25rem
@@ -28,6 +31,10 @@
             height: 25rem
             margin-bottom: 3rem
 
+            @media screen and ( max-width: 1550px )
+                max-height: 31.2rem
+                height: 100%
+
             img
                 object-position: top
 
@@ -36,6 +43,9 @@
             font-weight: bold
             font-family: $ralewayBold
             margin-bottom: 0.5rem
+
+            @media screen and ( max-width: 1550px )
+                font-size: 1.9rem
 
             @media screen and ( max-width: 640px )
                 font-size: 1.8rem
@@ -49,6 +59,9 @@
             color: $color_text
             display: block
             word-break: break-word
+
+            @media screen and ( max-width: 1550px )
+                font-size: 1.9rem
 
             @media screen and ( max-width: 640px )
                 font-size: 1.8rem
@@ -84,9 +97,9 @@
         &._next
             right: 3.1%
 
-        @media screen and (max-width: 1440px)
-            width: 7rem 
-            height: 7rem
+        @media screen and (max-width: 1550px)
+            width: 7.5rem 
+            height: 7.5rem
 
             &_arrow
                 width: 3.6rem
