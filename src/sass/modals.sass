@@ -3,18 +3,12 @@
 // --------------------------------------------------
 .app-dialog
   background: $color-white
-  opacity: 0
-  position: fixed
-  top: 0
-  left: 0
-  right: 0
-  bottom: 0
-  visibility: hidden
+  position: relative
   z-index: 10
   overflow: hidden
   overflow-x: hidden
   overflow-y: scroll
-  padding: 15rem  16.2rem
+  padding: 7.8% 8.5%
   transition: opacity .3s ease-out, transform .2s, visibility .4s
   @extend %scrollbar
 
@@ -31,9 +25,8 @@
   &-content
     background: #fff
     position: relative
-    transform: translateY(4rem) translateZ(0)
     transition: opacity .3s ease-out, transform .5s, visibility .4s, outline .4s
-    padding: 10rem 13.8rem
+    padding: 10rem 15.8% 13.8rem 8%
     box-shadow: 0 .4rem 5rem rgba(0, 0, 0, 0.25)
 
     @media #{$media-lg-max-down}
@@ -41,19 +34,6 @@
 
     @media #{$media-xs-down}
       padding: 2rem
-
-  &.__open
-    opacity: 1
-    visibility: visible
-    -webkit-overflow-scrolling: touch
-
-    .modal-content
-      transform: translateY(0) translateZ(2px)
-      transition: opacity .3s ease-out, transform .5s, visibility .4s, outline .4s
-
-  &::-webkit-scrollbar
-    height: 0
-    width: 0
 
 .close-modal
   background-size: 100%
@@ -85,6 +65,7 @@
 
   .text-cursive
     margin-bottom: 6.5rem
+    text-align: right
 
     @media #{$media-xs-down}
       padding: 0
@@ -94,7 +75,7 @@
 
   &__left
     flex: 0 0 50%
-    margin-right: 10rem
+    margin-right: 11.3rem
 
     @media #{$media-sm-plus}
       margin-right: 0
@@ -106,13 +87,24 @@
     width: 100%
 
   &__title
-    font-family: PlayfairDisplay
+    font-family: PlayfairDisplay-Bold
     font-weight: bold
     font-size: 13rem
     line-height: 10rem
     letter-spacing: -0.02rem
     color: #383838
     margin-bottom: 8rem
+    position: relative
+    &::before
+      content: ''
+      position: absolute
+      top: -5.7rem
+      left: 0
+      width: 30px
+      height: 30px
+      background-size: contain
+      background: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='15' cy='15.0001' r='9.04545' stroke='%23383838'/%3E%3Cline x1='15.0455' y1='2.18557e-08' x2='15.0455' y2='30' stroke='black'/%3E%3Cline x1='30' y1='15.0454' x2='-4.37114e-08' y2='15.0454' stroke='black'/%3E%3C/svg%3E%0A") center no-repeat
+
 
     @media #{$media-sm-plus}
       font-size: 8rem
@@ -122,6 +114,9 @@
       font-size: 5rem
       line-height: 1.1
       margin-bottom: 2rem
+
+  .elemment-pink
+    display: inline-block
 
   &__text
     font-size: 2.4rem
@@ -165,7 +160,7 @@
   &__line-top
     position: absolute
     top: 0
-    left: 0
+    left: -11%
     pointer-events: none
 
     @media #{$media-sm-plus}
@@ -173,7 +168,7 @@
 
   &__line-bot
     position: absolute
-    bottom: -22vh
+    bottom: -37vh
     right: -15rem
     pointer-events: none
 
@@ -366,3 +361,15 @@
       width: 2.4rem
       height: 2.4rem
       background: url("data:image/svg+xml,%3Csvg width='26' height='26' viewBox='0 0 26 26' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L12.8535 13.1465M12.8535 13.1465L25 25M12.8535 13.1465L25 1M12.8535 13.1465L1 25' stroke='%23EB008B' stroke-width='2'/%3E%3C/svg%3E%0A") center no-repeat
+
+.mobile-order__calc
+  display: none
+
+  @media screen and (max-width: 640px)
+    display: block
+
+.wrap-modal__calc--desc
+  display: block
+  
+  @media screen and (max-width: 640px)
+    display: none

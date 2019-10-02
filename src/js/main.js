@@ -99,6 +99,7 @@ $(document).ready(function(){
   owlCarousel4.owlCarousel({
     loop:false,
     nav:false,
+    stagePadding: 50,
     items: 5,
     autoWidth: true,
     margin: 60
@@ -141,39 +142,28 @@ $(document).ready(function(){
   });
 })();
 
-// const $ = document.querySelector.bind(document);
-// const $$ = document.querySelectorAll.bind(document);
+const navbar = document.getElementById('navbar');
 
-// const slides = $$('.slides');
-// const prevSlide = $('#prev-slide');
-// const nextSlide = $('#next-slide');
+var last_scroll = 150;
 
-// let slideIndex = 1;
-// showSlides(slideIndex);
+console.log(last_scroll, 'last_scroll')
 
-// function nextSlides() {
-//   showSlides((slideIndex += 1));
-// }
 
-// function prewSlides() {
-//   showSlides((slideIndex += -1));
-// }
+window.onscroll = function(){
 
-// function showSlides(index) {
-//   console.log('index', index);
-//   console.log('slides', slides.length);
-  
-//   if (index > slides.length) {
-//     slideIndex = 1;
-//   }
 
-//   if (index < 1) {
-//     slideIndex = slides.length;
-//   }
+  if (window.scrollY >= last_scroll) {
+    
+    console.log(scrollY, 'scrollY')
+    console.log(last_scroll, 'last_scroll')
 
-//   slides.forEach(slide => { slide.style.display = 'none' });
-//   slides[slideIndex - 1].style.display = 'block';
-// }
 
-// prevSlide.addEventListener('click', prewSlides);
-// nextSlide.addEventListener('click', nextSlides);
+    navbar.classList.add('hide');
+
+  } else {
+
+    // navbar.classList.remove('hide');
+  }
+
+  last_scroll = window.scrollY;
+}

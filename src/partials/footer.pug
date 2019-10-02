@@ -14,8 +14,10 @@ footer.footer__wrap.footer
     .footer__location Киев, ул. Попудренко 18, Офис 29, Метро "Дарница", 03680
     a.footer__location_link(href="/") смотреть на карте
     div
-      button.button-order.__long(data-modal-open="#modal-footer") Есть вопросы? 
+      button.button-order.__long(data-modal-open="#modal-footer") 
+        span Есть вопросы? 
         span Задайте их прямо сейчас.
+        
     //- button.footer__questions Есть вопросы? 
     //-   span.footer__questions_wrap(data-modal-open="#modal-footer") Задайте их прямо сейчас.
   img.notes__xs-line(src="/img/xs-notes-line.png", alt="line")
@@ -39,7 +41,8 @@ footer.footer__wrap.footer
         textarea(name="comment", cols="30", rows="4", placeholder="Сообщение", required).form__input
         
         div
-          button.button-order.__long отправить
+          button.button-order.__long 
+            span отправить
 
 
 

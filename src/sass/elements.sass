@@ -209,7 +209,7 @@ button, .btn, input[type="button"]
 	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2)
 	border-radius: 30px
 	letter-spacing: 0.1em
-	font-family: $raleway
+	font-family: $ralewayBold
 	text-transform: uppercase
 	width: 100%
 	min-height: 6rem
@@ -221,27 +221,54 @@ button, .btn, input[type="button"]
 	cursor: pointer
 	letter-spacing: 0.09rem
 	outline: none
-	transition: all .25s ease
+	position: relative
+	transition: opacity, border .3s ease
+	span
+		color: $color_pink
+		z-index: 1
+		position: relative
+		font-family: $ralewayBold
+
+
+	&::before
+		content: ''
+		background: linear-gradient(0deg, #EB008B, #EB008B), linear-gradient(180deg, #FFFFFF 0%, #E5E5E5 100%)
+		opacity: 0
+		position: absolute
+		left: 0
+		right: 0
+		bottom: 0
+		width: 100%
+		height: 0
+		transition: opacity, height .3s ease
 
 	&:hover
-		background: linear-gradient(0, #FFFFFF 0%, #E5E5E5 100%)
-		transition: all .25s ease
+		transition: opacity, border .3s ease
+		border: 1px solid #EB008B
+		span
+			z-index: 2
+			color: #fff
+
+		&::before
+			opacity: 1
+			height: 100%
+			z-index: 1
 
 	&.__long	
 		max-width: 100%
 		width: auto
 		padding: 1rem 2.4rem 1rem 2.4rem 
 		
-		@media screen and ( max-width: 1550px)	
+		@media screen and ( min-width: 1024px) and (max-width: 1550px)	
 			padding: 3.04rem 3.3rem
 
-	@media screen and ( max-width: 1550px)	
+	@media screen and (min-width: 1024px) and ( max-width: 580px)
 		max-width: 33.79rem
 		font-size: 1.8rem
 		padding: 3.04rem 1rem
 		
 
-	@media screen and ( max-width: 580px)
+	@media screen and (min-width: 1024px) and ( max-width: 580px)
 		max-width: 25rem
 		font-size: 1.8rem
 		letter-spacing: 0.05em
@@ -266,54 +293,6 @@ button, .btn, input[type="button"]
 		height: 7.5rem
 		max-width: 7.5rem
 
-	&_arrow
-		background: $color_pink
-		height: .2rem
-		width: 3.6rem
-		margin: 0 auto
-		position: relative
-		cursor: pointer
-
-		&::before,
-		&::after 
-			content: ""
-			background: $color_pink
-			position: absolute
-			height: .2rem 
-			width: 2.2rem
-
-	&._prev
-
-		.slide__button_arrow		
-
-			&::before 
-				left: -.3rem
-				bottom: .74rem
-				transform: rotate(-45deg)
-
-			&::after 
-				left: -.3rem
-				top: .74rem
-				transform: rotate(45deg)
-
-	&._next
-
-		.slide__button_arrow
-
-			&::before 
-				right: -.3rem
-				top: .74rem
-				transform: rotate(-45deg)
-			
-			&::after 
-				right: -.3rem
-				bottom: .74rem
-				transform: rotate(45deg)
-
-.button-social
-		@media screen and ( max-width: 640px )
-			display: none
-
 .button-social_main
 	background-color: $color-blue
 	display: inline-block
@@ -323,11 +302,28 @@ button, .btn, input[type="button"]
 	display: flex
 	align-items: center
 	justify-content: center
-	padding-right: .6rem
 	position: absolute
+	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15)
 	z-index: 3
 	right: 0
 	bottom: 0
+	
+
+	svg
+		transition: opacity .3s ease
+		&:nth-child(2)
+			transition: opacity .3s ease
+			position: absolute
+			opacity: 0
+			top: 0
+			left: 0
+	&:hover
+		svg
+			opacity: 0
+
+			&:nth-child(2)
+				opacity: 1
+
 
 	@media screen and (max-width: 1550px)
 		width: 7.5rem
@@ -337,19 +333,30 @@ button, .btn, input[type="button"]
 
 .button-social_child
 	background: linear-gradient(180deg, #FFFFFF 0%, #E5E5E5 100%)
-	border: 1px solid #E8E8E8
 	box-sizing: border-box
 	border-radius: 50%
 	width: 7rem
 	height: 7rem
-	display: flex
-	align-items: center
-	justify-content: center
 	position: absolute
 	right: 0
 	bottom: 0
 	opacity: 0
 	z-index: 1
+
+	svg
+		transition: opacity .3s ease
+		&:nth-child(2)
+			transition: opacity .3s ease
+			position: absolute
+			opacity: 0
+			top: 0
+			left: 0
+	&:hover
+		svg
+			opacity: 0
+
+			&:nth-child(2)
+				opacity: 1
 		
 	@media screen and (max-width: 1550px)
 		width: 7.5rem

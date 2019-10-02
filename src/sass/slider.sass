@@ -79,6 +79,7 @@
           height: auto
           max-height: 70rem
           object-fit: contain
+
   &.type-3
     .slides-side__right
       .image-holder
@@ -112,7 +113,7 @@
 .button-order
   margin-bottom: 3.5rem   
 
-  @media screen and ( max-width: 1550px)
+  @media screen and (min-width: 1024px) and ( max-width: 580px)
     margin-bottom: 2.4rem
 
 .text-cursive
@@ -132,6 +133,10 @@
     @media screen and ( max-width: 1550px)
       height: 8rem
       right: -8.9rem
+
+    @media screen and ( max-width: 640px)
+      right: -1.9rem
+      
 
 .slide__button
   position: absolute
@@ -159,18 +164,6 @@
     line-height: 11rem
     display: inline-block
     position: relative
-    &::after
-      content: '.'
-      display: inline-block 
-      font-size: 10.5rem
-      
-    &.-pink
-      &::after
-        color: $color_pink
-
-    &.-blue
-      &::after
-        color: $color_blue
 
   // .elemment-pink
   //   display: inline-block 
@@ -229,14 +222,13 @@
 
   .slider-title
     margin-bottom: 5rem
-    
-    .elemment-pink
+  
       font-size:  6.1rem
       margin-left: -1.3rem
 
     &__outer  
       &_bold
-        line-height: 2.2rem
+        line-height: 5.2rem
 
   .slides
       &.type-4

@@ -38,13 +38,14 @@
 
 
   &__wrap
-    background: url(/img/bg-footer.png) center center no-repeat
+    background: url(/img/bg-footer.jpg) center center no-repeat
     background-size: cover
     min-height: 100vh
     position: relative
 
     @media #{$media-xs-down}
       padding-bottom: 40rem
+      background-position: 76% 14rem
 
   &__content
     padding: 15rem 15.3vw 1rem
@@ -169,4 +170,11 @@
         font-size: 1.8rem
         line-height: 2.1rem
         display: block
+
+  .button-order
+    @media #{$media-xs}
+      display: flex
+      flex-wrap: wrap
+      justify-content: center
+
 
