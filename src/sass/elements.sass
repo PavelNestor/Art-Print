@@ -292,6 +292,9 @@ button, .btn, input[type="button"]
 		width: 7.5rem
 		height: 7.5rem
 		max-width: 7.5rem
+		svg
+			width: 7.5rem
+			height: 7.5rem
 
 .button-social_main
 	background-color: $color-blue
@@ -325,9 +328,19 @@ button, .btn, input[type="button"]
 				opacity: 1
 
 
-	@media screen and (max-width: 1550px)
+	@media screen and (min-width: 1024px) and (max-width: 1550px)
 		width: 7.5rem
 		height: 7.5rem
+		svg
+			width: 7.5rem
+			height: 7.5rem
+
+	@media screen and (max-width: 640px)
+		width: 5rem
+		height: 5rem
+		svg
+			width: 5rem
+			height: 5rem
 
 		
 
@@ -358,9 +371,19 @@ button, .btn, input[type="button"]
 			&:nth-child(2)
 				opacity: 1
 		
-	@media screen and (max-width: 1550px)
+	@media screen and (min-width: 1024px) and (max-width: 1550px)
 		width: 7.5rem
 		height: 7.5rem
+		svg
+			width: 7.5rem
+			height: 7.5rem
+
+	@media screen and (max-width: 640px)
+		width: 5rem
+		height: 5rem
+		svg
+			width: 5rem
+			height: 5rem
 
 .button-social
 	position: fixed
@@ -370,6 +393,8 @@ button, .btn, input[type="button"]
 	height: 7rem
 	transition: .3s bottom, opacity ease
 	z-index: 10
+
+	
 
 	&:hover
 		height: 100%
@@ -385,9 +410,12 @@ button, .btn, input[type="button"]
 				transition: .4s bottom, opacity ease-in-out
 				box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2)
 
-	@media screen and (max-width: 1550px)
+	@media screen and (min-width: 1024px) and (max-width: 1550px)
 		width: 7.5rem
 		height: 7.5rem
+		svg
+			width: 7.5rem
+			height: 7.5rem
 
 		&:hover
 			$count: 0 1 2 3
@@ -399,42 +427,57 @@ button, .btn, input[type="button"]
 					z-index: 2
 					transition: .4s bottom, opacity ease-in-out
 					box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2)
+
+	@media screen and (max-width: 640px)
+		&:hover
+			$count: 0 1 2 3
+
+			@for $i from 1 through length($count) 
+				.button-social_child:nth-child(#{$i}) 
+					bottom: nth($count , $i) * 5.5rem
+					opacity: 1
+					z-index: 2
+					transition: .4s bottom, opacity ease-in-out
+					box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2)
+		
+		width: 5rem
+		height: 5rem
+		svg
+			width: 5rem
+			height: 5rem
 		
 .nav-burger
 	position: absolute
-	top: calc(50% + 2rem)
-	transform: translateY(-50%)
+	top: 50%
+	// transform: translateY(-50%)
 	left: 6rem
 	width: 4rem
 	height: auto
 	padding: 2rem 0
 	display: none
+	svg
+		opacity: 1
+		position: absolute
+		top: 50%
+		transform: translateY(-50%)
+		left: 0
+		transition: opacity .3s ease
 
-	.nav-burger__icon
-		width: 2.88rem
-		height: 0.3rem
-		background-color: $color_text	
-		display: block
-		border-radius: 3rem
-		position: relative
-
-		&::before,
-		&::after
-			content: ''
+		&:nth-child(2)
+			opacity: 0
 			position: absolute
+			top: 50%
+			transform: translateY(-50%)
 			left: 0
-			height: 0.3rem
-			background-color: $color_text	
 
-		&::before
-			width: 4rem
-			top: -1.2rem
-			border-radius: 3rem
+	&:hover
+		transition: opacity .3s ease
+		svg 
+			opacity: 0
+		
+			&:nth-child(2)
+				opacity: 1
 
-		&::after
-			bottom: -1.2rem
-			width: 2rem
-			border-radius: 3rem
 
 	@media (max-width: 1240px)
 		display: inline-block
@@ -445,21 +488,6 @@ button, .btn, input[type="button"]
 		left: auto
 		top: auto
 		transform: none
-
-		.nav-burger__icon
-			width: 3rem
-			height: 0.2rem
-			
-			&::before
-				width: 2.5rem
-				top: -1rem
-
-			&::after
-				bottom: -1rem
-
-			&::before,
-			&::after
-				height: 0.2rem
 
 .strip
 	&-wrapper__top,
