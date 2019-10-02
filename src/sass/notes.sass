@@ -14,9 +14,6 @@
 
     @media screen and (max-width: 1024px)
       min-height: auto
-      
-      
-    
 
     .strip__bottom
       bottom: 4.6%
@@ -133,6 +130,11 @@
       align-items: center
       margin-bottom: 2rem
 
+    @media (min-width: 640px) and (max-width: 800px)
+      display: flex
+      align-items: center
+      margin-bottom: 2rem
+
     &-img
       margin-bottom: 2rem
       height: 70px
@@ -145,6 +147,11 @@
         margin-bottom: 0
         margin-right: 2.7rem
 
+      @media (min-width: 640px) and (max-width: 800px)
+        margin-bottom: 0
+        margin-right: 2.7rem
+
+
     &-wrap
       position: relative
       display: flex
@@ -156,6 +163,10 @@
         margin-bottom: 5rem
         max-width: 100%
 
+      @media (min-width: 654px) and (max-width: 800px)
+        flex-direction: column
+        margin-bottom: 5rem
+        max-width: 100%
 
     &-text
       font-size: 3rem
@@ -184,6 +195,3 @@
 
     @media #{$media-xs}
       display: block
- 
-
- 
