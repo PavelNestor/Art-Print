@@ -62,16 +62,19 @@ $(document).ready(function(){
   const owlCarousel3 = $('#owl-carousel_3');
 
   owlCarousel3.owlCarousel({
-    loop:true,
-    items: 1,
-    nav:false,
+    animateIn: 'fadeIn',
     animateOut: 'fadeOut',
-    dots: true,
     dotData: true,
-    dotsData: true,
+    dots: true,
     dotsContainer: '#carousel-custom-dots',
-    margin: 1
-  })
+    dotsData: true,
+    items: 1,
+    loop:true,
+    margin: 1,
+    nav:false,
+    smartSpeed:450,
+    autoHeight: true
+  });
 
   $('#next-slide__3').click(function(event) {
     event.preventDefault()
