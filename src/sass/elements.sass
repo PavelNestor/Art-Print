@@ -228,31 +228,32 @@ button, .btn, input[type="button"]
 		z-index: 1
 		position: relative
 		font-family: $ralewayBold
+		transition: color .3s ease
 
 
 	&::before
 		content: ''
 		background: linear-gradient(0deg, #EB008B, #EB008B), linear-gradient(180deg, #FFFFFF 0%, #E5E5E5 100%)
-		opacity: 0
 		position: absolute
 		left: 0
 		right: 0
 		bottom: 0
-		width: 100%
-		height: 0
-		transition: opacity, height .3s ease
+		top: 0
+		transition: transform .3s ease
+		z-index: 1
+		transform: scaleY(0)
+		transform-origin: 50% 100%
 
 	&:hover
-		transition: opacity, border .3s ease
+		// transition: opacity, border, color .3s ease
 		border: 1px solid #EB008B
 		span
 			z-index: 2
 			color: #fff
+			transition: color .3s ease
 
 		&::before
-			opacity: 1
-			height: 100%
-			z-index: 1
+			transform: scaleY(1)
 
 	&.__long	
 		max-width: 100%

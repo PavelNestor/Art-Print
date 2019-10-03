@@ -149,17 +149,12 @@ const navbar = document.getElementById('navbar');
 
 var last_scroll = 150;
 
-console.log(last_scroll, 'last_scroll')
 
 
 window.onscroll = function(){
 
 
   if (window.scrollY >= last_scroll) {
-    
-    console.log(scrollY, 'scrollY')
-    console.log(last_scroll, 'last_scroll')
-
 
     navbar.classList.add('hide');
 
@@ -170,3 +165,63 @@ window.onscroll = function(){
 
   last_scroll = window.scrollY;
 }
+
+
+const container = document.querySelector('#carousel-masonry');
+
+const btnPrev = document.querySelector('#prev-slide__masonry');
+
+const btnNext = document.querySelector('#next-slide__masonry');
+
+var elementsArr = Array.from(document.querySelectorAll('#carousel-masonry > *'))
+
+var index = 0;
+
+var lastIndex = elementsArr.length;
+
+const breakpointsArray = [];
+elementsArr.reduce((baseOffset, element) => {
+  const offset = element.clientWidth + 30;
+  const result = baseOffset + offset;
+  breakpointsArray.push(-result);
+  return result;
+}, 0);
+console.log(breakpointsArray);
+
+
+
+btnNext.addEventListener("click", function(event) {
+
+  event.preventDefault();
+
+   container.style.transform = `translateX(${breakpointsArray[index]}px)`;
+
+  index += 1
+
+  if (index === lastIndex) {
+    index = lastIndex - 1
+  }
+  
+});
+
+
+btnPrev.addEventListener("click", function(event) {
+  
+  event.preventDefault();
+
+  var transform =  container.style.transform = `translateX(${breakpointsArray[index]}px)`;
+
+  // console.log(transform)
+
+  index -= 1
+
+  if (index <= 0) {
+    index = 0
+  }
+  
+});
+
+
+
+
+

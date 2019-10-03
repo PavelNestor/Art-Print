@@ -30,30 +30,26 @@
       &._prev
         left: -0.6rem
   
-.owl-carousel_masonry
-  position: relative
-  touch-action: manipulation
-  .owl-stage
-    display: flex
-    padding: 0 0 0 15.6vw 
-  
-
   // @media screen and (max-width: 640px)
   //   padding: 0 0 0 7.5rem 
 
 
 
+.section-masonry
+  overflow: hidden
 
 .columns
   display: flex
   width: 100%
+  padding: 0 15.6vw 0 15.6vw 
+  transition: all .8s ease
   
   .col
-    width: 100%
+    width: 100% 
     height: auto
     // margin-bottom: 1.5rem
     display: inline-block
-    margin-right: 3rem
+    margin-right: 30px
 
     &:last-child
       margin-right: 0
@@ -105,48 +101,44 @@
 
 
   
-  .owl-item
-      &:nth-child(3n + 1)
-        .col
-          width: 30rem
-          min-width: 30rem
-          max-width: 30rem
-          
-          @media screen and (min-width: 640px) and (max-width: 1024px)
-            font-size: .6vw
-            width: 30em 
-            min-width: 30em
-            max-width: 30em
+  .col
+    &:nth-child(3n + 1)
+      width: 30rem
+      min-width: 30rem
+      max-width: 30rem
+        
+      @media screen and (min-width: 640px) and (max-width: 1024px)
+        font-size: .6vw
+        width: 30em 
+        min-width: 30em
+        max-width: 30em
 
-      &:nth-child(3n + 2)
-        .col
-          width: 28rem
-          min-width: 28rem
-          max-width: 28rem
+    &:nth-child(3n + 2)
+      width: 28rem
+      min-width: 28rem
+      max-width: 28rem
 
-          @media screen and (min-width: 640px) and (max-width: 1024px)
-            font-size: .6vw
-            width: 28em
-            min-width: 28em
-            max-width: 28em
+      @media screen and (min-width: 640px) and (max-width: 1024px)
+        font-size: .6vw
+        width: 28em
+        min-width: 28em
+        max-width: 28em
 
-      &:nth-child(3n + 3)  
-        .col
-          width: 49rem
-          min-width: 49rem
-          max-width: 49rem
+    &:nth-child(3n + 3)  
+      width: 49rem
+      min-width: 49rem
+      max-width: 49rem
 
-          @media screen and (min-width: 640px) and (max-width: 1024px)
-            font-size: .6vw
-            width: 49em
-            min-width: 49em
-            max-width: 49em
+      @media screen and (min-width: 640px) and (max-width: 1024px)
+        font-size: .6vw
+        width: 49em
+        min-width: 49em
+        max-width: 49em
 
-      .col
-        @media screen and (max-width: 640px)
-          width: 22.5rem!important
-          min-width: 22.5rem!important
-          max-width: 22.5rem!important
+      @media screen and (max-width: 640px)
+        width: 22.5rem!important
+        min-width: 22.5rem!important
+        max-width: 22.5rem!important
 
 .owl-carousel_masonry 
   &.owl-drag 
