@@ -6,7 +6,7 @@ var DIALOG_OPEN_CLASS = '__open';
 
 $(document).ready(function(){
 
-  // nice select //
+  // nice //
 
   $('select').niceSelect();
 
