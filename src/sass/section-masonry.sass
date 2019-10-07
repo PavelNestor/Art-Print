@@ -21,6 +21,9 @@
     &._next
       right: 1.4%
 
+    @media screen and (max-width: 800px)
+      display: flex
+
     @media screen and (max-width: 640px)
       display: flex
 
@@ -105,40 +108,32 @@
     &:nth-child(3n + 1)
       width: 30rem
       min-width: 30rem
-      max-width: 30rem
         
       @media screen and (min-width: 640px) and (max-width: 1024px)
         font-size: .6vw
         width: 30em 
-        min-width: 30em
-        max-width: 30em
 
     &:nth-child(3n + 2)
       width: 28rem
       min-width: 28rem
-      max-width: 28rem
 
       @media screen and (min-width: 640px) and (max-width: 1024px)
         font-size: .6vw
         width: 28em
-        min-width: 28em
-        max-width: 28em
 
     &:nth-child(3n + 3)  
       width: 49rem
       min-width: 49rem
-      max-width: 49rem
 
       @media screen and (min-width: 640px) and (max-width: 1024px)
         font-size: .6vw
         width: 49em
         min-width: 49em
-        max-width: 49em
 
-      @media screen and (max-width: 640px)
-        width: 22.5rem!important
-        min-width: 22.5rem!important
-        max-width: 22.5rem!important
+    @media screen and (max-width: 640px)
+      width: 22.5rem!important
+      min-width: 22.5rem!important
+
 
 .owl-carousel_masonry 
   &.owl-drag 

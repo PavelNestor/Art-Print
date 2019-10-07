@@ -1,5 +1,6 @@
 "use strict";
 
+
 const _$ = document.querySelector.bind(document);
 var DIALOG_OPEN_CLASS = '__open';
 
@@ -13,7 +14,10 @@ $(document).ready(function(){
     loop: true,
     nav: false,
     items: 1,
-    margin: 5
+    margin: 5,
+    mouseDrag: false, 
+    animateIn: 'fadeIn',
+    animateOut: 'fadeOut'
   });
   
   // Custom Button
@@ -91,7 +95,6 @@ $(document).ready(function(){
     setTimeout(function(){
 
         $('.slider-right').css('display', 'block');
-        // owlCarousel3.trigger('refresh.owl.carousel');
 
       }, 1);
 
@@ -105,7 +108,7 @@ $(document).ready(function(){
     stagePadding: 50,
     items: 5,
     autoWidth: true,
-    margin: 60
+    margin: 300
   })
 
   $('#next-slide__4').click(function(event) {
@@ -145,26 +148,54 @@ $(document).ready(function(){
   });
 })();
 
-const navbar = document.getElementById('navbar');
+// Navbar show on scroll
 
-var last_scroll = 150;
+const navEl = document.getElementById('navbar-scroll');
 
+const height = window.innerHeight;
 
+let lastScrollPosition = 0;
+function showNavOnScroll() {
 
-window.onscroll = function(){
+  const scrollPosition = document.body.getBoundingClientRect().top;
 
+  const isScrollDirectionBackwards = lastScrollPosition < scrollPosition;
+  
+  if (isScrollDirectionBackwards && scrollPosition < -height) {
 
-  if (window.scrollY >= last_scroll) {
-
-    navbar.classList.add('hide');
+    navEl.classList.add('navbar-scroll_active');
 
   } else {
 
-    // navbar.classList.remove('hide');
+    navEl.classList.remove('navbar-scroll_active');
+
   }
 
-  last_scroll = window.scrollY;
+  lastScrollPosition = scrollPosition;
+};
+
+window.addEventListener('scroll', showNavOnScroll);
+
+
+const menu = document.getElementById('menu')
+
+const menuNavBurger = document.getElementById('menu-nav-burger-desc')
+
+const navBurgers = document.querySelectorAll('.nav-burger')
+
+
+for (var i = 0; i < navBurgers.length; i++) {
+  navBurgers[i].addEventListener("click", function() {
+    menu.classList.add('__active');
+  });
 }
+
+menuNavBurger.addEventListener("click", function() {
+
+  menu.classList.remove('__active');
+
+})
+
 
 
 const container = document.querySelector('#carousel-masonry');
@@ -177,46 +208,43 @@ var elementsArr = Array.from(document.querySelectorAll('#carousel-masonry > *'))
 
 var index = 0;
 
-var lastIndex = elementsArr.length;
+var lastIndex = elementsArr.length - 2;
 
 const breakpointsArray = [];
+
 elementsArr.reduce((baseOffset, element) => {
   const offset = element.clientWidth + 30;
   const result = baseOffset + offset;
   breakpointsArray.push(-result);
   return result;
+
 }, 0);
-console.log(breakpointsArray);
-
-
 
 btnNext.addEventListener("click", function(event) {
 
   event.preventDefault();
 
-   container.style.transform = `translateX(${breakpointsArray[index]}px)`;
+  index++
 
-  index += 1
+  var transform = container.style.transform = `translateX(${breakpointsArray[index]}px)`;
 
-  if (index === lastIndex) {
+  if (index >= lastIndex) {
     index = lastIndex - 1
   }
   
 });
 
-
 btnPrev.addEventListener("click", function(event) {
   
   event.preventDefault();
 
+  index--
+
   var transform =  container.style.transform = `translateX(${breakpointsArray[index]}px)`;
-
-  // console.log(transform)
-
-  index -= 1
-
+  
   if (index <= 0) {
-    index = 0
+    index = 0;
+    container.style.transform = `translateX(0)`;
   }
   
 });

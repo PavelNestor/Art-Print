@@ -10,8 +10,8 @@
   display: flex
   z-index: 1
   position: relative
-  padding: 15.3% 15.6vw 12.4% 15.6vw
-  height: 100vh
+  padding: 0 15.6vw 12.4% 15.6vw
+  height: calc(100vh - 15rem)
 
   
 
@@ -23,6 +23,8 @@
     font-family: $playfairBold
     line-height: 100%
     z-index: -1
+    pointer-events: none
+    user-select: none
     letter-spacing: -0.02em
     color: $color_white
 
@@ -56,11 +58,14 @@
     align-items: center
     .image-holder
       margin: 6.4rem -17.2% 0 -18.9%
+      user-select: none
+      pointer-events: none
 
       img
         width: 100%
         height: auto
         object-fit: cover
+        
       
   &.type-1
     .slides-side__right
@@ -101,14 +106,14 @@
 
 
   @media (max-width: 1024px)
-    padding: 23.4rem 13.6vw 7.6rem 15.5vw
+    padding: 0 13.6vw 7.6rem 15.5vw
     &-side__left
       flex: 0 0 100%
     &-side__right
       display: none
 
   @media (max-width: 640px)
-    padding: 25.9vh 2rem 1.7rem 2rem
+    padding: 0 2rem 1.7rem 2rem
       
 .button-order
   margin-bottom: 3.5rem   
@@ -206,9 +211,6 @@
       &_bold
         font-size: 7rem
         line-height: 6rem  
-
-  .slide__button
-    display: none
 
   .slider-title__sub
     padding-left: 0

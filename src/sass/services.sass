@@ -146,6 +146,7 @@
       a.services__card_last
         background-color: #00ADEE
         color: $color_white !important
+
     @media #{$media-xs}
       a:last-child
         display: none
@@ -170,7 +171,8 @@
     font-weight: bold
     justify-content: center
     min-height: 17rem
-    transition: .1s ease-in-out
+    background-image: none
+    transition: .2s background-image ease-in-out
 
     @media screen and ( max-width: 1550px)
       font-size: 2.2rem
@@ -187,21 +189,29 @@
 
     &_transparent
       background: transparent
+      transition: .2s background-image ease-in-out
 
     @media #{$media-xs-up}
       &_red
-        transition: .1s ease-in-out
-
+        transition: .2s background-position-y ease-in-out
+        background-image: url(/img/bg-red.png), url(/img/red.png)
+        background-size: cover
+        background-position-y: 200px;
+        background-repeat: no-repeat;
         &:hover
-          background-image: url(/img/bg-red.png), url(/img/red.png)
-          background-size: cover
+          background-position-y: 0;
+          
+          
 
       &_blue
-        transition: .1s ease-in-out
-
+        transition: .2s background-position-y ease-in-out
+        background-image: url(/img/bg-blue.png), url(/img/blue.png)
+        background-size: cover
+        background-position-y: 200px;
+        background-repeat: no-repeat;
         &:hover
-          background-image: url(/img/bg-blue.png), url(/img/blue.png)
-          background-size: cover
+          background-position-y: 0;
+          
 
     &_first
       flex: 1 1 50%

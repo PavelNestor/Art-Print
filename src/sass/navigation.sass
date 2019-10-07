@@ -1,6 +1,74 @@
-//----------------------------------
-// Default navbar
-//----------------------------------
+
+.navbar-scroll
+    display: flex
+    align-items: center
+    justify-content: space-between
+    top: 0
+    left: 0
+    width: 100%
+    transform: translateY(-100%)
+    position: absolute
+    transition: .2s linear
+    z-index: 10
+    padding: 3rem 6rem
+    background: $color_white
+    transition: transform .2s linear
+
+    @media screen and (max-width: 640px)
+        height: 9rem    
+        padding: 1.9rem 4.8rem 1.9rem 1.9rem
+
+    &_active
+        position: fixed
+        top: -15rem
+        left: 0
+        right: 0
+        height: 15rem
+        z-index: 10
+        transition: transform .2s linear
+        transform: translateY(100%)
+
+        @media screen and (max-width: 640px)
+            height: 9rem  
+            top: -9rem
+
+    .nav-burger
+        display: inline-block
+        position: relative
+        margin-right: 8.4rem
+
+    .navbar__logo
+        max-width: 30rem 
+
+    &__wrap
+        &--left
+            display: flex
+            margin-right: 3rem
+
+        &--right
+            display: flex
+            align-items: center
+
+    .text-cursive
+        margin-right: 4.4rem
+        text-align: right
+        transform: none
+
+        @media screen and (max-width: 1024px)
+            display: none
+
+        &::before
+            display: none
+
+    .button-order
+        margin: 0 5.5rem 0 0 
+        letter-spacing: 0.1em
+        
+        @media screen and (max-width: 726px)
+            display: none
+    
+        
+
 .navbar
     padding: 7.1rem 4.1% 2.9rem 9.6%
     display: flex
@@ -10,20 +78,14 @@
     top: 0
     left: 0
     width: 100%
-    position: fixed
+    position: relative
     z-index: 10
+    height: 15rem
 
-    &.hide
-        padding: 3.1rem 4.1% 2.9rem 9.6%
+    @media (max-width: 640px)
+        height: 9rem
 
-        @media screen and (max-width: 1240px)
-            padding: 3.1rem 4.1% 2.9rem 15.6%
 
-        .nav-burger
-            transform: translateY(-50%)
-
-            @media screen and (max-width: 640px)
-                transform: none
 
     &__logo
         max-width: 38.1rem
@@ -102,19 +164,32 @@
                 min-width: auto
 
     @media (max-width: 1240px) 
-        padding: 7.1rem 7.1% 2.9rem 15rem
+        padding: 3rem 6rem
+        justify-content: flex-start
+
+        .nav-burger
+            margin-right: 2.7rem
+            display: inline-block
+            width: 40px
+
+        .navbar__phone 
+            position: absolute
+            right: 7.1%
+
         &__wrap 
             display: none
 
         &__logo
-            min-width: 16.4rem     
+            min-width: 16.4rem  
+
+    @media (max-width: 710px) 
+        .navbar__phone 
+            display: none
             
     @media (max-width: 640px) 
         justify-content: flex-start
         padding: 1.9rem 4.8rem 1.9rem 1.9rem
         background-color: #fafafa
-        &.hide
-            padding: 1.9rem 4.8rem 1.9rem 1.9rem
 
         &__phone
             display: none
@@ -124,9 +199,93 @@
             
             img
                 max-width: 25rem
-
-        &.hide
-            padding: 1.9rem 4.8rem 1.9rem 1.9rem
                 
 
 
+.menu
+    position: fixed
+    top: 0
+    left: 0
+    width: 100vw
+    height: 100vh
+    pointer-events: none
+    z-index: 1000
+    outline: 1px solid transparent
+    transform: translateY(-100%)
+    background-color: #FAFAFA 
+    transition: transform .4s cubic-bezier(0.6, -0.28, 0.74, 0.05)
+    display: flex
+    align-items: center
+    justify-content: center
+
+    &.__active
+        transform: translateY(0%)
+        visibility: visible
+        transition: transform 0.5s cubic-bezier(0.24, 0.94, 0.64, 1.12)
+        pointer-events: auto
+        backface-visibility: visible
+        
+
+    ul
+        text-align: center
+        position: relative
+        &::before
+            content: ''
+            position: absolute
+            top: -6rem
+            left: 50%
+            transform: translateX(-50%)
+            width: 30px
+            height: 30px
+            background-size: contain
+            background: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='15' cy='15.0001' r='9.04545' stroke='%23383838'/%3E%3Cline x1='15.0455' y1='2.18557e-08' x2='15.0455' y2='30' stroke='black'/%3E%3Cline x1='30' y1='15.0454' x2='-4.37114e-08' y2='15.0454' stroke='black'/%3E%3C/svg%3E%0A") center no-repeat
+
+
+        li
+            margin-bottom: 2rem
+
+    .navbar__link
+        font-size: 6rem
+        font-family: $playfairBold
+        text-transform: inherit
+        color: $color_text
+        letter-spacing: -0.02em
+        transition: color .3s ease
+        line-height: 1
+
+        @media screen and ( max-width: 640px )
+            font-size: 3rem
+            
+        
+        
+        &:hover
+            transition: color .3s ease
+            color: $color_pink
+
+    .strip-wrapper__bottom
+        @media screen and ( max-width: 640px )
+            bottom: 0
+
+    .strip__bottom
+        left: -30%
+        top: 35vh
+        background-color: $color_pink
+        transform: rotate(20deg)
+
+        @media screen and ( max-width: 640px )
+            left: -90%
+
+        &::before
+            top: -6px
+            background-color: $color_blue
+
+    &-nav__burger
+        position: absolute
+        top: 6rem
+        left: 6rem
+
+        @media screen and ( max-width: 640px )
+            top: 1.9rem !important  
+            left: 1.9rem !important
+            position: absolute !important
+    
