@@ -6,7 +6,11 @@ var DIALOG_OPEN_CLASS = '__open';
 
 $(document).ready(function(){
 
+  // nice select //
+
   $('select').niceSelect();
+
+// carousel 1//
 
   const owl = $('#owl-carousel_1');
 
@@ -31,6 +35,7 @@ $(document).ready(function(){
     owl.trigger('prev.owl.carousel');
   });
 
+// carousel 2 //
 
   const owlMasonry = $('#owl-carousel_2');
 
@@ -62,6 +67,7 @@ $(document).ready(function(){
     owlMasonry.trigger('prev.owl.carousel');
   });
 
+// carousel 3 //
 
   const owlCarousel3 = $('#owl-carousel_3');
 
@@ -100,6 +106,8 @@ $(document).ready(function(){
 
   });
 
+// carousel 4 //
+
   const owlCarousel4 = $('#owl-carousel_4');
 
   owlCarousel4.owlCarousel({
@@ -132,6 +140,8 @@ $(document).ready(function(){
 
 });
 
+// modals //
+
 (function () {
   var triggers = Array.from(document.querySelectorAll('[data-modal-open], [data-modal-close]'));
   triggers.forEach(element => {
@@ -148,7 +158,7 @@ $(document).ready(function(){
   });
 })();
 
-// Navbar show on scroll
+// Navbar show on scroll //
 
 const navEl = document.getElementById('navbar-scroll');
 
@@ -176,6 +186,7 @@ function showNavOnScroll() {
 
 window.addEventListener('scroll', showNavOnScroll);
 
+// menu //
 
 const menu = document.getElementById('menu')
 
@@ -196,7 +207,7 @@ menuNavBurger.addEventListener("click", function() {
 
 })
 
-
+// slider masonry //
 
 const container = document.querySelector('#carousel-masonry');
 
@@ -249,7 +260,21 @@ btnPrev.addEventListener("click", function(event) {
   
 });
 
+// anchors scroll //
 
+const anchors = document.querySelectorAll('.navbar__link')
 
+for (let anchor of anchors) {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault()
+    menu.classList.remove('__active');
+    const blockID = anchor.getAttribute('href').substr(1)
+    
+    document.getElementById(blockID).scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    })
+  })
+}
 
 

@@ -7,7 +7,7 @@
   z-index: 10
   overflow: hidden
   overflow-x: hidden
-  overflow-y: scroll
+  overflow-y: auto
   padding: 7.8% 8.5%
   transition: opacity .3s ease-out, transform .2s, visibility .4s
   @extend %scrollbar
@@ -249,9 +249,9 @@
 
   @media screen and (max-width: 1024px)
     flex-direction: column
-    top: 5rem
-    bottom: auto
-    overflow-y: scroll
+    top: 15%
+    bottom: 15%
+    overflow-y: auto
     padding: 11.2% 12.9% 2.6% 7%
 
   @media screen and (max-width: 640px)
