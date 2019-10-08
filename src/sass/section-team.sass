@@ -9,19 +9,22 @@
     overflow: hidden
 
     @media screen and ( max-width: 640px )
-        padding: 27.2% 0 0 0
+        padding: 18.5% 0 0 0
 
     .section-title
         margin-bottom: 7rem
+
+        @media screen and (max-width: 640px)
+            margin-bottom: 4.3rem
 
     .slider-team
         z-index: 2
         
         &__item
-            max-width: 25rem
+            width: 25rem
 
-            @media screen and ( max-width: 1550px )
-                max-width: 31.2rem
+            @media screen and (min-width: 640px) and ( max-width: 1550px )
+                width: 31.2rem
             
             @media screen and (max-width: 640px)
                 width: 25rem
@@ -31,9 +34,12 @@
             height: 25rem
             margin-bottom: 3rem
 
-            @media screen and ( max-width: 1550px )
+            @media screen and (min-width: 640px) and ( max-width: 1550px )
                 max-height: 31.2rem
                 height: 100%
+
+            @media screen and (max-width: 640px)
+                margin-bottom: 3.8rem
 
             img
                 object-position: top
@@ -49,13 +55,14 @@
 
             @media screen and ( max-width: 640px )
                 font-size: 1.8rem
+                margin-bottom: 1.2rem
 
         &__position,
         &__tell,
         &__email
             font-size: 1.4rem
             font-family: $raleway
-            margin-bottom: 0.5rem
+            margin-bottom: 0.8rem
             color: $color_text
             display: block
             word-break: break-word
@@ -70,19 +77,43 @@
             padding-bottom: 7.5rem
 
     .slider-team
-        .owl-stage
+        // margin: 0 15.6vw 
+
+        .slick-list
             // left: 190px 
-            padding: 0 0 0 15.6vw
+            // margin: 0px -38vw 0px -38vw
+            margin: 0 -2.5rem
+            padding: 0
+
+
+        .owl-stage
+            padding: 0 0 0 15.6vw 
+            // margin: 0 -2.5rem
 
             @media screen and ( max-width: 640px )
                 padding: 0 0 0 2rem
+                margin: 0 
+        
+        .owl-item
+            width: 25rem!important
+            // margin: 0 2.5rem !important
+            &:last-of-type
+                margin: 0 !important
+            
+            @media screen and (max-width: 1550px)
+                width: 31.2rem!important
 
-    .owl-carousel.owl-drag .owl-item
-        margin-right: 5rem !important      
+            @media screen and ( max-width: 640px )
+                width: 25rem!important
+                // margin: 0 20px 0 0 !important
+            //     padding: 0 0 0 2rem
 
-        @media screen and ( max-width: 640px )
-            display: flex
-            margin-right: 3rem !important 
+    // .owl-carousel.owl-drag .owl-item
+    //     margin-right: 5rem !important      
+
+    //     @media screen and ( max-width: 640px )
+    //         display: flex
+    //         margin-right: 3rem !important 
 
     .block-order__wrap
         padding: 0 2rem
@@ -131,7 +162,7 @@
 
         @media screen and (max-width: 640px)
             display: flex
-            top: 40%
+            top: 37.3%
 
             &._next
                 right: -0.6rem
@@ -174,7 +205,7 @@
         @media screen and (max-width: 640px)
             width: 100%
             background-color: #fff
-            padding: 7.5rem 0 50.2% 0
+            padding: 5.4rem 0 48.2% 0
 
     .strip__bottom
         background-color: $color_pink

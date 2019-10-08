@@ -222,6 +222,10 @@ button, .btn, input[type="button"]
 	outline: none
 	position: relative
 	transition: opacity, border .3s ease
+
+	@media screen and ( max-width: 640px)	
+			font-size: 1.8rem
+
 	span
 		color: $color_pink
 		z-index: 1
@@ -229,6 +233,10 @@ button, .btn, input[type="button"]
 		font-family: $ralewayBold
 		transition: color .3s ease
 		letter-spacing: 0.06rem
+
+		@media screen and ( max-width: 640px)	
+			font-size: 1.8rem
+			letter-spacing: 0.07rem
 
 
 	&::before
@@ -315,12 +323,17 @@ button, .btn, input[type="button"]
 
 	svg
 		transition: opacity .3s ease
+
 		&:nth-child(2)
 			transition: opacity .3s ease
 			position: absolute
 			opacity: 0
 			top: 0
 			left: 0
+			width: 7rem
+			height: 7rem
+			
+
 	&:hover
 		svg
 			opacity: 0
@@ -359,12 +372,18 @@ button, .btn, input[type="button"]
 
 	svg
 		transition: opacity .3s ease
+		width: 7rem
+		height: 7rem
+
 		&:nth-child(2)
 			transition: opacity .3s ease
 			position: absolute
 			opacity: 0
 			top: 0
 			left: 0
+			width: 7rem
+			height: 7rem
+
 	&:hover
 		svg
 			opacity: 0
