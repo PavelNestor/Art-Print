@@ -166,9 +166,11 @@ $(document).ready(function() {
     loop:false,
     nav:false,
     items: 5,
+    // center: true,
     responsive: {
       0: {
         slideBy: 1,
+        items: 1,
         autoWidth: true,
         margin: 20
       },
@@ -191,6 +193,26 @@ $(document).ready(function() {
       }
     }
 
+  })
+
+  owlCarousel4.on('changed.owl.carousel', function(event) {
+    var index = event.item.index 
+    if (index > 0) {
+      
+    
+      let currS = $('.slider-team .owl-item').eq(index)
+      let currw = currS.width()
+
+      let wWidth = $(window).width()
+
+      let centeredW = ((wWidth - 20) - currw - 20) / 2  
+
+      $(this).find('.owl-stage').css('margin-left', `${centeredW}px`)
+    
+
+      } if (index < 1) {
+        $(this).find('.owl-stage').css('margin-left', `auto`)
+      }
   })
 
   $('#next-slide__4').click(function(event) {
