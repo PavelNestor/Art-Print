@@ -166,6 +166,8 @@ $(document).ready(function() {
     loop:false,
     nav:false,
     items: 5,
+    smartSpeed: 450,
+    
     // center: true,
     responsive: {
       0: {
@@ -195,25 +197,37 @@ $(document).ready(function() {
 
   })
 
-  owlCarousel4.on('changed.owl.carousel', function(event) {
-    var index = event.item.index 
-    if (index > 0) {
+  if($(window).width() < 640 ) {
+    owlCarousel4.on('translate.owl.carousel', function(event) {
+      console.log($(this))
+      var index = event.item.index 
+      if (index > 0) {
+        
       
-    
-      let currS = $('.slider-team .owl-item').eq(index)
-      let currw = currS.width()
+        let currS = $('.slider-team .owl-item').eq(index)
+        let currw = currS.width()
+  
+        let wWidth = $(window).width()
+  
+        let centeredW = ((wWidth - 20) - currw - 20) / 2  
 
-      let wWidth = $(window).width()
+        console.log(centeredW)
 
-      let centeredW = ((wWidth - 20) - currw - 20) / 2  
+        // $(this).find('.owl-stage').css('margin-left', `${centeredW}px`).css('transition', ' all 1s ease !important')
+      
+        $(this).find('.owl-stage').addClass('trigger')
 
-      $(this).find('.owl-stage').css('margin-left', `${centeredW}px`)
-    
+        } else {
 
-      } if (index < 1) {
-        $(this).find('.owl-stage').css('margin-left', `auto`)
-      }
-  })
+          // $(this).find('.owl-stage').css('margin-left', 'auto').css('transition', ' all 1s ease !important')
+
+          $(this).find('.owl-stage').removeClass('trigger')
+
+
+        }
+    })
+  }
+ 
 
   $('#next-slide__4').click(function(event) {
     event.preventDefault()

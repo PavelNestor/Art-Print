@@ -8,6 +8,8 @@
     background-color: $color_white
     overflow: hidden
 
+    // #owl-carousel_4.owl-carousel
+
     @media screen and ( max-width: 640px )
         padding: 18.5% 0 0 0
 
@@ -21,10 +23,15 @@
         z-index: 2
 
         .owl-stage
-            transition: margin-left .4s ease
+            // transition: all 1s ease !important
+
+            &.trigger
+                transition: margin-left .3s ease
+                margin-left: 42.5px
         
         &__item
             width: 25rem
+            // margin-right: 2rem
 
             @media screen and (min-width: 640px) and ( max-width: 1550px )
                 width: 31.2rem
