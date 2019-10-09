@@ -95,7 +95,7 @@ $(document).ready(function() {
     dotsContainer: "#carousel-custom-dots",
     dotsData: true,
     items: 1,
-    loop: true,
+    loop: false,
     pullDrag: false,
     freeDrag: false,
     mouseDrag: false,
@@ -103,6 +103,7 @@ $(document).ready(function() {
     margin: 1,
     nav: false,
     smartSpeed: 450,
+    autoWidth: true,
     autoHeight: true
   });
 
@@ -121,6 +122,17 @@ $(document).ready(function() {
       $(".slider-right").css("display", "block");
     }, 1);
   });
+
+// var timeoutId;
+// var DEBOUNCE_INTERVAL = 2000;
+// window.addEventListener('resize', () => {
+//   clearTimeout(timeoutId);
+//   timeoutId = setTimeout(() => {
+//     // owlCarousel3.trigger('refresh.owl.carousel');
+
+//     });
+//   }, DEBOUNCE_INTERVAL);
+// });
 
   // carousel 4 //
 
