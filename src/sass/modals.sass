@@ -6,7 +6,7 @@
   position: relative
   z-index: 10
   overflow: hidden
-  padding: 7.8% 8.5%
+  padding: 7.8% 7.8% 7.8% 8.5%
   transition: opacity .3s ease-out, transform .2s, visibility .4s
   @extend %scrollbar
 
@@ -24,14 +24,16 @@
     background: #fff
     position: relative
     transition: opacity .3s ease-out, transform .5s, visibility .4s, outline .4s
-    padding: 10rem 15.8% 13.8rem 8%
+    padding: 10rem 15.5% 13.8rem 8.5%
     box-shadow: 0 .4rem 5rem rgba(0, 0, 0, 0.25)
 
     @media #{$media-lg-max-down}
       padding: 5rem
+      padding-top: 10rem
 
     @media #{$media-xs-down}
       padding: 2rem
+      padding-top: 4rem
 
 .close-modal
   background-size: 100%
@@ -62,18 +64,24 @@
     flex-direction: column
 
   .text-cursive
-    margin-bottom: 6.5rem
+    margin-bottom: 7.3rem
     text-align: right
+    font-size: 5rem
+    line-height: 3.5rem
+    padding-left: 0
 
     @media #{$media-xs-down}
       padding: 0
+
+    @media #{$media-sm-plus}
+      font-size: 4.5rem
 
     &:before
       content: none
 
   &__left
     flex: 0 0 50%
-    margin-right: 11.3rem
+    margin-right: 12.8rem
 
     @media #{$media-sm-plus}
       margin-right: 0
@@ -83,21 +91,22 @@
 
   &__right
     width: 100%
+    padding-top: 1rem
 
   &__title
     font-family: PlayfairDisplay-Bold
     font-weight: bold
     font-size: 13rem
     line-height: 10rem
-    letter-spacing: -0.02rem
+    letter-spacing: -0.5rem
     color: #383838
-    margin-bottom: 8rem
+    margin-bottom: 7.5rem
     position: relative
     &::before
       content: ''
       position: absolute
       top: -5.7rem
-      left: 0
+      left: 1.7rem
       width: 30px
       height: 30px
       background-size: contain
@@ -133,13 +142,17 @@
     font-family: Raleway
     font-size: 2.4rem
     line-height: 1.5rem
-    margin-bottom: 3rem
+    margin-bottom: 2.8rem
 
     @media #{$media-xs-down}
       line-height: 1.1
 
+    @media #{$media-sm-plus-down}
+      font-size: 2rem
+
     &_bold
       font-family: Raleway-Bold
+      font-size: 3rem
 
   &__issue
     background: linear-gradient(180deg, #FFFFFF 0%, #E5E5E5 100%)
@@ -161,12 +174,12 @@
     left: -11%
     pointer-events: none
 
-    @media #{$media-sm-plus}
-      top: -220px
+    @media #{$media-lg-max-down}
+      top: -40rem
 
   &__line-bot
     position: absolute
-    bottom: -37vh
+    bottom: -30rem
     right: -15rem
     pointer-events: none
 
@@ -182,10 +195,10 @@
       line-height: 4.5rem
       letter-spacing: -0.04em
       color: #383838
-      margin-bottom: 3rem
+      margin-bottom: 2.7rem
 
     &__select
-      margin-bottom: 3rem
+      margin-bottom: 1.8rem
 
 .nice-select
   width: 100%
@@ -194,7 +207,8 @@
   border-radius: 0
   color: #828282
   font-size: 2.4rem
-  padding-left: .5rem
+  padding-left: 0
+  line-height: 1.7
 
   @media #{$media-xs-down}
     font-size: 2rem
@@ -298,6 +312,7 @@
   &__right
     flex: 0 0 50%
     padding: 5.5% 0 0 12.5%
+    padding-top: 1rem
 
     @media screen and (max-width: 1024px)
       flex: auto
@@ -341,9 +356,9 @@
       margin-bottom: 3rem
 
   .button-order
-    // max-width: 17rem
     font-size: 1.4rem
     letter-spacing: -0.03em
+    margin-top: 1.5rem
 
     @media screen and (max-width: 1550px)
       font-size: 1.8rem
