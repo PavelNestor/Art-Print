@@ -140,19 +140,33 @@
 
     &-img
       margin-bottom: 2rem
-      height: 70px
-      width: 70px
-      // background: url(/img/icons/pdf.png) center center no-repeat
-      display: block
-      min-width: 70px
+      display: flex
+      flex-direction: column
+      
+      svg 
+        height: 70px
+        width: 70px
+        min-width: 70px
+        display: inline-block
+        margin-bottom: 1.9rem
+
+        @media (min-width: 640px) and (max-width: 800px)
+          margin-right: 2.7rem
+
+        @media #{$media-xs}
+          margin-right: 2.7rem
 
       @media #{$media-xs}
         margin-bottom: 0
-        margin-right: 2.7rem
+        flex-direction: row
+        
+        
 
       @media (min-width: 640px) and (max-width: 800px)
         margin-bottom: 0
-        margin-right: 2.7rem
+        flex-direction: row
+
+        
 
 
     &-wrap
@@ -177,7 +191,8 @@
       line-height: 3.5rem
 
       @media #{$media-xs}
-         font-size: 2rem
+        font-size: 2rem
+        line-height: 3rem
 
   &__line
     position: absolute

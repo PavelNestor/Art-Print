@@ -23,6 +23,7 @@ $(document).ready(function() {
     touchDrag: false,
     animateIn: "fadeIn",
     animateOut: "fadeOut",
+    fade: true,
     smartSpeed: 450,
     responsive: {
       0: {
@@ -163,6 +164,7 @@ $(document).ready(function() {
   const owlCarousel4 = $('#owl-carousel_4');
 
   owlCarousel4.owlCarousel({
+    
     loop:false,
     nav:false,
     items: 4,
