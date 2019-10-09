@@ -48,11 +48,14 @@
       background-position: 76% 14rem
 
   &__content
-    padding: 20.8rem 15.3vw 1rem
+    padding: 20.8rem 15.3vw 5vw 15.3vw
     position: relative
     width: 100%
     display: flex
     flex-direction: column
+
+    @media screen and ( max-width: 1024px )
+      padding: 20.8rem 15.3vw 10vw 15.3vw
 
     @media #{$media-xs}
       padding: 6.7rem 2rem 1rem 2rem
@@ -175,3 +178,11 @@
       display: flex
       flex-wrap: wrap
       justify-content: center
+
+  .strip__bottom
+    left: -34%
+
+    @media screen and ( max-width: 1024px )
+
+      left: -37%
+      
