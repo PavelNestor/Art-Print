@@ -165,7 +165,7 @@ $(document).ready(function() {
   owlCarousel4.owlCarousel({
     loop:false,
     nav:false,
-    items: 5,
+    items: 4,
     smartSpeed: 450,
     
     // center: true,
@@ -182,6 +182,18 @@ $(document).ready(function() {
         autoWidth: false,
         margin: 20
       },
+      820: {
+        slideBy: 1,
+        items: 2,
+        autoWidth: false,
+        margin: 20
+      },
+      920: {
+        slideBy: 1,
+        items: 4,
+        autoWidth: false,
+        margin: 20
+      },
       1024: {
         items: 4,
         slideBy: 1,
@@ -189,7 +201,7 @@ $(document).ready(function() {
         margin: 20
       },
       1440: {
-        slideBy: 4,
+        slideBy: 5,
         autoWidth: false,
         margin: 50
       }
@@ -199,30 +211,30 @@ $(document).ready(function() {
 
   if($(window).width() < 640 ) {
     owlCarousel4.on('translate.owl.carousel', function(event) {
-      console.log($(this))
-      var index = event.item.index 
+
+      let contO = $(this).find('.owl-stage')
+
+      let index = event.item.index 
+
       if (index > 0) {
         
-      
         let currS = $('.slider-team .owl-item').eq(index)
+
         let currw = currS.width()
   
         let wWidth = $(window).width()
   
         let centeredW = ((wWidth - 20) - currw - 20) / 2  
-
-        console.log(centeredW)
-
-        // $(this).find('.owl-stage').css('margin-left', `${centeredW}px`).css('transition', ' all 1s ease !important')
       
-        $(this).find('.owl-stage').addClass('trigger')
+        $(this).addClass('trigger')
 
-        } else {
+        contO.css('--margin',`${centeredW}px`)
 
-          // $(this).find('.owl-stage').css('margin-left', 'auto').css('transition', ' all 1s ease !important')
+      } else {
 
-          $(this).find('.owl-stage').removeClass('trigger')
+        $(this).removeClass('trigger')
 
+        contO.css('--margin','0')
 
         }
     })
@@ -342,7 +354,6 @@ if(window.outerWidth <= 640) {
   var lastIndex = elementsArr.length - 4;
 
 }
-console.log(lastIndex)
 
 btnNext.addEventListener("click", function(event) {
   event.preventDefault();
@@ -350,7 +361,6 @@ btnNext.addEventListener("click", function(event) {
   
 
   var transform = (container.style.transform = `translateX(${breakpointsArray[index]}px)`);
-  console.log(transform)
 
   index++;
 
@@ -359,16 +369,13 @@ btnNext.addEventListener("click", function(event) {
   }
 });
 
-console.log(breakpointsArray, elementsArr)
 
 btnPrev.addEventListener("click", function(event) {
   event.preventDefault();
 
   index--;
 
-  var transform = (container.style.transform = `translateX(${breakpointsArray[index]}px)`);
-  console.log(transform)
-  
+  var transform = (container.style.transform = `translateX(${breakpointsArray[index]}px)`);  
 
   if (index <= 0) {
     index = 0;
