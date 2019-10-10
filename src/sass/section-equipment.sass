@@ -21,19 +21,22 @@
       width: 50.5%
 
       @media screen and (max-width: 1440px)
-        padding: 4.2% 6vw 0 15.6vw
+        padding: 4.2% 6vw 4.2% 15.6vw
 
       @media screen and (max-width: 1024px)
         padding: 6.2% 15.6vw
         flex: 0 0 100%
 
       @media screen and (max-width: 640px)
-        padding: 19.2% 2rem 43.6% 2rem
+        padding: 19.2% 2rem 40% 2rem
 
     &-right
       flex: 0 0 49.5%
       background-color: #FFF
       width: 49.5%
+
+      
+
 
       @media screen and (max-width: 1024px)
         width: 100%
@@ -46,6 +49,13 @@
         z-index: 20
         display: none
         overflow-y: auto
+
+        
+        &.slider-hidden
+          display: none
+
+        &.slider-visible
+          display: block
 
   .section-title
     color: $color_white
@@ -134,7 +144,7 @@
     .row
       display: flex
       width: auto
-      max-height: 49.3rem
+      // max-height: 49.3rem
       margin-bottom: 1.1rem
       justify-content: space-between
       &:last-of-type
