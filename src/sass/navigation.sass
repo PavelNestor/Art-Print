@@ -37,12 +37,16 @@
         display: inline-block
         position: relative
         margin-right: 8.4rem
+        padding: 2rem 1.9rem
 
         @media screen and (max-width: 640px)
             margin-right: 4.7rem
+            width: 3.5rem
+            svg
+                width: 3.5rem
 
     .navbar__logo
-        max-width: 30rem 
+        max-width: 30rem
 
         img
             min-width: 19.7rem
@@ -101,9 +105,7 @@
         height: auto
         width: 100%
 
-        picture,
-        img,
-        source
+        svg
             object-fit: cover
             width: 100%
             height: 100%
@@ -173,8 +175,8 @@
         &__logo
             max-width: 39.1rem
 
-            img
-                max-width: 39.1rem
+            svg
+                max-width: 29.1rem
                 min-width: auto
 
     @media (max-width: 1240px) 
@@ -196,6 +198,11 @@
         &__logo
             min-width: 16.4rem  
 
+            @media (max-width: 1024px) 
+                max-width: 23.1rem
+                
+                svg
+                    min-width: 20rem
 
     @media (max-width: 710px) 
         .navbar__phone 
@@ -203,18 +210,23 @@
             
     @media (max-width: 640px) 
         justify-content: flex-start
-        padding: 1.9rem 4.8rem 1.9rem 1.9rem
+        padding: 1.9rem 4.8rem 1.2rem 1.9rem
         background-color: #fafafa
 
         &__phone
             display: none
         
         &__logo
-            max-width: 100%   
+            max-width: 15rem  
+            min-width: 12rem
             
-            img
-                min-width: 19.7rem
-                max-width: 13rem
+            svg
+                min-width: 12rem
+                max-width: 15rem
+        
+        .nav-burger
+            svg
+                width: 3.5rem
                 
 
 

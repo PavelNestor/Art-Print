@@ -8,7 +8,7 @@ html
 
 	@media screen and ( max-width: 1900px)
 		font-size: 0.52vw
-		
+
 	@media screen and ( max-width: 1540px)
 		font-size: 7.4px
 
@@ -16,15 +16,13 @@ html
 		font-size: .6vw
 
 	@media (max-width: 1024px)
-		font-size: 8px	
+		font-size: 8px
 
 	@media (max-width: 640px)	
 		font-size: 10px
 
 	@media (max-width: 360px)
 		font-size: 2.6vw
-	
-
 
 body
 	font: $font
@@ -40,12 +38,11 @@ body
 			height: 100%
 			width: 100%
 
-
-strong 
+strong
 	font-weight: bold
 	font-family: $ralewayBold
 	font-size: 2rem
-	
+
 a
 	border: none
 	outline: none
@@ -56,7 +53,6 @@ p
 	font-size: 2rem
 	font-family: $raleway
 	color: $color_text
-
 
 img
 	border: none
@@ -136,9 +132,8 @@ input
 input[type='number']
 	&::-webkit-outer-spin-button, &::-webkit-inner-spin-button
 		-webkit-appearance: none
-	-moz-appearance: textfield
+		-moz-appearance: textfield
 //	END INPUTS & TEXTAREA
-
 
 // GRID
 .container
@@ -184,9 +179,9 @@ input[type='number']
 
 	.img
 		background:
-			position: 50% 50%
-			repeat: no-repeat
-			size: cover
+		position: 50% 50%
+		repeat: no-repeat
+		size: cover
 		height: 100%
 		position: absolute
 		left: 0
@@ -233,7 +228,6 @@ input[type='number']
 		display: table
 		clear: both
 
-
 .section-title
 	max-width: 72rem
 	font-family: $playfairBold
@@ -250,7 +244,6 @@ input[type='number']
 
 		@media screen and ( max-width: 640px )
 			top: -2.1rem
-			
 
 	&__outer_bold
 		font-size: 13rem
@@ -261,8 +254,7 @@ input[type='number']
 
 		@media screen and ( max-width: 1024px )
 			font-size: 11rem
-			
-	
+
 	&__outer_fit
 		font-size: 6rem
 		letter-spacing: -0.04em
@@ -287,7 +279,7 @@ input[type='number']
 			line-height: 6rem
 
 .elemment-pink
-	color: $color_pink	
+	color: $color_pink
 
 .elemment-blue
 	color: $color_blue
@@ -339,49 +331,158 @@ input[type='number']
 
 		&.__big
 			font-size: 30rem
-		
 
 .__mobile
 	display: none
 	@media screen and ( max-width: 640px)
 		display: block
-		
 
 .preloader
-  background: linear-gradient(360deg, $color_yellow 0%, $color_yellow 100%)
-  bottom: 0
-  left: 0
-  position: fixed
-  right: 0
-  top: 0
-  z-index: 9999
-  transition: transform 400ms
+	background: linear-gradient(360deg, $color_yellow 0%, $color_yellow 100%)
+	bottom: 0
+	left: 0
+	position: fixed
+	right: 0
+	top: 0
+	z-index: 9999
+	transition: transform 400ms
 
-  &::after
-    background: center no-repeat url('/img/logo.svg')
-    content: ''
-    position: absolute
-    right: 0
-    top: 0
-    bottom: 0
-    left: 0
-    z-index: 99999
+	&::after
+		background: center no-repeat url('/img/logo.svg')
+		content: ''
+		background-size: contain
+		position: absolute
+		right: 0
+		top: 0
+		bottom: 0
+		left: 0
+		z-index: 99999
 
-  &_loaded
-    transform: translateX(100%)
-    pointer-events: none
+		@media screen and ( max-width: 640px )
 
-.preloaderBar 
-  background: $color_yellow
-  left: 0
-  position: absolute
-  right: 0
-  top: 0
-  bottom: 0
-  width: 0
+			width: 70%
+			left: 50%
+			transform: $translateX
+			
+
+	&_loaded
+		transform: translateX(100%)
+		pointer-events: none
+
+.preloaderBar
+	background: $color_yellow
+	left: 0
+	position: absolute
+	right: 0
+	top: 0
+	bottom: 0
+	width: 0
 
 .cache-images
-  position: absolute
-  opacity: .01
-  height: 0
-  width: 0
+	position: absolute
+	opacity: .01
+	height: 0
+	width: 0
+
+.bird
+	&__arrow-back
+		animation: arrow-back 10s linear 0s infinite normal both
+		transform-origin: 20% 55%
+
+	&__arrow-front
+		animation: arrow-front 10s linear 0s infinite normal both
+		transform-origin: 19% 55%
+
+	&__tail
+		animation: tail 10s linear 0s infinite normal both
+		transform-origin: 18% 47%
+
+	&__body
+		animation: body 10s linear 0s infinite normal both
+
+	&__eye
+		animation: eye 10s linear 0s infinite normal both
+		transform: scaleY(0)
+		transform-origin: 0 24%
+
+@keyframes tail
+	form
+		transform: rotate(0deg)
+
+	47%
+		transform: rotate(0deg)
+
+	48%
+		transform: rotate(6deg)
+
+	49%
+		transform: rotate(0deg)
+
+	50%
+		transform: rotate(6deg)
+
+	51%
+		transform: rotate(0deg)
+
+	to
+		transform: rotate(0deg)
+
+@keyframes arrow-back
+	form
+		transform: rotate(0deg)
+
+	50%
+		transform: rotate(0deg)
+
+	51%
+		transform: rotate(-10deg)
+
+	52%
+		transform: rotate(0deg)
+
+	53%
+		transform: rotate(-10deg)
+
+	54%
+		transform: rotate(0deg)
+
+	to
+		transform: rotate(0deg)
+
+@keyframes arrow-front
+	form
+		transform: rotate(0deg)
+
+	46%
+		transform: rotate(0deg)
+
+	47%
+		transform: rotate(-10deg)
+
+	48%
+		transform: rotate(0deg)
+
+	49%
+		transform: rotate(-10deg)
+
+	50%
+		transform: rotate(0deg)
+
+	to
+		transform: rotate(0deg)
+
+@keyframes eye
+	form
+		transform: scaleY(0)
+
+	50%
+		transform: scaleY(0)
+
+	51%
+		transform: scaleY(1)
+
+	52%
+		transform: scaleY(0)
+
+	to
+		transform: scaleY(0)
