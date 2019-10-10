@@ -350,7 +350,7 @@ input[type='number']
 	&::after
 		background: center no-repeat url('/img/logo.svg')
 		content: ''
-		background-size: contain
+		
 		position: absolute
 		right: 0
 		top: 0
@@ -359,7 +359,7 @@ input[type='number']
 		z-index: 99999
 
 		@media screen and ( max-width: 640px )
-
+			background-size: contain
 			width: 70%
 			left: 50%
 			transform: $translateX
