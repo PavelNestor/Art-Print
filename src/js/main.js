@@ -103,7 +103,7 @@ $(document).ready(function() {
     margin: 1,
     nav: false,
     smartSpeed: 450,
-    autoWidth: true,
+    // autoWidth: true,
     autoHeight: true
   });
 
