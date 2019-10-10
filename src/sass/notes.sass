@@ -1,16 +1,36 @@
 .notes
 
+
   &__wrap
     background: $color_white
     display: flex
     font-family: Raleway
     justify-content: center
     min-height: 100vh
-    
     padding: 3rem 4rem 3rem 2rem
     position: relative
     overflow: hidden
     background: #FFFFFF
+
+    .strip-wrapper__top 
+      top: 0
+      right: 0
+      overflow: hidden
+      width: 100%
+      height: 100%
+
+    .strip__top
+      top: 42%
+      z-index: 10
+      right: -15%
+      left: auto
+      display: block
+
+      @media (max-width: 1199px)
+        .strip__top
+          display: block
+          top: 25%
+
 
     @media screen and (max-width: 1024px)
       min-height: auto

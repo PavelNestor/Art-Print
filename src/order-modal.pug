@@ -3,6 +3,7 @@ extends partials/layout-order
 block content
 
     #modal-order.app-dialog
+        img.modal__logo(src="/img/modal/logo.png", alt="logo")
         .app-dialog-content
             a(href="/").close-modal
             .modal
@@ -12,8 +13,9 @@ block content
                     .text-cursive 
                         | Просчитайте заказ у нас 
                         br 
-                        | и 
-                        .elemment-pink получите скидку!
+                        span.pink-title
+                            | и 
+                            .elemment-pink получите скидку!
 
                     .modal__text Цены являются приблизительными, для уточнения обращайтесь к менеджеру по телефонам.
 
@@ -25,85 +27,85 @@ block content
                             span.modal__order-item.modal__order-item_bold 0 грн./екз
                         .modal__order-item Вес заказа: 
                             span.modal__order-item.modal__order-item_bold 0 кг
-                        //- button.modal__issue оформить заказ
-                        button.button-order.__long 
+                        button#submit-main-form.button-order.__long
                             span оформить заказ
 
                 .modal__right.form
+                    form#main-form-modal
+                        .form__title калькулятор печати
+                        div.select__wrap
+                            select#formCalc1.form__select.form__select1( required )
+                                option(value="" data-display='Выберите продукцию') Выберите продукцию
+                                option(value='1') 1
+                                option(value='2') 2
+                                option(value='3') 3
+                            select#formCalc2.form__select.form__select2( required )
+                                option(value="" data-display='Формат готового изделия') Формат готового изделия
+                                option(value='1') 1
+                                option(value='2') 2
+                                option(value='3') 3
+                            select#formCalc3.form__select.form__select3( required )
+                                option(value="" data-display='Вид') Вид
+                                option(value='1') 1
+                                option(value='2') 2
+                                option(value='3') 3
+                            select#formCalc4.form__select.form__select4( required )
+                                option(value="" data-display='Тип скрепления') Тип скрепления
+                                option(value='1') 1
+                                option(value='2') 2
+                                option(value='3') 3
+                        //- | Заказать Цветопробу
+                        .form__title блок
+                        div.select__wrap
+                            select#formCalc5.form__select.form__select5( required )
+                                option(value="" data-display='Количество страниц в блоке') Количество страниц в блоке
+                                option(value='1') 1
+                                option(value='2') 2
+                                option(value='3') 3
+                            select#formCalc6.form__select.form__select6( required )
+                                option(value="" data-display='Цветность') Цветность
+                                option(value='1') 1
+                                option(value='2') 2
+                                option(value='3') 3
+                            select#formCalc7.form__select.form__select7( required )
+                                option(value="" data-display='Бумага') Бумага
+                                option(value='1') 1
+                                option(value='2') 2
+                                option(value='3') 3
+                            select#formCalc8.form__select.form__select8( required )
+                                option(value="" data-display='Покрытие') Покрытие
+                                option(value='1') 1
+                                option(value='2') 2
+                                option(value='3') 3
 
-                    .form__title калькулятор печати
+                        .form__title обложка
+                        div.select__wrap
+                            select#formCalc9.form__select.form__select9( required )
+                                option(value="" data-display='Количество страниц в блоке') Количество страниц в блоке
+                                option(value='1') 1
+                                option(value='2') 2
+                                option(value='3') 3
+                            select#formCalc10.form__select.form__select10( required )
+                                option(value="" data-display='Цветность') Цветность
+                                option(value='1') 1
+                                option(value='2') 2
+                                option(value='3') 3
+                            select#formCalc11.form__select.form__select11( required )
+                                option(value="" data-display='Бумага') Бумага
+                                option(value='1') 1
+                                option(value='2') 2
+                                option(value='3') 3
+                            select#formCalc12.form__select.form__select12( required )
+                                option(value="" data-display='Покрытие') Покрытие
+                                option(value='1') 1
+                                option(value='2') 2
+                                option(value='3') 3
 
-                    select.form__select
-                        option(data-display='Выберите продукцию') Выберите продукцию
-                        option(value='1') 1
-                        option(value='2') 2
-                        option(value='3') 3
-                    select.form__select
-                        option(data-display='Формат готового изделия') Формат готового изделия
-                        option(value='1') 1
-                        option(value='2') 2
-                        option(value='3') 3
-                    select.form__select
-                        option(data-display='Вид') Вид
-                        option(value='1') 1
-                        option(value='2') 2
-                        option(value='3') 3
-                    select.form__select
-                        option(data-display='Тип скрепления') Тип скрепления
-                        option(value='1') 1
-                        option(value='2') 2
-                        option(value='3') 3
-                    //- | Заказать Цветопробу
+                        .form__title количество экземпляров
+                        div#form-input-wrap
+                            input#form-input.form__input(type="number", name="count")
 
-                    .form__title блок
-
-                    select.form__select
-                        option(data-display='Количество страниц в блоке') Количество страниц в блоке
-                        option(value='1') 1
-                        option(value='2') 2
-                        option(value='3') 3
-                    select.form__select
-                        option(data-display='Цветность') Цветность
-                        option(value='1') 1
-                        option(value='2') 2
-                        option(value='3') 3
-                    select.form__select
-                        option(data-display='Бумага') Бумага
-                        option(value='1') 1
-                        option(value='2') 2
-                        option(value='3') 3
-                    select.form__select
-                        option(data-display='Покрытие') Покрытие
-                        option(value='1') 1
-                        option(value='2') 2
-                        option(value='3') 3
-
-                    .form__title обложка
-
-                    select.form__select
-                        option(data-display='Количество страниц в блоке') Количество страниц в блоке
-                        option(value='1') 1
-                        option(value='2') 2
-                        option(value='3') 3
-                    select.form__select
-                        option(data-display='Цветность') Цветность
-                        option(value='1') 1
-                        option(value='2') 2
-                        option(value='3') 3
-                    select.form__select
-                        option(data-display='Бумага') Бумага
-                        option(value='1') 1
-                        option(value='2') 2
-                        option(value='3') 3
-                    select.form__select
-                        option(data-display='Покрытие') Покрытие
-                        option(value='1') 1
-                        option(value='2') 2
-                        option(value='3') 3
-
-                    .form__title количество экземпляров
-
-                    input(type="number", name="count").form__input
+                        button#form-submit(type="submit" style="display: none")
 
                     .mobile-order__calc
 
@@ -117,7 +119,10 @@ block content
                         //- button.modal__issue оформить заказ
                         button.button-order.__long 
                             span оформить заказ
+        .strip-wrapper__bottom
+            .strip.strip__bottom
+            //-     img.modal__line-bot(src="/img/modal/line-bot.png", alt="line")
+            //- img.modal__line-top(src="/img/modal/line-top.png", alt="line")
 
-                img.modal__line-bot(src="/img/modal/line-bot.png", alt="line")
-            img.modal__line-top(src="/img/modal/line-top.png", alt="line")
-
+    .strip-wrapper__top
+      .strip.strip__top
