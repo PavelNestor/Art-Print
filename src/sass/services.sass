@@ -1,3 +1,7 @@
+$white-card: #FFFFFF;
+$pink: #EB008B;
+$blue: #00ADEE;
+
 .services
 
   &__wrap
@@ -20,7 +24,7 @@
           max-width: 35.7rem
 
       .section-back__content
-        color: #fff
+        color: $white-card
         font-size: 20rem
         bottom: -4rem
         left: -2rem
@@ -49,9 +53,15 @@
   &__line
     left: 0
     position: absolute
-    top: 16%
+    top: 15%
     z-index: 0
     pointer-events: none
+
+    @media (max-width: 1850px)
+      top: 10%
+
+    @media (max-width: 1700px)
+      top: 0
 
     @media #{$media-md-des-down}
       display: none
@@ -65,6 +75,10 @@
 
     @media #{$media-md-des-down}
       display: block
+
+    @media #{$media-xs}
+      top: 4.7rem
+      
 
   &__title
     font-size: 13rem
@@ -83,6 +97,9 @@
       line-height: 9rem
       top: -1.6rem
       margin-top: 1.9rem
+      letter-spacing: -0.3rem
+
+
 
   &__text
     font-size: 6rem
@@ -92,32 +109,50 @@
     &:before
       content: ''
       position: absolute
-      top: -2.7rem
-      left: 0
+      top: -0.7rem
+      left: 6px
       width: 30px
       height: 30px
       background-size: contain
       background: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='15' cy='15.0001' r='9.04545' stroke='%23383838'/%3E%3Cline x1='15.0455' y1='2.18557e-08' x2='15.0455' y2='30' stroke='black'/%3E%3Cline x1='30' y1='15.0454' x2='-4.37114e-08' y2='15.0454' stroke='black'/%3E%3C/svg%3E%0A") center no-repeat
+
+      @media #{$media-xs}
+        top: -1rem
+        left: 0
 
 
     @media #{$media-xs}
       font-size: 3.6rem
       letter-spacing: -0.1rem
       line-height: 3.6rem
-  
+
+    @media #{$media-xs-up}
+      margin-top: -3px
+      margin-left: 7px
+      letter-spacing: -1.2px
+
   &__card-list
     display: flex
     flex-wrap: wrap
 
     @media #{$media-xs}
+      letter-spacing: -0.11rem
+
+    @media #{$media-xs-up}
+      a:nth-child(1)
+        background-color: transparent
+        color: $color_white
+
+    @media #{$media-xs}
       a:nth-child(2)
-        background-color: #00ADEE
-        color: $color_white !important
+        background-color: $blue
+        color: $color_white
 
     @media #{$media-xs}
       a:nth-child(3)
-        background-color: #EB008B
-        color: $color_white !important
+        background-color: $pink
+        color: $color_white
+
 
     @media #{$media-xs}
       a:nth-child(5n)
@@ -129,25 +164,25 @@
 
     @media #{$media-xs}
       a:nth-child(7n)
-        background-color: #FFFFFF
+        background-color: $white-card
     
     @media #{$media-xs}
       a:nth-child(8n)
-        background-color: #FFFFFF
+        background-color: $white-card
 
       a:nth-child(9n)
-        background-color: #EB008B
-        color: $color_white !important
+        background-color: $pink
+        color: $color_white
 
     @media #{$media-xs}
       a:nth-child(10n)
-        background-color: #00ADEE
-        color: $color_white !important
+        background-color: $blue
+        color: $color_white
 
     @media #{$media-xs}
       a.services__card_last
-        background-color: #00ADEE
-        color: $color_white !important
+        background-color: $blue
+        color: $color_white
 
     @media #{$media-xs}
       a:last-child
@@ -163,7 +198,7 @@
 
   &__card
     align-items: center
-    background-color: #FFFFFF
+    background-color: $white-card
     box-shadow: inset 0 0 0px 1px $color_white
     color: $color_text
     display: flex
@@ -175,6 +210,18 @@
     min-height: 17rem
     background-image: none
     transition: .2s background-image ease-in-out
+
+    &:nth-child(3n+3)
+      background-color: $color_white
+
+    &:nth-child(11n)
+      background-color: $color_white
+
+    &:nth-child(14n)
+      background-color: $color_white
+
+    &:nth-child(15n)
+      background-color: $white-card
 
     @media screen and ( max-width: 1550px)
       font-size: 2.2rem
