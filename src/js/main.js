@@ -99,7 +99,7 @@ $(document).ready(function() {
     };
 
     const text = input3()
-    alert(name && mail && text)
+
     if (name && mail && text) {
       event.preventDefault()
       $('#form-footer-submit').trigger('click');
