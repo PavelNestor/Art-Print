@@ -104,6 +104,9 @@
     @media #{$media-sm-plus}
       font-size: 4.5rem
 
+    @media (max-width: 450px)
+      font-size: 3.5rem;
+
     &:before
       content: none
 
@@ -121,6 +124,10 @@
     position: absolute
     top: 29px
     margin-left: 20px
+
+    @media (max-width: 450px)
+      margin-left: 0
+      width: 90%
 
   &__right
     width: 100%
