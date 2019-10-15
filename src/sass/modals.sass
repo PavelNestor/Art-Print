@@ -16,9 +16,16 @@
 
   @media #{$media-lg-max-down}
     padding: 7rem
+    padding-top: 17rem
 
   @media #{$media-xs-down}
     padding: 1rem
+
+  @media #{$media-sm-plus}
+    padding-top: 20rem
+    
+  @media #{$media-xs}
+    padding-top: 14rem
 
   &-content
     background: #fff
@@ -89,6 +96,11 @@
     @media (min-width: 865px) and (max-width: 1200px)
       columns: 2
 
+  &__logo
+    position: absolute
+    top: 29px
+    margin-left: 20px
+
   &__right
     width: 100%
     padding-top: 1rem
@@ -106,7 +118,7 @@
       content: ''
       position: absolute
       top: -5.7rem
-      left: 1.7rem
+      left: .7rem
       width: 30px
       height: 30px
       background-size: contain
@@ -121,6 +133,10 @@
       font-size: 5rem
       line-height: 1.1
       margin-bottom: 2rem
+
+  .button-order
+    margin-top: 1rem
+    min-width: 203px
 
   .elemment-pink
     display: inline-block
@@ -177,6 +193,9 @@
     @media #{$media-lg-max-down}
       top: -40rem
 
+    @media #{$media-sm-plus}
+      display: none
+
   &__line-bot
     position: absolute
     bottom: -30rem
@@ -209,6 +228,9 @@
   font-size: 2.4rem
   padding-left: 0
   line-height: 1.7
+  display: flex
+  justify-content: flex-start
+  align-items: center
 
   @media #{$media-xs-down}
     font-size: 2rem
@@ -364,12 +386,10 @@
   .button-order
     font-size: 1.4rem
     letter-spacing: -0.03em
-    margin-top: 1.5rem
 
     @media screen and (max-width: 1550px)
       font-size: 1.8rem
       letter-spacing: 0.05em
-
 
   .button-close
     right: 2.8rem
@@ -392,3 +412,33 @@
   
   @media screen and (max-width: 640px)
     display: none
+
+.select__wrap
+  min-height: 270px
+
+.strip__top
+  top: 47%
+  z-index: 10
+  left: -36%
+
+  @media #{$media-lg-max-down}
+      top: -40rem
+
+  @media #{$media-sm-plus}
+    display: none
+
+.strip__bottom
+  z-index: 10
+  left: 26%
+  bottom: 0
+  width: 64%
+  transform: rotate(20deg)
+
+  @media #{$media-md}
+    display: none
+    
+.pink-title
+  @media #{$media-sm-plus-up}
+    position: relative
+    left: 50px
+    top: 5px

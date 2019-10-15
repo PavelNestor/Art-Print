@@ -4,8 +4,54 @@ const _$ = document.querySelector.bind(document);
 var DIALOG_OPEN_CLASS = "__open";
 
 $(document).ready(function() {
-  // nice //
 
+  ////////// validation //////////
+
+  $('#submit-main-form').on('click', function (event) {
+
+    const COUNT_INPUT= ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
+
+    var selects = COUNT_INPUT.map((item) => {
+      const itemDOM = _$(`div.form__select${item}`);
+      const value = _$(`#formCalc${item}`).value;
+
+      if (value === '') {
+        itemDOM.className += " errors";
+        return false
+
+      } else {
+        itemDOM.className = `nice-select form__select form__select${item}`;
+        return true
+      }
+
+    })
+
+    var input = () => {
+      const itemDOM = _$(`#form-input-wrap`);
+      const value = _$(`#form-input`).value;
+
+      if (value === '') {
+        itemDOM.className += " errors";
+        return false
+
+      } else {
+        itemDOM.className = "";
+        return true
+      }
+    };
+
+    const check = input()
+
+    if ((selects.indexOf(false) === -1) && check) {
+      event.preventDefault()
+      $('#form-submit').trigger('click');
+      event.preventDefault()
+     } else {
+      console.log('errors');
+     }
+  });
+
+  // nice //
   $("select").niceSelect();
 
   // carousel 1//
