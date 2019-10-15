@@ -10,13 +10,14 @@ $blue: #00ADEE;
     padding: 15rem 0 18rem 15.6vw
     position: relative
     overflow: hidden
+    margin-bottom: -17rem
 
     @media #{$media-md-des-down}
       padding: 10rem 0 5rem 15.6vw
 
     @media #{$media-xs}
       padding: 5.7rem 0 50% 0
-
+      margin-bottom: 0
 
       .block-order__wrap
         &.__mobile
@@ -37,6 +38,28 @@ $blue: #00ADEE;
 
       .strip-wrapper__bottom
         bottom: 0
+
+    .strip__top
+      display: block
+      top: 25%
+      z-index: 2
+      right: auto
+      left: -32%
+
+      @media #{$media-xs}
+        display: none
+
+    .mobile
+      .strip__top
+        display: none
+
+        @media #{$media-xs}
+          display: block !important
+          top: 6% !important
+          z-index: 2
+          right: -34px
+          width: 56.6%
+          left: auto
 
   &__content
     position: relative
@@ -78,7 +101,6 @@ $blue: #00ADEE;
 
     @media #{$media-xs}
       top: 4.7rem
-      
 
   &__title
     font-size: 13rem
@@ -290,3 +312,18 @@ $blue: #00ADEE;
 
       @media #{$media-xs} 
         display: none
+
+.left-item
+  position: absolute
+  left: -25%
+  width: 25%
+  bottom: 17rem
+  min-height: 17rem
+  background: #ffffff
+
+  @media #{$media-xs} 
+    display: none
+
+.last__item
+  @media #{$media-xs} 
+    display: none
