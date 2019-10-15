@@ -55,7 +55,6 @@ $(document).ready(function() {
       $("#form-submit").trigger("click");
       event.preventDefault();
     } else {
-      console.log("errors");
     }
   });
 
@@ -110,7 +109,6 @@ $(document).ready(function() {
       $("#form-footer-submit").trigger("click");
       event.preventDefault();
     } else {
-      console.log("errors");
     }
   });
 
@@ -500,7 +498,6 @@ const initSlider = () => {
   btnNext.addEventListener("click", function(event) {
     event.preventDefault();
     remainder = containerWidth - sliderWidth - (offset + widthArray[step]);
-    console.log(widthArray.length, step, remainder, offset)
     if (remainder >= 0) {
       step++;
       offset = offset + widthArray[step];
@@ -510,7 +507,6 @@ const initSlider = () => {
       if (window.outerWidth <= 640 && widthArray.length - 3 == step) {
         container.style.margin = "0 0 0 -7.5rem";
       }
-
     } else {
       container.style.transform = `translateX(${-(containerWidth - sliderWidth)}px)`;
     }
@@ -524,22 +520,20 @@ const initSlider = () => {
     step--;
     if (step <= 0) {
       step = 0;
-      container.classList.remove("last-margin")
+      container.classList.remove("last-margin");
     }
 
     if (window.outerWidth <= 640 && widthArray.length > step) {
       container.style.margin = "0";
-    };
-
+    }
   });
-}
+};
 
 initSlider();
 
 //owl-carousel_4
 
 const sliderTeam = () => {
-
   const container = document.querySelector(".slider-team");
 
   const btnPrev = document.querySelector("#prev-slide__4");
@@ -560,32 +554,27 @@ const sliderTeam = () => {
 
   let remainder = 0;
 
- 
   for (let i = 0; i < slides.length; i++) {
     widthArray.push(slides[i].clientWidth + 50);
     containerWidth += slides[i].clientWidth + 50;
   }
-  
+
   container.style.width = containerWidth + "px";
-
-
 
   btnNext.addEventListener("click", function(event) {
     event.preventDefault();
     remainder = containerWidth - sliderWidth - (offset + widthArray[step]);
-    console.log(step) 
+    
 
     if (remainder >= 0) {
       step++;
       offset = offset + widthArray[step];
-      container.style.transform = `translateX(${-offset}px)`;
       
+      container.style.transform = `translateX(${-offset}px)`;
+
       container.classList.add("last-margin");
-    
     } else {
-
-    container.style.transform = `translateX(${-(containerWidth - sliderWidth)}px)`;
-
+      container.style.transform = `translateX(${-(containerWidth - sliderWidth)}px)`;
     }
   });
 
@@ -594,73 +583,17 @@ const sliderTeam = () => {
     offset = offset - widthArray[step];
     container.style.transform = `translateX(${-offset}px)`;
     step--;
-    console.log(step, offset)
     if (step <= 0) {
       step = 0;
-      container.classList.remove("last-margin")
+      container.classList.remove("last-margin");
     }
     if (window.outerWidth <= 640 && widthArray.length > step) {
       container.style.margin = "0";
-    };
-
-
+    }
   });
-  
-}
-
-// const setSlider = () => {
-//   const handleSliderChange = () => {
-//     const carousel = $(".slider-team");
-//     const leftButton = $("[data-action='slideLeft']");
-//     const rightButton = $("[data-action='slideRight']");
-//     const card = carousel.querySelector(".slider-team__item");
-//     const cardOffsetWidth = card.offsetWidth;
-  
-//     const carouselWidth = carousel.offsetWidth;
-//     const cardStyle = card.currentStyle || window.getComputedStyle(card)
-//     const cardMarginRight = Number(cardStyle.marginRight.match(/\d+/g)[0]);
-//     const cardCount = carousel.querySelectorAll("[data-target='card']").length;
-  
-//     let offset = 0;
-//     carousel.style.transform = `translateX(${offset}px)`;
-//     const maxX = (cardCount - Math.floor(carouselWidth / cardOffsetWidth)) * cardOffsetWidth * -1;
-  
-  
-//     dots.forEach(dot => {
-//       let slideIndex = dot.dataset.index;
-      
-//       dot.addEventListener('click', () => {
-//         offset = (cardOffsetWidth + cardMarginRight) * slideIndex * -1;
-//         carousel.style.transform = `translateX(${offset}px)`;
-//         dots.forEach(dot => dot.classList.remove('paginatecircle_active'));
-//         dot.classList.add('paginatecircle_active');
-//       });
-//     });
-  
-//     const prevSlide = () => {
-//       if (offset < 0) {
-//         offset += cardOffsetWidth + cardMarginRight;
-//         carousel.style.transform = `translateX(${offset}px)`;
-//       }
-//     };
-  
-//     const nextSlide = () => {
-//       if (offset >= maxX) {
-//         offset -= cardOffsetWidth + cardMarginRight;
-//         carousel.style.transform = `translateX(${offset}px)`;
-//       }
-//     };
-  
-//     leftButton.addEventListener("click", prevSlide);
-//     rightButton.addEventListener("click", nextSlide);
-//   };
-// }
-
-const ready = () => {
-  sliderTeam() 
 };
 
-document.addEventListener('DOMContentLoaded', ready);
+sliderTeam();
 
 // anchors scroll //
 const anchors = document.querySelectorAll(".navbar__link");
@@ -677,4 +610,3 @@ for (let anchor of anchors) {
     });
   });
 }
- 
