@@ -50,11 +50,14 @@
   width: 100%
   padding: 0 15.6vw 0 15.6vw 
   transition: all .8s ease
-  left: 0
+  transform: translateX(0)
 
-  // &.last-margin
-  //   margin-left: -15.1vw
+  &.last-margin
+    margin-left: -15.6vw
 
+    @media screen and (max-width: 640px)
+      margin-left: 0
+      
   @media screen and (max-width: 640px)
     padding: 0 7.5rem
   
