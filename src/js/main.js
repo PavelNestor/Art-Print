@@ -242,56 +242,6 @@ $(document).ready(function() {
       $(this).parent($(".slider-right").removeClass('slider-visible'));
   })
 
-// var timeoutId;
-// var DEBOUNCE_INTERVAL = 2000;
-// window.addEventListener('resize', () => {
-//   clearTimeout(timeoutId);
-//   timeoutId = setTimeout(() => {
-//     // owlCarousel3.trigger('refresh.owl.carousel');
-
-//     });
-//   }, DEBOUNCE_INTERVAL);
-// });
-
-  // carousel 4 //
-
-  // $(".slider-team").slick({
-  //   dots: false,
-  //   infinite: false,
-  //   slidesToScroll: 1,
-  //   slidesToShow: 5,
-  //   // variableWidth: true,
-  //   // centerMode: true,
-  //   responsive: [
-
-  //     {
-  //       breakpoint: 1024,
-  //       settings: {
-  //         slidesToShow: 3,
-  //         slidesToScroll: 1
-  //       }
-  //     },
-  //     {
-  //       breakpoint: 730,
-  //       settings: {
-  //         slidesToShow: 2,
-  //         slidesToScroll: 1
-  //       }
-  //     },
-  //     {
-  //       breakpoint: 640,
-  //       settings: {
-  //         slidesToShow: 1,
-  //         slidesToScroll: 1,
-  //         dots: false,
-  //         infinite: false,
-  //         centerMode: true,
-  //         variableWidth: true
-  //       }
-  //     },
-  //   ]
-  // });
-
   const owlCarousel4 = $('#owl-carousel_4');
 
   owlCarousel4.owlCarousel({
@@ -348,33 +298,6 @@ $(document).ready(function() {
 
   })
 
-  // if($(window).width() < 640 ) {
-  //   owlCarousel4.on('initialized.owl.carousel', function() {
-
-  //     let contO = $(this).find('.owl-stage')
-
-  //     // let index = event.item.index 
-
-  //     console.log($(this))
-
-  //     let currS = $('.slider-team .owl-item').eq(index)
-
-  //     let currw = currS.width()
-  
-  //     let wWidth = $(window).width()
-  
-  //     let centeredW = ((wWidth - 20) - currw - 20) / 2  
-    
-  //     $(this).addClass('trigger')
-
-  //     contO.css('--margin',`${centeredW}px`)
-
-  //     // $(this).removeClass('trigger')
-        
-  //   })
-  // }
- 
-
   $('#next-slide__4').click(function(event) {
     event.preventDefault()
     owlCarousel4.trigger('next.owl.carousel');
@@ -385,7 +308,101 @@ $(document).ready(function() {
     owlCarousel4.trigger('prev.owl.carousel');
   });
 
- 
+  // loading status
+  const loading = {
+    avgTime: 3000,
+    finished: false,
+    preloader: document.querySelector('.preloader'),
+    preloaderBar: document.querySelector('.preloader > .preloaderBar'),
+    state: 0,
+    trg: 1,
+    loaded: function (force) {
+      if (++loading.state === loading.trg || force === true) {
+        loading.status(1);
+        setTimeout(loading.done, 500);
+      } else {
+        loading.status(loading.state / loading.trg / 1.1);
+      }
+    },
+
+    status: function (mult) {
+      if (loading.finished) {
+        return;
+      }
+      const value = Math.ceil(mult * 100);
+
+      if (value > 0) {
+        loading.preloaderBar.style.width = `${value}%`;
+      }
+    },
+
+    restart: function () {
+      loading.status(0);
+      loading.preloader.classList.remove('preloader_loaded');
+    },
+
+    done: function () {
+      if (loading.finished) {
+        return;
+      }
+
+      // hide preloader
+      loading.preloader.classList.add('preloader_loaded');
+      loading.status(0);
+      loading.finished = true;
+
+    }
+  };
+
+  // force loading status
+  setTimeout(function () {
+    loading.loaded(true);
+  }, 10000);
+
+  // on load
+  window.onload = function () {
+    loading.loaded(true);
+  };
+
+  // on ready
+  function ready(fn) {
+    if (document.readyState != 'loading') {
+      fn();
+    } else {
+      document.addEventListener('DOMContentLoaded', fn);
+    }
+  }
+
+  ready(() => {
+    const images = Array.from(document.querySelectorAll('img'));
+    images.forEach(image => {
+      if (image.complete) {
+        return;
+      }
+      loading.trg++;
+      image.addEventListener('load', loading.loaded);
+    });
+
+    const links = Array.from(document.querySelectorAll('a'));
+    links.forEach(link => {
+      const href = link.getAttribute('href');
+      const ifNoReload = new RegExp('^#|mailto|tel').test(href);
+
+      if (!href || ifNoReload) {
+        return;
+      }
+
+      link.addEventListener('click', e => {
+        loading.restart();
+        e.preventDefault();
+
+        setTimeout(() => {
+          document.location.href = href;
+        }, 400);
+      });
+
+    });
+  });
 });
 
 // modals //
@@ -442,12 +459,12 @@ const menuNavBurger = document.getElementById("menu-nav-burger-desc");
 const navBurgers = document.querySelectorAll(".nav-burger");
 
 for (var i = 0; i < navBurgers.length; i++) {
-  navBurgers[i].addEventListener("click", function() {
+  navBurgers[i].addEventListener("click", function () {
     menu.classList.add("__active");
   });
 }
 
-menuNavBurger.addEventListener("click", function() {
+menuNavBurger.addEventListener("click", function () {
   menu.classList.remove("__active");
 });
 
@@ -468,8 +485,6 @@ const btnNext = document.querySelector("#next-slide__masonry");
 
 
 // var index = 0;
-
-// const breakpointsArray = [];
 
 // elementsArr.reduce((baseOffset, element, index, array) => {
 //   const offset = element.clientWidth + 30;
@@ -511,6 +526,7 @@ const btnNext = document.querySelector("#next-slide__masonry");
 
 //   index++;
 
+
 //   if (index >= lastIndex) {
 //     index = lastIndex - 1;
 //     container.classList.add('last-margin')
@@ -533,7 +549,6 @@ const btnNext = document.querySelector("#next-slide__masonry");
 // });
 
 // anchors scroll //
-
 const anchors = document.querySelectorAll(".navbar__link");
 
 for (let anchor of anchors) {
@@ -548,101 +563,3 @@ for (let anchor of anchors) {
     });
   });
 }
-
-
-// loading status
-const loading = {
-  avgTime: 3000,
-  finished: false,
-  preloader: document.querySelector('.preloader'),
-  preloaderBar: document.querySelector('.preloader > .preloaderBar'),
-  state: 0,
-  trg: 1,
-
-  loaded: function (force) {
-    if(++loading.state === loading.trg || force === true) {
-      loading.status(1);
-      setTimeout(loading.done, 500);
-    } else {
-      loading.status(loading.state / loading.trg / 1.1);
-    }
-  },
-
-  status: function (mult) {
-    if (loading.finished) {
-      return;
-    }
-    const value = Math.ceil(mult * 100);
-    
-    if (value > 0) {
-      loading.preloaderBar.style.width = `${value}%`;
-    }
-  },
-
-  restart: function () {
-    loading.status(0);
-    loading.preloader.classList.remove('preloader_loaded');
-  },
-
-  done: function () {
-    if (loading.finished) {
-      return;
-    }
-
-    // hide preloader
-    loading.preloader.classList.add('preloader_loaded');
-    loading.status(0);
-    loading.finished = true;
-
-  }
-};
-
-// force loading status
-setTimeout(function () {
-  loading.loaded(true);
-}, 10000);
-
-// on load
-window.onload = function() {
-  loading.loaded(true);
-};
-
-// on ready
-function ready(fn) {
-  if (document.readyState != 'loading'){
-    fn();
-  } else {
-    document.addEventListener('DOMContentLoaded', fn);
-  }
-}
-
-ready(() => {
-  const images = Array.from( document.querySelectorAll('img') );
-  images.forEach(image => {
-    if (image.complete) {
-      return;
-    }
-    loading.trg++;
-    image.addEventListener('load', loading.loaded);
-  });
-
-  const links = Array.from( document.querySelectorAll('a') );
-  links.forEach(link => {
-    const href = link.getAttribute('href');
-    const ifNoReload = new RegExp('^#|mailto|tel').test(href);
-
-    if (!href || ifNoReload) {
-      return;
-    }
-
-    link.addEventListener('click', e => {
-      loading.restart();
-      e.preventDefault();
-
-      setTimeout(() => {
-        document.location.href = href;
-      }, 400);
-    });
-    
-  });
-});
