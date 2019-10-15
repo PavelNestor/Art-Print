@@ -121,8 +121,6 @@ $blue: #00ADEE;
       margin-top: 1.9rem
       letter-spacing: -0.3rem
 
-
-
   &__text
     font-size: 6rem
     letter-spacing: -0.2rem
@@ -141,7 +139,6 @@ $blue: #00ADEE;
       @media #{$media-xs}
         top: -1rem
         left: 0
-
 
     @media #{$media-xs}
       font-size: 3.6rem
@@ -174,7 +171,6 @@ $blue: #00ADEE;
       a:nth-child(3)
         background-color: $pink
         color: $color_white
-
 
     @media #{$media-xs}
       a:nth-child(5n)
@@ -260,9 +256,6 @@ $blue: #00ADEE;
     @media screen and ( max-width: 1550px)
       font-size: 2.2rem
 
-    // @media #{$media-md-des-down} 
-    //   flex: 1 1 33.3%
-
     @media #{$media-xs}
       flex: 1 1 50%
       min-height: 15.1rem
@@ -274,6 +267,7 @@ $blue: #00ADEE;
     &_transparent
       background: transparent
       transition: .2s background-image ease-in-out
+      box-shadow: none
 
     @media #{$media-xs-up}
       &_red
@@ -284,8 +278,6 @@ $blue: #00ADEE;
         background-repeat: no-repeat
         &:hover
           background-position-y: 0
-          
-          
 
       &_blue
         transition: .2s background-position-y ease-in-out
@@ -295,17 +287,13 @@ $blue: #00ADEE;
         background-repeat: no-repeat
         &:hover
           background-position-y: 0
-          
 
     &_first
       flex: 1 1 50%
 
-      // @media #{$media-md-des-down} 
-      //   flex: 1 1 33.3%
-
       @media #{$media-xs}
         flex: 1 1 50%
-      
+
     &_three
       flex: 1 1 25%
       box-shadow: none
