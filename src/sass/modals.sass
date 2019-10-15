@@ -10,6 +10,27 @@
   transition: opacity .3s ease-out, transform .2s, visibility .4s
   @extend %scrollbar
 
+  .strip__top
+    top: 16%
+    z-index: 10
+    left: -36%
+
+    @media #{$media-lg-max-down}
+      top: -40rem
+
+    @media #{$media-sm-plus}
+      display: none
+
+  .strip__bottom
+    z-index: 10
+    left: 26%
+    bottom: 0
+    width: 64%
+    transform: rotate(20deg)
+
+    @media #{$media-md}
+      display: none
+
   &.__open
     visibility: visible
     opacity: 1
@@ -23,7 +44,7 @@
 
   @media #{$media-sm-plus}
     padding-top: 20rem
-    
+
   @media #{$media-xs}
     padding-top: 14rem
 
@@ -123,7 +144,6 @@
       height: 30px
       background-size: contain
       background: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='15' cy='15.0001' r='9.04545' stroke='%23383838'/%3E%3Cline x1='15.0455' y1='2.18557e-08' x2='15.0455' y2='30' stroke='black'/%3E%3Cline x1='30' y1='15.0454' x2='-4.37114e-08' y2='15.0454' stroke='black'/%3E%3C/svg%3E%0A") center no-repeat
-
 
     @media #{$media-sm-plus}
       font-size: 8rem
@@ -313,7 +333,6 @@
 
   textarea::placeholder
     font-size: 2.4rem
-    
 
     @media screen and (max-width: 1024px)
       font-size: 1.4rem
@@ -360,7 +379,7 @@
     &::before
       content: ''
       position: absolute
-      top:  -5.8rem
+      top: -5.8rem
       left: 0.6rem
       width: 30px
       height: 30px
@@ -409,34 +428,13 @@
 
 .wrap-modal__calc--desc
   display: block
-  
+
   @media screen and (max-width: 640px)
     display: none
 
 .select__wrap
   min-height: 270px
 
-.strip__top
-  top: 47%
-  z-index: 10
-  left: -36%
-
-  @media #{$media-lg-max-down}
-      top: -40rem
-
-  @media #{$media-sm-plus}
-    display: none
-
-.strip__bottom
-  z-index: 10
-  left: 26%
-  bottom: 0
-  width: 64%
-  transform: rotate(20deg)
-
-  @media #{$media-md}
-    display: none
-    
 .pink-title
   @media #{$media-sm-plus-up}
     position: relative

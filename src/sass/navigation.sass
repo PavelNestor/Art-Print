@@ -7,7 +7,7 @@
     left: 0
     width: 100%
     transform: translateY(-100%)
-    position: absolute
+    position: absolute 
     transition: .2s linear
     z-index: 10
     padding: 2rem 6rem
@@ -50,11 +50,31 @@
                 width: 3.5rem
 
     .navbar__logo
-        max-width: 30rem
+        svg
+            object-fit: cover
+            width: 100%
+            height: 100%
 
-        img
-            min-width: 19.7rem
-            max-width: 13rem
+            &.bird-img
+                max-width: 11.6rem
+                max-height: 10rem
+
+                @media (max-width: 1024px)
+                    max-width: 7.6rem
+
+                @media (max-width: 640px)
+                    max-width: 5rem
+
+
+            &.logo-text
+                max-width: 26.5rem
+                height: 4.2rem
+
+                @media (max-width: 1024px)
+                    max-width: 20.5rem
+
+                @media (max-width: 640px)
+                    max-width: 17rem
 
     &__wrap
         &--left
@@ -108,12 +128,35 @@
         max-width: 38.1rem
         height: auto
         width: 100%
+        display: flex
+        align-items: center
 
         svg
             object-fit: cover
             width: 100%
             height: 100%
-            min-width: 21.7rem
+
+            &.bird-img
+                max-width: 11.6rem
+                max-height: 10rem
+
+                @media (max-width: 1024px)
+                    max-width: 7.6rem
+
+                @media (max-width: 640px)
+                    max-width: 5rem
+
+
+            &.logo-text
+                max-width: 26.5rem
+                height: 4.2rem
+
+                @media (max-width: 1024px)
+                    max-width: 20.5rem
+
+                @media (max-width: 640px)
+                    max-width: 17rem
+
            
 
     &__link
@@ -176,13 +219,6 @@
             &_link
                 font-size: 2.16rem
 
-        &__logo
-            max-width: 39.1rem
-
-            svg
-                max-width: 29.1rem
-                min-width: auto
-
     @media (max-width: 1240px) 
         padding: 3rem 6rem
         justify-content: flex-start
@@ -199,40 +235,23 @@
         &__wrap 
             display: none
 
-        &__logo
-            min-width: 16.4rem  
-
-            @media (max-width: 1024px) 
-                max-width: 23.1rem
-                
-                svg
-                    min-width: 20rem
-
     @media (max-width: 710px) 
         .navbar__phone 
             display: none
             
     @media (max-width: 640px) 
         justify-content: flex-start
-        padding: 1.9rem 4.8rem 1.2rem 1.9rem
+        padding: 1.6rem 4.8rem 1.5rem 1.9rem
         background-color: #fafafa
 
         &__phone
             display: none
-        
-        &__logo
-            max-width: 15rem  
-            min-width: 12rem
-            
-            svg
-                min-width: 12rem
-                max-width: 15rem
+    
         
         .nav-burger
             svg
                 width: 3.5rem
-                
-
+            
 
 .menu
     position: fixed
