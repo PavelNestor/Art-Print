@@ -30,12 +30,46 @@
 
     @media #{$media-xs}
       z-index: 2
-    
+
+  div.mobile
+    .strip-wrapper__top
+      position: absolute
+      top: 0
+      left: auto
+      right: 0
+      overflow: hidden
+      width: 100%
+      height: 100%
+      display: none
+
+      @media #{$media-xs}
+        z-index: 2
+        display: block
+
+    .strip__top
+      background-color: $color_blue
+      transform: matrix(0.94, -0.34, -0.34, -0.94, 0, 0) rotate(-40deg)
+      left: auto
+      top: 8%
+      right: -2.6rem
+      z-index: 22
+      width: 55.6%
+
+      &::before
+        background-color: $color_pink
+        bottom: -0.7rem
+        top: auto
+        right: -8.5rem
+
+      @media #{$media-xs}
+        z-index: 2
+        display: block
+
+
   .strip-wrapper__bottom,
   .strip-wrapper__top
     @media #{$media-xs}
       display: none
-
 
   &__wrap
     background: url(/img/bg-footer.jpg) center center no-repeat
@@ -46,7 +80,6 @@
     @media #{$media-xs-down}
       padding-bottom: 40rem
       background-position: 76% 14rem
-      
 
   &__content
     padding: 20.8rem 15.3vw 5vw 15.3vw
@@ -96,15 +129,15 @@
       left: 0
       position: absolute
       top: -15px
-      width: 25px
-      height: 25px
+      width: 27px
+      height: 27px
       content: ''
 
     @media #{$media-xs}
       font-size: 3.6rem
       line-height: 12.5rem
       margin-bottom: 0
-      letter-spacing: -1px
+      letter-spacing: -0.8px
 
   &__mail
     color: #00adee
@@ -130,9 +163,8 @@
     color: $color-white
     font-size: 2.4rem
     max-width: 460px
-
     line-height: 3.5rem
-    margin-bottom: 2rem
+    margin-bottom: 1.5rem
     font-family: Raleway
 
     @media #{$media-xs}
@@ -145,7 +177,7 @@
     &_link
       color: #00adee
       font-size: 2.4rem
-      margin-bottom: 4.5rem
+      margin-bottom: 4.6rem
 
       @media #{$media-xs}
         font-size: 2rem
@@ -179,12 +211,17 @@
       display: flex
       flex-wrap: wrap
       justify-content: center
-      line-height: 22px  
+      line-height: 2.2rem
+      padding: 1.5rem 2.4rem 1rem 2.4rem !important
+
 
   .strip__bottom
     left: -34%
 
     @media screen and ( max-width: 1024px )
-
       left: -37%
-      
+
+  @media screen and (max-width: 640px)
+    .button-order span
+        letter-spacing: 0.09rem !important
+        line-height: 1.2
