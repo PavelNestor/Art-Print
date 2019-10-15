@@ -63,7 +63,29 @@
       @media screen and ( max-width: 640px)
         line-height: 6.3rem
 
-    
+      &_img
+        display: block
+        width: 32%
+        min-height: 50px
+
+        @media (min-width: 1200px) and (max-width: 1600px)
+          width: 40%
+          margin-top: 17px
+
+        @media (min-width: 800px) and (max-width: 1200px)
+          width: 50%
+          margin-top: 17px
+
+        @media (min-width: 640px) and (max-width: 800px)
+          width: 60%
+          margin-top: 17px
+
+        @media #{$media-xs}
+          width: 74%
+          margin-top: 17px
+
+
+
   p
     line-height: 3.6rem
     position: relative
@@ -187,4 +209,3 @@
     &-wrapper__bottom
       @media screen and ( max-width: 640px)
         bottom: 0
-        
