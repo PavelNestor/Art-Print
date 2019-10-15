@@ -459,85 +459,78 @@ const btnPrev = document.querySelector("#prev-slide__masonry");
 
 const btnNext = document.querySelector("#next-slide__masonry");
 
-// const maxX = (cardCount - Math.floor(container.offsetWidth / cardOffsetWidth)) * cardOffsetWidth * -1;
-
-var elementsArr = Array.from(
-  document.querySelectorAll("#carousel-masonry > *")
-);
 
 
-var index = 0;
 
-const breakpointsArray = [];
-
-elementsArr.reduce((baseOffset, element, index, array) => {
-  let result = [];
-  const offset = element.clientWidth + 30;
-  if(index != array.length - 1) {
-    result = baseOffset + offset;
-  } else {
-    result = baseOffset - offset;
-  }
-  
-  breakpointsArray.push(-result); 
-  console.log(result)
-  return result;
-
-}, 0);
-
-if(window.outerWidth >= 640) {
-  for (var i = 0; i < breakpointsArray.length; i++) {
-    breakpointsArray.splice(i + 1, 1).push();
-  }
-}
-// console.log(elementsArr);
-
-// console.log(breakpointsArray);
-
-// const maxL = breakpointsArray.map()
+// var elementsArr = Array.from(
+//   document.querySelectorAll("#carousel-masonry > *")
+// );
 
 
-if(window.outerWidth <= 640) {
+// var index = 0;
 
-  var lastIndex = breakpointsArray.length - 1;
+// const breakpointsArray = [];
 
-} else {
+// elementsArr.reduce((baseOffset, element, index, array) => {
+//   const offset = element.clientWidth + 30;
 
-  var lastIndex = breakpointsArray.length - 1;
+//   let result = baseOffset + offset; 
 
-}
+//   breakpointsArray.push(-result);
 
-btnNext.addEventListener("click", function(event) {
-  event.preventDefault();
+//   return result;
+
+// }, 0);
+
+// if(window.outerWidth >= 640) {
+//   for (var i = 0; i < breakpointsArray.length; i++) {
+//     breakpointsArray.splice(i + 1, 1).push();
+//   }
+// }
+
+// if(window.outerWidth <= 640) {
+
+//   // var lastIndex = breakpointsArray.length - 1;
+
+// } else {
+
+//   var lastIndex = breakpointsArray.length - 2;
+
+// }
+
+// btnNext.addEventListener("click", function(event) {
+//   event.preventDefault();
 
   
 
-  var transform = (container.style.transform = `translateX(${breakpointsArray[index]}px)`);
+//   var transform = (container.style.transform = `translateX(${breakpointsArray[index]}px)`);
 
-  console.log(transform)
+//   console.log(transform)
 
-  // container.
+//   // container.
 
-  index++;
+//   index++;
 
-  if (index >= lastIndex) {
-    index = lastIndex - 1;
-  }
-});
+//   if (index >= lastIndex) {
+//     index = lastIndex - 1;
+//     container.classList.add('last-margin')
+//   }
+// });
 
 
-btnPrev.addEventListener("click", function(event) {
-  event.preventDefault();
+// btnPrev.addEventListener("click", function(event) {
+//   event.preventDefault();
 
-  index--;
+//   index--;
 
-  var transform = (container.style.transform = `translateX(${breakpointsArray[index]}px)`);  
+//   var transform = (container.style.transform = `translateX(${breakpointsArray[index]}px)`);  
 
-  if (index <= 0) {
-    index = 0;
-    container.style.transform = `translateX(0)`;
-  }
-});
+//   if (index <= 0) {
+//     index = 0;
+//     container.style.transform = `translateX(0)`;
+//     container.classList.remove('last-margin')
+//   }
+// });
 
 // anchors scroll //
 
