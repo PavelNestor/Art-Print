@@ -25,8 +25,6 @@ footer#section-contacts.footer__wrap.footer
     .strip-wrapper__top
       .strip.strip__top
 
-
-
   #modal-footer.modal-footer
     span(data-modal-close="#modal-footer").button-close
 
@@ -36,13 +34,15 @@ footer#section-contacts.footer__wrap.footer
 
     .modal-footer__right
       form(action="")
+      #form-input-wrap.form-input-wrap
+        input#form-footer-input-name(type="name", placeholder="Ваше имя", required).form__input
+      #form-input-wrap2.form-input-wrap
+        input#form-footer-input-mail(type="email", placeholder="E-Mail", required).form__input
+      #form-input-wrap3.form-input-wrap
+        textarea#form-footer-input-text.form__input(name="comment", cols="30", rows="4", placeholder="Сообщение", required)
 
-        input(type="name", placeholder="Ваше имя", required).form__input
+        input#form-footer-submit.form__input_submit(type="submit", name="submit")
 
-        input(type="email", placeholder="E-Mail", required).form__input
-
-        textarea(name="comment", cols="30", rows="4", placeholder="Сообщение", required).form__input
-        
         div
-          button.button-order.__long 
+          button#submit-footer-form.button-order.__long 
             span отправить

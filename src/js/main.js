@@ -51,6 +51,64 @@ $(document).ready(function() {
      }
   });
 
+  $('#submit-footer-form').on('click', function (event) {
+    const input1 = () => {
+      const itemDOM = _$(`#form-input-wrap`);
+      const value = _$(`#form-footer-input-name`).value;
+
+      if (value === '') {
+        itemDOM.className += " errors";
+        return false
+
+      } else {
+        itemDOM.className = "form-input-wrap";
+        return true
+      }
+    };
+
+    const name = input1()
+
+    const input2 = () => {
+      const itemDOM = _$(`#form-input-wrap2`);
+      const value = _$(`#form-footer-input-mail`).value;
+
+      if (value === '') {
+        itemDOM.className += " errors";
+        return false
+
+      } else {
+        itemDOM.className = "form-input-wrap";
+        return true
+      }
+    };
+
+    const mail = input2()
+
+    const input3 = () => {
+      const itemDOM = _$(`#form-input-wrap3`);
+      const value = _$(`#form-footer-input-text`).value;
+
+      if (value === '') {
+        itemDOM.className += " errors";
+        return false
+
+      } else {
+        itemDOM.className = "form-input-wrap";
+        return true
+      }
+    };
+
+    const text = input3()
+    alert(name && mail && text)
+    if (name && mail && text) {
+      event.preventDefault()
+      $('#form-footer-submit').trigger('click');
+      event.preventDefault()
+     } else {
+      console.log('errors');
+     }
+  });
+
   // nice //
   $("select").niceSelect();
 
