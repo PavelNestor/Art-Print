@@ -13,6 +13,8 @@
   padding: 0 15.6vw 5.4% 15.6vw
   height: calc(100vh - 15rem)
 
+
+
   .text-cursive
     white-space: initial 
   
@@ -114,7 +116,7 @@
       display: none
 
   @media (max-width: 640px)
-    padding: 39% 2rem 5rem 2rem
+    padding: 20% 2rem 5rem 2rem
     height: calc(100vh - 6rem)
       
 .button-order
@@ -242,5 +244,32 @@
 
   .button-order
     margin-bottom: 3.3rem
+
+.slider-pagination__custom
+  position: absolute
+  bottom: 3rem
+  left: 50%
+  transform: $translateX
+  display: flex
+  z-index: 55
+
+  @media (min-width: 640px)	
+    display: none
+
+  .owl-dot
+    width: 10px
+    height: 10px
+    background-color: #b2b2b2
+    border-radius: 50%
+    margin-right: 1.5rem
+    z-index: 50
+    position: relative
+    transition: .3s all ease
+    &:last-of-type
+      margin-right: 0
+
+    &.active
+      background-color: $color_pink
+      transition: .3s all ease
 
 	

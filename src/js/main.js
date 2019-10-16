@@ -137,7 +137,9 @@ $(document).ready(function() {
         touchDrag: true,
         animateIn: "fadeIn",
         animateOut: "fadeOut",
-        fade: true
+        fade: true,
+        dots: true,
+        dotsContainer: ".slider-pagination__custom"
       },
       640: {
         touchDrag: true,
@@ -146,7 +148,6 @@ $(document).ready(function() {
       }
     }
   });
-
   // Custom Button
   $("#next-slide").click(function(event) {
     event.preventDefault();
@@ -481,6 +482,8 @@ const initSlider = () => {
 
   let widthArray = [0];
 
+  let newWidthArray = [0]
+
   let containerWidth = 0;
 
   let offset = 0;
@@ -492,30 +495,37 @@ const initSlider = () => {
   for (let i = 0; i < slides.length; i++) {
     widthArray.push(slides[i].offsetWidth + 30);
     containerWidth += slides[i].offsetWidth + 30;
+    newWidthArray = widthArray.filter((_,i) => i % 2 == 0); 
   }
+
+  // console.log(newWidthArray, widthArray)
   container.style.width = containerWidth + "px";
 
   btnNext.addEventListener("click", function(event) {
+    // console.log(step)
+
     event.preventDefault();
-    remainder = containerWidth - sliderWidth - (offset + widthArray[step]);
+    remainder = containerWidth - sliderWidth - (offset + newWidthArray[step]);
     if (remainder >= 0) {
       step++;
-      offset = offset + widthArray[step];
+      offset = offset + newWidthArray[step];
       container.style.transform = `translateX(${-offset}px)`;
       container.classList.add("last-margin");
 
-      if (window.outerWidth <= 640 && widthArray.length - 3 == step) {
+      if (window.outerWidth <= 640 && newWidthArray.length - 3 == step) {
         container.style.margin = "0 0 0 -7.5rem";
       }
     } else {
-      container.style.transform = `translateX(${-(containerWidth - sliderWidth)}px)`;
+      container.style.transform = `translateX(${-(
+        containerWidth - sliderWidth
+      )}px)`;
     }
   });
 
   btnPrev.addEventListener("click", function(event) {
     event.preventDefault();
 
-    offset = offset - widthArray[step];
+    offset = offset - newWidthArray[step];
     container.style.transform = `translateX(${-offset}px)`;
     step--;
     if (step <= 0) {
@@ -523,7 +533,7 @@ const initSlider = () => {
       container.classList.remove("last-margin");
     }
 
-    if (window.outerWidth <= 640 && widthArray.length > step) {
+    if (window.outerWidth <= 640 && newWidthArray.length > step) {
       container.style.margin = "0";
     }
   });
@@ -555,56 +565,44 @@ const sliderTeam = () => {
   let remainder = 0;
 
   for (let i = 0; i < slides.length; i++) {
-
     widthArray.push(slides[i].clientWidth + 50);
     containerWidth += slides[i].clientWidth + 50;
-
   }
 
   container.style.width = containerWidth + "px";
 
   btnNext.addEventListener("click", function(event) {
-
     event.preventDefault();
     remainder = containerWidth - sliderWidth - (offset + widthArray[step]);
-    
-    if (remainder >= 0) {
 
+    if (remainder >= 0) {
       step++;
       offset = offset + widthArray[step];
       container.style.transform = `translateX(${-offset}px)`;
 
       if (window.outerWidth <= 640 && widthArray.length - 2 == step) {
-
         container.style.margin = "0 0 0 -7.5rem";
-
       }
       container.classList.add("last-margin");
-
     } else {
-
-      container.style.transform = `translateX(${-(containerWidth - sliderWidth)}px)`;
-
+      container.style.transform = `translateX(${-(
+        containerWidth - sliderWidth
+      )}px)`;
     }
   });
 
   btnPrev.addEventListener("click", function(event) {
-
     event.preventDefault();
     offset = offset - widthArray[step];
     container.style.transform = `translateX(${-offset}px)`;
     step--;
 
     if (step <= 0) {
-
       step = 0;
       container.classList.remove("last-margin");
-
     }
     if (window.outerWidth <= 640 && widthArray.length > step) {
-
       container.style.margin = "0";
-      
     }
   });
 };

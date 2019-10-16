@@ -46,9 +46,10 @@
         bottom: 0
         left: 0
         flex: 0 0 100%
-        z-index: 20
+        z-index: 8000
         display: none
         overflow-y: auto
+        
 
         
         &.slider-hidden
@@ -126,11 +127,18 @@
       &:hover
         color: $color_white
 
+        @media screen and ( max-width: 640px)
+          color: $color_text
+
+
   .owl-dot
     &.active
       .owl-custom_dot
         color: $color_white
 
+        @media screen and ( max-width: 640px)
+          color: $color_text
+          
   .grid-img
     display: flex
     flex-direction: column
