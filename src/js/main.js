@@ -482,7 +482,7 @@ const initSlider = () => {
 
   let widthArray = [0];
 
-  let newWidthArray = [0]
+  let newWidthArray = [0];
 
   let containerWidth = 0;
 
@@ -495,24 +495,34 @@ const initSlider = () => {
   for (let i = 0; i < slides.length; i++) {
     widthArray.push(slides[i].offsetWidth + 30);
     containerWidth += slides[i].offsetWidth + 30;
-    newWidthArray = widthArray.filter((_,i) => i % 2 == 0); 
+
+    if (window.innerWidth <= 640) {
+      newWidthArray = widthArray[1];
+    } else {
+      newWidthArray = widthArray.reduce((sum, cur, index) => {
+        if (index <= 3) {
+          return sum + cur;
+        } else {
+          return sum;
+        }
+      }, 0);
+    }
   }
 
-  // console.log(newWidthArray, widthArray)
   container.style.width = containerWidth + "px";
 
   btnNext.addEventListener("click", function(event) {
-    // console.log(step)
-
     event.preventDefault();
-    remainder = containerWidth - sliderWidth - (offset + newWidthArray[step]);
+    remainder = containerWidth - sliderWidth - (offset + newWidthArray);
+
     if (remainder >= 0) {
       step++;
-      offset = offset + newWidthArray[step];
+
+      offset = offset + newWidthArray;
       container.style.transform = `translateX(${-offset}px)`;
       container.classList.add("last-margin");
 
-      if (window.outerWidth <= 640 && newWidthArray.length - 3 == step) {
+      if (window.innerWidth <= 640 && widthArray.length - 3 == step) {
         container.style.margin = "0 0 0 -7.5rem";
       }
     } else {
@@ -525,16 +535,16 @@ const initSlider = () => {
   btnPrev.addEventListener("click", function(event) {
     event.preventDefault();
 
-    offset = offset - newWidthArray[step];
-    container.style.transform = `translateX(${-offset}px)`;
-    step--;
-    if (step <= 0) {
-      step = 0;
-      container.classList.remove("last-margin");
+    if (offset > 0) {
+      offset = offset - newWidthArray;
     }
 
-    if (window.outerWidth <= 640 && newWidthArray.length > step) {
-      container.style.margin = "0";
+    container.style.transform = `translateX(${-offset}px)`;
+    step--;
+
+    if (offset <= 0) {
+      container.style.transform = "translateX(" + 0 + "px)";
+      container.classList.remove("last-margin");
     }
   });
 };
