@@ -555,40 +555,56 @@ const sliderTeam = () => {
   let remainder = 0;
 
   for (let i = 0; i < slides.length; i++) {
+
     widthArray.push(slides[i].clientWidth + 50);
     containerWidth += slides[i].clientWidth + 50;
+
   }
 
   container.style.width = containerWidth + "px";
 
   btnNext.addEventListener("click", function(event) {
+
     event.preventDefault();
     remainder = containerWidth - sliderWidth - (offset + widthArray[step]);
     
-
     if (remainder >= 0) {
+
       step++;
       offset = offset + widthArray[step];
-      
       container.style.transform = `translateX(${-offset}px)`;
 
+      if (window.outerWidth <= 640 && widthArray.length - 2 == step) {
+
+        container.style.margin = "0 0 0 -7.5rem";
+
+      }
       container.classList.add("last-margin");
+
     } else {
+
       container.style.transform = `translateX(${-(containerWidth - sliderWidth)}px)`;
+
     }
   });
 
   btnPrev.addEventListener("click", function(event) {
+
     event.preventDefault();
     offset = offset - widthArray[step];
     container.style.transform = `translateX(${-offset}px)`;
     step--;
+
     if (step <= 0) {
+
       step = 0;
       container.classList.remove("last-margin");
+
     }
     if (window.outerWidth <= 640 && widthArray.length > step) {
+
       container.style.margin = "0";
+      
     }
   });
 };
