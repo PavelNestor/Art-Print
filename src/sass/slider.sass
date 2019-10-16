@@ -3,8 +3,6 @@
   width: 100%
   margin: 0 auto
   position: relative
-  // max-height: 100vh
-  
 
 .slides
   display: flex
@@ -12,8 +10,6 @@
   position: relative
   padding: 0 15.6vw 5.4% 15.6vw
   height: calc(100vh - 15rem)
-
-
 
   .text-cursive
     white-space: initial 
@@ -45,7 +41,6 @@
     
     @media screen and ( max-width:  640px)
       display: none
-      
 
   &-side__left
     flex: 0 0 50%
@@ -54,7 +49,6 @@
     align-items: flex-start
     justify-content: center
 
-  
   &-side__right
     flex: 0 0 50%
     display: flex
@@ -68,8 +62,7 @@
         width: 100%
         height: auto
         object-fit: cover
-        
-      
+
   &.type-1
     .slides-side__right
       .image-holder
@@ -118,7 +111,7 @@
   @media (max-width: 640px)
     padding: 20% 2rem 5rem 2rem
     height: calc(100vh - 6rem)
-      
+
 .button-order
   margin-bottom: 3.5rem   
 
@@ -146,13 +139,11 @@
 
     @media screen and ( max-width: 640px)
       right: -1.9rem
-      
 
 .slide__button
   position: absolute
   top: 49.3%
   transform: $translateY
- 
 
   &._prev
     left: 3.1%
@@ -174,11 +165,6 @@
     line-height: 11rem
     display: inline-block
     position: relative
-
-  // .elemment-pink
-  //   display: inline-block 
-  //   font-size: 10.5rem
-  //   margin-left: -2.2rem
 
   &__outer_fit,
   &__outer_bold
@@ -225,11 +211,10 @@
 
   .slider-title
     margin-bottom: 5rem
-  
-      font-size:  6.1rem
-      margin-left: -1.3rem
+    font-size:  6.1rem
+    margin-left: -1.3rem
 
-    &__outer  
+    &__outer
       &_bold
         line-height: 5.2rem
 
@@ -271,5 +256,3 @@
     &.active
       background-color: $color_pink
       transition: .3s all ease
-
-	
