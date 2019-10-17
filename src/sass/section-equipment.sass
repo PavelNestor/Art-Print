@@ -6,6 +6,13 @@
   flex-direction: column
   width: 100%
 
+  .owl-carousel .owl-stage-outer
+    min-height: 100vh
+
+    @media screen and ( max-width: 1024px )
+      min-height: auto
+      
+
   .slider
     &-container
       display: flex
@@ -19,6 +26,8 @@
       padding: 10.2% 6vw 0 15.6vw
       flex: 0 0 50.5%
       width: 50.5%
+      justify-content: center
+      
 
       @media screen and (max-width: 1440px)
         padding: 4.2% 6vw 4.2% 15.6vw
@@ -29,6 +38,7 @@
 
       @media screen and (max-width: 640px)
         padding: 19.2% 2rem 40% 2rem
+        justify-content: flex-start
 
     &-right
       flex: 0 0 49.5%
