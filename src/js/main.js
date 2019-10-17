@@ -211,7 +211,6 @@ $(document).ready(function() {
     margin: 1,
     nav: false,
     smartSpeed: 450,
-    // autoWidth: true,
     autoHeight: true
   });
 
@@ -244,70 +243,6 @@ $(document).ready(function() {
       $(".slider-right").removeClass("slider-hidden");
     $(this).parent($(".slider-right").removeClass("slider-visible"));
   });
-
-  // const owlCarousel4 = $("#owl-carousel_4");
-
-  // owlCarousel4.owlCarousel({
-  //   loop: false,
-  //   nav: false,
-  //   items: 4,
-  //   pullDrag: false,
-  //   freeDrag: false,
-  //   mouseDrag: false,
-  //   touchDrag: false,
-  //   smartSpeed: 450,
-
-  //   // center: true,
-  //   responsive: {
-  //     0: {
-  //       slideBy: 1,
-  //       items: 1,
-  //       autoWidth: true,
-  //       margin: 20,
-  //       center: true
-  //     },
-  //     640: {
-  //       slideBy: 1,
-  //       items: 2,
-  //       autoWidth: false,
-  //       margin: 20,
-  //       center: true
-  //     },
-  //     820: {
-  //       slideBy: 1,
-  //       items: 2,
-  //       autoWidth: false,
-  //       margin: 20
-  //     },
-  //     920: {
-  //       slideBy: 1,
-  //       items: 4,
-  //       autoWidth: false,
-  //       margin: 20
-  //     },
-  //     1024: {
-  //       items: 4,
-  //       slideBy: 1,
-  //       autoWidth: false,
-  //       margin: 20
-  //     },
-  //     1440: {
-  //       slideBy: 5,
-  //       autoWidth: false,
-  //       margin: 50
-  //     }
-  //   }
-  // });
-
-  // $("#next-slide__4").click(function(event) {
-  //   event.preventDefault();
-  //   owlCarousel4.trigger("next.owl.carousel");
-  // });
-
-  // $("#prev-slide__4").click(function(event) {
-  //   event.preventDefault();
-  //   owlCarousel4.trigger("prev.owl.carousel");
-  // });
 
   // loading status
   const loading = {
@@ -551,6 +486,9 @@ const initSlider = () => {
 
 initSlider();
 
+
+
+
 //owl-carousel_4
 
 const sliderTeam = () => {
@@ -634,3 +572,55 @@ for (let anchor of anchors) {
     });
   });
 }
+
+window.WOW = new WOW({
+  boxClass: "showup-animation",
+  animateClass: "showup-animation_visible", 
+  offset: 500, 
+  mobile: false, 
+  live: true 
+});
+
+WOW.init();
+
+// let prevScroll = 0;
+// const obj = document.querySelector('.showup-animation_hidden');
+
+// const scrollAnimation = () => {
+//   let currentScroll = window.scrollY;
+//   let objPosition = obj.getBoundingClientRect().top
+//   let windowHeight = window.innerHeight / 2
+
+//   console.log(objPosition, windowHeight, currentScroll, prevScroll)
+//   if (currentScroll > prevScroll) {
+//     obj.classList.add('showup-animation');
+//     obj.addEventListener('animationend', obj.classList.remove('showup-animation_hidden'))
+//   }
+//   prevScroll = currentScroll;
+// }
+
+// window.addEventListener("scroll",scrollAnimation);
+
+
+// var $window = $(window);
+// var $elem = $(".showup-animation_hidden")
+
+//     function isScrolledIntoView($elem, $window) {
+//         var docViewTop = $window.scrollTop();
+//         var docViewBottom = docViewTop + $window.height();
+
+//         var elemTop = $elem.offset().top;
+//         var elemBottom = elemTop + $elem.height();
+
+//         return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+//     }
+
+
+// $(document).on("scroll", function () {
+//     if (isScrolledIntoView($elem, $window)) {
+//         $elem.addClass("showup-animation")
+//         $elem.removeClass("showup-animation_hidden")
+
+//         console.log("now you see me");
+//     }
+// });

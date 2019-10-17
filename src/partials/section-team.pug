@@ -1,8 +1,10 @@
 section.section-team 
     .section-team_container.__container 
-        .section-title
-            .section-title__outer_bold наша
-            .section-title__outer_fit команда
+        .section-title.showup-animation.showup-animation_hidden
+            .showup-animation__line
+                .section-title__outer_bold наша
+            .showup-animation__line
+                .section-title__outer_fit команда
 
     .wrap-slider__team
         .slider-team
@@ -88,7 +90,7 @@ section.section-team
             .strip.strip__bottom
 
         .block-order__wrap.__mobile
-            button.button-order(onclick="window.location.href='/order-modal.html'") 
+            button.button-order(onclick="window.location.href='/order-modal.html'")
                 span посчитать заказ
             .text-cursive Просчитайте заказ у нас и 
                 .elemment-pink получите скидку!

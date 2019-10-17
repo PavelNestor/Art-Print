@@ -49,6 +49,9 @@
     align-items: flex-start
     justify-content: center
 
+    @media screen and ( max-width:  640px)
+      align-items: center
+
   &-side__right
     flex: 0 0 50%
     display: flex
@@ -123,6 +126,9 @@
   padding-left: 1.7rem  
   position: relative
 
+  @media screen and ( max-width: 640px)
+    padding-left: 0
+
   &::before
     content: ''
     height: 7rem
@@ -138,7 +144,7 @@
       right: -8.9rem
 
     @media screen and ( max-width: 640px)
-      right: -1.9rem
+      content: none
 
 .slide__button
   position: absolute
@@ -191,6 +197,9 @@
 @media (max-width: 800px)	
 
   .slider-title
+    margin-bottom: 5rem
+    font-size:  6.1rem
+    margin-left: -1.3rem
     &__sub
       font-size: 2rem
 
@@ -208,11 +217,6 @@
     margin-bottom: 1.6rem
     &::before
       top: -4.4rem
-
-  .slider-title
-    margin-bottom: 5rem
-    font-size:  6.1rem
-    margin-left: -1.3rem
 
     &__outer
       &_bold
@@ -256,3 +260,9 @@
     &.active
       background-color: $color_pink
       transition: .3s all ease
+
+@media (max-width: 640px)
+  .slider-title
+    margin-left: 0
+    text-align: center
+    width: 100%
