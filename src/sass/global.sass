@@ -495,38 +495,39 @@ input[type='number']
 	font-size: 1.4rem
 	line-height: 3rem
 
+@media screen and (min-width: 640px )
+	
+	.showup-animation
+		&__line
+			// overflow: hidden
 
-.showup-animation
-	&__line
-		// overflow: hidden
+			& > *
+				transition: 300ms cubic-bezier(0, 0, 0, 1)
+				transition-property: transform, opacity
+				transform: translateY(100%)
+				opacity: 0
 
-		& > *
-			transition: 300ms cubic-bezier(0, 0, 0, 1)
-			transition-property: transform, opacity
-			transform: translateY(100%)
+			@for $i from 0 through 4
+				&:nth-of-type(#{$i}) > *
+					transition-delay: #{350 * $i}ms
+
+			@for $i from 1 through 12
+				&:nth-of-type(#{$i}) > *
+					transition-delay: #{350 * $i}ms
+
+				&.__child_#{$i} > *
+					transition-delay: #{550 + ($i * 300)}ms
+
+
+		&_hidden &__line > *
+			transform: translateY(130%)
+			transition-timing-function: ease-in
 			opacity: 0
 
-		@for $i from 0 through 4
-			&:nth-of-type(#{$i}) > *
-				transition-delay: #{350 * $i}ms
-
-		@for $i from 1 through 12
-			&:nth-of-type(#{$i}) > *
-				transition-delay: #{350 * $i}ms
-
-			&.__child_#{$i} > *
-				transition-delay: #{550 + ($i * 300)}ms
-
-
-	&_hidden &__line > *
-		transform: translateY(130%)
-		transition-timing-function: ease-in
-		opacity: 0
-
-	&_visible &__line > *
-		transform: translateY(0%)
-		transition-timing-function: ease-in
-		opacity: 1
+		&_visible &__line > *
+			transform: translateY(0%)
+			transition-timing-function: ease-in
+			opacity: 1
 
 @media screen and ( max-width: 640px )
 	.centered-button
