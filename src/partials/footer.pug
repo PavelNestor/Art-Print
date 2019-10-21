@@ -6,20 +6,15 @@ footer#section-contacts.footer__wrap.footer
   .strip-wrapper__bottom
     .strip.strip__bottom
 
-  .footer__content.showup-animation
-    .showup-animation__line
-      .footer__title нас
-        .footer__text очень легко найти
+  .footer__content(data-aos="fade-up", anchorPlacement="center", data-aos-easing="ease")
+    .footer__title нас
+      .footer__text очень легко найти
 
-    .showup-animation__line
-      a.footer__mail(href="mailto:contact@artprintstudio.com.ua") contact@artprintstudio.com.ua
-    .showup-animation__line
-      a.footer__tel(href="tel:+380442231465") +380 (44) 2231465
-    .showup-animation__line
-      .footer__location Киев, ул. Попудренко 18, Офис 29, Метро "Дарница", 03680
-    .showup-animation__line
-      a.footer__location_link(href="/") смотреть на карте
-    div
+    a.footer__mail(href="mailto:contact@artprintstudio.com.ua", data-aos="fade-up", anchorPlacement="center", data-aos-easing="ease", data-aos-delay="100") contact@artprintstudio.com.ua
+    a.footer__tel(href="tel:+380442231465", data-aos="fade-up", anchorPlacement="center", data-aos-easing="ease", data-aos-delay="200") +380 (44) 2231465
+    .footer__location(data-aos="fade-up", anchorPlacement="center", data-aos-easing="ease", data-aos-delay="300") Киев, ул. Попудренко 18, Офис 29, Метро "Дарница", 03680
+    a.footer__location_link(href="/", data-aos="fade-up", anchorPlacement="center", data-aos-easing="ease", data-aos-delay="400") смотреть на карте
+    div(data-aos="fade-up", anchorPlacement="center", data-aos-easing="ease", data-aos-delay="500")
       button.button-order.__long(data-modal-open="#modal-footer") 
         span Есть вопросы? 
         span Задайте их прямо сейчас.

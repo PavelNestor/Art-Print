@@ -201,6 +201,7 @@ $(document).ready(function() {
     dotData: true,
     dots: true,
     dotsContainer: "#carousel-custom-dots",
+    dotClass: 'owl-dot showup-animation__button',
     dotsData: true,
     items: 1,
     loop: false,
@@ -579,5 +580,7 @@ $(document).ready(function() {
   });
   
   WOW.init();
+
+  AOS.init();
   
 });

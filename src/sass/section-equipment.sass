@@ -148,6 +148,7 @@
     max-width: 100vw
     width: 100%
     background: $color_blue
+    height: 100%
 
     @media screen and (max-width: 1024px)
       width: 100%
@@ -198,6 +199,12 @@
       .owl-item
         margin-right: 1px !important
 
+  .owl-carousel 
+    // .owl-stage
+    .owl-stage,
+    .owl-item
+      height: 100%
+
   .slide__button
     top: 50%
 
@@ -207,6 +214,7 @@
   .slide
     position: relative
     width: 100%
+    height: 100%
 
     @media screen and (max-width: 640px)
       overflow-y: scroll
