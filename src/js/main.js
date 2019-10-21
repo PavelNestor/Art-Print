@@ -127,6 +127,8 @@ $(document).ready(function() {
     pullDrag: false,
     freeDrag: false,
     mouseDrag: false,
+    autoplay: true,
+    autoplayTimeout: 5000,
     touchDrag: false,
     animateIn: "fadeIn",
     animateOut: "fadeOut",
@@ -343,7 +345,8 @@ $(document).ready(function() {
       document.querySelectorAll("[data-modal-open], [data-modal-close]")
     );
     triggers.forEach(element => {
-      element.addEventListener("click", function() {
+      element.addEventListener("click", function(event) {
+        event.preventDefault()
         var isOpen = !!element.dataset.modalOpen;
         var selector = isOpen
           ? element.dataset.modalOpen

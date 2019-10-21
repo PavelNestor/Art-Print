@@ -1,6 +1,8 @@
 // --------------------------------------------------
 // MODALS
 // --------------------------------------------------
+
+
 .app-dialog
   background: $color-white
   position: relative
@@ -310,6 +312,12 @@
   &::placeholder
     font-size: 2.4rem
 
+  @media screen and ( max-width: 640px )
+    font-size: 1.8rem
+    &::placeholder
+      font-size: 1.8rem
+    
+
   &:focus
     outline: none
 
@@ -468,3 +476,111 @@
     position: relative
     left: 50px
     top: 5px
+
+.modal-services
+  background-color: #fff
+  position: fixed
+  top: 0
+  left: 0 
+  right: 0
+  bottom: 0
+  z-index: 9999
+  overflow: auto
+  display: none
+
+  &.__open
+    display: block
+
+  .app-dialog-content
+    padding: 8rem 18.6rem 10.2rem 10.4rem
+
+    @media screen and ( max-width: 640px )
+      padding: 8% 12% 8% 5%
+
+  .section-title
+    margin-bottom: 4rem
+
+  p
+    display: block
+    margin: 0 0 4rem 0
+    font-size: 2.4rem
+    color: text_color
+    line-height: 3.6rem
+
+    @media screen and ( max-width: 640px )
+      font-size: 1.8rem  
+      line-height: 2.4rem
+
+  .list-title
+    font-size: 4rem
+    font-weight: bold 
+    font-family: $playfairBold
+    line-height: 4.5rem
+    letter-spacing: -0.02em
+    color: text_color
+    margin-bottom: 4rem
+
+  .list-modal
+    margin-bottom: 4rem
+    
+    li
+      position: relative
+      font-size: 2.4rem
+      line-height: 3.6rem
+      color: #383838
+      padding-left: 3rem
+
+      @media screen and ( max-width: 640px )
+        font-size: 1.8rem  
+        line-height: 2.4rem
+
+      &::before
+        color: $color_blue
+        content: "\2022"
+        display: inline-block
+        font-size: 5rem
+        left: -0.4225rem
+        position: absolute
+        top: 54%
+        transform: $translateY
+
+  .list-item_modal
+    display: flex
+    margin-bottom: 4rem  
+
+    @media screen and ( max-width: 1024px )
+      flex-direction: column
+
+    &--content
+      flex: 1 50%
+      display: flex
+      align-items: center
+
+      @media screen and ( max-width: 1024px )
+        margin-bottom: 2rem
+
+    svg
+      margin-right: 4rem
+      max-width: 100px
+      height: auto
+
+      @media screen and ( max-width: 640px )
+        max-width: 50px
+
+    &--text
+      font-size: 2.4rem
+      line-height: 4.2rem
+      display: flex
+      strong
+        margin-right: .7rem
+
+      @media screen and ( max-width: 640px )
+        font-size: 1.8rem  
+        line-height: 2.4rem
+
+        strong
+          font-size: 1.8rem
+          line-height: 2.4rem
+
+  .block-order__wrap
+    max-width: 33.1rem

@@ -227,7 +227,10 @@ $blue: #00ADEE;
     justify-content: center
     min-height: 17rem
     background-image: none
-    transition: .2s background-image ease-in-out      
+    cursor: pointer
+    span
+      position: relative
+      z-index: 5
 
     &:nth-child(3n+3)
       background-color: $color_white
@@ -271,22 +274,48 @@ $blue: #00ADEE;
 
     @media #{$media-xs-up}
       &_red
-        transition: .2s background-position-y ease-in-out
-        background-image: url(/img/bg-red.png), url(/img/red.png)
-        background-size: cover
-        background-position-y: 200px
-        background-repeat: no-repeat
+        display: inline-flex
+        align-items: center
+        justify-content: center
+        position: relative 
+        &::before
+          content: ''
+          position: absolute
+          top: 0
+          left: 0
+          right: 0
+          bottom: 0
+          width: 100%
+          opacity: 0
+          background-image: url(/img/bg-red.png), url(/img/red.png)
+          z-index: 3
+          transition: opacity .3s ease
         &:hover
-          background-position-y: 0 
+           &::before
+             opacity: 1
+             transition: opacity .3s ease
 
       &_blue
-        transition: .2s background-position-y ease-in-out
-        background-image: url(/img/bg-blue.png), url(/img/blue.png)
-        background-size: cover
-        background-position-y: 200px
-        background-repeat: no-repeat
+        display: inline-flex
+        align-items: center
+        justify-content: center
+        position: relative
+        &::before
+          content: ''
+          position: absolute
+          top: 0
+          left: 0
+          right: 0
+          bottom: 0
+          width: 100%
+          opacity: 0
+          background-image: url(/img/bg-blue.png), url(/img/blue.png)
+          z-index: 3
+          transition: opacity .3s ease
         &:hover
-          background-position-y: 0
+           &::before
+             opacity: 1
+             transition: opacity .3s ease
 
     &_first
       flex: 1 1 50%
