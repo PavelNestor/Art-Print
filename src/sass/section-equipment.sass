@@ -7,10 +7,10 @@
   width: 100%
 
   .owl-carousel .owl-stage-outer
-    min-height: 100vh
+    height: 100%!important
 
     @media screen and ( max-width: 1024px )
-      min-height: auto
+      height: 100% !important
       
 
   .slider
@@ -152,6 +152,10 @@
 
     @media screen and (max-width: 1024px)
       width: 100%
+      height: max-content
+
+    @media screen and (max-width: 640px)
+      height: auto
 
     .row
       display: flex
@@ -159,7 +163,7 @@
       // max-height: 49.3rem
       margin-bottom: 1.1rem
       justify-content: space-between
-      height: 100%
+      height: 50%
       &:last-of-type
         margin-bottom: 0
 
@@ -216,6 +220,10 @@
     width: 100%
     height: 100%
 
+    @media screen and (max-width: 1024px)
+      overflow-x: auto
+
+
     @media screen and (max-width: 640px)
       overflow-y: scroll
       scrollbar-width: none
@@ -230,7 +238,7 @@
       position: absolute
       background-color: #fff
       top: 50%
-      transform: $translateY
+      transform: $translateY!important
       z-index: 1
       padding: 5rem 4.8rem 5rem 5rem
       max-width: 65rem
@@ -241,7 +249,7 @@
         max-width: 64.5rem
 
       @media screen and (max-width: 1024px)
-        transform: none
+        transform: none!important
         position: static
         margin: 0 auto
 

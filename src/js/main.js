@@ -161,38 +161,6 @@ $(document).ready(function() {
     owl.trigger("prev.owl.carousel");
   });
 
-  // carousel 2 //
-
-  // const owlMasonry = $("#owl-carousel_2");
-
-  // owlMasonry.owlCarousel({
-  //   loop: false,
-  //   nav: false,
-  //   autoWidth: true,
-  //   items: 4,
-  //   margin: 30,
-  //   slideBy: 3,
-  //   responsive: {
-  //     0: {
-  //       slideBy: 1
-  //     },
-  //     640: {
-  //       slideBy: 3
-  //     }
-  //   }
-  // });
-
-  // // Custom Button
-  // $("#next-slide__masonry").click(function(event) {
-  //   event.preventDefault();
-  //   owlMasonry.trigger("next.owl.carousel");
-  // });
-
-  // $("#prev-slide__masonry").click(function(event) {
-  //   event.preventDefault();
-  //   owlMasonry.trigger("prev.owl.carousel");
-  // });
-
   // carousel 3 //
 
   const owlCarousel3 = $("#owl-carousel_3");
@@ -203,7 +171,7 @@ $(document).ready(function() {
     dotData: true,
     dots: true,
     dotsContainer: "#carousel-custom-dots",
-    dotClass: 'owl-dot showup-animation__button',
+    dotClass: "owl-dot",
     dotsData: true,
     items: 1,
     loop: false,
@@ -244,7 +212,7 @@ $(document).ready(function() {
   $(window).on("resize", function() {
     if ($(window).width() < 640)
       $(".slider-right").removeClass("slider-hidden");
-    $(this).parent($(".slider-right").removeClass("slider-visible"));
+      $(this).parent($(".slider-right").removeClass("slider-visible"));
   });
 
   // loading status
@@ -295,7 +263,7 @@ $(document).ready(function() {
   // force loading status
   setTimeout(function() {
     loading.loaded(true);
-  }, 10000);
+  }, 3000);
 
   // on load
   window.onload = function() {
@@ -346,7 +314,7 @@ $(document).ready(function() {
     );
     triggers.forEach(element => {
       element.addEventListener("click", function(event) {
-        event.preventDefault()
+        event.preventDefault();
         var isOpen = !!element.dataset.modalOpen;
         var selector = isOpen
           ? element.dataset.modalOpen
@@ -360,77 +328,77 @@ $(document).ready(function() {
       });
     });
   })();
-  
+
   // Navbar show on scroll //
-  
+
   const navEl = document.getElementById("navbar-scroll");
-  
+
   const height = window.innerHeight;
-  
+
   let lastScrollPosition = 0;
   function showNavOnScroll() {
     const scrollPosition = document.body.getBoundingClientRect().top;
-  
+
     const isScrollDirectionBackwards = lastScrollPosition < scrollPosition;
-  
+
     if (isScrollDirectionBackwards && scrollPosition < -height) {
       navEl.classList.add("navbar-scroll_active");
     } else {
       navEl.classList.remove("navbar-scroll_active");
     }
-  
+
     lastScrollPosition = scrollPosition;
   }
-  
+
   window.addEventListener("scroll", showNavOnScroll);
-  
+
   // menu //
-  
+
   const menu = document.getElementById("menu");
-  
+
   const menuNavBurger = document.getElementById("menu-nav-burger-desc");
-  
+
   const navBurgers = document.querySelectorAll(".nav-burger");
-  
+
   for (var i = 0; i < navBurgers.length; i++) {
     navBurgers[i].addEventListener("click", function() {
       menu.classList.add("__active");
     });
   }
-  
+
   menuNavBurger.addEventListener("click", function() {
     menu.classList.remove("__active");
   });
-  
+
   // slider masonry //
-  
+
   const initSlider = () => {
     const container = document.querySelector("#carousel-masonry");
-  
+
     const btnPrev = document.querySelector("#prev-slide__masonry");
-  
+
     const btnNext = document.querySelector("#next-slide__masonry");
-  
+
     const slides = document.querySelectorAll("#carousel-masonry > *");
-  
+
     let sliderWidth = document.querySelector(".wrap-masonry").offsetWidth;
-  
+
     let widthArray = [0];
-  
+
     let newWidthArray = [0];
-  
+
     let containerWidth = 0;
-  
+
     let offset = 0;
-  
+
     let step = 0;
-  
+
     let remainder = 0;
-  
+
     for (let i = 0; i < slides.length; i++) {
       widthArray.push(slides[i].offsetWidth + 30);
       containerWidth += slides[i].offsetWidth + 30;
-  
+
       if (window.innerWidth <= 640) {
         newWidthArray = widthArray[1];
       } else {
@@ -443,40 +411,40 @@ $(document).ready(function() {
         }, 0);
       }
     }
-  
+
     container.style.width = containerWidth + "px";
-  
+
     btnNext.addEventListener("click", function(event) {
       event.preventDefault();
       remainder = containerWidth - sliderWidth - (offset + newWidthArray);
-  
+
       if (remainder >= 0) {
         step++;
-  
+
         offset = offset + newWidthArray;
         container.style.transform = `translateX(${-offset}px)`;
         container.classList.add("last-margin");
-  
+
         if (window.innerWidth <= 640 && widthArray.length - 3 == step) {
           container.style.margin = "0 0 0 -7.5rem";
-        } 
+        }
       } else {
         container.style.transform = `translateX(${-(
           containerWidth - sliderWidth
         )}px)`;
       }
     });
-  
+
     btnPrev.addEventListener("click", function(event) {
       event.preventDefault();
-  
+
       if (offset > 0) {
         offset = offset - newWidthArray;
       }
-  
+
       container.style.transform = `translateX(${-offset}px)`;
       step--;
-  
+
       if (offset <= 0) {
         container.style.transform = "translateX(" + 0 + "px)";
         container.classList.remove("last-margin");
@@ -484,51 +452,48 @@ $(document).ready(function() {
       }
     });
   };
-  
+
   initSlider();
-  
-  
-  
-  
+
   //owl-carousel_4
-  
+
   const sliderTeam = () => {
     const container = document.querySelector(".slider-team");
-  
+
     const btnPrev = document.querySelector("#prev-slide__4");
-  
+
     const btnNext = document.querySelector("#next-slide__4");
-  
+
     const slides = document.querySelectorAll(".slider-team > *");
-  
+
     let sliderWidth = document.querySelector(".wrap-slider__team").clientWidth;
-  
+
     let widthArray = [0];
-  
+
     let containerWidth = 0;
-  
+
     let offset = 0;
-  
+
     let step = 0;
-  
+
     let remainder = 0;
-  
+
     for (let i = 0; i < slides.length; i++) {
       widthArray.push(slides[i].clientWidth + 50);
       containerWidth += slides[i].clientWidth + 50;
     }
-  
+
     container.style.width = containerWidth + "px";
-  
+
     btnNext.addEventListener("click", function(event) {
       event.preventDefault();
       remainder = containerWidth - sliderWidth - (offset + widthArray[step]);
-  
+
       if (remainder >= 0) {
         step++;
         offset = offset + widthArray[step];
         container.style.transform = `translateX(${-offset}px)`;
-  
+
         if (window.outerWidth <= 640 && widthArray.length - 2 == step) {
           container.style.margin = "0 0 0 -7.5rem";
         }
@@ -539,13 +504,13 @@ $(document).ready(function() {
         )}px)`;
       }
     });
-  
+
     btnPrev.addEventListener("click", function(event) {
       event.preventDefault();
       offset = offset - widthArray[step];
       container.style.transform = `translateX(${-offset}px)`;
       step--;
-  
+
       if (step <= 0) {
         step = 0;
         container.classList.remove("last-margin");
@@ -555,35 +520,54 @@ $(document).ready(function() {
       }
     });
   };
-  
+
   sliderTeam();
-  
+
   // anchors scroll //
   const anchors = document.querySelectorAll(".navbar__link");
-  
+
   for (let anchor of anchors) {
     anchor.addEventListener("click", function(e) {
       e.preventDefault();
       menu.classList.remove("__active");
       const blockID = anchor.getAttribute("href").substr(1);
-  
+
       document.getElementById(blockID).scrollIntoView({
         behavior: "smooth",
         block: "start"
       });
     });
   }
-  
+
   window.WOW = new WOW({
     boxClass: "showup-animation",
-    animateClass: "showup-animation_visible", 
-    offset: 350, 
-    mobile: false, 
-    live: false 
+    animateClass: "showup-animation_visible",
+    offset: 350,
+    mobile: false,
+    live: false
   });
+
+
+  if (window.innerWidth < 640) {
+    const highlight = () => {
+      let divs = document.querySelectorAll(".services-card_mobile__hilight");
+      divs.forEach(element =>  {
+        element.classList.remove("light")
+      });
+      let random = Math.floor(Math.random() * divs.length);
+      
+      divs[random].classList.add("light");
   
+    }
+  
+    highlight();
+    setInterval(highlight, 1200);
+  }
   WOW.init();
 
   AOS.init();
+
+
   
+
 });

@@ -162,15 +162,15 @@ $blue: #00ADEE;
         background-color: transparent
         color: $color_white
 
-    @media #{$media-xs}
-      a:nth-child(2)
-        background-color: $blue
-        color: $color_white
+    // @media #{$media-xs}
+    //   a:nth-child(2)
+    //     background-color: $blue
+    //     color: $color_white
 
-    @media #{$media-xs}
-      a:nth-child(3)
-        background-color: $pink
-        color: $color_white
+    // @media #{$media-xs}
+    //   a:nth-child(3)
+    //     background-color: $pink
+    //     color: $color_white
 
     @media #{$media-xs}
       a:nth-child(5n)
@@ -188,19 +188,19 @@ $blue: #00ADEE;
       a:nth-child(8n)
         background-color: $white-card
 
-      a:nth-child(9n)
-        background-color: $pink
-        color: $color_white
+      // a:nth-child(9n)
+      //   background-color: $pink
+      //   color: $color_white
 
-    @media #{$media-xs}
-      a:nth-child(10n)
-        background-color: $blue
-        color: $color_white
+    // @media #{$media-xs}
+    //   a:nth-child(10n)
+    //     background-color: $blue
+    //     color: $color_white
 
-    @media #{$media-xs}
-      a.services__card_last
-        background-color: $blue
-        color: $color_white
+    // @media #{$media-xs}
+    //   a.services__card_last
+    //     background-color: $blue
+    //     color: $color_white
 
     @media #{$media-xs}
       a:last-child
@@ -313,9 +313,27 @@ $blue: #00ADEE;
           z-index: 3
           transition: opacity .3s ease
         &:hover
-           &::before
-             opacity: 1
-             transition: opacity .3s ease
+          &::before
+            opacity: 1
+            transition: opacity .3s ease
+
+    @media #{$media-xs}
+      &_red
+        &.light
+          background-color: $pink !important
+          transition: background-color 1s ease !important
+          
+          span
+            color: #fff
+
+      &_blue
+        &.light
+          background-color: $blue !important
+          transition: background-color 1s ease !important
+
+          span
+            color: #fff
+
 
     &_first
       flex: 1 1 50%
@@ -344,3 +362,30 @@ $blue: #00ADEE;
 .last__item
   @media #{$media-xs} 
     display: none
+
+
+// @for $i from 1 through 13
+//   .services-card_mobile__hilight
+//     &:nth-of-type(#{random($i)})
+//       animation: opacityToggle infinite 20s !important
+
+// @keyframes opacityToggle
+//   0%
+//     opacity: 1
+  
+//   4%
+//      opacity: 1
+  
+//   5%
+//      opacity: 0
+  
+//   10%
+//     opacity: 0
+
+//   11%
+//     opacity: 1
+
+//   100%
+//     opacity: 1
+  
+      

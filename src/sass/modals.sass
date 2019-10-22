@@ -2,7 +2,13 @@
 // MODALS
 // --------------------------------------------------
 
+#modal-order
+  .text-cursive
+    white-space: nowrap
 
+    .pink-title
+      left: 140px
+  
 .app-dialog
   background: $color-white
   position: relative
@@ -11,6 +17,17 @@
   padding: 7.8% 7.8% 7.8% 8.5%
   transition: opacity .3s ease-out, transform .2s, visibility .4s
   @extend %scrollbar
+
+  .bird-img
+    max-width: 11.6rem
+    width: 100%
+    height: 100%
+
+  .logo-text
+    max-width: 26.5rem
+    width: 100%
+    height: 100%
+
 
   .strip__top
     top: 16%
@@ -126,6 +143,9 @@
     position: absolute
     top: 20px
     margin-left: 20px
+    display: flex
+    align-items: center
+    width: 100%
 
     @media (max-width: 450px)
       margin-left: 0
@@ -485,20 +505,24 @@
   right: 0
   bottom: 0
   z-index: 9999
-  overflow: auto
+  overflow-y: auto
   display: none
 
   &.__open
     display: block
 
   .app-dialog-content
-    padding: 8rem 18.6rem 10.2rem 10.4rem
+    padding: 5.1% 11.8% 6.9% 6.7%
 
     @media screen and ( max-width: 640px )
-      padding: 8% 12% 8% 5%
+      padding: 25% 12% 8% 5%
 
   .section-title
     margin-bottom: 4rem
+
+    &::before
+      @media screen and ( max-width: 640px )
+        top: -7.2rem
 
   p
     display: block
@@ -519,6 +543,12 @@
     letter-spacing: -0.02em
     color: text_color
     margin-bottom: 4rem
+
+    @media screen and ( max-width: 640px )
+      font-size: 2.8rem 
+      line-height: 3rem
+      
+
 
   .list-modal
     margin-bottom: 4rem
@@ -558,6 +588,12 @@
 
       @media screen and ( max-width: 1024px )
         margin-bottom: 2rem
+        &:last-of-type
+          margin-bottom: 0
+
+      @media screen and ( max-width: 445px )
+        flex-direction: column
+        align-items: flex-start
 
     svg
       margin-right: 4rem
@@ -566,6 +602,10 @@
 
       @media screen and ( max-width: 640px )
         max-width: 50px
+
+      @media screen and ( max-width: 445px )
+        margin-bottom: 2rem
+        max-width: 80px
 
     &--text
       font-size: 2.4rem
@@ -581,6 +621,9 @@
         strong
           font-size: 1.8rem
           line-height: 2.4rem
+
+      @media screen and ( max-width: 445px )
+        margin-bottom: 1rem
 
   .block-order__wrap
     max-width: 33.1rem
