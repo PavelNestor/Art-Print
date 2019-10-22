@@ -147,9 +147,20 @@
     align-items: center
     width: 100%
 
+    @media (max-width: 640px)
+      justify-content: center
+      margin-left: 0
+      left: 0
+      right: 0
+      padding: 0 50px
+      top: 3.5rem
+
+      .logo-text
+        min-width: 19.6rem
+
     @media (max-width: 450px)
       margin-left: 0
-      width: 90%
+      width: 100%
 
   &__right
     width: 100%

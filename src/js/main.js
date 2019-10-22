@@ -212,7 +212,7 @@ $(document).ready(function() {
   $(window).on("resize", function() {
     if ($(window).width() < 640)
       $(".slider-right").removeClass("slider-hidden");
-      $(this).parent($(".slider-right").removeClass("slider-visible"));
+    $(this).parent($(".slider-right").removeClass("slider-visible"));
   });
 
   // loading status
@@ -451,6 +451,43 @@ $(document).ready(function() {
         container.style.margin = "0";
       }
     });
+
+    var startPoint = {};
+    var nowPoint;
+    var ldelay;
+    document.addEventListener(
+      "touchstart",
+      function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        startPoint.x = event.changedTouches[0].pageX;
+        startPoint.y = event.changedTouches[0].pageY;
+        ldelay = new Date();
+      },
+      false
+    );
+    document.addEventListener(
+      "touchend",
+      function(event) {
+        var pdelay = new Date();
+        nowPoint = event.changedTouches[0];
+        var xAbs = Math.abs(startPoint.x - nowPoint.pageX);
+        var yAbs = Math.abs(startPoint.y - nowPoint.pageY);
+        if (
+          (xAbs > 20 || yAbs > 20) &&
+          pdelay.getTime() - ldelay.getTime() < 200
+        ) {
+          if (xAbs > yAbs) {
+            if (nowPoint.pageX < startPoint.x) {
+              btnNext.click()
+            } else {
+              btnPrev.click()
+            }
+          }
+        }
+      },
+      false
+    );
   };
 
   initSlider();
@@ -519,6 +556,43 @@ $(document).ready(function() {
         container.style.margin = "0";
       }
     });
+
+    var startPoint = {};
+    var nowPoint;
+    var ldelay;
+    document.addEventListener(
+      "touchstart",
+      function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        startPoint.x = event.changedTouches[0].pageX;
+        startPoint.y = event.changedTouches[0].pageY;
+        ldelay = new Date();
+      },
+      false
+    );
+    document.addEventListener(
+      "touchend",
+      function(event) {
+        var pdelay = new Date();
+        nowPoint = event.changedTouches[0];
+        var xAbs = Math.abs(startPoint.x - nowPoint.pageX);
+        var yAbs = Math.abs(startPoint.y - nowPoint.pageY);
+        if (
+          (xAbs > 20 || yAbs > 20) &&
+          pdelay.getTime() - ldelay.getTime() < 200
+        ) {
+          if (xAbs > yAbs) {
+            if (nowPoint.pageX < startPoint.x) {
+              btnNext.click()
+            } else {
+              btnPrev.click()
+            }
+          }
+        }
+      },
+      false
+    );
   };
 
   sliderTeam();
@@ -547,27 +621,21 @@ $(document).ready(function() {
     live: false
   });
 
-
   if (window.innerWidth < 640) {
     const highlight = () => {
       let divs = document.querySelectorAll(".services-card_mobile__hilight");
-      divs.forEach(element =>  {
-        element.classList.remove("light")
+      divs.forEach(element => {
+        element.classList.remove("light");
       });
       let random = Math.floor(Math.random() * divs.length);
-      
+
       divs[random].classList.add("light");
-  
-    }
-  
+    };
+
     highlight();
     setInterval(highlight, 1200);
   }
   WOW.init();
 
   AOS.init();
-
-
-  
-
 });
