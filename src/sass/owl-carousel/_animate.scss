@@ -1,6 +1,23 @@
 /*
  *  Owl Carousel - Animate Plugin
  */
+
+@keyframes fadeOutCustom {
+	0% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+
+}
+
+@keyframes fadeInCustom {
+	0% {
+		transform: translateY(0);
+		opacity: 0;
+	}
+
+}
+
 .owl-carousel{
 	.animated {
 		animation-duration: 1000ms;
@@ -12,10 +29,22 @@
 	.owl-animated-out {
 		z-index: 1;
 	}
-	.fadeOut {
-		animation-name: fadeOut;
+	.fadeOutCustom {
+		animation-name: fadeOutCustom;
 	}
+	.fadeInCustom {
+		animation-name: fadeInCustom;
+	}
+	// .textOut .slides .slides-side__left .slider-title {
+	// 	animation-name: slideTextOut;
+	// 	animation-duration: 300ms;
+	// }
+	// .textIn .slides .slides-side__left .slider-title {
+	// 	animation-name: slideTextIn;
+	// 	animation-duration: 300ms;
+	// }
 }
+
 
 @keyframes fadeOut {
 	0% {
@@ -23,6 +52,6 @@
 	}
 
 	100% {
-		opacity: 0;
+		opacity: 1;
 	}
 }

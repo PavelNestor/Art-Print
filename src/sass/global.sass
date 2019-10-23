@@ -385,6 +385,8 @@ input[type='number']
 	height: 0
 	width: 0
 
+// animate bird (logo) //
+
 .bird
 	&__arrow-back
 		animation: arrow-back 10s linear 0s infinite normal both
@@ -536,7 +538,379 @@ input[type='number']
 	to
 		transform: scaleY(0)
 
-		
+// animate icon 1 //
+
+	@keyframes rotate-center
+  0%
+    transform: rotate(0)
+  5%
+    transform: rotate(360deg)
+  100%
+    transform: rotate(360deg)
+
+/**
+ * ----------------------------------------
+ * animation scale-up-center-circle
+ * ----------------------------------------
+ */
+@keyframes scale-up-center-circle
+  0%
+    transform: scale(1)
+  5%
+    transform: scale(0.5)
+  100%
+    transform: scale(1)
+
+/**
+ * ----------------------------------------
+ * animation scale-up-line1
+ * ----------------------------------------
+ */
+@keyframes scale-up-line1
+  0%
+    transform: scale(1)
+  5%
+    transform: scale(1)
+  50%
+    transform: scale(1.1)
+  100%
+    transform: scale(1)
+/**
+ * ----------------------------------------
+ * animation scale-up-line2
+ * ----------------------------------------
+ */
+@keyframes scale-up-line2
+  0%
+    transform: scale(1)
+  5%
+    transform: scale(1)
+  50%
+    transform: scale(0.7)
+  100%
+    transform: scale(1)
+
+/**
+ * ----------------------------------------
+ * animation translate-circle-sm6
+ * ----------------------------------------
+ */
+@keyframes translate-circle-sm6
+  0%
+    transform: translate(0)
+  0%
+    transform: translate(0)
+  50%
+    transform: translate(10%, 10%)
+  100%
+    transform: translate(0)
+
+/**
+ * ----------------------------------------
+ * animation translate-circle-sm1
+ * ----------------------------------------
+ */
+@keyframes translate-circle-sm1
+  0%
+    transform: translate(0)
+  0%
+    transform: translate(0)
+  50%
+    transform: translate(-15%, 10%)
+  100%
+    transform: translate(0)
+
+/**
+ * ----------------------------------------
+ * animation translate-circle-sm4
+ * ----------------------------------------
+ */
+@keyframes translate-circle-sm4
+  0%
+    transform: translate(0)
+  0%
+    transform: translate(0)
+  50%
+    transform: translate(6%, -5%)
+  100%
+    transform: translate(0)
+
+/**
+ * ----------------------------------------
+ * animation scale-circle-sm2
+ * ----------------------------------------
+ */
+@keyframes scale-up-circle-sm2
+  0%
+    transform: scale(1)
+  5%
+    transform: scale(1)
+  50%
+    transform: scale(1.2)
+  100%
+    transform: scale(1)
+
+.one
+  animation: rotate-center 10s ease-in-out 0s infinite both
+  transform-origin: 50% 50%
+
+  &__circle-big
+    animation: scale-up-center-circle 10s cubic-bezier(0.390, 0.575, 0.565, 1.000) infinite both
+    transform-origin: 44% 50%
+  
+  &__circle1
+    animation: translate-circle-sm1 10s cubic-bezier(0.390, 0.575, 0.565, 1.000) infinite both
+ 
+  &__circle2
+    animation: scale-up-circle-sm2 10s cubic-bezier(0.390, 0.575, 0.565, 1.000) infinite both
+    transform-origin: 40% 10%
+ 
+  &__circle3
+  &__circle4
+    animation: translate-circle-sm4 10s cubic-bezier(0.390, 0.575, 0.565, 1.000) infinite both
+  
+  &__circle5
+  &__circle6
+    animation: translate-circle-sm6 10s cubic-bezier(0.390, 0.575, 0.565, 1.000) infinite both
+  
+  &__line1
+    animation: scale-up-line1 10s cubic-bezier(0.390, 0.575, 0.565, 1.000) infinite both
+  
+  &__line2
+    animation: scale-up-line2 10s cubic-bezier(0.390, 0.575, 0.565, 1.000) infinite both
+    transform-origin: 50% 50%
+ 
+  &__line3
+
+// animete gear //
+/**
+ * ----------------------------------------
+ * animation rotate-center-one
+ * ----------------------------------------
+ */
+@keyframes rotate-center-one
+  5%
+    transform: rotate(0)
+  25%
+    transform: rotate(360deg)
+  50%
+    transform: rotate(0)
+
+/**
+ * ----------------------------------------
+ * animation rotate-center-two
+ * ----------------------------------------
+ */
+@keyframes rotate-center-two
+  0%
+    transform: rotate(0)
+  50%
+    transform: rotate(0)
+  75%
+    transform: rotate(360deg)
+  100%
+    transform: rotate(0)
+
+/**
+ * ----------------------------------------
+ * animation rotate-center-three
+ * ----------------------------------------
+ */
+@keyframes rotate-center-three
+  0%
+    transform: rotate(0)
+  10%
+    transform: rotate(360deg)
+  24%
+    transform: rotate(360deg)
+  35%
+    transform: rotate(0)
+  100%
+    transform: rotate(0)
+/**
+ * ----------------------------------------
+ * animation rotate-center-four
+ * ----------------------------------------
+ */
+@keyframes rotate-center-four
+  0%
+    transform: rotate(0)
+  50%
+    transform: rotate(0)
+  60%
+    transform: rotate(360deg)
+  74%
+    transform: rotate(360deg)
+  84%
+    transform: rotate(0)
+  100%
+    transform: rotate(0)
+
+.gear
+  &__one
+    animation: rotate-center-one 10s ease-in-out 0s infinite both
+    transform-origin: 26% 31%
+
+  &__two
+    animation: rotate-center-two 10s ease-in-out 0s infinite both
+    transform-origin: 74.1% 68.5%
+
+  &__three
+    animation: rotate-center-three 10s ease-in-out 0s infinite both
+    transform-origin: 69.1% 15.5%
+
+  &__four
+    animation: rotate-center-four 10s ease-in-out 0s infinite both
+    transform-origin: 31.4% 84.3%
+
+// animate icon paper //
+	
+@keyframes wobble-pen-bottom
+  0%
+    transform: rotate(0) translateX(0)
+  10%
+    transform: rotate(-5deg) translateX(-14px)
+  15%
+    transform: rotate(5deg) translateX(-13px)
+  20%
+    transform: rotate(0)  translateX(-12px)
+  30%
+    transform: rotate(0)  translateX(-11px)
+  35%
+    transform: rotate(-5deg) translateX(-10px)
+  40%
+    transform: rotate(5deg) translateX(-9px)
+  50%
+    transform: rotate(0)  translateX(-8px)
+  55%
+    transform: rotate(-5deg)  translateX(-7px)
+  60%
+    transform: rotate(5deg)  translateX(-6px)
+  65%
+    transform: rotate(0)  translateX(-5px)
+  70%
+    transform: rotate(0)  translateX(-4px)
+  75%
+    transform: rotate(-5deg)  translateX(-3px)
+  80%
+    transform: rotate(5deg)  translateX(-2px)
+  85%
+    transform: rotate(0)  translateX(-1px)
+  100%
+    transform: rotate(0) translateX(0)
+
+.pen
+  animation: wobble-pen-bottom 10s infinite both
+  transform-origin: 49% 82%
+
+  &__sm
+    animation: wobble-pen-bottom 10s infinite both
+    transform-origin: 49% 82%
+ 
+// animate icon circle //
+/**
+ * ----------------------------------------
+ * animation rotate-center
+ * ----------------------------------------
+ */
+@keyframes rotate-center
+  0%
+    transform: rotate(0)
+  100%
+    transform: rotate(-360deg)
+
+.rotate
+  animation: rotate-center 10s cubic-bezier(0.92, -0.07, 0, 1.04) 0s infinite both
+  transform-origin: 50% 50%
+
+// animeate icon medal //
+@keyframes rotate-center
+  0%
+    transform: rotate(0)
+  56%
+    transform: rotate(0)
+  58%
+    transform: rotate(45deg)
+  60%
+    transform: rotate(30deg)
+  62%
+    transform: rotate(15deg)
+  70%
+    transform: rotate(30deg)
+  72%
+    transform: rotate(45deg)
+  80%
+    transform: rotate(360deg)
+  100%
+    transform: rotate(360deg)
+ 
+/**
+ * ----------------------------------------
+ * animation wooble-tape1
+ * ----------------------------------------
+ */
+@keyframes wooble-tape1
+  0%
+    transform: rotate(0)
+  15%
+    transform: rotate(0)
+  16%
+    transform: rotate(-3deg)
+  17%
+    transform: rotate(3deg)
+  18%
+    transform: rotate(-6deg)
+  19%
+    transform: rotate(6deg)
+  20%
+    transform: rotate(-3deg) 
+  21%
+    transform: rotate(3deg)
+  22%
+    transform: rotate(0)
+  100%
+    transform: rotate(0)
+
+/**
+ * ----------------------------------------
+ * animation wooble-tape2
+ * ----------------------------------------
+ */
+@keyframes wooble-tape2
+  0%
+    transform: rotate(0)
+  80%
+    transform: rotate(0)
+  81%
+    transform: rotate(3deg)
+  82%
+    transform: rotate(-2deg)
+  83%
+    transform: rotate(6deg)
+  84%
+    transform: rotate(0deg)
+  85%
+    transform: rotate(3deg) 
+  86%
+    transform: rotate(-1deg)
+  87%
+    transform: rotate(0)
+  100%
+    transform: rotate(0)
+
+.smile
+  animation: rotate-center 5s ease-in-out 0s infinite both
+  transform-origin: 50% 40%
+
+.tape-one
+  animation: wooble-tape1 10s infinite both
+  transform-origin: 10% 96%
+
+.tape-two
+  animation: wooble-tape2 10s infinite both
+  transform-origin: 90% 96%
+
+
 .errors:before
 	content: 'ошибка'
 	color: #EB008B
@@ -643,3 +1017,60 @@ input[type='number']
 	&.aos-animate
 		opacity: 1
 		transform: translateY(0%)
+
+[data-aos="equipment-animation-links"]
+	opacity: 0
+	transition-property: transform, opacity
+	transform: translateY(100%)
+	&.aos-animate
+		transform: translateX(0%)
+		@for $i from 1 through 12
+				&:nth-of-type(#{$i}) > *
+					transition-delay: #{150 * $i}ms
+
+.slider-title
+	// opacity: 0
+
+
+@keyframes slideTextOut 
+	0% 
+		transform: translateY(0)
+		opacity: 1
+
+	100% 
+		transform: translateY(100%)
+		opacity: 0
+	
+
+@keyframes slideTextIn 
+	0% 
+		transform: translateY(100%)
+		opacity: 0
+	
+
+	100% 
+		transform: translateY(0)
+		opacity: 1
+	
+
+// .textOut
+// 	animation-name: slideTextOut
+// 	animation-duration: 300ms
+
+// .textIn
+// 	animation-name: slideTextIn
+// 	animation-duration: 300ms
+
+#owl-carousel_1
+	.owl-item
+		&.active
+			&.fadeOut
+				.slider-title
+					animation: slideTextOut 1s 1 alternate 
+
+#owl-carousel_1
+	.owl-item
+		&.active
+			&.fadeIn
+				.slider-title
+					animation: slideTextIn 1s 1 alternate

@@ -119,21 +119,41 @@ $(document).ready(function() {
 
   const owl = $("#owl-carousel_1");
 
+  owl.on('initialized.owl.carousel', function(event) {
+    let currentItem = event.item.index;
+
+    // title position //
+
+    let elementTitle = document.querySelectorAll(".slider-title")
+
+    let slideLeftPos = document.getElementsByClassName("slides-side__left")
+
+    let heightTitle = elementTitle[currentItem].offsetHeight / 2;
+
+    slideLeftPos = slideLeftPos[currentItem].offsetHeight / 2
+
+    let position = slideLeftPos + heightTitle
+
+    let btn = document.getElementById("wrap-button")
+
+    btn.style.top = `${position}px`
+  })
+  
   owl.owlCarousel({
     loop: true,
     nav: false,
     items: 1,
-    margin: 5,
+    // margin: 5,
     pullDrag: false,
     freeDrag: false,
     mouseDrag: false,
-    autoplay: true,
+    // autoplay: true,
     autoplayTimeout: 5000,
     touchDrag: false,
     animateIn: "fadeIn",
     animateOut: "fadeOut",
     fade: true,
-    smartSpeed: 450,
+    smartSpeed: 150,
     responsive: {
       0: {
         touchDrag: true,
@@ -148,18 +168,53 @@ $(document).ready(function() {
         animateIn: "fadeIn",
         animateOut: "fadeOut"
       }
-    }
+    },
+    
   });
   // Custom Button
   $("#next-slide").click(function(event) {
     event.preventDefault();
     owl.trigger("next.owl.carousel");
+
+    // setTimeout(function() {
+    // }, 3000);
   });
 
   $("#prev-slide").click(function(event) {
     event.preventDefault();
     owl.trigger("prev.owl.carousel");
+
   });
+ 
+  owl.on('translate.owl.carousel', function(event) {
+    let currentItem = event.item.index;
+
+    // title position //
+
+    let elementTitle = document.querySelectorAll(".slider-title")
+
+    let slideLeftPos = document.getElementsByClassName("slides-side__left")
+
+    let heightTitle = elementTitle[currentItem].offsetHeight / 2;
+
+    slideLeftPos = slideLeftPos[currentItem].offsetHeight / 2
+
+    let position = slideLeftPos + heightTitle
+
+    let btn = document.getElementById("wrap-button")
+
+    btn.style.top = `${position}px`
+
+    elementTitle[currentItem].classList.add("animate-title")
+
+  })
+
+  owl.on('translated.owl.carousel', function(event) {
+    let elementTitle = document.querySelectorAll(".slider-title")
+    let currentItem = event.item.index;
+    elementTitle[currentItem].classList.remove("animate-title")
+  })
+
 
   // carousel 3 //
 
@@ -639,3 +694,5 @@ $(document).ready(function() {
 
   AOS.init();
 });
+
+
