@@ -1028,29 +1028,53 @@ input[type='number']
 				&:nth-of-type(#{$i}) > *
 					transition-delay: #{150 * $i}ms
 
-.slider-title
-	// opacity: 0
+
 
 
 @keyframes slideTextOut 
 	0% 
 		transform: translateY(0)
-		opacity: 1
+		opacity: 0
+		visability: hidden
+
+	70%
+		opacity: 0
 
 	100% 
-		transform: translateY(100%)
-		opacity: 0
-	
+		transform: translateY(100px)
+		visability: hidden
+
 
 @keyframes slideTextIn 
 	0% 
-		transform: translateY(100%)
+		transform: translateY(100px)
 		opacity: 0
+		visability: hidden
 	
+	70%
+		visability: hidden
+		opacity: 1
 
 	100% 
 		transform: translateY(0)
+		visability: visible
+
+@keyframes imageIn 
+	0%
+		opacity: 0
+		visability: hidden
+
+	100% 
 		opacity: 1
+		visability: visible
+
+// @keyframes imageOut 
+// 	0%
+// 		opacity: 0
+// 		background-color: red
+		
+// 	100% 
+// 		opacity: 0
 	
 
 // .textOut
@@ -1061,16 +1085,164 @@ input[type='number']
 // 	animation-name: slideTextIn
 // 	animation-duration: 300ms
 
-#owl-carousel_1
-	.owl-item
-		&.active
-			&.fadeOut
-				.slider-title
-					animation: slideTextOut 1s 1 alternate 
+// #owl-carousel_1
+// 	.owl-item
+// 		opacity: 0
+// 		.slider-title__sub
+// 			transform: translateY(100px)
+// 			opacity: 0
+// 			transition: ease all 0.3s
+// 		// .slider-title__outer_fit
+// 		// 	animation: .7s ease .5s 1 normal slideTextIn
+// 		// .slider-title__outer_bold
+// 		// 	animation: .7s ease .6s 1 normal slideTextIn
+// 		&.active
+// 			opacity: 1
+// 			.slider-title__sub
+// 				transform: translateY(0)
+// 				opacity: 1
+// 				transition-delay: .3s
+			// &.fadeOut
+			// 	.slider-title__sub
+			// 		animation: .7s ease .4s 1 normal  slideTextOut   
+			// 	.slider-title__outer_fit
+			// 		animation: .7s ease .5s 1 normal  slideTextOut
+			// 	.slider-title__outer_bold
+			// 		animation: .7s ease .5s 1 normal  slideTextOut 
+
+		
+			// .slider-title__sub
+			// 	animation: .7s ease .4s 1 normal slideTextIn
+			// .slider-title__outer_fit
+			// 	animation: .7s ease .5s 1 normal slideTextIn
+			// .slider-title__outer_bold
+				// animation: .7s ease .6s 1 normal slideTextIn
+
+// #owl-carousel_1
+// 	.owl-item
+// 			.image-holder
+// 				opacity: 0!important
+// 				transition: all 1s ease !important
+// 				transition-delay: 1s !important
+// 				z-index: 0 
+
+// 		&.active
+// 			&.fadeIn
+// 				.image-holder
+// 					animation: .5s ease .5s 1 normal imageIn
+					
+// 			.image-holder
+// 				opacity: 1!important
+// 				transition-delay: 1s !important
+// 				transition: all 1s ease !important
+// 				z-index: 1 
+
+
+
+
+		// &.fadeOut
+		// 	.image-holder
+		// 		animation: .1s ease 0s 1 normal imageOut !important
+// .fadeIn,
+// .fadeOut
+// 	opacity: 1!important
+// 	animation: none!important
+
+
+.slideshow-container
+	max-width: 100%
+	position: relative
+	margin: auto
+
+.dots-slide
+	position: absolute
+	bottom: 0
+	display: flex
+	
+
+.dot-slide
+	width: 3rem	
+	height: 3rem
+	display: inline-block
+	margin: 0 1rem 0 0 
+	background-color: #000
+
+	&.active
+		background-color: red
+
+.slideshow-container
+	position: relative
+	height: calc(100vh - 15rem)
+
 
 #owl-carousel_1
-	.owl-item
-		&.active
-			&.fadeIn
-				.slider-title
-					animation: slideTextIn 1s 1 alternate
+	display: none
+	
+.slide__button
+	z-index: 6!important
+
+.my-slides
+	display: flex
+	position: absolute!important
+	visibility: hidden
+	top: 0
+	left: 0
+	width: 100%
+	height: calc(100vh - 15rem)
+
+	.image-holder
+		opacity: 0
+		transition: all .3s 0 ease 
+		// transition-delay: 0
+		z-index: 90
+
+	.slider-title__sub
+		transform: translateY(100px)
+		opacity: 0
+		transition: ease all 0.3s
+		z-index: 4
+		position: relative
+
+	.slider-title__outer_fit
+		transform: translateY(100px)
+		opacity: 0
+		transition: ease all 0.3s
+		z-index: 4
+
+	.slider-title__outer_bold
+		transform: translateY(100px)
+		opacity: 0
+		transition: ease all 0.3s
+		z-index: 5
+		position: relative
+
+
+	&.active
+		visibility: visible
+		z-index: 5
+
+		.image-holder
+			opacity: 1
+			transition: all 1s .6s ease 
+			// transition-delay: 
+			z-index: 100
+
+		.slider-title__sub
+			transform: translateY(0)
+			opacity: 1
+			transition-delay: 0s
+			z-index: 5
+
+		.slider-title__outer_fit
+			transform: translateY(0)
+			opacity: 1
+			transition: ease all 0.3s
+			transition-delay: .2s
+			z-index: 5
+
+		.slider-title__outer_bold
+			transform: translateY(0)
+			opacity: 1
+			transition: ease all 0.3s
+			transition-delay: .4s
+			z-index: 5

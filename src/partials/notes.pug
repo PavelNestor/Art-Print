@@ -3,15 +3,15 @@ section#section-notes.notes__wrap.showup-animation
 
     .notes__bg-text требования
 
-    .notes__title.section-title(data-aos="fade-up",data-aos-delay="0", anchorPlacement="center")
-        span.section-title__outer_bold заказчику
-        span.section-title__outer_fit на заметку
+    .notes__title.section-title
+        span.section-title__outer_bold(data-aos-anchor=".notes__title", data-aos="fade-up",data-aos-delay="0", anchorPlacement="center") заказчику
+        span.section-title__outer_fit(data-aos-anchor=".notes__title", data-aos="fade-up",data-aos-delay="100", anchorPlacement="center") на заметку
 
-    .notes__main-text(data-aos="fade-up",data-aos-delay="100", anchorPlacement="center") Требования, выдвигаемые к макетам, которые передаются на цветоделение и печать в типографию ООО «АРТ ПРИНТ СТУДИО»
+    .notes__main-text(data-aos-anchor=".notes__title", data-aos="fade-up",data-aos-delay="150", anchorPlacement="center") Требования, выдвигаемые к макетам, которые передаются на цветоделение и печать в типографию ООО «АРТ ПРИНТ СТУДИО»
       
     .notes__pdf-wrap 
 
-      .notes__pdf(data-aos="fade-up",data-aos-delay="100", anchorPlacement="center")
+      .notes__pdf(data-aos-anchor=".notes__title", data-aos="fade-up", data-aos-delay="200", anchorPlacement="center")
         a.notes__pdf-img(href="/" download)
           <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect width="70" height="70" rx="20" fill="#EB008B"/>
@@ -23,7 +23,7 @@ section#section-notes.notes__wrap.showup-animation
           </svg>
           .notes__pdf-text Требования к макетам
 
-      .notes__pdf(data-aos="fade-up",data-aos-delay="200", anchorPlacement="center")
+      .notes__pdf(data-aos-anchor=".notes__title", data-aos="fade-up", data-aos-delay="250", anchorPlacement="center")
         a.notes__pdf-img(href="/" download)   
           <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect width="70" height="70" rx="20" fill="#EB008B"/>
@@ -35,7 +35,7 @@ section#section-notes.notes__wrap.showup-animation
           </svg>     
           .notes__pdf-text Технические требования к файлам
 
-      .notes__pdf(data-aos="fade-up",data-aos-delay="300", anchorPlacement="center")
+      .notes__pdf(data-aos-anchor=".notes__title", data-aos="fade-up", data-aos-delay="300", anchorPlacement="center")
         a.notes__pdf-img(href="/" download)
           <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect width="70" height="70" rx="20" fill="#EB008B"/>

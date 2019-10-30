@@ -3,7 +3,93 @@
 const _$ = document.querySelector.bind(document);
 var DIALOG_OPEN_CLASS = "__open";
 
+
+
+
+
 $(document).ready(function() {
+
+  let slides = document.querySelectorAll(".slideshow-container .my-slides");
+
+  let currentSlide = 0;
+  
+  let slideInterval = setInterval(nextSlide, 5000);
+  
+  function nextSlide(){
+    slides[currentSlide].className = slides[currentSlide].className.replace(" active", "")
+    currentSlide = (currentSlide+1)%slides.length;
+    slides[currentSlide].className += " active";
+  }
+  
+  
+  function nextSlide(){
+    goToSlide(currentSlide+1);
+  }
+  
+  function previousSlide(){
+    goToSlide(currentSlide-1);
+  }
+  
+  function goToSlide(newSlide){ 
+  
+    slides[currentSlide].className = slides[currentSlide].className.replace(" active", "")
+  
+    currentSlide = (newSlide + slides.length)%slides.length;
+  
+    slides[currentSlide].className += " active";
+  
+    let elementTitle = document.querySelectorAll(".slider-title")
+  
+    let slideLeftPos = document.getElementsByClassName("slides-side__left")
+  
+    let heightTitle = elementTitle[currentSlide].offsetHeight / 2;
+  
+    slideLeftPos = slideLeftPos[currentSlide].offsetHeight / 2
+  
+    let position = slideLeftPos + heightTitle
+  
+    let btn = document.getElementById("wrap-button")
+  
+    btn.style.top = `${position}px`
+  }
+
+  let pagination = document.getElementsByClassName("slider-pagination__custom");
+
+  let paginationItem = document.querySelectorAll(".owl-dot");
+
+  let pgCount = 0
+
+  for(let i = 0; i < paginationItem.length; i++){
+
+  }
+
+  consile.log(pagination, paginationItem)
+  
+  let next = document.querySelector("#next-slide");
+  
+  let previous = document.querySelector("#prev-slide");
+  
+  next.onclick = function(){
+    nextSlide();
+    clearTimeout(slideInterval)
+    this.classList.add("pointer-event")
+
+    setTimeout(function () {
+      next.classList.remove("pointer-event")
+    }, 800)
+
+  }
+  
+  previous.onclick = function(){
+    previousSlide();
+    clearTimeout(slideInterval)
+    this.classList.add("pointer-event")
+
+    setTimeout(function () {
+      previous.classList.remove("pointer-event")
+    }, 800)
+  }
+
   ////////// validation //////////
 
   $("#submit-main-form").on("click", function(event) {
@@ -108,115 +194,11 @@ $(document).ready(function() {
       event.preventDefault();
       $("#form-footer-submit").trigger("click");
       event.preventDefault();
-    } else {
     }
   });
 
   // nice //
   $("select").niceSelect();
-
-  // carousel 1//
-
-  const owl = $("#owl-carousel_1");
-
-  owl.on('initialized.owl.carousel', function(event) {
-    let currentItem = event.item.index;
-
-    // title position //
-
-    let elementTitle = document.querySelectorAll(".slider-title")
-
-    let slideLeftPos = document.getElementsByClassName("slides-side__left")
-
-    let heightTitle = elementTitle[currentItem].offsetHeight / 2;
-
-    slideLeftPos = slideLeftPos[currentItem].offsetHeight / 2
-
-    let position = slideLeftPos + heightTitle
-
-    let btn = document.getElementById("wrap-button")
-
-    btn.style.top = `${position}px`
-  })
-  
-  owl.owlCarousel({
-    loop: true,
-    nav: false,
-    items: 1,
-    // margin: 5,
-    pullDrag: false,
-    freeDrag: false,
-    mouseDrag: false,
-    // autoplay: true,
-    autoplayTimeout: 5000,
-    touchDrag: false,
-    animateIn: "fadeIn",
-    animateOut: "fadeOut",
-    fade: true,
-    smartSpeed: 150,
-    responsive: {
-      0: {
-        touchDrag: true,
-        animateIn: "fadeIn",
-        animateOut: "fadeOut",
-        fade: true,
-        dots: true,
-        dotsContainer: ".slider-pagination__custom"
-      },
-      640: {
-        touchDrag: true,
-        animateIn: "fadeIn",
-        animateOut: "fadeOut"
-      }
-    },
-    
-  });
-  // Custom Button
-  $("#next-slide").click(function(event) {
-    event.preventDefault();
-    owl.trigger("next.owl.carousel");
-
-    // setTimeout(function() {
-    // }, 3000);
-  });
-
-  $("#prev-slide").click(function(event) {
-    event.preventDefault();
-    owl.trigger("prev.owl.carousel");
-
-  });
- 
-  owl.on('translate.owl.carousel', function(event) {
-    let currentItem = event.item.index;
-
-    // title position //
-
-    let elementTitle = document.querySelectorAll(".slider-title")
-
-    let slideLeftPos = document.getElementsByClassName("slides-side__left")
-
-    let heightTitle = elementTitle[currentItem].offsetHeight / 2;
-
-    slideLeftPos = slideLeftPos[currentItem].offsetHeight / 2
-
-    let position = slideLeftPos + heightTitle
-
-    let btn = document.getElementById("wrap-button")
-
-    btn.style.top = `${position}px`
-
-    elementTitle[currentItem].classList.add("animate-title")
-
-  })
-
-  owl.on('translated.owl.carousel', function(event) {
-    let elementTitle = document.querySelectorAll(".slider-title")
-    let currentItem = event.item.index;
-    elementTitle[currentItem].classList.remove("animate-title")
-  })
-
-
-  // carousel 3 //
 
   const owlCarousel3 = $("#owl-carousel_3");
 
@@ -695,4 +677,8 @@ $(document).ready(function() {
   AOS.init();
 });
 
+
+
+  
+  
 
