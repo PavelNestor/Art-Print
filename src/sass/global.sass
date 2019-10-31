@@ -651,8 +651,6 @@ input[type='number']
     transform: scale(1)
 
 .one
-  animation: rotate-center 10s ease-in-out 0s infinite both
-  transform-origin: 50% 50%
 
   &__circle-big
     animation: scale-up-center-circle 10s cubic-bezier(0.390, 0.575, 0.565, 1.000) infinite both
@@ -682,19 +680,7 @@ input[type='number']
  
   &__line3
 
-// animete gear //
-/**
- * ----------------------------------------
- * animation rotate-center-one
- * ----------------------------------------
- */
-@keyframes rotate-center-one
-  5%
-    transform: rotate(0)
-  25%
-    transform: rotate(360deg)
-  50%
-    transform: rotate(0)
+// animate gear //
 
 /**
  * ----------------------------------------
@@ -820,29 +806,18 @@ input[type='number']
     transform: rotate(-360deg)
 
 .rotate
-  animation: rotate-center 10s cubic-bezier(0.92, -0.07, 0, 1.04) 0s infinite both
+  animation: rotate-center 10s cubic-bezier(0.88, 0.16, 0.15, 0.9) 0s infinite both
   transform-origin: 50% 50%
 
 // animeate icon medal //
 @keyframes rotate-center
   0%
     transform: rotate(0)
-  56%
+  35%
     transform: rotate(0)
-  58%
-    transform: rotate(45deg)
-  60%
-    transform: rotate(30deg)
-  62%
-    transform: rotate(15deg)
-  70%
-    transform: rotate(30deg)
-  72%
-    transform: rotate(45deg)
-  80%
-    transform: rotate(360deg)
   100%
     transform: rotate(360deg)
+
  
 /**
  * ----------------------------------------
@@ -1174,12 +1149,15 @@ input[type='number']
 	position: relative
 	height: calc(100vh - 15rem)
 
+	@media screen and ( max-width: 640px )
+		height: calc(100vh - 6rem) 
+
 
 #owl-carousel_1
 	display: none
 	
 .slide__button
-	z-index: 6!important
+	z-index: 324!important
 
 .my-slides
 	display: flex
@@ -1189,6 +1167,9 @@ input[type='number']
 	left: 0
 	width: 100%
 	height: calc(100vh - 15rem)
+
+	@media screen and ( max-width: 640px )
+		height: calc(100vh - 6rem)
 
 	.image-holder
 		opacity: 0

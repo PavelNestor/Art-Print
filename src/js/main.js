@@ -29,12 +29,45 @@ $(document).ready(function() {
   function previousSlide(){
     goToSlide(currentSlide-1);
   }
+
+  let pagination = document.querySelector(".slider-pagination__custom");
+
   
+
+  for(let i = 0; i < slides.length; i++){
+    pagination.insertAdjacentHTML("afterbegin", `<span class="owl-dot"></span>`)
+  }
+
+  window.onresize = () => { 
+    let elementTitle = document.querySelectorAll(".slider-title")
+  
+    let slideLeftPos = document.getElementsByClassName("slides-side__left")
+  
+    let heightTitle = elementTitle[currentSlide].offsetHeight / 2;
+  
+    slideLeftPos = slideLeftPos[currentSlide].offsetHeight / 2
+  
+    let position = slideLeftPos + heightTitle
+  
+    let btn = document.getElementById("wrap-button")
+  
+    btn.style.top = `${position}px`
+  }
+
+  let paginationItem = document.querySelectorAll(".slider-pagination__custom .owl-dot");
+
+  paginationItem[currentSlide].className += " active";
+
+
   function goToSlide(newSlide){ 
   
     slides[currentSlide].className = slides[currentSlide].className.replace(" active", "")
+
+    paginationItem[currentSlide].className = paginationItem[currentSlide].className.replace(" active", "")
   
     currentSlide = (newSlide + slides.length)%slides.length;
+    
+    paginationItem[currentSlide].className += " active";
   
     slides[currentSlide].className += " active";
   
@@ -51,19 +84,11 @@ $(document).ready(function() {
     let btn = document.getElementById("wrap-button")
   
     btn.style.top = `${position}px`
-  }
-
-  let pagination = document.getElementsByClassName("slider-pagination__custom");
-
-  let paginationItem = document.querySelectorAll(".owl-dot");
-
-  let pgCount = 0
-
-  for(let i = 0; i < paginationItem.length; i++){
 
   }
 
-  consile.log(pagination, paginationItem)
+  
+
   
   let next = document.querySelector("#next-slide");
   
@@ -90,6 +115,44 @@ $(document).ready(function() {
     }, 800)
   }
 
+  let startPoint = {};
+  let nowPoint;
+  let ldelay;
+  let containerSlider = document.querySelector(".slideshow-container")
+
+  containerSlider.addEventListener(
+    "touchstart",
+    function(event) {
+      // event.preventDefault();
+      // event.stopPropagation();
+      startPoint.x = event.changedTouches[0].pageX;
+      startPoint.y = event.changedTouches[0].pageY;
+      ldelay = new Date();
+    },
+    false
+  );
+  containerSlider.addEventListener(
+    "touchend",
+    function(event) {
+      let pdelay = new Date();
+      nowPoint = event.changedTouches[0];
+      let xAbs = Math.abs(startPoint.x - nowPoint.pageX);
+      let yAbs = Math.abs(startPoint.y - nowPoint.pageY);
+      if (
+        (xAbs > 20 || yAbs > 20) &&
+        pdelay.getTime() - ldelay.getTime() < 200
+      ) {
+        if (xAbs > yAbs) {
+          if (nowPoint.pageX < startPoint.x) {
+            next.click()
+          } else {
+            previous.click()
+          }
+        }
+      }
+    },
+    false
+  );
   ////////// validation //////////
 
   $("#submit-main-form").on("click", function(event) {
@@ -412,9 +475,9 @@ $(document).ready(function() {
   const initSlider = () => {
     const container = document.querySelector("#carousel-masonry");
 
-    const btnPrev = document.querySelector("#prev-slide__masonry");
+    const btnPrevM = document.querySelector("#prev-slide__masonry");
 
-    const btnNext = document.querySelector("#next-slide__masonry");
+    const btnNextM = document.querySelector("#next-slide__masonry");
 
     const slides = document.querySelectorAll("#carousel-masonry > *");
 
@@ -451,7 +514,7 @@ $(document).ready(function() {
 
     container.style.width = containerWidth + "px";
 
-    btnNext.addEventListener("click", function(event) {
+    btnNextM.addEventListener("click", function(event) {
       event.preventDefault();
       remainder = containerWidth - sliderWidth - (offset + newWidthArray);
 
@@ -472,7 +535,7 @@ $(document).ready(function() {
       }
     });
 
-    btnPrev.addEventListener("click", function(event) {
+    btnPrevM.addEventListener("click", function(event) {
       event.preventDefault();
 
       if (offset > 0) {
@@ -492,18 +555,20 @@ $(document).ready(function() {
     var startPoint = {};
     var nowPoint;
     var ldelay;
-    document.addEventListener(
+    const containerMasonry = document.querySelector('.section-masonry')
+
+    containerMasonry.addEventListener(
       "touchstart",
       function(event) {
-        event.preventDefault();
-        event.stopPropagation();
+        // event.preventDefault();
+        // event.stopPropagation();
         startPoint.x = event.changedTouches[0].pageX;
         startPoint.y = event.changedTouches[0].pageY;
         ldelay = new Date();
       },
       false
     );
-    document.addEventListener(
+    containerMasonry.addEventListener(
       "touchend",
       function(event) {
         var pdelay = new Date();
@@ -516,9 +581,9 @@ $(document).ready(function() {
         ) {
           if (xAbs > yAbs) {
             if (nowPoint.pageX < startPoint.x) {
-              btnNext.click()
+              btnNextM.click()
             } else {
-              btnPrev.click()
+              btnPrevM.click()
             }
           }
         }
@@ -594,27 +659,29 @@ $(document).ready(function() {
       }
     });
 
-    var startPoint = {};
-    var nowPoint;
-    var ldelay;
-    document.addEventListener(
+    let startPoint = {};
+    let nowPoint;
+    let ldelay;
+    let containerTeam = document.querySelector('.section-team')
+
+    containerTeam.addEventListener(
       "touchstart",
       function(event) {
-        event.preventDefault();
-        event.stopPropagation();
+        // event.preventDefault();
+        // event.stopPropagation();
         startPoint.x = event.changedTouches[0].pageX;
         startPoint.y = event.changedTouches[0].pageY;
         ldelay = new Date();
       },
       false
     );
-    document.addEventListener(
+    containerTeam.addEventListener(
       "touchend",
       function(event) {
-        var pdelay = new Date();
+        let pdelay = new Date();
         nowPoint = event.changedTouches[0];
-        var xAbs = Math.abs(startPoint.x - nowPoint.pageX);
-        var yAbs = Math.abs(startPoint.y - nowPoint.pageY);
+        let xAbs = Math.abs(startPoint.x - nowPoint.pageX);
+        let yAbs = Math.abs(startPoint.y - nowPoint.pageY);
         if (
           (xAbs > 20 || yAbs > 20) &&
           pdelay.getTime() - ldelay.getTime() < 200
