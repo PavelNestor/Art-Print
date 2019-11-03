@@ -9,313 +9,341 @@ var DIALOG_OPEN_CLASS = "__open";
 
 $(document).ready(function() {
 
-  let slides = document.querySelectorAll(".slideshow-container .my-slides");
+  // TOP SLIDER //
+  const containerSlider = document.getElementsByClassName("slideshow-container");
 
-  let currentSlide = 0;
-  
-  let slideInterval = setInterval(nextSlide, 5000);
-  
-  function nextSlide(){
-    slides[currentSlide].className = slides[currentSlide].className.replace(" active", "")
-    currentSlide = (currentSlide+1)%slides.length;
-    slides[currentSlide].className += " active";
-  }
-  
-  
-  function nextSlide(){
-    goToSlide(currentSlide+1);
-  }
-  
-  function previousSlide(){
-    goToSlide(currentSlide-1);
-  }
-
-  let pagination = document.querySelector(".slider-pagination__custom");
-
-  
-
-  for(let i = 0; i < slides.length; i++){
-    pagination.insertAdjacentHTML("afterbegin", `<span class="owl-dot"></span>`)
-  }
-
-  window.onresize = () => { 
-    let elementTitle = document.querySelectorAll(".slider-title")
-  
-    let slideLeftPos = document.getElementsByClassName("slides-side__left")
-  
-    let heightTitle = elementTitle[currentSlide].offsetHeight / 2;
-  
-    slideLeftPos = slideLeftPos[currentSlide].offsetHeight / 2
-  
-    let position = slideLeftPos + heightTitle
-  
-    let btn = document.getElementById("wrap-button")
-  
-    btn.style.top = `${position}px`
-  }
-
-  let paginationItem = document.querySelectorAll(".slider-pagination__custom .owl-dot");
-
-  paginationItem[currentSlide].className += " active";
-
-
-  function goToSlide(newSlide){ 
-  
-    slides[currentSlide].className = slides[currentSlide].className.replace(" active", "")
-
-    paginationItem[currentSlide].className = paginationItem[currentSlide].className.replace(" active", "")
-  
-    currentSlide = (newSlide + slides.length)%slides.length;
+  if(containerSlider.length > 0) {
     
+    let slides = document.querySelectorAll(".slideshow-container .my-slides");
+
+    let currentSlide = 0;
+    
+    let slideInterval = setInterval(nextSlide, 5000);
+    
+    function nextSlide(){
+      slides[currentSlide].className = slides[currentSlide].className.replace(" active", "")
+      currentSlide = (currentSlide+1)%slides.length;
+      slides[currentSlide].className += " active";
+    }
+    
+    
+    function nextSlide(){
+      goToSlide(currentSlide+1);
+    }
+    
+    function previousSlide(){
+      goToSlide(currentSlide-1);
+    }
+  
+    let pagination = document.querySelector(".slider-pagination__custom");
+  
+    
+  
+    for(let i = 0; i < slides.length; i++){
+      pagination.insertAdjacentHTML("afterbegin", `<span class="owl-dot"></span>`)
+    }
+  
+    window.onresize = () => { 
+      let elementTitle = document.querySelectorAll(".slider-title")
+    
+      let slideLeftPos = document.getElementsByClassName("slides-side__left")
+    
+      let heightTitle = elementTitle[currentSlide].offsetHeight / 2;
+    
+      slideLeftPos = slideLeftPos[currentSlide].offsetHeight / 2
+    
+      let position = slideLeftPos + heightTitle
+    
+      let btn = document.getElementById("wrap-button")
+    
+      btn.style.top = `${position}px`
+    }
+  
+    let paginationItem = document.querySelectorAll(".slider-pagination__custom .owl-dot");
+  
     paginationItem[currentSlide].className += " active";
   
-    slides[currentSlide].className += " active";
   
-    let elementTitle = document.querySelectorAll(".slider-title")
+    function goToSlide(newSlide){ 
+    
+      slides[currentSlide].className = slides[currentSlide].className.replace(" active", "")
   
-    let slideLeftPos = document.getElementsByClassName("slides-side__left")
+      paginationItem[currentSlide].className = paginationItem[currentSlide].className.replace(" active", "")
+    
+      currentSlide = (newSlide + slides.length)%slides.length;
+      
+      paginationItem[currentSlide].className += " active";
+    
+      slides[currentSlide].className += " active";
+    
+      let elementTitle = document.querySelectorAll(".slider-title")
+    
+      let slideLeftPos = document.getElementsByClassName("slides-side__left")
+    
+      let heightTitle = elementTitle[currentSlide].offsetHeight / 2;
+    
+      slideLeftPos = slideLeftPos[currentSlide].offsetHeight / 2
+    
+      let position = slideLeftPos + heightTitle
+    
+      let btn = document.getElementById("wrap-button")
+    
+      btn.style.top = `${position}px`
   
-    let heightTitle = elementTitle[currentSlide].offsetHeight / 2;
+    }
   
-    slideLeftPos = slideLeftPos[currentSlide].offsetHeight / 2
+    
   
-    let position = slideLeftPos + heightTitle
+    
+    let next = document.querySelector("#next-slide");
+    
+    let previous = document.querySelector("#prev-slide");
+    
+    next.onclick = function(){
+      nextSlide();
+      clearTimeout(slideInterval)
+      this.classList.add("pointer-event")
   
-    let btn = document.getElementById("wrap-button")
+      setTimeout(function () {
+        next.classList.remove("pointer-event")
+      }, 800)
   
-    btn.style.top = `${position}px`
-
-  }
-
+    }
+    
+    previous.onclick = function(){
+      previousSlide();
+      clearTimeout(slideInterval)
+      this.classList.add("pointer-event")
   
-
+      setTimeout(function () {
+        previous.classList.remove("pointer-event")
+      }, 800)
+    }
   
-  let next = document.querySelector("#next-slide");
+    let startPoint = {};
+    let nowPoint;
+    let ldelay;
+    let containerSlider = document.querySelector(".slideshow-container")
   
-  let previous = document.querySelector("#prev-slide");
-  
-  next.onclick = function(){
-    nextSlide();
-    clearTimeout(slideInterval)
-    this.classList.add("pointer-event")
-
-    setTimeout(function () {
-      next.classList.remove("pointer-event")
-    }, 800)
-
-  }
-  
-  previous.onclick = function(){
-    previousSlide();
-    clearTimeout(slideInterval)
-    this.classList.add("pointer-event")
-
-    setTimeout(function () {
-      previous.classList.remove("pointer-event")
-    }, 800)
-  }
-
-  let startPoint = {};
-  let nowPoint;
-  let ldelay;
-  let containerSlider = document.querySelector(".slideshow-container")
-
-  containerSlider.addEventListener(
-    "touchstart",
-    function(event) {
-      // event.preventDefault();
-      // event.stopPropagation();
-      startPoint.x = event.changedTouches[0].pageX;
-      startPoint.y = event.changedTouches[0].pageY;
-      ldelay = new Date();
-    },
-    false
-  );
-  containerSlider.addEventListener(
-    "touchend",
-    function(event) {
-      let pdelay = new Date();
-      nowPoint = event.changedTouches[0];
-      let xAbs = Math.abs(startPoint.x - nowPoint.pageX);
-      let yAbs = Math.abs(startPoint.y - nowPoint.pageY);
-      if (
-        (xAbs > 20 || yAbs > 20) &&
-        pdelay.getTime() - ldelay.getTime() < 200
-      ) {
-        if (xAbs > yAbs) {
-          if (nowPoint.pageX < startPoint.x) {
-            next.click()
-          } else {
-            previous.click()
+    containerSlider.addEventListener(
+      "touchstart",
+      function(event) {
+        startPoint.x = event.changedTouches[0].pageX;
+        startPoint.y = event.changedTouches[0].pageY;
+        ldelay = new Date();
+      },
+      false
+    );
+    containerSlider.addEventListener(
+      "touchend",
+      function(event) {
+        let pdelay = new Date();
+        nowPoint = event.changedTouches[0];
+        let xAbs = Math.abs(startPoint.x - nowPoint.pageX);
+        let yAbs = Math.abs(startPoint.y - nowPoint.pageY);
+        if (
+          (xAbs > 20 || yAbs > 20) &&
+          pdelay.getTime() - ldelay.getTime() < 200
+        ) {
+          if (xAbs > yAbs) {
+            if (nowPoint.pageX < startPoint.x) {
+              next.click()
+            } else {
+              previous.click()
+            }
           }
         }
-      }
-    },
-    false
-  );
+      },
+      false
+    );
+
+  }
+  // END TOP SLIDER //
+
   ////////// validation //////////
+  const mainForm = $("submit-main-form");
 
-  $("#submit-main-form").on("click", function(event) {
-    const COUNT_INPUT = [
-      "1",
-      "2",
-      "3",
-      "4",
-      "5",
-      "6",
-      "7",
-      "8",
-      "9",
-      "10",
-      "11",
-      "12"
-    ];
-
-    var selects = COUNT_INPUT.map(item => {
-      const itemDOM = _$(`div.form__select${item}`);
-      const value = _$(`#formCalc${item}`).value;
-
-      if (value === "") {
-        itemDOM.className += " errors";
-        return false;
+  if(mainForm.length > 0) {
+    $("#submit-main-form").on("click", function(event) {
+      const COUNT_INPUT = [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"
+      ];
+  
+      var selects = COUNT_INPUT.map(item => {
+        const itemDOM = _$(`div.form__select${item}`);
+        const value = _$(`#formCalc${item}`).value;
+  
+        if (value === "") {
+          itemDOM.className += " errors";
+          return false;
+        } else {
+          itemDOM.className = `nice-select form__select form__select${item}`;
+          return true;
+        }
+      });
+  
+      var input = () => {
+        const itemDOM = _$(`#form-input-wrap`);
+        const value = _$(`#form-input`).value;
+  
+        if (value === "") {
+          itemDOM.className += " errors";
+          return false;
+        } else {
+          itemDOM.className = "";
+          return true;
+        }
+      };
+  
+      const check = input();
+  
+      if (selects.indexOf(false) === -1 && check) {
+        event.preventDefault();
+        $("#form-submit").trigger("click");
+        event.preventDefault();
       } else {
-        itemDOM.className = `nice-select form__select form__select${item}`;
-        return true;
       }
     });
+  }
+  
+  const footerForm = $("submit-footer-form");
 
-    var input = () => {
-      const itemDOM = _$(`#form-input-wrap`);
-      const value = _$(`#form-input`).value;
-
-      if (value === "") {
-        itemDOM.className += " errors";
-        return false;
-      } else {
-        itemDOM.className = "";
-        return true;
+  if(footerForm.length > 0) {
+    $("#submit-footer-form").on("click", function(event) {
+      const input1 = () => {
+        const itemDOM = _$(`#form-input-wrap`);
+        const value = _$(`#form-footer-input-name`).value;
+  
+        if (value === "") {
+          itemDOM.className += " errors";
+          return false;
+        } else {
+          itemDOM.className = "form-input-wrap";
+          return true;
+        }
+      };
+  
+      const name = input1();
+  
+      const input2 = () => {
+        const itemDOM = _$(`#form-input-wrap2`);
+        const value = _$(`#form-footer-input-mail`).value;
+  
+        if (value === "") {
+          itemDOM.className += " errors";
+          return false;
+        } else {
+          itemDOM.className = "form-input-wrap";
+          return true;
+        }
+      };
+  
+      const mail = input2();
+  
+      const input3 = () => {
+        const itemDOM = _$(`#form-input-wrap3`);
+        const value = _$(`#form-footer-input-text`).value;
+  
+        if (value === "") {
+          itemDOM.className += " errors";
+          return false;
+        } else {
+          itemDOM.className = "form-input-wrap";
+          return true;
+        }
+      };
+  
+      const text = input3();
+  
+      if (name && mail && text) {
+        event.preventDefault();
+        $("#form-footer-submit").trigger("click");
+        event.preventDefault();
       }
-    };
+    });
+  }
 
-    const check = input();
+  
 
-    if (selects.indexOf(false) === -1 && check) {
-      event.preventDefault();
-      $("#form-submit").trigger("click");
-      event.preventDefault();
-    } else {
-    }
-  });
-
-  $("#submit-footer-form").on("click", function(event) {
-    const input1 = () => {
-      const itemDOM = _$(`#form-input-wrap`);
-      const value = _$(`#form-footer-input-name`).value;
-
-      if (value === "") {
-        itemDOM.className += " errors";
-        return false;
-      } else {
-        itemDOM.className = "form-input-wrap";
-        return true;
-      }
-    };
-
-    const name = input1();
-
-    const input2 = () => {
-      const itemDOM = _$(`#form-input-wrap2`);
-      const value = _$(`#form-footer-input-mail`).value;
-
-      if (value === "") {
-        itemDOM.className += " errors";
-        return false;
-      } else {
-        itemDOM.className = "form-input-wrap";
-        return true;
-      }
-    };
-
-    const mail = input2();
-
-    const input3 = () => {
-      const itemDOM = _$(`#form-input-wrap3`);
-      const value = _$(`#form-footer-input-text`).value;
-
-      if (value === "") {
-        itemDOM.className += " errors";
-        return false;
-      } else {
-        itemDOM.className = "form-input-wrap";
-        return true;
-      }
-    };
-
-    const text = input3();
-
-    if (name && mail && text) {
-      event.preventDefault();
-      $("#form-footer-submit").trigger("click");
-      event.preventDefault();
-    }
-  });
-
-  // nice //
+  // NICE SELECT //
+  
   $("select").niceSelect();
+
+  // NICE SELECT //
+
+
+  // OWL CAROUSEL BLUE// 
 
   const owlCarousel3 = $("#owl-carousel_3");
 
-  owlCarousel3.owlCarousel({
-    animateIn: "fadeIn",
-    animateOut: "fadeOut",
-    dotData: true,
-    dots: true,
-    dotsContainer: "#carousel-custom-dots",
-    dotClass: "owl-dot",
-    dotsData: true,
-    items: 1,
-    loop: false,
-    pullDrag: false,
-    freeDrag: false,
-    mouseDrag: false,
-    touchDrag: false,
-    margin: 1,
-    nav: false,
-    smartSpeed: 450,
-    autoHeight: true
-  });
-
-  $("#next-slide__3").click(function(event) {
-    event.preventDefault();
-    owlCarousel3.trigger("next.owl.carousel");
-  });
-
-  $("#prev-slide__3").click(function(event) {
-    event.preventDefault();
-    owlCarousel3.trigger("prev.owl.carousel");
-  });
-
-  $("#carousel-custom-dots").on("click", function() {
-    setTimeout(function() {
-      $(".slider-right").addClass("slider-visible");
-      $(".slider-right").removeClass("slider-hidden");
-    }, 1);
-  });
-
-  $(".button-close").on("click", function() {
-    setTimeout(function() {
-      $(this).parent($(".slider-right").addClass("slider-hidden"));
+  if(owlCarousel3.length > 0) {
+    owlCarousel3.owlCarousel({
+      animateIn: "fadeIn",
+      animateOut: "fadeOut",
+      dotData: true,
+      dots: true,
+      dotsContainer: "#carousel-custom-dots",
+      dotClass: "owl-dot",
+      dotsData: true,
+      items: 1,
+      loop: false,
+      pullDrag: false,
+      freeDrag: false,
+      mouseDrag: false,
+      touchDrag: false,
+      margin: 1,
+      nav: false,
+      smartSpeed: 450,
+      autoHeight: true
+    });
+  
+    $("#next-slide__3").click(function(event) {
+      event.preventDefault();
+      owlCarousel3.trigger("next.owl.carousel");
+    });
+  
+    $("#prev-slide__3").click(function(event) {
+      event.preventDefault();
+      owlCarousel3.trigger("prev.owl.carousel");
+    });
+  
+    $("#carousel-custom-dots").on("click", function() {
+      setTimeout(function() {
+        $(".slider-right").addClass("slider-visible");
+        $(".slider-right").removeClass("slider-hidden");
+      }, 1);
+    });
+  
+    $(".button-close").on("click", function() {
+      setTimeout(function() {
+        $(this).parent($(".slider-right").addClass("slider-hidden"));
+        $(this).parent($(".slider-right").removeClass("slider-visible"));
+      }, 1);
+    });
+  
+    $(window).on("resize", function() {
+      if ($(window).width() < 640)
+        $(".slider-right").removeClass("slider-hidden");
       $(this).parent($(".slider-right").removeClass("slider-visible"));
-    }, 1);
-  });
+    });
+  
+  }
+  // OWL CAROUSEL BLUE END// 
 
-  $(window).on("resize", function() {
-    if ($(window).width() < 640)
-      $(".slider-right").removeClass("slider-hidden");
-    $(this).parent($(".slider-right").removeClass("slider-visible"));
-  });
+  
+  // PRELOADER //
 
-  // loading status
   const loading = {
     avgTime: 3000,
     finished: false,
@@ -429,46 +457,57 @@ $(document).ready(function() {
     });
   })();
 
+  // PRELOADER END//
+
   // Navbar show on scroll //
 
   const navEl = document.getElementById("navbar-scroll");
 
-  const height = window.innerHeight;
+  if(navEl.length > 0){
+    const height = window.innerHeight;
 
-  let lastScrollPosition = 0;
-  function showNavOnScroll() {
-    const scrollPosition = document.body.getBoundingClientRect().top;
-
-    const isScrollDirectionBackwards = lastScrollPosition < scrollPosition;
-
-    if (isScrollDirectionBackwards && scrollPosition < -height) {
-      navEl.classList.add("navbar-scroll_active");
-    } else {
-      navEl.classList.remove("navbar-scroll_active");
+    let lastScrollPosition = 0;
+    function showNavOnScroll() {
+      const scrollPosition = document.body.getBoundingClientRect().top;
+  
+      const isScrollDirectionBackwards = lastScrollPosition < scrollPosition;
+  
+      if (isScrollDirectionBackwards && scrollPosition < -height) {
+        navEl.classList.add("navbar-scroll_active");
+      } else {
+        navEl.classList.remove("navbar-scroll_active");
+      }
+  
+      lastScrollPosition = scrollPosition;
     }
-
-    lastScrollPosition = scrollPosition;
+  
+    window.addEventListener("scroll", showNavOnScroll);
   }
 
-  window.addEventListener("scroll", showNavOnScroll);
+  
 
-  // menu //
+  // MENU //
 
   const menu = document.getElementById("menu");
 
-  const menuNavBurger = document.getElementById("menu-nav-burger-desc");
+  if(menu.length > 0) {
+    const menuNavBurger = document.getElementById("menu-nav-burger-desc");
 
-  const navBurgers = document.querySelectorAll(".nav-burger");
-
-  for (var i = 0; i < navBurgers.length; i++) {
-    navBurgers[i].addEventListener("click", function() {
-      menu.classList.add("__active");
+    const navBurgers = document.querySelectorAll(".nav-burger");
+  
+    for (var i = 0; i < navBurgers.length; i++) {
+      navBurgers[i].addEventListener("click", function() {
+        menu.classList.add("__active");
+      });
+    }
+  
+    menuNavBurger.addEventListener("click", function() {
+      menu.classList.remove("__active");
     });
   }
 
-  menuNavBurger.addEventListener("click", function() {
-    menu.classList.remove("__active");
-  });
+  // END MENU //
+ 
 
   // slider masonry //
 
@@ -633,7 +672,7 @@ $(document).ready(function() {
         offset = offset + widthArray[step];
         container.style.transform = `translateX(${-offset}px)`;
 
-        if (window.outerWidth <= 640 && widthArray.length - 2 == step) {
+        if (window.outerWidth <= 640 && widthArray.length -3 === step) {
           container.style.margin = "0 0 0 -7.5rem";
         }
         container.classList.add("last-margin");
@@ -717,13 +756,6 @@ $(document).ready(function() {
     });
   }
 
-  window.WOW = new WOW({
-    boxClass: "showup-animation",
-    animateClass: "showup-animation_visible",
-    offset: 350,
-    mobile: false,
-    live: false
-  });
 
   if (window.innerWidth < 640) {
     const highlight = () => {
@@ -739,9 +771,13 @@ $(document).ready(function() {
     highlight();
     setInterval(highlight, 1200);
   }
-  WOW.init();
+  
+  if (window.innerWidth > 640) {
+    AOS.init({
+      once: true
+    });
+  }
 
-  AOS.init();
 });
 
 
