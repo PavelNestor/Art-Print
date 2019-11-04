@@ -56,12 +56,21 @@
         z-index: 8000
         display: none
         overflow-y: auto
+        opacity: 0
+        transition: .5s all ease
+        transform: translateX(20px)
 
         &.slider-hidden
           display: none
 
         &.slider-visible
           display: block
+
+        &.__animate
+          opacity: 1
+          transition: .5s all ease
+          transform: translateX(0)
+
 
   .section-title
     color: $color_white

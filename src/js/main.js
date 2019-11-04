@@ -2,6 +2,8 @@
 
 const _$ = document.querySelector.bind(document);
 var DIALOG_OPEN_CLASS = "__open";
+var DIALOG_ANIMATE_CLASS = "__animate";
+
 
 
 
@@ -319,17 +321,22 @@ $(document).ready(function() {
     });
   
     $("#carousel-custom-dots").on("click", function() {
-      setTimeout(function() {
         $(".slider-right").addClass("slider-visible");
         $(".slider-right").removeClass("slider-hidden");
-      }, 1);
+      setTimeout(function() {
+        $(".slider-right").addClass("__animate");
+      }, 400);
+
     });
   
     $(".button-close").on("click", function() {
+        $(this).parent($(".slider-right").removeClass("__animate"));
       setTimeout(function() {
         $(this).parent($(".slider-right").addClass("slider-hidden"));
         $(this).parent($(".slider-right").removeClass("slider-visible"));
-      }, 1);
+      }, 400);
+        
+
     });
   
     $(window).on("resize", function() {
@@ -391,7 +398,7 @@ $(document).ready(function() {
   // force loading status
   setTimeout(function() {
     loading.loaded(true);
-  }, 3000);
+  }, 10000);
 
   // on load
   window.onload = function() {
@@ -436,6 +443,10 @@ $(document).ready(function() {
       });
     });
   });
+  // PRELOADER END//
+
+  // MODALS //
+
   (function() {
     var triggers = Array.from(
       document.querySelectorAll("[data-modal-open], [data-modal-close]")
@@ -444,20 +455,31 @@ $(document).ready(function() {
       element.addEventListener("click", function(event) {
         event.preventDefault();
         var isOpen = !!element.dataset.modalOpen;
-        var selector = isOpen
-          ? element.dataset.modalOpen
-          : element.dataset.modalClose;
+        var selector = isOpen ? element.dataset.modalOpen : element.dataset.modalClose;
         var modal = document.querySelector(selector);
         if (!modal) {
           console.warn("there is no dilaog " + selector);
           return;
         }
-        modal.classList[isOpen ? "add" : "remove"](DIALOG_OPEN_CLASS);
+
+        if (isOpen) {
+          modal.classList.add(DIALOG_OPEN_CLASS);
+          setTimeout(() => {
+            modal.classList.add(DIALOG_ANIMATE_CLASS)
+          }, 2);
+        } else {
+          modal.classList.remove(DIALOG_ANIMATE_CLASS)
+          setTimeout(() => {
+            modal.classList.remove(DIALOG_OPEN_CLASS);
+        }, 600);
+        }
+
       });
+      
     });
   })();
-
-  // PRELOADER END//
+  
+  // MODALS END//
 
   // Navbar show on scroll //
 

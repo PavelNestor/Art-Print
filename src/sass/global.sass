@@ -371,13 +371,14 @@ input[type='number']
 		pointer-events: none
 
 .preloaderBar
-	background: $color_yellow
+	background: $color_blue
 	left: 0
 	position: absolute
 	right: 0
 	top: 0
 	bottom: 0
 	width: 0
+	transition: all .3s ease
 
 .cache-images
 	position: absolute
@@ -1229,6 +1230,8 @@ input[type='number']
 			z-index: 5
 
 [data-aos]
+	pointer-events: all!important
+
 	@media screen and ( max-width: 640px )
 		opacity: 1!important
 		transform: translate3d(0,0,0)!important
