@@ -210,17 +210,6 @@ $(document).ready(function() {
 
       ];
 
-      // let items = document.querySelectorAll(".form__select")
-
-      // for (let index = 0; index < items.length; index++) {
-      //   const element = items[index];
-      //   console.log(index)
-
-        
-      // }
-
-
-  
       var selects = COUNT_SELECT.map(item => {
         const itemDOM = _$(`div.form__select${item}`);
         const value = _$(`#formCalc${item}`).value;
@@ -244,15 +233,12 @@ $(document).ready(function() {
           itemDOM.className = "";
           return true;
         }
-      });
+      });  
   
-      const check = input();
-  
-      if (selects.indexOf(false) === -1 && check) {
+      if ((selects.indexOf(false) === -1) && (input.indexOf(false) === -1) ) {
         event.preventDefault();
         $("#form-submit").trigger("click");
         event.preventDefault();
-      } else {
       }
     });
   
