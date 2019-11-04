@@ -179,11 +179,9 @@ $(document).ready(function() {
   // END TOP SLIDER //
 
   ////////// validation //////////
-  const mainForm = $("submit-main-form");
 
-  if(mainForm.length > 0) {
     $("#submit-main-form").on("click", function(event) {
-      const COUNT_INPUT = [
+      const COUNT_SELECT = [
         "1",
         "2",
         "3",
@@ -195,10 +193,35 @@ $(document).ready(function() {
         "9",
         "10",
         "11",
-        "12"
+        "12",
+        // "13",
+        // "14",
+        // "15",
+        // "16",
+
+
       ];
+      const COUNT_INPUT = [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+
+      ];
+
+      // let items = document.querySelectorAll(".form__select")
+
+      // for (let index = 0; index < items.length; index++) {
+      //   const element = items[index];
+      //   console.log(index)
+
+        
+      // }
+
+
   
-      var selects = COUNT_INPUT.map(item => {
+      var selects = COUNT_SELECT.map(item => {
         const itemDOM = _$(`div.form__select${item}`);
         const value = _$(`#formCalc${item}`).value;
   
@@ -210,10 +233,9 @@ $(document).ready(function() {
           return true;
         }
       });
-  
-      var input = () => {
-        const itemDOM = _$(`#form-input-wrap`);
-        const value = _$(`#form-input`).value;
+      var input = COUNT_INPUT.map(item => {
+        const itemDOM = _$(`#form-input-wrap${item}`);
+        const value = _$(`#form-input${item}`).value;
   
         if (value === "") {
           itemDOM.className += " errors";
@@ -222,7 +244,7 @@ $(document).ready(function() {
           itemDOM.className = "";
           return true;
         }
-      };
+      });
   
       const check = input();
   
@@ -233,7 +255,7 @@ $(document).ready(function() {
       } else {
       }
     });
-  }
+  
   
   const footerForm = $("submit-footer-form");
 
