@@ -5,9 +5,9 @@
 
 .owl-carousel{
 	.animated {
-		// animation-duration: 300ms;
-		// animation-fill-mode: both;
-		animation: none;
+		animation-duration: 300ms;
+		animation-fill-mode: both;
+		// animation: none;
 	}
 	.owl-animated-in {
 		z-index: 0;
@@ -16,11 +16,11 @@
 		z-index: 1;
 	}
 	@keyframes fadeIn {
-		0% { opacity:1; }
+		0% { opacity:0; }
 		100% { opacity:1; }
 	}
 	@keyframes fadeOut {
 		0% { opacity:1; }
-		100% { opacity:1; }
+		100% { opacity:0; }
 	}
 }

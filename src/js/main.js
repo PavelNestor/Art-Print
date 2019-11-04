@@ -339,7 +339,10 @@ $(document).ready(function() {
     $("#carousel-custom-dots").on("click", function() {
         $(".slider-right").addClass("slider-visible");
         $(".slider-right").removeClass("slider-hidden");
-        document.body.style.overflow = "hidden"
+        if ($(window).width() < 1030) {
+          document.body.style.overflow = "hidden"
+        }
+
 
       setTimeout(function() {
         $(".slider-right").addClass("__animate");
@@ -349,7 +352,9 @@ $(document).ready(function() {
   
     $(".button-close").on("click", function() {
         $(this).parent($(".slider-right").removeClass("__animate"));
-        document.body.style.overflow = "unset"
+        if ($(window).width() < 1030) {
+          document.body.style.overflow = "unset"
+        }
 
       setTimeout(function() {
         $(this).parent($(".slider-right").addClass("slider-hidden"));
