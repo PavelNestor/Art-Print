@@ -398,7 +398,7 @@ $(document).ready(function() {
   // force loading status
   setTimeout(function() {
     loading.loaded(true);
-  }, 10000);
+  }, 5000);
 
   // on load
   window.onload = function() {
@@ -485,7 +485,7 @@ $(document).ready(function() {
 
   const navEl = document.getElementById("navbar-scroll");
 
-  if(navEl.length > 0){
+  
     const height = window.innerHeight;
 
     let lastScrollPosition = 0;
@@ -504,7 +504,7 @@ $(document).ready(function() {
     }
   
     window.addEventListener("scroll", showNavOnScroll);
-  }
+  
 
   
 
@@ -512,7 +512,7 @@ $(document).ready(function() {
 
   const menu = document.getElementById("menu");
 
-  if(menu.length > 0) {
+  
     const menuNavBurger = document.getElementById("menu-nav-burger-desc");
 
     const navBurgers = document.querySelectorAll(".nav-burger");
@@ -526,7 +526,7 @@ $(document).ready(function() {
     menuNavBurger.addEventListener("click", function() {
       menu.classList.remove("__active");
     });
-  }
+  
 
   // END MENU //
  
