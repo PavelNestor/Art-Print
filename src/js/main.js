@@ -339,6 +339,8 @@ $(document).ready(function() {
     $("#carousel-custom-dots").on("click", function() {
         $(".slider-right").addClass("slider-visible");
         $(".slider-right").removeClass("slider-hidden");
+        document.body.style.overflow = "hidden"
+
       setTimeout(function() {
         $(".slider-right").addClass("__animate");
       }, 400);
@@ -347,6 +349,8 @@ $(document).ready(function() {
   
     $(".button-close").on("click", function() {
         $(this).parent($(".slider-right").removeClass("__animate"));
+        document.body.style.overflow = "unset"
+
       setTimeout(function() {
         $(this).parent($(".slider-right").addClass("slider-hidden"));
         $(this).parent($(".slider-right").removeClass("slider-visible"));
@@ -480,11 +484,14 @@ $(document).ready(function() {
 
         if (isOpen) {
           modal.classList.add(DIALOG_OPEN_CLASS);
+          document.body.style.overflow = "hidden"
           setTimeout(() => {
             modal.classList.add(DIALOG_ANIMATE_CLASS)
           }, 2);
         } else {
           modal.classList.remove(DIALOG_ANIMATE_CLASS)
+          document.body.style.overflow = "unset"
+
           setTimeout(() => {
             modal.classList.remove(DIALOG_OPEN_CLASS);
         }, 600);
@@ -810,11 +817,10 @@ $(document).ready(function() {
     setInterval(highlight, 1200);
   }
   
-  if (window.innerWidth > 640) {
-    AOS.init({
-      once: true
-    });
-  }
+  AOS.init({
+    once: true,
+    disable: 'tablet'
+  });
 
   $(window).bind('resize', function(e)
 {
