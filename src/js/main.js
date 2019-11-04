@@ -398,7 +398,7 @@ $(document).ready(function() {
   // force loading status
   setTimeout(function() {
     loading.loaded(true);
-  }, 5000);
+  }, 3000);
 
   // on load
   window.onload = function() {
