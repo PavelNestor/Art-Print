@@ -44,6 +44,22 @@ $(document).ready(function() {
     for(let i = 0; i < slides.length; i++){
       pagination.insertAdjacentHTML("afterbegin", `<span class="owl-dot"></span>`)
     }
+
+    
+      let elementTitle = document.querySelectorAll(".slider-title")
+    
+      let slideLeftPos = document.getElementsByClassName("slides-side__left")
+    
+      let heightTitle = elementTitle[currentSlide].offsetHeight / 2;
+    
+      slideLeftPos = slideLeftPos[currentSlide].offsetHeight / 2
+    
+      let position = slideLeftPos + heightTitle
+    
+      let btn = document.getElementById("wrap-button")
+    
+      btn.style.top = `${position}px`
+    
   
     window.onresize = () => { 
       let elementTitle = document.querySelectorAll(".slider-title")
@@ -799,6 +815,15 @@ $(document).ready(function() {
       once: true
     });
   }
+
+  $(window).bind('resize', function(e)
+{
+  if (window.RT) clearTimeout(window.RT);
+  window.RT = setTimeout(function()
+  {
+    this.location.reload(false);
+  }, 100);
+});
 
 });
 
