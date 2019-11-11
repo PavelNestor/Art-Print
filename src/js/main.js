@@ -876,17 +876,17 @@ $(document).ready(function() {
 });
 
 
-  let onLoadWidth = null;
+  // let onLoadWidth = null;
   
-  document.addEventListener("DOMContentLoaded", () => {
-    onLoadWidth = window.innerWidth;
-  });
+  // document.addEventListener("DOMContentLoaded", () => {
+  //   onLoadWidth = window.innerWidth;
+  // });
 
-  window.addEventListener("resize", () => {
-    if(Math.abs(window.innerWidth - onLoadWidth) > 20){
-      document.location.reload(); 
-    }
-  });
+  // window.addEventListener("resize", () => {
+  //   if(Math.abs(window.innerWidth - onLoadWidth) > 20){
+  //     document.location.reload(); 
+  //   }
+  // });
   
   
 
