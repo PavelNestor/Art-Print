@@ -895,32 +895,32 @@ $(document).ready(function () {
 
     // });
 
-$(window).bind('resize', function(e){
-  if (window.innerWidth < 1440 && window.innerWidth > 1430) {
-    if (window.RT) clearTimeout(window.RT); window.RT = setTimeout(function() {
-      this.location.reload(false);
-    }, 1000);
-  }
+// $(window).bind('resize', function(e){
+//   if (window.innerWidth < 1440 && window.innerWidth > 1430) {
+//     if (window.RT) clearTimeout(window.RT); window.RT = setTimeout(function() {
+//       this.location.reload(false);
+//     }, 1000);
+//   }
 
-  if (window.innerWidth < 1024 && window.innerWidth > 1020) {
-    if (window.RT) clearTimeout(window.RT); window.RT = setTimeout(function() {
-      this.location.reload(false);
-    }, 1000);
-  }
+//   if (window.innerWidth < 1024 && window.innerWidth > 1020) {
+//     if (window.RT) clearTimeout(window.RT); window.RT = setTimeout(function() {
+//       this.location.reload(false);
+//     }, 1000);
+//   }
 
-  if (window.innerWidth < 801 && window.innerWidth > 780) {
-    if (window.RT) clearTimeout(window.RT); window.RT = setTimeout(function() {
-      this.location.reload(false);
-    }, 1000);
-  }
+//   if (window.innerWidth < 801 && window.innerWidth > 780) {
+//     if (window.RT) clearTimeout(window.RT); window.RT = setTimeout(function() {
+//       this.location.reload(false);
+//     }, 1000);
+//   }
 
-  if (window.innerWidth < 641 && window.innerWidth > 637) {
-    if (window.RT) clearTimeout(window.RT); window.RT = setTimeout(function() {
-      this.location.reload(false);
-    }, 1000);
-  }
+//   if (window.innerWidth < 641 && window.innerWidth > 637) {
+//     if (window.RT) clearTimeout(window.RT); window.RT = setTimeout(function() {
+//       this.location.reload(false);
+//     }, 1000);
+//   }
 
-});
+// });
 
 
   // let onLoadWidth = null;
