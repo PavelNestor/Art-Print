@@ -9,248 +9,253 @@ var DIALOG_ANIMATE_CLASS = "__animate";
 
 
 
-$(document).ready(function() {
+$(document).ready(function () {
 
   // TOP SLIDER //
   const containerSlider = document.getElementsByClassName("slideshow-container");
 
-  if(containerSlider.length > 0) {
-    
+  if (containerSlider.length > 0) {
+
     let slides = document.querySelectorAll(".slideshow-container .my-slides");
 
     let currentSlide = 0;
-    
+
     let slideInterval = setInterval(nextSlide, 5000);
-    
-    function nextSlide(){
+
+    function nextSlide() {
       slides[currentSlide].className = slides[currentSlide].className.replace(" active", "")
-      currentSlide = (currentSlide+1)%slides.length;
+      currentSlide = (currentSlide + 1) % slides.length;
       slides[currentSlide].className += " active";
     }
-    
-    
-    function nextSlide(){
-      goToSlide(currentSlide+1);
+
+
+    function nextSlide() {
+      goToSlide(currentSlide + 1);
     }
-    
-    function previousSlide(){
-      goToSlide(currentSlide-1);
+
+    function previousSlide() {
+      goToSlide(currentSlide - 1);
     }
-  
+
     let pagination = document.querySelector(".slider-pagination__custom");
-  
-    
-  
-    for(let i = 0; i < slides.length; i++){
+
+
+
+    for (let i = 0; i < slides.length; i++) {
       pagination.insertAdjacentHTML("afterbegin", `<span class="owl-dot"></span>`)
     }
 
-    
+
+    let elementTitle = document.querySelectorAll(".slider-title")
+
+    let slideLeftPos = document.getElementsByClassName("slides-side__left")
+
+    let heightTitle = elementTitle[currentSlide].offsetHeight / 2;
+
+    slideLeftPos = slideLeftPos[currentSlide].offsetHeight / 2
+
+    let position = slideLeftPos + heightTitle
+
+    let btn = document.getElementById("wrap-button")
+
+    btn.style.top = `${position}px`
+
+
+    window.onresize = () => {
       let elementTitle = document.querySelectorAll(".slider-title")
-    
+
       let slideLeftPos = document.getElementsByClassName("slides-side__left")
-    
+
       let heightTitle = elementTitle[currentSlide].offsetHeight / 2;
-    
+
       slideLeftPos = slideLeftPos[currentSlide].offsetHeight / 2
-    
+
       let position = slideLeftPos + heightTitle
-    
+
       let btn = document.getElementById("wrap-button")
-    
-      btn.style.top = `${position}px`
-    
-  
-    window.onresize = () => { 
-      let elementTitle = document.querySelectorAll(".slider-title")
-    
-      let slideLeftPos = document.getElementsByClassName("slides-side__left")
-    
-      let heightTitle = elementTitle[currentSlide].offsetHeight / 2;
-    
-      slideLeftPos = slideLeftPos[currentSlide].offsetHeight / 2
-    
-      let position = slideLeftPos + heightTitle
-    
-      let btn = document.getElementById("wrap-button")
-    
+
       btn.style.top = `${position}px`
     }
-  
+
     let paginationItem = document.querySelectorAll(".slider-pagination__custom .owl-dot");
-  
+
     paginationItem[currentSlide].className += " active";
-  
-  
-    function goToSlide(newSlide){ 
-    
+
+
+    function goToSlide(newSlide) {
+
       slides[currentSlide].className = slides[currentSlide].className.replace(" active", "")
-  
+
       paginationItem[currentSlide].className = paginationItem[currentSlide].className.replace(" active", "")
-    
-      currentSlide = (newSlide + slides.length)%slides.length;
-      
+
+      currentSlide = (newSlide + slides.length) % slides.length;
+
       paginationItem[currentSlide].className += " active";
-    
+
       slides[currentSlide].className += " active";
-    
+
       let elementTitle = document.querySelectorAll(".slider-title")
-    
+
       let slideLeftPos = document.getElementsByClassName("slides-side__left")
-    
+
       let heightTitle = elementTitle[currentSlide].offsetHeight / 2;
-    
+
       slideLeftPos = slideLeftPos[currentSlide].offsetHeight / 2
-    
+
       let position = slideLeftPos + heightTitle
-    
+
       let btn = document.getElementById("wrap-button")
-    
+
       btn.style.top = `${position}px`
-  
+
     }
-  
-    
-  
-    
+
+
+
+
     let next = document.querySelector("#next-slide");
-    
+
     let previous = document.querySelector("#prev-slide");
-    
-    next.onclick = function(){
+
+    next.onclick = function () {
       nextSlide();
       clearTimeout(slideInterval)
       this.classList.add("pointer-event")
-  
+
       setTimeout(function () {
         next.classList.remove("pointer-event")
       }, 800)
-  
+
     }
-    
-    previous.onclick = function(){
+
+    previous.onclick = function () {
       previousSlide();
       clearTimeout(slideInterval)
       this.classList.add("pointer-event")
-  
+
       setTimeout(function () {
         previous.classList.remove("pointer-event")
       }, 800)
     }
-  
-    let startPoint = {};
-    let nowPoint;
-    let ldelay;
+
     let containerSlider = document.querySelector(".slideshow-container")
-  
-    containerSlider.addEventListener(
-      "touchstart",
-      function(event) {
-        startPoint.x = event.changedTouches[0].pageX;
-        startPoint.y = event.changedTouches[0].pageY;
-        ldelay = new Date();
-      },
-      false
-    );
-    containerSlider.addEventListener(
-      "touchend",
-      function(event) {
-        let pdelay = new Date();
-        nowPoint = event.changedTouches[0];
-        let xAbs = Math.abs(startPoint.x - nowPoint.pageX);
-        let yAbs = Math.abs(startPoint.y - nowPoint.pageY);
-        if (
-          (xAbs > 20 || yAbs > 20) &&
-          pdelay.getTime() - ldelay.getTime() < 200
-        ) {
-          if (xAbs > yAbs) {
-            if (nowPoint.pageX < startPoint.x) {
-              next.click()
-            } else {
-              previous.click()
-            }
-          }
+
+    containerSlider.addEventListener('touchstart', handleTouchStart, false);
+    containerSlider.addEventListener('touchmove', handleTouchMove, false);
+
+    var xDown = null;
+    var yDown = null;
+
+    function getTouches(evt) {
+      return evt.touches ||             // browser API
+        evt.originalEvent.touches; // jQuery
+    }
+
+    function handleTouchStart(evt) {
+      const firstTouch = getTouches(evt)[0];
+      xDown = firstTouch.clientX;
+      yDown = firstTouch.clientY;
+    };
+
+    function handleTouchMove(evt) {
+      if (!xDown || !yDown) {
+        return;
+      }
+
+      var xUp = evt.touches[0].clientX;
+      var yUp = evt.touches[0].clientY;
+
+      var xDiff = xDown - xUp;
+      var yDiff = yDown - yUp;
+
+      if (Math.abs(xDiff) > Math.abs(yDiff)) {
+        if (xDiff > 0) {
+          btnNext.click()
+
+        } else {
+          btnPrev.click()
         }
-      },
-      false
-    );
+        xDown = null;
+        yDown = null;
+      };
+    };
 
   }
   // END TOP SLIDER //
 
   ////////// validation //////////
 
-    $("#submit-main-form").on("click", function(event) {
-      const COUNT_SELECT = [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "11",
-        "12",
-        // "13",
-        // "14",
-        // "15",
-        // "16",
+  $("#submit-main-form").on("click", function (event) {
+    const COUNT_SELECT = [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      // "13",
+      // "14",
+      // "15",
+      // "16",
 
 
-      ];
-      const COUNT_INPUT = [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
+    ];
+    const COUNT_INPUT = [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
 
-      ];
+    ];
 
-      var selects = COUNT_SELECT.map(item => {
-        const itemDOM = _$(`div.form__select${item}`);
-        const value = _$(`#formCalc${item}`).value;
-  
-        if (value === "") {
-          itemDOM.className += " errors";
-          return false;
-        } else {
-          itemDOM.className = `nice-select form__select form__select${item}`;
-          return true;
-        }
-      });
-      var input = COUNT_INPUT.map(item => {
-        const itemDOM = _$(`#form-input-wrap${item}`);
-        const value = _$(`#form-input${item}`).value;
-  
-        if (value === "") {
-          itemDOM.className += " errors";
-          return false;
-        } else {
-          itemDOM.className = "";
-          return true;
-        }
-      });  
-  
-      if ((selects.indexOf(false) === -1) && (input.indexOf(false) === -1) ) {
-        event.preventDefault();
-        $("#form-submit").trigger("click");
-        event.preventDefault();
+    var selects = COUNT_SELECT.map(item => {
+      const itemDOM = _$(`div.form__select${item}`);
+      const value = _$(`#formCalc${item}`).value;
+
+      if (value === "") {
+        itemDOM.className += " errors";
+        return false;
+      } else {
+        itemDOM.className = `nice-select form__select form__select${item}`;
+        return true;
       }
     });
-  
-  
+    var input = COUNT_INPUT.map(item => {
+      const itemDOM = _$(`#form-input-wrap${item}`);
+      const value = _$(`#form-input${item}`).value;
+
+      if (value === "") {
+        itemDOM.className += " errors";
+        return false;
+      } else {
+        itemDOM.className = "";
+        return true;
+      }
+    });
+
+    if ((selects.indexOf(false) === -1) && (input.indexOf(false) === -1)) {
+      event.preventDefault();
+      $("#form-submit").trigger("click");
+      event.preventDefault();
+    }
+  });
+
+
   const footerForm = $("submit-footer-form");
 
-  if(footerForm.length > 0) {
-    $("#submit-footer-form").on("click", function(event) {
+  if (footerForm.length > 0) {
+    $("#submit-footer-form").on("click", function (event) {
       const input1 = () => {
         const itemDOM = _$(`#form-input-wrap`);
         const value = _$(`#form-footer-input-name`).value;
-  
+
         if (value === "") {
           itemDOM.className += " errors";
           return false;
@@ -259,13 +264,13 @@ $(document).ready(function() {
           return true;
         }
       };
-  
+
       const name = input1();
-  
+
       const input2 = () => {
         const itemDOM = _$(`#form-input-wrap2`);
         const value = _$(`#form-footer-input-mail`).value;
-  
+
         if (value === "") {
           itemDOM.className += " errors";
           return false;
@@ -274,13 +279,13 @@ $(document).ready(function() {
           return true;
         }
       };
-  
+
       const mail = input2();
-  
+
       const input3 = () => {
         const itemDOM = _$(`#form-input-wrap3`);
         const value = _$(`#form-footer-input-text`).value;
-  
+
         if (value === "") {
           itemDOM.className += " errors";
           return false;
@@ -289,9 +294,9 @@ $(document).ready(function() {
           return true;
         }
       };
-  
+
       const text = input3();
-  
+
       if (name && mail && text) {
         event.preventDefault();
         $("#form-footer-submit").trigger("click");
@@ -300,10 +305,10 @@ $(document).ready(function() {
     });
   }
 
-  
+
 
   // NICE SELECT //
-  
+
   $("select").niceSelect();
 
   // NICE SELECT //
@@ -313,7 +318,7 @@ $(document).ready(function() {
 
   const owlCarousel3 = $("#owl-carousel_3");
 
-  if(owlCarousel3.length > 0) {
+  if (owlCarousel3.length > 0) {
     owlCarousel3.owlCarousel({
       animateIn: "fadeIn",
       animateOut: "fadeOut",
@@ -333,55 +338,55 @@ $(document).ready(function() {
       smartSpeed: 450,
       autoHeight: true
     });
-  
-    $("#next-slide__3").click(function(event) {
+
+    $("#next-slide__3").click(function (event) {
       event.preventDefault();
       owlCarousel3.trigger("next.owl.carousel");
     });
-  
-    $("#prev-slide__3").click(function(event) {
+
+    $("#prev-slide__3").click(function (event) {
       event.preventDefault();
       owlCarousel3.trigger("prev.owl.carousel");
     });
-  
-    $("#carousel-custom-dots").on("click", function() {
-        $(".slider-right").addClass("slider-visible");
-        $(".slider-right").removeClass("slider-hidden");
-        if ($(window).width() < 1030) {
-          document.body.style.overflow = "hidden"
-        }
+
+    $("#carousel-custom-dots").on("click", function () {
+      $(".slider-right").addClass("slider-visible");
+      $(".slider-right").removeClass("slider-hidden");
+      if ($(window).width() < 1030) {
+        document.body.style.overflow = "hidden"
+      }
 
 
-      setTimeout(function() {
+      setTimeout(function () {
         $(".slider-right").addClass("__animate");
       }, 400);
 
     });
-  
-    $(".button-close").on("click", function() {
-        $(this).parent($(".slider-right").removeClass("__animate"));
-        if ($(window).width() < 1030) {
-          document.body.style.overflow = "unset"
-        }
 
-      setTimeout(function() {
+    $(".button-close").on("click", function () {
+      $(this).parent($(".slider-right").removeClass("__animate"));
+      if ($(window).width() < 1030) {
+        document.body.style.overflow = "unset"
+      }
+
+      setTimeout(function () {
         $(this).parent($(".slider-right").addClass("slider-hidden"));
         $(this).parent($(".slider-right").removeClass("slider-visible"));
       }, 400);
-        
+
 
     });
-  
-    $(window).on("resize", function() {
+
+    $(window).on("resize", function () {
       if ($(window).width() < 640)
         $(".slider-right").removeClass("slider-hidden");
       $(this).parent($(".slider-right").removeClass("slider-visible"));
     });
-  
+
   }
   // OWL CAROUSEL BLUE END// 
 
-  
+
   // PRELOADER //
 
   const loading = {
@@ -391,7 +396,7 @@ $(document).ready(function() {
     preloaderBar: document.querySelector(".preloader > .preloaderBar"),
     state: 0,
     trg: 1,
-    loaded: function(force) {
+    loaded: function (force) {
       if (++loading.state === loading.trg || force === true) {
         loading.status(1);
         setTimeout(loading.done, 500);
@@ -400,7 +405,7 @@ $(document).ready(function() {
       }
     },
 
-    status: function(mult) {
+    status: function (mult) {
       if (loading.finished) {
         return;
       }
@@ -411,12 +416,12 @@ $(document).ready(function() {
       }
     },
 
-    restart: function() {
+    restart: function () {
       loading.status(0);
       loading.preloader.classList.remove("preloader_loaded");
     },
 
-    done: function() {
+    done: function () {
       if (loading.finished) {
         return;
       }
@@ -429,12 +434,12 @@ $(document).ready(function() {
   };
 
   // force loading status
-  setTimeout(function() {
+  setTimeout(function () {
     loading.loaded(true);
   }, 3000);
 
   // on load
-  window.onload = function() {
+  window.onload = function () {
     loading.loaded(true);
   };
 
@@ -480,12 +485,12 @@ $(document).ready(function() {
 
   // MODALS //
 
-  (function() {
+  (function () {
     var triggers = Array.from(
       document.querySelectorAll("[data-modal-open], [data-modal-close]")
     );
     triggers.forEach(element => {
-      element.addEventListener("click", function(event) {
+      element.addEventListener("click", function (event) {
         event.preventDefault();
         var isOpen = !!element.dataset.modalOpen;
         var selector = isOpen ? element.dataset.modalOpen : element.dataset.modalClose;
@@ -507,65 +512,65 @@ $(document).ready(function() {
 
           setTimeout(() => {
             modal.classList.remove(DIALOG_OPEN_CLASS);
-        }, 600);
+          }, 600);
         }
 
       });
-      
+
     });
   })();
-  
+
   // MODALS END//
 
   // Navbar show on scroll //
 
   const navEl = document.getElementById("navbar-scroll");
 
-  
-    const height = window.innerHeight;
 
-    let lastScrollPosition = 0;
-    function showNavOnScroll() {
-      const scrollPosition = document.body.getBoundingClientRect().top;
-  
-      const isScrollDirectionBackwards = lastScrollPosition < scrollPosition;
-  
-      if (isScrollDirectionBackwards && scrollPosition < -height) {
-        navEl.classList.add("navbar-scroll_active");
-      } else {
-        navEl.classList.remove("navbar-scroll_active");
-      }
-  
-      lastScrollPosition = scrollPosition;
+  const height = window.innerHeight;
+
+  let lastScrollPosition = 0;
+  function showNavOnScroll() {
+    const scrollPosition = document.body.getBoundingClientRect().top;
+
+    const isScrollDirectionBackwards = lastScrollPosition < scrollPosition;
+
+    if (isScrollDirectionBackwards && scrollPosition < -height) {
+      navEl.classList.add("navbar-scroll_active");
+    } else {
+      navEl.classList.remove("navbar-scroll_active");
     }
-  
-    window.addEventListener("scroll", showNavOnScroll);
-  
 
-  
+    lastScrollPosition = scrollPosition;
+  }
+
+  window.addEventListener("scroll", showNavOnScroll);
+
+
+
 
   // MENU //
 
   const menu = document.getElementById("menu");
 
-  
-    const menuNavBurger = document.getElementById("menu-nav-burger-desc");
 
-    const navBurgers = document.querySelectorAll(".nav-burger");
-  
-    for (var i = 0; i < navBurgers.length; i++) {
-      navBurgers[i].addEventListener("click", function() {
-        menu.classList.add("__active");
-      });
-    }
-  
-    menuNavBurger.addEventListener("click", function() {
-      menu.classList.remove("__active");
+  const menuNavBurger = document.getElementById("menu-nav-burger-desc");
+
+  const navBurgers = document.querySelectorAll(".nav-burger");
+
+  for (var i = 0; i < navBurgers.length; i++) {
+    navBurgers[i].addEventListener("click", function () {
+      menu.classList.add("__active");
     });
-  
+  }
+
+  menuNavBurger.addEventListener("click", function () {
+    menu.classList.remove("__active");
+  });
+
 
   // END MENU //
- 
+
 
   // slider masonry //
 
@@ -611,7 +616,7 @@ $(document).ready(function() {
 
     container.style.width = containerWidth + "px";
 
-    btnNextM.addEventListener("click", function(event) {
+    btnNextM.addEventListener("click", function (event) {
       event.preventDefault();
       remainder = containerWidth - sliderWidth - (offset + newWidthArray);
 
@@ -632,7 +637,7 @@ $(document).ready(function() {
       }
     });
 
-    btnPrevM.addEventListener("click", function(event) {
+    btnPrevM.addEventListener("click", function (event) {
       event.preventDefault();
 
       if (offset > 0) {
@@ -649,209 +654,255 @@ $(document).ready(function() {
       }
     });
 
-    var startPoint = {};
-    var nowPoint;
-    var ldelay;
+
+
     const containerMasonry = document.querySelector('.section-masonry')
 
-    containerMasonry.addEventListener(
-      "touchstart",
-      function(event) {
-        // event.preventDefault();
-        // event.stopPropagation();
-        startPoint.x = event.changedTouches[0].pageX;
-        startPoint.y = event.changedTouches[0].pageY;
-        ldelay = new Date();
-      },
-      false
-    );
-    containerMasonry.addEventListener(
-      "touchend",
-      function(event) {
-        var pdelay = new Date();
-        nowPoint = event.changedTouches[0];
-        var xAbs = Math.abs(startPoint.x - nowPoint.pageX);
-        var yAbs = Math.abs(startPoint.y - nowPoint.pageY);
-        if (
-          (xAbs > 20 || yAbs > 20) &&
-          pdelay.getTime() - ldelay.getTime() < 200
-        ) {
-          if (xAbs > yAbs) {
-            if (nowPoint.pageX < startPoint.x) {
-              btnNextM.click()
-            } else {
-              btnPrevM.click()
-            }
-          }
-        }
-      },
-      false
-    );
-  };
+    containerMasonry.addEventListener('touchstart', handleTouchStart, false);
+    containerMasonry.addEventListener('touchmove', handleTouchMove, false);
 
-  initSlider();
+    var xDown = null;
+    var yDown = null;
 
-  //owl-carousel_4
-
-  const sliderTeam = () => {
-    const container = document.querySelector(".slider-team");
-
-    const btnPrev = document.querySelector("#prev-slide__4");
-
-    const btnNext = document.querySelector("#next-slide__4");
-
-    const slides = document.querySelectorAll(".slider-team > *");
-
-    let sliderWidth = document.querySelector(".wrap-slider__team").clientWidth;
-
-    let widthArray = [0];
-
-    let containerWidth = 0;
-
-    let offset = 0;
-
-    let step = 0;
-
-    let remainder = 0;
-
-    for (let i = 0; i < slides.length; i++) {
-      widthArray.push(slides[i].clientWidth + 50);
-      containerWidth += slides[i].clientWidth + 50;
+    function getTouches(evt) {
+      return evt.touches ||             // browser API
+        evt.originalEvent.touches; // jQuery
     }
 
-    container.style.width = containerWidth + "px";
-
-    btnNext.addEventListener("click", function(event) {
-      event.preventDefault();
-      remainder = containerWidth - sliderWidth - (offset + widthArray[step]);
-
-      if (remainder >= 0) {
-        step++;
-        offset = offset + widthArray[step];
-        container.style.transform = `translateX(${-offset}px)`;
-
-        if (window.outerWidth <= 640 && widthArray.length -3 === step) {
-          container.style.margin = "0 0 0 -7.5rem";
-        }
-        container.classList.add("last-margin");
-      } else {
-        container.style.transform = `translateX(${-(
-          containerWidth - sliderWidth
-        )}px)`;
-      }
-    });
-
-    btnPrev.addEventListener("click", function(event) {
-      event.preventDefault();
-      offset = offset - widthArray[step];
-      container.style.transform = `translateX(${-offset}px)`;
-      step--;
-
-      if (step <= 0) {
-        step = 0;
-        container.classList.remove("last-margin");
-      }
-      if (window.outerWidth <= 640 && widthArray.length > step) {
-        container.style.margin = "0";
-      }
-    });
-
-    let startPoint = {};
-    let nowPoint;
-    let ldelay;
-    let containerTeam = document.querySelector('.section-team')
-
-    containerTeam.addEventListener(
-      "touchstart",
-      function(event) {
-        // event.preventDefault();
-        // event.stopPropagation();
-        startPoint.x = event.changedTouches[0].pageX;
-        startPoint.y = event.changedTouches[0].pageY;
-        ldelay = new Date();
-      },
-      false
-    );
-    containerTeam.addEventListener(
-      "touchend",
-      function(event) {
-        let pdelay = new Date();
-        nowPoint = event.changedTouches[0];
-        let xAbs = Math.abs(startPoint.x - nowPoint.pageX);
-        let yAbs = Math.abs(startPoint.y - nowPoint.pageY);
-        if (
-          (xAbs > 20 || yAbs > 20) &&
-          pdelay.getTime() - ldelay.getTime() < 200
-        ) {
-          if (xAbs > yAbs) {
-            if (nowPoint.pageX < startPoint.x) {
-              btnNext.click()
-            } else {
-              btnPrev.click()
-            }
-          }
-        }
-      },
-      false
-    );
-  };
-
-  sliderTeam();
-
-  // anchors scroll //
-  const anchors = document.querySelectorAll(".navbar__link");
-
-  for (let anchor of anchors) {
-    anchor.addEventListener("click", function(e) {
-      e.preventDefault();
-      menu.classList.remove("__active");
-      const blockID = anchor.getAttribute("href").substr(1);
-
-      document.getElementById(blockID).scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
-    });
-  }
-
-
-  if (window.innerWidth < 640) {
-    const highlight = () => {
-      let divs = document.querySelectorAll(".services-card_mobile__hilight");
-      divs.forEach(element => {
-        element.classList.remove("light");
-      });
-      let random = Math.floor(Math.random() * divs.length);
-
-      divs[random].classList.add("light");
+    function handleTouchStart(evt) {
+      const firstTouch = getTouches(evt)[0];
+      xDown = firstTouch.clientX;
+      yDown = firstTouch.clientY;
     };
 
-    highlight();
-    setInterval(highlight, 1200);
-  }
-  
-  AOS.init({
-    once: true,
-    disable: 'tablet'
-  });
+    function handleTouchMove(evt) {
+      if (!xDown || !yDown) {
+        return;
+      }
 
-  
+      var xUp = evt.touches[0].clientX;
+      var yUp = evt.touches[0].clientY;
 
-  
+      var xDiff = xDown - xUp;
+      var yDiff = yDown - yUp;
+
+      if (Math.abs(xDiff) > Math.abs(yDiff)) {
+        if (xDiff > 0) {
+          btnNext.click()
+
+        } else {
+          btnPrev.click()
+        }
+        xDown = null;
+        yDown = null;
+      };
+    };
+
+    initSlider();
+
+    //owl-carousel_4
+
+    const sliderTeam = () => {
+      const container = document.querySelector(".slider-team");
+
+      const btnPrev = document.querySelector("#prev-slide__4");
+
+      const btnNext = document.querySelector("#next-slide__4");
+
+      const slides = document.querySelectorAll(".slider-team > *");
+
+      let sliderWidth = document.querySelector(".wrap-slider__team").clientWidth;
+
+      let widthArray = [0];
+
+      let containerWidth = 0;
+
+      let offset = 0;
+
+      let step = 0;
+
+      let remainder = 0;
+
+      for (let i = 0; i < slides.length; i++) {
+        widthArray.push(slides[i].clientWidth + 50);
+        containerWidth += slides[i].clientWidth + 50;
+      }
+
+      container.style.width = containerWidth + "px";
+
+      btnNext.addEventListener("click", function (event) {
+        event.preventDefault();
+        remainder = containerWidth - sliderWidth - (offset + widthArray[step]);
+
+        if (remainder >= 0) {
+          step++;
+          offset = offset + widthArray[step];
+          container.style.transform = `translateX(${-offset}px)`;
+
+          if (window.outerWidth <= 640 && widthArray.length - 3 === step) {
+            container.style.margin = "0 0 0 -7.5rem";
+          }
+          container.classList.add("last-margin");
+        } else {
+          container.style.transform = `translateX(${-(
+            containerWidth - sliderWidth
+          )}px)`;
+        }
+      });
+
+      btnPrev.addEventListener("click", function (event) {
+        event.preventDefault();
+        offset = offset - widthArray[step];
+        container.style.transform = `translateX(${-offset}px)`;
+        step--;
+
+        if (step <= 0) {
+          step = 0;
+          container.classList.remove("last-margin");
+        }
+        if (window.outerWidth <= 640 && widthArray.length > step) {
+          container.style.margin = "0";
+        }
+      });
+
+      let containerTeam = document.querySelector('.section-team')
+      containerTeam.addEventListener('touchstart', handleTouchStart, false);
+      containerTeam.addEventListener('touchmove', handleTouchMove, false);
+
+      var xDown = null;
+      var yDown = null;
+
+      function getTouches(evt) {
+        return evt.touches ||             // browser API
+          evt.originalEvent.touches; // jQuery
+      }
+
+      function handleTouchStart(evt) {
+        const firstTouch = getTouches(evt)[0];
+        xDown = firstTouch.clientX;
+        yDown = firstTouch.clientY;
+      };
+
+      function handleTouchMove(evt) {
+        if (!xDown || !yDown) {
+          return;
+        }
+
+        var xUp = evt.touches[0].clientX;
+        var yUp = evt.touches[0].clientY;
+
+        var xDiff = xDown - xUp;
+        var yDiff = yDown - yUp;
+
+        if (Math.abs(xDiff) > Math.abs(yDiff)) {
+          if (xDiff > 0) {
+            btnNext.click()
+
+          } else {
+            btnPrev.click()
+          }
+          xDown = null;
+          yDown = null;
+        };
 
 
-  
 
-});
+        // let startPoint = {};
+        // let nowPoint;
+        // let ldelay;
+        // let containerTeam = document.querySelector('.section-team')
+
+        // containerTeam.addEventListener(
+        //   "touchstart",
+        //   function(event) {
+        //     // event.preventDefault();
+        //     // event.stopPropagation();
+        //     startPoint.x = event.changedTouches[0].pageX;
+        //     startPoint.y = event.changedTouches[0].pageY;
+        //     ldelay = new Date();
+        //   },
+        //   false
+        // );
+        // containerTeam.addEventListener(
+        //   "touchend",
+        //   function(event) {
+        //     let pdelay = new Date();
+        //     nowPoint = event.changedTouches[0];
+        //     let xAbs = Math.abs(startPoint.x - nowPoint.pageX);
+        //     let yAbs = Math.abs(startPoint.y - nowPoint.pageY);
+        //     if (
+        //       (xAbs > 20 || yAbs > 20) &&
+        //       pdelay.getTime() - ldelay.getTime() < 200
+        //     ) {
+        //       if (xAbs > yAbs) {
+        //         if (nowPoint.pageX < startPoint.x) {
+        //           btnNext.click()
+        //         } else {
+        //           btnPrev.click()
+        //         }
+        //       }
+        //     }
+        //   },
+        //   false
+        // );
+      };
+
+      sliderTeam();
+
+      // anchors scroll //
+      const anchors = document.querySelectorAll(".navbar__link");
+
+      for (let anchor of anchors) {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          menu.classList.remove("__active");
+          const blockID = anchor.getAttribute("href").substr(1);
+
+          document.getElementById(blockID).scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+        });
+      }
+
+
+      if (window.innerWidth < 640) {
+        const highlight = () => {
+          let divs = document.querySelectorAll(".services-card_mobile__hilight");
+          divs.forEach(element => {
+            element.classList.remove("light");
+          });
+          let random = Math.floor(Math.random() * divs.length);
+
+          divs[random].classList.add("light");
+        };
+
+        highlight();
+        setInterval(highlight, 1200);
+      }
+
+      AOS.init({
+        once: true,
+        disable: 'tablet'
+      });
+
+
+
+
+
+
+
+
+    // });
 
 $(window).bind('resize', function(e){
-  if (window.innerWidth < 1440 && window.innerWidth > 1380) {
+  if (window.innerWidth < 1440 && window.innerWidth > 1430) {
     if (window.RT) clearTimeout(window.RT); window.RT = setTimeout(function() {
       this.location.reload(false);
     }, 1000);
   }
 
-  if (window.innerWidth < 1024 && window.innerWidth > 1000) {
+  if (window.innerWidth < 1024 && window.innerWidth > 1020) {
     if (window.RT) clearTimeout(window.RT); window.RT = setTimeout(function() {
       this.location.reload(false);
     }, 1000);
@@ -863,23 +914,17 @@ $(window).bind('resize', function(e){
     }, 1000);
   }
 
-  if (window.innerWidth < 641 && window.innerWidth > 600) {
+  if (window.innerWidth < 641 && window.innerWidth > 637) {
     if (window.RT) clearTimeout(window.RT); window.RT = setTimeout(function() {
       this.location.reload(false);
     }, 1000);
   }
 
-  if (window.innerWidth < 361 && window.innerWidth > 340) {
-    if (window.RT) clearTimeout(window.RT); window.RT = setTimeout(function() {
-      this.location.reload(false);
-    }, 1000);
-  }
-  
 });
 
 
   // let onLoadWidth = null;
-  
+
   // document.addEventListener("DOMContentLoaded", () => {
   //   onLoadWidth = window.innerWidth;
   // });
@@ -889,6 +934,6 @@ $(window).bind('resize', function(e){
   //     document.location.reload(); 
   //   }
   // });
-  
-  
+
+
 
