@@ -170,10 +170,10 @@ $(document).ready(function () {
 
       if (Math.abs(xDiff) > Math.abs(yDiff)) {
         if (xDiff > 0) {
-          btnNext.click()
+          next.click()
 
         } else {
-          btnPrev.click()
+          prev.click()
         }
         xDown = null;
         yDown = null;
@@ -688,10 +688,10 @@ $(document).ready(function () {
 
       if (Math.abs(xDiff) > Math.abs(yDiff)) {
         if (xDiff > 0) {
-          btnNext.click()
+          btnNextM.click()
 
         } else {
-          btnPrev.click()
+          btnPrevM.click()
         }
         xDown = null;
         yDown = null;
