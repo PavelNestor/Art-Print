@@ -117,7 +117,9 @@ $(document).ready(function() {
     
     let previous = document.querySelector("#prev-slide");
     
-    next.onclick = function(){
+    next.onclick = function(e){
+      e.preventDefault()
+
       nextSlide();
       clearTimeout(slideInterval)
       this.classList.add("pointer-event")
@@ -128,7 +130,8 @@ $(document).ready(function() {
   
     }
     
-    previous.onclick = function(){
+    previous.onclick = function(e){
+      e.preventDefault()
       previousSlide();
       clearTimeout(slideInterval)
       this.classList.add("pointer-event")
@@ -147,17 +150,21 @@ $(document).ready(function() {
       var yDown = null;
 
       function getTouches(evt) {
+        evt.preventDefault()
         return evt.touches ||             // browser API
               evt.originalEvent.touches; // jQuery
       }                                                     
 
       function handleTouchStart(evt) {
+          evt.preventDefault()
           const firstTouch = getTouches(evt)[0];                                      
           xDown = firstTouch.clientX;                                      
           yDown = firstTouch.clientY;                                      
       };                                                
 
       function handleTouchMove(evt) {
+          evt.preventDefault()
+
           if ( ! xDown || ! yDown ) {
               return;
           }
