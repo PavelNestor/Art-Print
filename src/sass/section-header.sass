@@ -3,13 +3,34 @@
   position: relative
   min-height: calc(100vh - 15rem)
 
-  @media screen and ( max-width:  640px)
+  
+
+
+  @media (max-width: 800px)
+    .wrap-button
+      width: 100%
+      left: auto
+      align-items: center
+
+    .text-cursive
+      &::before
+        content: ''
+        height: 7rem
+        position: absolute
+        right: -4.9rem
+        top: -7.3rem
+        width: 1.7em
+        background-size: cover
+        background: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8' standalone='no'%3F%3E%3Csvg xmlns:dc='http://purl.org/dc/elements/1.1/' xmlns:cc='http://creativecommons.org/ns%23' xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns%23' xmlns:svg='http://www.w3.org/2000/svg' xmlns='http://www.w3.org/2000/svg' id='svg3769' version='1.1' viewBox='0 0 13.448885 15.250222' height='57.638634' width='50.830437'%3E%3Cdefs id='defs3763' /%3E%3Cg transform='translate(4.5538445,-281.65172)' id='layer1'%3E%3Cpath style='fill:none;stroke:%23b3b3b3;stroke-width:0.5291667;stroke-linecap:round' id='path3733' d='m 8.6293725,296.63374 c -0.9439,-3.19627 -4.82835,-10.07646 -12.81495,-12.02691' /%3E%3Cpath style='fill:none;stroke:%23b3b3b3;stroke-width:0.5291667;stroke-linecap:round' d='m -1.3811052,288.76309 -2.8044723,-4.15626 4.0399177,-2.68843' id='path3809' /%3E%3Cpath id='path3811' d='m -1.3811052,288.76309 -2.8044723,-4.15626 4.0399177,-2.68843' style='fill:none;stroke:%23b3b3b3;stroke-width:0.5291667;stroke-linecap:round' /%3E%3C/g%3E%3C/svg%3E%0A") center no-repeat
+
+  @media screen and ( max-width:  380px)
 
     .wrap-button
       align-items: left
       width: auto
       left: 2rem
       align-items: flex-start
+
 
 
 
