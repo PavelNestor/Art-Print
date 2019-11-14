@@ -852,12 +852,6 @@ $(document).ready(function() {
     disable: 'tablet'
   });
 
-  
-
-  
-
-
-  
 
 });
 
