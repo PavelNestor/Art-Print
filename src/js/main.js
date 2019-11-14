@@ -150,20 +150,20 @@ $(document).ready(function() {
       var yDown = null;
 
       function getTouches(evt) {
-        evt.preventDefault()
+        // evt.preventDefault()
         return evt.touches ||             // browser API
               evt.originalEvent.touches; // jQuery
       }                                                     
 
       function handleTouchStart(evt) {
-          evt.preventDefault()
+          // evt.preventDefault()
           const firstTouch = getTouches(evt)[0];                                      
           xDown = firstTouch.clientX;                                      
           yDown = firstTouch.clientY;                                      
       };                                                
 
       function handleTouchMove(evt) {
-          evt.preventDefault()
+          // evt.preventDefault()
 
           if ( ! xDown || ! yDown ) {
               return;
