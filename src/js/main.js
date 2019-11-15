@@ -45,7 +45,8 @@ $(document).ready(function() {
       pagination.insertAdjacentHTML("afterbegin", `<span class="owl-dot"></span>`)
     }
 
-    
+    function positionButton() {
+
       let elementTitle = document.querySelectorAll(".slider-title")
     
       let slideLeftPos = document.getElementsByClassName("slides-side__left")
@@ -59,23 +60,15 @@ $(document).ready(function() {
       let btn = document.getElementById("wrap-button")
     
       btn.style.top = `${position}px`
-    
-  
-    window.onresize = () => { 
-      let elementTitle = document.querySelectorAll(".slider-title")
-    
-      let slideLeftPos = document.getElementsByClassName("slides-side__left")
-    
-      let heightTitle = elementTitle[currentSlide].offsetHeight / 2;
-    
-      slideLeftPos = slideLeftPos[currentSlide].offsetHeight / 2
-    
-      let position = slideLeftPos + heightTitle
-    
-      let btn = document.getElementById("wrap-button")
-    
-      btn.style.top = `${position}px`
+
     }
+
+    positionButton();
+      
+
+    window.addEventListener('resize', function(event){
+      positionButton()
+    });
   
     let paginationItem = document.querySelectorAll(".slider-pagination__custom .owl-dot");
   
@@ -94,19 +87,7 @@ $(document).ready(function() {
     
       slides[currentSlide].className += " active";
     
-      let elementTitle = document.querySelectorAll(".slider-title")
-    
-      let slideLeftPos = document.getElementsByClassName("slides-side__left")
-    
-      let heightTitle = elementTitle[currentSlide].offsetHeight / 2;
-    
-      slideLeftPos = slideLeftPos[currentSlide].offsetHeight / 2
-    
-      let position = slideLeftPos + heightTitle
-    
-      let btn = document.getElementById("wrap-button")
-    
-      btn.style.top = `${position}px`
+      positionButton()
   
     }
   
@@ -188,6 +169,7 @@ $(document).ready(function() {
 
   }
   // END TOP SLIDER //
+
 
   ////////// validation //////////
 
@@ -440,13 +422,15 @@ $(document).ready(function() {
   };
 
   // force loading status
-  setTimeout(function() {
+  setTimeout(function(slideInterval) {
     loading.loaded(true);
+    clearTimeout(slideInterval)
   }, 3000);
 
   // on load
-  window.onload = function() {
+  window.onload = function(slideInterval) {
     loading.loaded(true);
+    clearTimeout(slideInterval)
   };
 
   // on ready
@@ -855,51 +839,4 @@ $(document).ready(function() {
 
 });
 
-// $(window).bind('resize', function(e){
-//   if (window.innerWidth < 1440 && window.innerWidth > 1380) {
-//     if (window.RT) clearTimeout(window.RT); window.RT = setTimeout(function() {
-//       this.location.reload(false);
-//     }, 1000);
-//   }
-
-//   if (window.innerWidth < 1024 && window.innerWidth > 1000) {
-//     if (window.RT) clearTimeout(window.RT); window.RT = setTimeout(function() {
-//       this.location.reload(false);
-//     }, 1000);
-//   }
-
-//   if (window.innerWidth < 801 && window.innerWidth > 780) {
-//     if (window.RT) clearTimeout(window.RT); window.RT = setTimeout(function() {
-//       this.location.reload(false);
-//     }, 1000);
-//   }
-
-//   if (window.innerWidth < 641 && window.innerWidth > 600) {
-//     if (window.RT) clearTimeout(window.RT); window.RT = setTimeout(function() {
-//       this.location.reload(false);
-//     }, 1000);
-//   }
-
-//   if (window.innerWidth < 361 && window.innerWidth > 340) {
-//     if (window.RT) clearTimeout(window.RT); window.RT = setTimeout(function() {
-//       this.location.reload(false);
-//     }, 1000);
-//   }
-  
-// });
-
-
-//   // let onLoadWidth = null;
-  
-//   // document.addEventListener("DOMContentLoaded", () => {
-//   //   onLoadWidth = window.innerWidth;
-//   // });
-
-//   // window.addEventListener("resize", () => {
-//   //   if(Math.abs(window.innerWidth - onLoadWidth) > 20){
-//   //     document.location.reload(); 
-//   //   }
-//   // });
-  
-  
 
