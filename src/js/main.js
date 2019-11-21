@@ -729,7 +729,7 @@ $(document).ready(function() {
         offset = offset + widthArray[step];
         container.style.transform = `translateX(${-offset}px)`;
 
-        if (window.outerWidth <= 640 && widthArray.length -3 === step) {
+        if (window.outerWidth <= 640 && widthArray.length -1 === step) {
           container.style.margin = "0 0 0 -7.5rem";
         }
         container.classList.add("last-margin");
@@ -750,8 +750,9 @@ $(document).ready(function() {
         step = 0;
         container.classList.remove("last-margin");
       }
-      if (window.outerWidth <= 640 && widthArray.length > step) {
+      if (window.outerWidth <= 640 && widthArray.length -2 > step) {
         container.style.margin = "0";
+        console.log('back')
       }
     });
 

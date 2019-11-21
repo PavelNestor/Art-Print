@@ -49,6 +49,8 @@
                 width: 3.5rem
 
     .navbar__logo
+        pointer-events: all
+        
         svg
             object-fit: cover
             width: 100%
@@ -124,6 +126,7 @@
         height: 6rem
 
     &__logo
+        pointer-events: none
         max-width: 38.1rem
         height: auto
         width: 100%
@@ -275,6 +278,9 @@
     ul
         text-align: center
         position: relative
+        height: auto
+        
+        
         &::before
             content: ''
             position: absolute
@@ -288,6 +294,10 @@
 
         li
             margin-bottom: 2rem
+
+        @media screen and (max-width: 680px) and (orientation: landscape)
+            height: 100%
+            overflow-y: auto
 
     .navbar__link
         font-size: 6rem
