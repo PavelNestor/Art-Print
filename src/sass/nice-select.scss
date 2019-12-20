@@ -62,7 +62,7 @@ $arrow_color: $gray !default;
     transition: all 0.15s ease-in-out;
     width: 5px;
   }
-  
+
   &.open {
     @extend :active;
     &:after {
@@ -72,6 +72,8 @@ $arrow_color: $gray !default;
       opacity: 1;
       pointer-events: auto;
       transform: scale(1) translateY(0);
+      overflow: auto;
+      max-height: 230px;
     }
   }
   &.disabled {
@@ -156,6 +158,30 @@ $arrow_color: $gray !default;
       cursor: default;
     }
   }
+}
+
+.optgroup {
+  .label {
+    cursor: pointer;
+    font-weight: 400;
+    line-height: 40px;
+    list-style: none;
+    min-height: 40px;
+    outline: none;
+    padding-left: 18px;
+    padding-right: 29px;
+    text-align: left;
+    transition: all 0.2s;
+    background: #FAFAFA;
+    width: 100%;
+    color: #383838;
+    font-weight: bold;
+  }
+
+  li {
+    padding-left: 36px !important;
+  }
+
 }
 
 // Use display instead of opacity for IE <= 10

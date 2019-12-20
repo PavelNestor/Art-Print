@@ -4,12 +4,177 @@ const _$ = document.querySelector.bind(document);
 var DIALOG_OPEN_CLASS = "__open";
 var DIALOG_ANIMATE_CLASS = "__animate";
 
-
-
-
-
-
 $(document).ready(function() {
+
+  // NICE SELECT //
+
+  $("select").niceSelect();
+  const mainSelect = $("#formCalc1")
+
+  mainSelect.on('change', (event) => {
+    // targetElement.insertAdjacentHTML(beforeend, "<div> asdasd </div>");
+    const wrap = document.getElementById("hiddenWrapp");
+
+    switch (event.target.value) {
+      case 'Журналы':
+      case 'Брошюры':
+      case 'Газеты':
+      case 'Каталоги':
+        console.log('Каталоги и газеты');
+        let select1_4 = document.getElementById("select__wrap4");
+        select1_4.value = 'hidden';
+        console.log(select1_4.value);
+
+        wrap.append(select1_4);
+
+        break;
+
+      case 'Листовки':
+      case 'Буклеты':
+      case 'Наклейки':
+      case 'Евро-флаеры':
+      case 'Папки':
+      case 'Этикетки':
+      case 'Календари':
+      case 'Открытки':
+        console.log('Листовки и буклеты')
+        const select2_3 = document.getElementById("select__wrap3");
+        const select2_8 = document.getElementById("select__wrap8"); 
+        const select2_9 = document.getElementById("select__wrap9");
+        const select2_14 = document.getElementById("select__wrap14");
+        wrap.append(select2_3);
+        wrap.append(select2_8);
+        wrap.append(select2_9);
+        wrap.append(select2_14);
+
+        const input2_1 = document.getElementById("form-input-wrap6");
+        wrap.append(input2_1);
+
+        const title2_1 = document.getElementById("title__wrap1");
+        wrap.append(title2_1);
+        const title2_2 = document.getElementById("title__wrap2");
+        wrap.append(title2_2);
+
+        const wrap2_2 = document.getElementById("bigwrap2");
+        wrap.append(wrap2_2);
+
+        break;
+
+      case 'Плакаты':
+      case 'Постеры':
+        console.log('Плакаты')
+        const select3_3 = document.getElementById("select__wrap3");
+        const select3_8 = document.getElementById("select__wrap8");
+        const select3_9 = document.getElementById("select__wrap9");
+        const select3_14 = document.getElementById("select__wrap14");
+        wrap.append(select3_3);
+        wrap.append(select3_8);
+        wrap.append(select3_9); 
+        wrap.append(select3_14);
+
+
+        const input3_1 = document.getElementById("form-input-wrap6");
+        wrap.append(input3_1);
+
+        const title3_1 = document.getElementById("title__wrap1");
+        wrap.append(title3_1);
+        const title3_2 = document.getElementById("title__wrap2");
+        wrap.append(title3_2);
+
+        const wrap3_2 = document.getElementById("bigwrap2");
+        wrap.append(wrap3_2);
+
+        break;
+
+      case 'Сборный тираж':
+        console.log('Сборный тираж')
+
+        const wrap1 = document.getElementById("bigwrap1");
+        wrap.append(wrap1);
+        const wrap2 = document.getElementById("bigwrap2");
+        wrap.append(wrap2);
+
+        const select4_2 = document.getElementById("select__wrap2");
+        const select4_3 = document.getElementById("select__wrap3");
+        const select4_4 = document.getElementById("select__wrap4");
+        const select4_6 = document.getElementById("select__wrap6");
+        const select4_7 = document.getElementById("select__wrap7");
+        const select4_8 = document.getElementById("select__wrap8");
+        const select4_9 = document.getElementById("select__wrap9");
+        const select4_10 = document.getElementById("select__wrap10");
+        const select4_11 = document.getElementById("select__wrap11");
+        const select4_12 = document.getElementById("select__wrap12");
+        const select4_13 = document.getElementById("select__wrap13");
+        const select4_14 = document.getElementById("select__wrap14");
+        wrap.append(select4_2);
+        wrap.append(select4_3);
+        wrap.append(select4_4);
+        wrap.append(select4_6);
+        wrap.append(select4_7);
+        wrap.append(select4_8);
+        wrap.append(select4_9);
+        wrap.append(select4_10);
+        wrap.append(select4_11);
+        wrap.append(select4_12);
+        wrap.append(select4_13);
+        wrap.append(select4_14);
+
+        const input4_1 = document.getElementById("form-input-wrap6");
+        wrap.append(input4_1);
+
+        const title4_1 = document.getElementById("title__wrap1");
+        const title4_2 = document.getElementById("title__wrap2");
+        wrap.append(title4_1);
+        wrap.append(title4_2);
+
+        break;
+
+      default:
+        console.log('Error')
+        break;
+    }
+  });
+
+  // NICE SELECT //
+
+  $('#main-form-modal').submit(function (e) {
+    e.preventDefault();
+    var $form = $(this);
+
+    $.ajax({
+      type: $form.attr('method'),
+      url: $form.attr('action'),
+      data: {
+        "_token": document.querySelector("meta[name='_token']").getAttribute("content"),
+        "data": {
+          "name": document.getElementById("form-input1").value,
+          "phone": document.getElementById("form-input2").value,
+          "email": document.getElementById("form-input3").value,
+          "comment": document.getElementById("form-input4").value,
+          "product": document.getElementById("formCalc1").value,
+          "form_product": document.getElementById("formCalc2").value,
+          "type_of_bond": document.getElementById("formCalc3").value,
+          "order_proofing": document.getElementById("formCalc4").value,
+          "number_of_pages_in_the_block": document.getElementById("form-input6").value,
+          "paper_type": document.getElementById("formCalc13").value,
+          "paper_weight": document.getElementById("formCalc7").value,
+          "number_of_colors": document.getElementById("formCalc8").value,
+          "coating_and_decoration": document.getElementById("formCalc12").value,
+          "cover_paper_type": document.getElementById("formCalc13").value,
+          "cover_paper_weight": document.getElementById("formCalc10").value,
+          "cover_number_of_colors": document.getElementById("formCalc11").value,
+          "cover_coating_and_decoration": document.getElementById("formCalc12").value,
+          "number_of_copies": document.getElementById("select__wrap13").value
+        }
+      },
+    }).done(function () {
+      console.log('success');
+    }).fail(function () {
+      console.log('fail');
+    });
+    return false
+  }
+);
 
   // TOP SLIDER //
   const containerSlider = document.getElementsByClassName("slideshow-container");
@@ -121,7 +286,6 @@ $(document).ready(function() {
         previous.classList.remove("pointer-event")
       }, 800)
     }
-  
     let containerSlider = document.querySelector(".slideshow-container")
   
     containerSlider.addEventListener('touchstart', handleTouchStart, false);        
@@ -174,65 +338,51 @@ $(document).ready(function() {
   ////////// validation //////////
 
     $("#submit-main-form").on("click", function(event) {
-      const COUNT_SELECT = [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "11",
-        "12",
-        // "13",
-        // "14",
-        // "15",
-        // "16",
-
-
-      ];
-      const COUNT_INPUT = [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-
-      ];
-
-      var selects = COUNT_SELECT.map(item => {
-        const itemDOM = _$(`div.form__select${item}`);
-        const value = _$(`#formCalc${item}`).value;
+      // console.log('click');
+      // let arraySelect = [];
+      // let arrayInput = [];
+      
+      // const COUNT_SELECT = document.querySelectorAll('select').length;
+      // const COUNT_INPUT = document.querySelectorAll('input').length;
+      // console.log(COUNT_SELECT, COUNT_INPUT, arraySelect);
+      
+      // for (let i = 0; i < COUNT_SELECT; i++) {
+      //   arraySelect[i] = i+1;
+      // }
+      // for (let i = 0; i < COUNT_INPUT; i++) {
+      //   arrayInput[i] = i+1;
+      // }
+      // console.log(COUNT_SELECT, COUNT_INPUT, arraySelect);
+      // var selects = arraySelect.map(item => {
+      //   const itemDOM = _$(`div.form__select${item}`);
+      //   const value = _$(`#formCalc${item}`).value;
   
-        if (value === "") {
-          itemDOM.className += " errors";
-          return false;
-        } else {
-          itemDOM.className = `nice-select form__select form__select${item}`;
-          return true;
-        }
-      });
-      var input = COUNT_INPUT.map(item => {
-        const itemDOM = _$(`#form-input-wrap${item}`);
-        const value = _$(`#form-input${item}`).value;
+      //   if (value === "") {
+      //     itemDOM.className += " errors";
+      //     return false;
+      //   } else {
+      //     itemDOM.className = `nice-select form__select form__select${item}`;
+      //     return true;
+      //   }
+      // });
+      // var input = arrayInput.map(item => {
+      //   const itemDOM = _$(`#form-input-wrap${item}`);
+      //   const value = _$(`#form-input${item}`).value;
   
-        if (value === "") {
-          itemDOM.className += " errors";
-          return false;
-        } else {
-          itemDOM.className = "";
-          return true;
-        }
-      });  
-  
-      if ((selects.indexOf(false) === -1) && (input.indexOf(false) === -1) ) {
-        event.preventDefault();
+      //   if (value === "") {
+      //     itemDOM.className += " errors";
+      //     return false;
+      //   } else {
+      //     itemDOM.className = "";
+      //     return true;
+      //   }
+      // });
+      
+      // if ((selects.indexOf(false) === -1) && (input.indexOf(false) === -1) ) {
+      //   event.preventDefault();
         $("#form-submit").trigger("click");
-        event.preventDefault();
-      }
+      //   event.preventDefault();
+      // }
     });
   
   
@@ -292,14 +442,18 @@ $(document).ready(function() {
       }
     });
   }
+  // const handleChange = (e) => {
+  //   console.log(e);
+  // }
 
-  
+  // mainSelect.addEventListener('change', function (event) {
+  //   console.log(event);
+  // });
+  // setTimeout(() => {
+  //   console.log(mainSelect);
+    
+  // }, 2000);
 
-  // NICE SELECT //
-  
-  $("select").niceSelect();
-
-  // NICE SELECT //
 
 
   // OWL CAROUSEL BLUE// 
@@ -350,7 +504,6 @@ $(document).ready(function() {
       }, 400);
 
     });
-  
     $(".button-close").on("click", function() {
         $(this).parent($(".slider-right").removeClass("__animate"));
         if ($(window).width() < 1030) {
@@ -361,8 +514,6 @@ $(document).ready(function() {
         $(this).parent($(".slider-right").addClass("slider-hidden"));
         $(this).parent($(".slider-right").removeClass("slider-visible"));
       }, 400);
-        
-
     });
   
     $(window).on("resize", function() {
@@ -839,5 +990,3 @@ $(document).ready(function() {
 
 
 });
-
-

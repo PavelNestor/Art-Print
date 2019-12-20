@@ -13,6 +13,7 @@
   background: $color-white
   position: relative
   z-index: 10
+  min-height: 100vh
   overflow: hidden
   padding: 7.8% 7.8% 7.8% 8.5%
   @extend %scrollbar
@@ -343,7 +344,6 @@
     &::placeholder
       font-size: 1.8rem
       font-weight: normal
-    
 
   &:focus
     outline: none
@@ -506,8 +506,8 @@
   @media screen and (max-width: 640px)
     display: none
 
-.select__wrap
-  min-height: 270px
+// .select__wrap
+//   min-height: 270px
 
 .pink-title
   @media #{$media-sm-plus-up}
