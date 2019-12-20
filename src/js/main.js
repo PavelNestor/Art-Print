@@ -20,10 +20,8 @@ $(document).ready(function() {
       case 'Брошюры':
       case 'Газеты':
       case 'Каталоги':
-        console.log('Каталоги и газеты');
         let select1_4 = document.getElementById("select__wrap4");
         select1_4.value = 'hidden';
-        console.log(select1_4.value);
 
         wrap.append(select1_4);
 
@@ -37,7 +35,7 @@ $(document).ready(function() {
       case 'Этикетки':
       case 'Календари':
       case 'Открытки':
-        console.log('Листовки и буклеты')
+        // console.log('Листовки и буклеты')
         const select2_3 = document.getElementById("select__wrap3");
         const select2_8 = document.getElementById("select__wrap8"); 
         const select2_9 = document.getElementById("select__wrap9");
@@ -62,7 +60,7 @@ $(document).ready(function() {
 
       case 'Плакаты':
       case 'Постеры':
-        console.log('Плакаты')
+        // console.log('Плакаты')
         const select3_3 = document.getElementById("select__wrap3");
         const select3_8 = document.getElementById("select__wrap8");
         const select3_9 = document.getElementById("select__wrap9");
@@ -87,7 +85,7 @@ $(document).ready(function() {
         break;
 
       case 'Сборный тираж':
-        console.log('Сборный тираж')
+        // console.log('Сборный тираж')
 
         const wrap1 = document.getElementById("bigwrap1");
         wrap.append(wrap1);
@@ -903,7 +901,7 @@ $(document).ready(function() {
       }
       if (window.outerWidth <= 640 && widthArray.length -2 > step) {
         container.style.margin = "0";
-        console.log('back')
+        // console.log('back')
       }
     });
 
