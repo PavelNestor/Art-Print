@@ -14,6 +14,7 @@ $(document).ready(function() {
   mainSelect.on('change', (event) => {
     // targetElement.insertAdjacentHTML(beforeend, "<div> asdasd </div>");
     const wrap = document.getElementById("hiddenWrapp");
+    const formWrap = document.getElementById("main-form-modal");
 
     switch (event.target.value) {
       case 'Журналы':
@@ -21,10 +22,44 @@ $(document).ready(function() {
       case 'Газеты':
       case 'Каталоги':
         let select1_4 = document.getElementById("select__wrap4");
-        select1_4.value = 'hidden';
-
         wrap.append(select1_4);
+        let select1_14 = document.getElementById("select__wrap14");
+        wrap.append(select1_14);
+        // end hidden //
 
+        // start display //
+        var wrap1_2 = document.getElementById("select__wrap2");
+        formWrap.append(wrap1_2);
+        var wrap1_3 = document.getElementById("select__wrap3");
+        formWrap.append(wrap1_3);
+        const title1_1 = document.getElementById("title__wrap1");
+        formWrap.append(title1_1);
+        const inputWrap6 = document.getElementById("form-input-wrap6");
+        formWrap.append(inputWrap6);
+        const wrap1_4 = document.getElementById("select__wrap4");
+        formWrap.append(wrap1_4);
+        const wrap1_6 = document.getElementById("select__wrap6");
+        formWrap.append(wrap1_6);
+        var wrap1_8 = document.getElementById("select__wrap8");
+        formWrap.append(wrap1_8);
+        var wrap1_7 = document.getElementById("select__wrap7");
+        formWrap.append(wrap1_7);
+        var wrap1_1 = document.getElementById("bigwrap1");
+        formWrap.append(wrap1_1);
+        const title1_2 = document.getElementById("title__wrap2");
+        formWrap.append(title1_2);
+        var wrap1_2 = document.getElementById("bigwrap2");
+        formWrap.append(wrap1_2);
+        var wrap1_9 = document.getElementById("select__wrap9");
+        formWrap.append(wrap1_9);
+        var wrap1_12 = document.getElementById("select__wrap12");
+        formWrap.append(wrap1_12);
+        const select1_10 = document.getElementById("select__wrap10");
+        formWrap.append(select1_10);
+        const select1_11 = document.getElementById("select__wrap11");
+        formWrap.append(select1_11);
+        const select1_13 = document.getElementById("select__wrap13");
+        formWrap.append(select1_13);
         break;
 
       case 'Листовки':
@@ -39,10 +74,16 @@ $(document).ready(function() {
         const select2_3 = document.getElementById("select__wrap3");
         const select2_8 = document.getElementById("select__wrap8"); 
         const select2_9 = document.getElementById("select__wrap9");
+        const select2_10 = document.getElementById("select__wrap10");
+        const select2_11 = document.getElementById("select__wrap11");
+        const select2_12 = document.getElementById("select__wrap12");
         const select2_14 = document.getElementById("select__wrap14");
         wrap.append(select2_3);
         wrap.append(select2_8);
         wrap.append(select2_9);
+        wrap.append(select2_10);
+        wrap.append(select2_11);
+        wrap.append(select2_12);
         wrap.append(select2_14);
 
         const input2_1 = document.getElementById("form-input-wrap6");
@@ -55,6 +96,17 @@ $(document).ready(function() {
 
         const wrap2_2 = document.getElementById("bigwrap2");
         wrap.append(wrap2_2);
+        // end hiddent //
+        const select2_2 = document.getElementById("select__wrap2");
+        formWrap.append(select2_2);
+        const select2_4 = document.getElementById("select__wrap4");
+        formWrap.append(select2_4);
+        const select2_6 = document.getElementById("select__wrap6");
+        formWrap.append(select2_6);
+        const select2_7 = document.getElementById("select__wrap7");
+        formWrap.append(select2_7);
+        const select2_13 = document.getElementById("select__wrap13");
+        formWrap.append(select2_13);
 
         break;
 
@@ -65,9 +117,11 @@ $(document).ready(function() {
         const select3_8 = document.getElementById("select__wrap8");
         const select3_9 = document.getElementById("select__wrap9");
         const select3_14 = document.getElementById("select__wrap14");
+        const select3_12 = document.getElementById("select__wrap12");
         wrap.append(select3_3);
         wrap.append(select3_8);
         wrap.append(select3_9); 
+        wrap.append(select3_12);
         wrap.append(select3_14);
 
 
@@ -82,15 +136,27 @@ $(document).ready(function() {
         const wrap3_2 = document.getElementById("bigwrap2");
         wrap.append(wrap3_2);
 
+        //end hiddent //
+        const select3_2 = document.getElementById("select__wrap2");
+        formWrap.append(select3_2);
+        const select3_4 = document.getElementById("select__wrap4");
+        formWrap.append(select3_4);
+        const select3_6 = document.getElementById("select__wrap6");
+        formWrap.append(select3_6);
+        const select3_7 = document.getElementById("select__wrap7");
+        formWrap.append(select3_7);
+        const select3_13 = document.getElementById("select__wrap13");
+        formWrap.append(select3_13);
+
         break;
 
       case 'Сборный тираж':
         // console.log('Сборный тираж')
 
-        const wrap1 = document.getElementById("bigwrap1");
-        wrap.append(wrap1);
-        const wrap2 = document.getElementById("bigwrap2");
-        wrap.append(wrap2);
+        const wrap4_1 = document.getElementById("bigwrap1");
+        wrap.append(wrap4_1);
+        const wrap4_2 = document.getElementById("bigwrap2");
+        wrap.append(wrap4_2);
 
         const select4_2 = document.getElementById("select__wrap2");
         const select4_3 = document.getElementById("select__wrap3");
@@ -102,8 +168,8 @@ $(document).ready(function() {
         const select4_10 = document.getElementById("select__wrap10");
         const select4_11 = document.getElementById("select__wrap11");
         const select4_12 = document.getElementById("select__wrap12");
-        const select4_13 = document.getElementById("select__wrap13");
-        const select4_14 = document.getElementById("select__wrap14");
+        // const select4_13 = document.getElementById("select__wrap13");
+        // const select4_14 = document.getElementById("select__wrap14");
         wrap.append(select4_2);
         wrap.append(select4_3);
         wrap.append(select4_4);
@@ -114,8 +180,8 @@ $(document).ready(function() {
         wrap.append(select4_10);
         wrap.append(select4_11);
         wrap.append(select4_12);
-        wrap.append(select4_13);
-        wrap.append(select4_14);
+        // wrap.append(select4_13);
+        // wrap.append(select4_14);
 
         const input4_1 = document.getElementById("form-input-wrap6");
         wrap.append(input4_1);
@@ -178,20 +244,19 @@ $(document).ready(function() {
   const containerSlider = document.getElementsByClassName("slideshow-container");
 
   if(containerSlider.length > 0) {
-    
+
     let slides = document.querySelectorAll(".slideshow-container .my-slides");
 
     let currentSlide = 0;
-    
+
     let slideInterval = setInterval(nextSlide, 5000);
-    
+
     function nextSlide(){
       slides[currentSlide].className = slides[currentSlide].className.replace(" active", "")
       currentSlide = (currentSlide+1)%slides.length;
       slides[currentSlide].className += " active";
     }
-    
-    
+
     function nextSlide(){
       goToSlide(currentSlide+1);
     }
@@ -199,11 +264,9 @@ $(document).ready(function() {
     function previousSlide(){
       goToSlide(currentSlide-1);
     }
-  
+
     let pagination = document.querySelector(".slider-pagination__custom");
-  
-    
-  
+
     for(let i = 0; i < slides.length; i++){
       pagination.insertAdjacentHTML("afterbegin", `<span class="owl-dot"></span>`)
     }
@@ -253,10 +316,7 @@ $(document).ready(function() {
       positionButton()
   
     }
-  
-    
-  
-    
+
     let next = document.querySelector("#next-slide");
     
     let previous = document.querySelector("#prev-slide");
@@ -286,24 +346,24 @@ $(document).ready(function() {
     }
     let containerSlider = document.querySelector(".slideshow-container")
   
-    containerSlider.addEventListener('touchstart', handleTouchStart, false);        
+    containerSlider.addEventListener('touchstart', handleTouchStart, false);
     containerSlider.addEventListener('touchmove', handleTouchMove, false);
 
-      var xDown = null;                                                        
+      var xDown = null;
       var yDown = null;
 
       function getTouches(evt) {
         // evt.preventDefault()
         return evt.touches ||             // browser API
               evt.originalEvent.touches; // jQuery
-      }                                                     
+      }
 
       function handleTouchStart(evt) {
           // evt.preventDefault()
-          const firstTouch = getTouches(evt)[0];                                      
-          xDown = firstTouch.clientX;                                      
-          yDown = firstTouch.clientY;                                      
-      };                                                
+          const firstTouch = getTouches(evt)[0];
+          xDown = firstTouch.clientX;
+          yDown = firstTouch.clientY;
+      };
 
       function handleTouchMove(evt) {
           // evt.preventDefault()
@@ -312,7 +372,7 @@ $(document).ready(function() {
               return;
           }
 
-          var xUp = evt.touches[0].clientX;                                    
+          var xUp = evt.touches[0].clientX;
           var yUp = evt.touches[0].clientY;
 
           var xDiff = xDown - xUp;
@@ -323,10 +383,10 @@ $(document).ready(function() {
                 next.click();  
               } else {
                 previous.click(); 
-              }                       
+              }
           } 
           xDown = null;
-          yDown = null;                                             
+          yDown = null;
       };
 
   }
@@ -454,7 +514,7 @@ $(document).ready(function() {
 
 
 
-  // OWL CAROUSEL BLUE// 
+  // OWL CAROUSEL BLUE//
 
   const owlCarousel3 = $("#owl-carousel_3");
 
@@ -684,9 +744,7 @@ $(document).ready(function() {
     }
   
     window.addEventListener("scroll", showNavOnScroll);
-  
 
-  
 
   // MENU //
 
@@ -799,26 +857,26 @@ $(document).ready(function() {
     containerMasonry.addEventListener('touchstart', handleTouchStart, false);        
     containerMasonry.addEventListener('touchmove', handleTouchMove, false);
 
-      var xDown = null;                                                        
+      var xDown = null;
       var yDown = null;
 
       function getTouches(evt) {
-        return evt.touches ||             
+        return evt.touches ||
               evt.originalEvent.touches; 
-      }                                                     
+      }
 
       function handleTouchStart(evt) {
-          const firstTouch = getTouches(evt)[0];                                      
-          xDown = firstTouch.clientX;                                      
-          yDown = firstTouch.clientY;                                      
-      };                                                
+          const firstTouch = getTouches(evt)[0];
+          xDown = firstTouch.clientX;
+          yDown = firstTouch.clientY;
+      };
 
       function handleTouchMove(evt) {
           if ( ! xDown || ! yDown ) {
               return;
           }
 
-          var xUp = evt.touches[0].clientX;                                    
+          var xUp = evt.touches[0].clientX;
           var yUp = evt.touches[0].clientY;
 
           var xDiff = xDown - xUp;
@@ -829,11 +887,11 @@ $(document).ready(function() {
                 btnNextM.click(); 
               } else {
                 btnPrevM.click(); 
-              }                       
-          }                                                                
+              }
+          }
 
           xDown = null;
-          yDown = null;                                             
+          yDown = null;
       };
   };
 
@@ -907,29 +965,29 @@ $(document).ready(function() {
 
     let containerTeam = document.querySelector('.section-team')
 
-    containerTeam.addEventListener('touchstart', handleTouchStart, false);        
+    containerTeam.addEventListener('touchstart', handleTouchStart, false);
     containerTeam.addEventListener('touchmove', handleTouchMove, false);
 
-      var xDown = null;                                                        
+      var xDown = null;
       var yDown = null;
 
       function getTouches(evt) {
-        return evt.touches ||             
+        return evt.touches ||
               evt.originalEvent.touches; 
-      }                                                     
+      }
 
       function handleTouchStart(evt) {
-          const firstTouch = getTouches(evt)[0];                                      
-          xDown = firstTouch.clientX;                                      
-          yDown = firstTouch.clientY;                                      
-      };                                                
+          const firstTouch = getTouches(evt)[0];
+          xDown = firstTouch.clientX;
+          yDown = firstTouch.clientY;
+      };
 
       function handleTouchMove(evt) {
           if ( ! xDown || ! yDown ) {
               return;
           }
 
-          var xUp = evt.touches[0].clientX;                                    
+          var xUp = evt.touches[0].clientX;
           var yUp = evt.touches[0].clientY;
 
           var xDiff = xDown - xUp;
@@ -937,13 +995,13 @@ $(document).ready(function() {
 
           if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {
               if ( xDiff > 0 ) {
-                btnNext.click();  
+                btnNext.click();
               } else {
-                btnPrev.click(); 
-              }                       
+                btnPrev.click();
+              }
           }
           xDown = null;
-          yDown = null;                                             
+          yDown = null;
       };
   };
 
