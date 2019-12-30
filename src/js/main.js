@@ -70,7 +70,6 @@ $(document).ready(function() {
       case 'Этикетки':
       case 'Календари':
       case 'Открытки':
-        // console.log('Листовки и буклеты')
         const select2_3 = document.getElementById("select__wrap3");
         const select2_8 = document.getElementById("select__wrap8"); 
         const select2_9 = document.getElementById("select__wrap9");
@@ -112,7 +111,6 @@ $(document).ready(function() {
 
       case 'Плакаты':
       case 'Постеры':
-        // console.log('Плакаты')
         const select3_3 = document.getElementById("select__wrap3");
         const select3_8 = document.getElementById("select__wrap8");
         const select3_9 = document.getElementById("select__wrap9");
@@ -151,7 +149,6 @@ $(document).ready(function() {
         break;
 
       case 'Сборный тираж':
-        // console.log('Сборный тираж')
 
         const wrap4_1 = document.getElementById("bigwrap1");
         wrap.append(wrap4_1);
@@ -198,48 +195,262 @@ $(document).ready(function() {
         break;
     }
   });
+  const modal = _$("#modal-order");
+
+  const openMainModal = document.querySelectorAll(".js_open_main_modal");
+  for (let i = 0; i < openMainModal.length; i++) {
+    openMainModal && openMainModal[i].addEventListener('click', function () {
+      modal.style.display = 'block';
+    })
+  }
+
+  const BODY = _$("body");
+
+  const closeMainModal = _$("#closeMainModal");
+  closeMainModal && closeMainModal.addEventListener('click', function () {
+    modal.style.display = 'none';
+    BODY.style.overflow = 'auto';
+  });
 
   // NICE SELECT //
+  if ($('form[name="test"]') && $('form[name="test"]')[0]) {
+    const COUNT_ITEM = $('form[name="test"]')[0].length - 1;
+    const $form = $('form[name="test"]');
+    for (let i = 0; i < COUNT_ITEM; i++) {
+      if ($form[0][i].value === '' || $form[0][i].value === ' ') {
+        const item = $form[0][i];
+        const id = item.id.match(/\d+/g)[0]
+        const DOM = _$(`#form-input-wrap${id}`)
+        item.addEventListener('blur', function () {
 
-  $('#main-form-modal').submit(function (e) {
-    e.preventDefault();
-    var $form = $(this);
+          if (item.value === "") {
+            DOM.className = "errors";
+          } else {
+            DOM.className = " ";
+            return true;
+          } 
+        })
+      }
+    }
 
-    $.ajax({
-      type: $form.attr('method'),
-      url: $form.attr('action'),
-      data: {
-        "_token": document.querySelector("meta[name='_token']").getAttribute("content"),
-        "data": {
-          "name": document.getElementById("form-input1").value,
-          "phone": document.getElementById("form-input2").value,
-          "email": document.getElementById("form-input3").value,
-          "comment": document.getElementById("form-input4").value,
-          "product": document.getElementById("formCalc1").value,
-          "form_product": document.getElementById("formCalc2").value,
-          "type_of_bond": document.getElementById("formCalc3").value,
-          "order_proofing": document.getElementById("formCalc4").value,
-          "number_of_pages_in_the_block": document.getElementById("form-input6").value,
-          "paper_type": document.getElementById("formCalc13").value,
-          "paper_weight": document.getElementById("formCalc7").value,
-          "number_of_colors": document.getElementById("formCalc8").value,
-          "coating_and_decoration": document.getElementById("formCalc12").value,
-          "cover_paper_type": document.getElementById("formCalc13").value,
-          "cover_paper_weight": document.getElementById("formCalc10").value,
-          "cover_number_of_colors": document.getElementById("formCalc11").value,
-          "cover_coating_and_decoration": document.getElementById("formCalc12").value,
-          "number_of_copies": document.getElementById("select__wrap13").value
+    $('#main-form-modal').submit(function (e) {
+
+      var $form = $(this);
+      const COUNT_ITEM = $('form[name="test"]')[0].length - 1;
+
+      for (let i = 0; i < COUNT_ITEM; i++) {
+        if ($form[0][i].id !== 'form-submit' && $form[0][i].value === '' || $form[0][i].value === ' ') {
+          return false
         }
-      },
-    }).done(function () {
-      console.log('success');
-    }).fail(function () {
-      console.log('fail');
-    });
-    return false
-  }
-);
+      }
 
+      e.preventDefault();
+
+      $.ajax({
+        type: $form.attr('method'),
+        url: $form.attr('action'),
+        data: {
+          "_token": document.querySelector("meta[name='_token']").getAttribute("content"),
+          "data": {
+            "name": document.getElementById("form-input1").value,
+            "phone": document.getElementById("form-input2").value,
+            "email": document.getElementById("form-input3").value,
+            "comment": document.getElementById("form-input4").value,
+            "product": document.getElementById("formCalc1").value,
+            "form_product": document.getElementById("formCalc2").value,
+            "type_of_bond": document.getElementById("formCalc3").value,
+            "order_proofing": document.getElementById("formCalc4").value,
+            "number_of_pages_in_the_block": document.getElementById("form-input6").value,
+            "paper_type": document.getElementById("formCalc13").value,
+            "paper_weight": document.getElementById("formCalc7").value,
+            "number_of_colors": document.getElementById("formCalc8").value,
+            "coating_and_decoration": document.getElementById("formCalc12").value,
+            "cover_paper_type": document.getElementById("formCalc13").value,
+            "cover_paper_weight": document.getElementById("formCalc10").value,
+            "cover_number_of_colors": document.getElementById("formCalc11").value,
+            "cover_coating_and_decoration": document.getElementById("formCalc12").value,
+            "number_of_copies": document.getElementById("form-input5").value
+          }
+        },
+      }).done(function () {
+        const elem = _$("#success");
+        elem.style.display = `flex`;
+        const close = _$("#success__close");
+        close.addEventListener('click', () => {
+          elem.style.display = 'none';
+          modal.style.display = 'none';
+        })
+        const closeOk = _$("#success__closeOk");
+        closeOk.addEventListener('click', () => {
+          elem.style.display = 'none';
+          modal.style.display = 'none';
+        })
+      }).fail(function () {
+        const elem = _$("#error");
+        elem.style.display = `flex`;
+        const close = _$("#error__close");
+        close.addEventListener('click', () => {
+          elem.style.display = 'none';
+          modal.style.display = 'none';
+        })
+        const closeOk = _$("#error__closeOk");
+        closeOk.addEventListener('click', () => {
+          elem.style.display = 'none';
+          modal.style.display = 'none';
+        })
+        console.log('fail');
+      });
+      $form[0].reset();
+      return false
+    });
+
+    $("#submit-main-form").on("click", function (event) {
+      for (let i = 0; i <= COUNT_ITEM; i++) {
+
+        const item = $form[0][i];
+
+        if (item && item.id && item.id !== 'form-submit' && item.id[4] !== 'C') {
+
+          const id = item.id.match(/\d+/g)[0]
+          const DOM = _$(`#form-input-wrap${id}`);
+
+          if (item.value === "") {
+            DOM.className = "errors";
+          } else {
+            DOM.className = " ";
+          }
+        }
+      }
+      // var selects = arraySelect.map(item => {
+      //   const itemDOM = _$(`div.form__select${item}`);
+      //   const value = _$(`#formCalc${item}`).value;
+
+      //   if (value === "") {
+      //     itemDOM.className += " errors";
+      //     return false;
+      //   } else {
+      //     itemDOM.className = `nice-select form__select form__select${item}`;
+      //     return true;
+      //   }
+      // });
+      $("#form-submit").trigger("click");
+    });
+
+    $("#submit-main-formMobile").on("click", function (event) {
+      for (let i = 0; i <= COUNT_ITEM; i++) {
+
+        const item = $form[0][i];
+
+        if (item && item.id && item.id !== 'form-submit' && item.id[4] !== 'C') {
+
+          const id = item.id.match(/\d+/g)[0]
+          const DOM = _$(`#form-input-wrap${id}`);
+
+          if (item.value === "") {
+            DOM.className = "errors";
+          } else {
+            DOM.className = " ";
+          }
+        }
+      }
+      // var selects = arraySelect.map(item => {
+      //   const itemDOM = _$(`div.form__select${item}`);
+      //   const value = _$(`#formCalc${item}`).value;
+
+      //   if (value === "") {
+      //     itemDOM.className += " errors";
+      //     return false;
+      //   } else {
+      //     itemDOM.className = `nice-select form__select form__select${item}`;
+      //     return true;
+      //   }
+      // });
+      $("#form-submit").trigger("click");
+    });
+  }
+  /////// footer form ////////
+  if ($('form[name="footer"]') && $('form[name="footer"]')[0]) {
+    const COUNT_ITEM = $('form[name="footer"]')[0].length - 1;
+    const $form = $('form[name="footer"]');
+    
+    for (let i = 0; i <= COUNT_ITEM-1 ; i++) {
+      if ($form[0][i].value === '' || $form[0][i].value === ' ') {
+        const item = $form[0][i];
+        const DOM = _$(`#form-input-wrap__f${i}`);
+        item.addEventListener('blur', function () {
+
+          if (item.value === "") {
+            DOM.className = "errors";
+          } else {
+            DOM.className = " ";
+          }
+        })
+      }
+    }
+    $('#form__footer').submit(function (e) {
+      e.preventDefault();
+      var $form = $(this);
+      let checkErr = false;
+      for (let i = 0; i < $('form[name="footer"]')[0].length-2; i++) {
+        if ($form[0][i].value === '' || $form[0][i].value === ' ') {
+          const item = $form[0][i];
+          const DOM = _$(`#form-input-wrap__f${i}`);
+          
+          if (item.value === "") {
+            DOM.className = "errors";
+            checkErr = true;
+          } else {
+            DOM.className = " ";
+          }
+        }}
+
+      if (checkErr) {
+        return 0;
+      }
+      $.ajax({
+        type: $form.attr('method'),
+        url: $form.attr('action'),
+        data: {
+          "_token": document.querySelector("meta[name='_token']").getAttribute("content"),
+          "data": {
+            "name": document.getElementById("form-footer-input-name").value,
+            "email": document.getElementById("form-footer-input-mail").value,
+            "comment": document.getElementById("form-footer-input-text").value,
+          }
+        },
+      }).done(function () {
+        const elem = _$("#success");
+        elem.style.display = `flex`;
+        const close = _$("#success__close");
+        close.addEventListener('click', () => {
+          elem.style.display = 'none';
+          modal.style.display = 'none';
+          document.querySelectorAll('.button-close')[1].click()
+        })
+        const closeOk = _$("#success__closeOk");
+        closeOk.addEventListener('click', () => {
+          elem.style.display = 'none';
+          modal.style.display = 'none';
+          document.querySelectorAll('.button-close')[1].click()
+        })
+      }).fail(function () {
+        const elem = _$("#error");
+        elem.style.display = `flex`;
+        const close = _$("#error__close");
+        close.addEventListener('click', () => {
+          elem.style.display = 'none';
+          document.querySelectorAll('.button-close')[1].click()
+        })
+        const closeOk = _$("#error__closeOk");
+        closeOk.addEventListener('click', () => {
+          elem.style.display = 'none';
+          document.querySelectorAll('.button-close')[1].click()
+        })
+      });
+      $form[0].reset();
+      return false
+    });
+  };
   // TOP SLIDER //
   const containerSlider = document.getElementsByClassName("slideshow-container");
 
@@ -369,7 +580,7 @@ $(document).ready(function() {
           // evt.preventDefault()
 
           if ( ! xDown || ! yDown ) {
-              return;
+              return ;
           }
 
           var xUp = evt.touches[0].clientX;
@@ -380,9 +591,9 @@ $(document).ready(function() {
 
           if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {
               if ( xDiff > 0 ) {
-                next.click();  
+                next.click();
               } else {
-                previous.click(); 
+                previous.click();
               }
           } 
           xDown = null;
@@ -395,55 +606,6 @@ $(document).ready(function() {
 
   ////////// validation //////////
 
-    $("#submit-main-form").on("click", function(event) {
-      // console.log('click');
-      // let arraySelect = [];
-      // let arrayInput = [];
-      
-      // const COUNT_SELECT = document.querySelectorAll('select').length;
-      // const COUNT_INPUT = document.querySelectorAll('input').length;
-      // console.log(COUNT_SELECT, COUNT_INPUT, arraySelect);
-      
-      // for (let i = 0; i < COUNT_SELECT; i++) {
-      //   arraySelect[i] = i+1;
-      // }
-      // for (let i = 0; i < COUNT_INPUT; i++) {
-      //   arrayInput[i] = i+1;
-      // }
-      // console.log(COUNT_SELECT, COUNT_INPUT, arraySelect);
-      // var selects = arraySelect.map(item => {
-      //   const itemDOM = _$(`div.form__select${item}`);
-      //   const value = _$(`#formCalc${item}`).value;
-  
-      //   if (value === "") {
-      //     itemDOM.className += " errors";
-      //     return false;
-      //   } else {
-      //     itemDOM.className = `nice-select form__select form__select${item}`;
-      //     return true;
-      //   }
-      // });
-      // var input = arrayInput.map(item => {
-      //   const itemDOM = _$(`#form-input-wrap${item}`);
-      //   const value = _$(`#form-input${item}`).value;
-  
-      //   if (value === "") {
-      //     itemDOM.className += " errors";
-      //     return false;
-      //   } else {
-      //     itemDOM.className = "";
-      //     return true;
-      //   }
-      // });
-      
-      // if ((selects.indexOf(false) === -1) && (input.indexOf(false) === -1) ) {
-      //   event.preventDefault();
-        $("#form-submit").trigger("click");
-      //   event.preventDefault();
-      // }
-    });
-  
-  
   const footerForm = $("submit-footer-form");
 
   if(footerForm.length > 0) {
@@ -500,19 +662,6 @@ $(document).ready(function() {
       }
     });
   }
-  // const handleChange = (e) => {
-  //   console.log(e);
-  // }
-
-  // mainSelect.addEventListener('change', function (event) {
-  //   console.log(event);
-  // });
-  // setTimeout(() => {
-  //   console.log(mainSelect);
-    
-  // }, 2000);
-
-
 
   // OWL CAROUSEL BLUE//
 
@@ -664,7 +813,7 @@ $(document).ready(function() {
     const links = Array.from(document.querySelectorAll("a"));
     links.forEach(link => {
       const href = link.getAttribute("href");
-      const ifNoReload = new RegExp("^#|mailto|tel").test(href);
+      const ifNoReload = new RegExp("^#|mailto|tel|.php").test(href);
 
       if (!href || ifNoReload) {
         return;
@@ -959,7 +1108,6 @@ $(document).ready(function() {
       }
       if (window.outerWidth <= 640 && widthArray.length -2 > step) {
         container.style.margin = "0";
-        // console.log('back')
       }
     });
 

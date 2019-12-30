@@ -33,16 +33,16 @@ footer#section-contacts.footer__wrap.footer
       .modal-footer__subtitle задайте их прямо сейчас.
 
     .modal-footer__right
-      form(action="")
-      #form-input-wrap.form-input-wrap
-        input#form-footer-input-name(type="name", placeholder="Ваше имя", required).form__input
-      #form-input-wrap2.form-input-wrap
-        input#form-footer-input-mail(type="email", placeholder="E-Mail", required).form__input
-      #form-input-wrap3.form-input-wrap
-        textarea#form-footer-input-text.form__input(name="comment", cols="30", rows="4", placeholder="Сообщение", required)
+      form(action="http://test.artprintstudio.com.ua/lang/masseg/zayvka/" method="POST" name="footer")#form__footer
+        div(style="position: relative")#form-input-wrap__f0.form-input-wrap
+          input#form-footer-input-name(type="name", placeholder="Ваше имя", ).form__input
+        div(style="position: relative")#form-input-wrap__f1.form-input-wrap
+          input#form-footer-input-mail(type="email", placeholder="E-Mail", ).form__input
+        div(style="position: relative")#form-input-wrap__f2.form-input-wrap
+          textarea#form-footer-input-text.form__input(name="comment", cols="30", rows="4", placeholder="Сообщение", )
 
         input#form-footer-submit.form__input_submit(type="submit", name="submit")
 
         .centered-button
-          button#submit-footer-form.button-order.__long 
+          button#submit-footer-form.button-order.__long
             span отправить

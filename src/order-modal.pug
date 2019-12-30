@@ -59,7 +59,7 @@ block content
                             span отправить заказ
 
                 .modal__right.form
-                    form( action="http://test.artprintstudio.com.ua/lang/masseg/zayvka/" method="POST")#main-form-modal
+                    form( action="http://test.artprintstudio.com.ua/lang/masseg/zayvka/" method="POST" name="test")#main-form-modal
                         .form__title ваши данные
                         div#form-input-wrap1
                             input#form-input1.form__input(type="name", name="name", placeholder="Ваше имя")
@@ -72,7 +72,7 @@ block content
 
                         .form__title параметры печати
 
-                        select#formCalc1.form__select.form__select1( name="product" required )
+                        select#formCalc1.form__select.form__select1( name="product" required value="Журналы")
                             option(value="" disabled selected data-display='Выберите продукцию') Выберите продукцию
                             optgroup(label='Каталоги и газеты' data-i='1')
                                 option(value='Журналы') Журналы
@@ -125,7 +125,7 @@ block content
                         .form__title#title__wrap1 блок
                         div.select__wrap#bigwrap1
                             div#form-input-wrap6
-                                input#form-input6.form__input(type="number", name="number_of_pages_in_the_block", placeholder="Количество страниц в блоке")
+                                input#form-input6.form__input(type="number", name="number_of_pages_in_the_block", placeholder="Количество страниц в блоке" required)
                             div#select__wrap14
                                 select#formCalc13.form__select.form__select13(name="paper_type" required )
                                     option(value="" disabled selected data-display='Тип бумаги') Тип бумаги
