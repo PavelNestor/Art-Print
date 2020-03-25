@@ -11,6 +11,18 @@ $(document).ready(function() {
   $("select").niceSelect();
   const mainSelect = $("#formCalc1")
 
+  $(".owl-item.active").on('click', console.log('asd'));
+  // console.log(containerElem);
+
+  // .onmouseover = () => {
+  //   console.log('hover triggered');
+  // };
+
+  // const elem = document.getElementsByClassName('slide-content aos-init aos-animate');
+  // elem.map(item => item.setAttribute('style', "display: block") );
+
+  // on
+
   mainSelect.on('change', (event) => {
     // targetElement.insertAdjacentHTML(beforeend, "<div> asdasd </div>");
     const wrap = document.getElementById("hiddenWrapp");
@@ -240,6 +252,7 @@ $(document).ready(function() {
 
       for (let i = 0; i < COUNT_ITEM; i++) {
         if ($form[0][i].id !== 'form-submit' && $form[0][i].value === '' || $form[0][i].value === ' ') {
+          console.log('errors', $form[0][i]);
           return false
         }
       }
@@ -279,11 +292,13 @@ $(document).ready(function() {
         close.addEventListener('click', () => {
           elem.style.display = 'none';
           modal.style.display = 'none';
+          document.location.reload(true);
         })
         const closeOk = _$("#success__closeOk");
         closeOk.addEventListener('click', () => {
           elem.style.display = 'none';
           modal.style.display = 'none';
+          document.location.reload(true);
         })
       }).fail(function () {
         const elem = _$("#error");
@@ -292,11 +307,13 @@ $(document).ready(function() {
         close.addEventListener('click', () => {
           elem.style.display = 'none';
           modal.style.display = 'none';
+          document.location.reload(true);
         })
         const closeOk = _$("#error__closeOk");
         closeOk.addEventListener('click', () => {
           elem.style.display = 'none';
           modal.style.display = 'none';
+          document.location.reload(true);
         })
         console.log('fail');
       });
@@ -353,18 +370,6 @@ $(document).ready(function() {
           }
         }
       }
-      // var selects = arraySelect.map(item => {
-      //   const itemDOM = _$(`div.form__select${item}`);
-      //   const value = _$(`#formCalc${item}`).value;
-
-      //   if (value === "") {
-      //     itemDOM.className += " errors";
-      //     return false;
-      //   } else {
-      //     itemDOM.className = `nice-select form__select form__select${item}`;
-      //     return true;
-      //   }
-      // });
       $("#form-submit").trigger("click");
     });
   }
@@ -813,7 +818,7 @@ $(document).ready(function() {
     const links = Array.from(document.querySelectorAll("a"));
     links.forEach(link => {
       const href = link.getAttribute("href");
-      const ifNoReload = new RegExp("^#|mailto|tel|.php").test(href);
+      const ifNoReload = new RegExp("^#|mailto|tel|.php|http://").test(href);
 
       if (!href || ifNoReload) {
         return;
